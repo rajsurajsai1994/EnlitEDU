@@ -1,0 +1,70 @@
+# EnlitEDU — LioraAI
+
+> EnlitEDU builds LioraAI, an academic record intelligence platform for U.S. colleges and universities. LioraAI evaluates transfer, first-year (freshman), military (JST/CCAF) and prior-learning (CPL/PLA) credit against each institution's own rules, supports NCAA progress-toward-degree documentation, gives students a self-service path to a degree, and provides transfer analytics. Staff and faculty approve every decision; approved credit is written back to the SIS (Banner, Colleague, Workday Student, PeopleSoft, Jenzabar).
+
+Key facts: Roane State Community College cut transcript evaluation from about three weeks to two days (reported 90% faster) and went live on Ellucian Banner in 18 days. Nashville State Community College reported a 24% increase in transfer yield in one cycle with Student Mobility Intelligence. Student records are never used to train general-purpose AI models. EnlitEDU acts as a FERPA school official under the institution's control. Headquarters: Cumming, Georgia. Contact: info@enlitedu.com.
+
+## Modules
+- [LioraAI Articulate](https://www.enlitedu.com/articulate.html): Evaluate transfer credit in days, not weeks. LioraAI Articulate maps any transcript to your catalog with your rules, and writes approved credit back to your SIS.
+- [LioraAI Assess](https://www.enlitedu.com/assess.html): Evaluate every first-year (freshman) applicant’s transcript the same way. LioraAI Assess standardizes 4.0, 5.0, 6.0 and 100-point GPAs with your documented rules.
+- [Prior Learning Assessment](https://www.enlitedu.com/pla.html): Award credit for prior learning (CPL/PLA) consistently: certifications, workforce training, CLEP/DSST and portfolios mapped to your courses, faculty approving.
+- [LioraAI for Veterans & JST](https://www.enlitedu.com/veterans.html): Evaluate Joint Services Transcripts, CCAF and DD-214 records against ACE recommendations and your catalog. Give veterans a credit answer in days, not a semester.
+- [LioraAI Athlete Transcripts](https://www.enlitedu.com/athletics.html): Keep student-athlete certification on schedule. LioraAI evaluates transfer athlete transcripts and keeps a live, documented progress-toward-degree view for compliance.
+- [Student Degree Pathway](https://www.enlitedu.com/degree-pathway.html): Give every student a clear, credit-accurate path to their degree. LioraAI Student Degree Pathway shows what transferred, what counts and what’s left, term by term.
+- [Student Mobility Intelligence](https://www.enlitedu.com/mobility.html): See where transfer students come from, how much credit they lose and who may leave. Mobility Intelligence turns evaluation data into enrollment strategy.
+
+## Solutions
+- [Speed Up Credit Evaluation](https://www.enlitedu.com/solutions/speed-up-credit-evaluation.html): Clear the transcript backlog without adding staff. LioraAI turns weeks of manual credit evaluation into same-week decisions your team reviews and approves.
+- [Grow Transfer Enrollment](https://www.enlitedu.com/solutions/grow-transfer-enrollment.html): Transfer students shop for credit. Give them a fast, accurate answer before they apply, and turn evaluation data into stronger partner pathways.
+- [Serve Military & Adult Learners](https://www.enlitedu.com/solutions/serve-military-and-adult-learners.html): Give veterans and adult learners credit for what they already know. LioraAI evaluates JST, CCAF, certifications and portfolios with ACE citations and faculty approval.
+- [Stay Consistent & Audit-Ready](https://www.enlitedu.com/solutions/stay-audit-ready.html): Make every credit decision consistent and documented. LioraAI applies your rules the same way every time and keeps evidence for FERPA, accreditation, VA and NCAA reviews.
+- [Improve Completion & Retention](https://www.enlitedu.com/solutions/improve-completion-and-retention.html): Students who can see their path to a degree are more likely to finish. LioraAI gives students and advisors a current, credit-accurate plan.
+
+## Who we serve
+- [Community Colleges](https://www.enlitedu.com/who-we-serve/community-colleges.html): Built with community college registrars: faster transfer-in evaluations, credit for prior learning, military credit, transfer-out pathways and reverse transfer.
+- [Four-Year Universities](https://www.enlitedu.com/who-we-serve/four-year-universities.html): One platform for first-year applicant GPA standardization, transfer admit evaluation, student-athlete certification support and degree pathways at four-year universities.
+- [HBCUs & MSIs](https://www.enlitedu.com/who-we-serve/hbcus-and-msis.html): Fair, consistent credit evaluation for HBCUs and minority-serving institutions: transfer students, adult learners and veterans served quickly by lean teams.
+- [State Systems & Consortia](https://www.enlitedu.com/who-we-serve/state-systems.html): One set of transfer rules across every campus: consistent evaluation, shared articulation data and system-wide mobility analytics for systems and consortia.
+
+## Georgia & Atlanta (EnlitEDU is headquartered in Cumming, Georgia, north metro Atlanta)
+- [Transcript & Credit Evaluation Software for Georgia Colleges](https://www.enlitedu.com/georgia.html): LioraAI, built in metro Atlanta, is transcript and credit evaluation software for Georgia colleges: USG Core IMPACTS, TCSG transfer, HOPE-aware freshman review and JST.
+- [Transcript Evaluation Software in Atlanta, GA](https://www.enlitedu.com/georgia/atlanta-transcript-evaluation.html): Looking for transcript evaluation in Atlanta? EnlitEDU builds LioraAI in metro Atlanta: AI transcript and credit evaluation software for colleges, with on-campus demos.
+- [Freshman Transcript Evaluation in Atlanta & Georgia](https://www.enlitedu.com/georgia/freshman-transcript-evaluation.html): Freshman transcript evaluation for Atlanta and Georgia colleges: GPA standardization, AP/IB/Honors weighting, Georgia Dual Enrollment credit and HOPE-aware review.
+- [Georgia Transfer Credit Evaluation: TCSG, USG & Core IMPACTS](https://www.enlitedu.com/georgia/transfer-credit-evaluation.html): Transfer credit evaluation software for Georgia: apply USG Core IMPACTS domains and the TCSG–USG general education agreement consistently, and post credit to your SIS.
+- [Military & JST Transcript Evaluation for Georgia Colleges](https://www.enlitedu.com/georgia/military-transcript-evaluation.html): JST, CCAF and DD-214 transcript evaluation for Georgia colleges serving students from Fort Benning, Fort Gordon, Fort Stewart, Robins and Moody, with ACE citations.
+- [Transcript evaluation near me](https://www.enlitedu.com/transcript-evaluation-near-me.html): Searching “transcript evaluation near me” in Atlanta? See which service you need: software for colleges (LioraAI) or a credential evaluation for your own transcript.
+- Georgia rules LioraAI supports: USG Core IMPACTS (42-hour general education core in seven areas; credit transfers area to area between USG institutions), the TCSG–USG general education transfer agreement, Georgia Dual Enrollment college credit, the HOPE GPA calculated by the Georgia Student Finance Commission (distinct from an admissions GPA), and JST/CCAF transcripts from Georgia military installations.
+- EnlitEDU provides software to institutions; it does not evaluate individual students' transcripts.
+
+## Proof
+- [Roane State Community College](https://www.enlitedu.com/case-studies/roane-state-community-college.html)
+- [Nashville State Community College](https://www.enlitedu.com/case-studies/nashville-state-community-college.html)
+
+## Reference
+- [How LioraAI works](https://www.enlitedu.com/how-it-works.html)
+- [Integrations](https://www.enlitedu.com/integrations.html)
+- [Security & Trust](https://www.enlitedu.com/security.html)
+- [Glossary](https://www.enlitedu.com/glossary.html)
+- [FAQ](https://www.enlitedu.com/faq.html)
+
+## Blog
+- [TCSG to USG Transfer Under Core IMPACTS: A Plain-English Guide for Georgia Registrars](https://www.enlitedu.com/blog/tcsg-to-usg-transfer-core-impacts-guide.html)
+- [HOPE GPA vs. Admissions GPA: What Georgia Admissions Offices Should Know](https://www.enlitedu.com/blog/hope-gpa-vs-admissions-gpa-georgia.html)
+- [How to Choose Transcript Evaluation Software: A Buyer’s Checklist for Colleges](https://www.enlitedu.com/blog/how-to-choose-transcript-evaluation-software.html)
+- [Reverse Transfer: Your Students Earned an Associate Degree. Are You Giving It to Them?](https://www.enlitedu.com/blog/reverse-transfer-associate-degree-explained.html)
+- [International Transcript Evaluation for First-Year Admissions, in Plain English](https://www.enlitedu.com/blog/international-transcript-evaluation-first-year-admissions.html)
+- ["Will My Credits Transfer?" Is the Question That Decides Your Enrollment](https://www.enlitedu.com/blog/will-my-credits-transfer-self-service-answer.html)
+- [Transfer Portal Season Is Brutal on the Registrar's Office. It Doesn't Have to Be.](https://www.enlitedu.com/blog/transfer-portal-athlete-eligibility-certification.html)
+- [How to Read a Joint Services Transcript Without Losing a Whole Afternoon](https://www.enlitedu.com/blog/how-to-evaluate-joint-services-transcript-jst.html)
+- [Best SIS Integrations for Higher Education — What Actually Works](https://www.enlitedu.com/blog/best-sis-integrations-higher-education-2025.html)
+- [Why Community College Transfer Students Are Underserved — and What to Do About It](https://www.enlitedu.com/blog/community-college-transfer-student-success.html)
+- [AI in Higher Education Admissions: What's Real, What's Hype](https://www.enlitedu.com/blog/ai-in-higher-education-admissions-2025.html)
+- [Enrollment Management Strategies That Are Actually Working](https://www.enlitedu.com/blog/enrollment-management-strategies-2025.html)
+- [Transfer Credit Taking Weeks? Here's Why — and How to Fix It](https://www.enlitedu.com/blog/how-to-speed-up-transfer-credit-evaluation.html)
+- [Transfer Credit and Enrollment Challenges at HBCUs — and What's Working](https://www.enlitedu.com/blog/hbcu-enrollment-transfer-credit-challenges.html)
+- [FERPA Compliance for AI Admissions Tools](https://www.enlitedu.com/blog/ferpa-compliance-ai-admissions.html)
+- [The Modern Registrar's Office: Technology That Actually Reduces Your Team's Workload](https://www.enlitedu.com/blog/registrar-office-efficiency-technology.html)
+- [The GPA Standardization Problem Nobody Warned You About](https://www.enlitedu.com/blog/gpa-standardization-problem.html)
+- [Transfer Student Retention Strategies](https://www.enlitedu.com/blog/transfer-student-retention-strategies.html)
+- [Prior Learning Assessment: A Practical Guide for Registrars](https://www.enlitedu.com/blog/prior-learning-assessment-guide.html)
+- [Integrating AI Tools with Ellucian Banner](https://www.enlitedu.com/blog/ellucian-banner-integration-transcript-evaluation.html)

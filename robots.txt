@@ -1,0 +1,69 @@
+# EnlitEDU / LioraAI: search engines and AI answer engines are welcome.
+# Machine-readable summary: https://www.enlitedu.com/llms.txt
+
+User-agent: *
+Allow: /
+Disallow: /_build/
+Disallow: /thank-you.html
+
+User-agent: Googlebot
+Allow: /
+Disallow: /_build/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /_build/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /_build/
+
+User-agent: Applebot
+Allow: /
+Disallow: /_build/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /_build/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /_build/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /_build/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /_build/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /_build/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /_build/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /_build/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /_build/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /_build/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /_build/
+
+User-agent: CCBot
+Allow: /
+Disallow: /_build/
+
+Sitemap: https://www.enlitedu.com/sitemap.xml
