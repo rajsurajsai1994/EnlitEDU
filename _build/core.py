@@ -109,7 +109,7 @@ def img(key, w=1200, alt=None, cls="", sizes="(max-width: 991px) 100vw, 50vw", e
 MODULES_NAV = [
     # (group, url, category, name, desc, icon)
     ("Credit Evaluation", "transfer-credit-intelligence.html", "Transfer Credit Evaluation", "LioraAI Transfer Credit Intelligence", "Map any transcript to your catalog", "fa-right-left"),
-    ("Credit Evaluation", "freshman-intelligence.html", "First-Year Transcripts", "LioraAI Freshman Intelligence", "GPA standardization for admissions", "fa-graduation-cap"),
+    ("Credit Evaluation", "freshman-intelligence.html", "High School Transcripts", "LioraAI Freshman Intelligence", "GPA standardization for admissions", "fa-graduation-cap"),
     ("Credit Evaluation", "pla.html", "Credit for Prior Learning", "Prior Learning Assessment", "Work, certifications & portfolios", "fa-briefcase"),
     ("Credit Evaluation", "veterans.html", "Military & JST Credit", "LioraAI for Veterans & JST", "JST, CCAF & DD-214 evaluation", "fa-medal"),
     ("Compliance & Certification", "athletics.html", "NCAA Eligibility Support", "LioraAI Athlete Transcripts", "Progress-toward-degree, documented", "fa-trophy"),
@@ -266,7 +266,7 @@ def footer_html(show_cta=True):
 ORG = {
     "@type": ["Organization", "LocalBusiness"], "@id": BASE + "/#organization", "name": "EnlitEDU", "legalName": "EnlitEDU Inc.",
     "url": BASE + "/", "logo": {"@type": "ImageObject", "url": BASE + "/assets/img/enlitedu/logo.png"}, "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
-    "description": "EnlitEDU builds LioraAI, an academic record intelligence platform for colleges and universities across the United States. LioraAI evaluates transfer, first-year, military (JST) and prior-learning credit, and gives students a self-service path to a degree. EnlitEDU is headquartered in Cumming, Georgia, in north metro Atlanta.",
+    "description": "EnlitEDU builds LioraAI, AI transcript evaluation software for colleges and universities across the United States. LioraAI evaluates transfer, first-year, military (JST) and prior-learning credit, and gives students a self-service path to a degree. EnlitEDU is headquartered in Cumming, Georgia, in north metro Atlanta.",
     "email": SITE["email"],
     "address": {"@type": "PostalAddress", "streetAddress": SITE["street"], "addressLocality": SITE["city"], "addressRegion": SITE["region"], "postalCode": SITE["zip"], "addressCountry": "US"},
     "areaServed": [{"@type": "Country", "name": "United States"}, {"@type": "State", "name": "Georgia"}, {"@type": "City", "name": "Atlanta", "containedInPlace": {"@type": "State", "name": "Georgia"}}],

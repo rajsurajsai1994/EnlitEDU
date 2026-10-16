@@ -22,7 +22,7 @@ def simple_hero(crumb, eb, h1, sub, img_key=None, extra=""):
 def build_platform():
     path = "platform.html"; set_depth(path)
     hero = simple_hero([("Home", "index.html"), ("Platform", None)], "The LioraAI platform", "One Evaluation Engine. <span class=\"accent\">Six Modules.</span>",
-                       "Every way a student brings credit to your institution, evaluated with one set of your rules, approved by your people and written back to your SIS.", "team-collab",
+                       "Higher education transcript automation for every way a student brings credit to your institution: evaluated with one set of your rules, approved by your people and written back to your SIS.", "team-collab",
                        float_card("fa-layer-group", "blue", "6 modules, 1 engine", "Shared rules, queue and audit trail", "fc-a"))
     fams = families_html()
     shared = [("fa-scale-balanced", "Rules engine", "Transfer policy, articulation agreements, GPA conversion and CPL frameworks, configured once and versioned."),
@@ -47,7 +47,7 @@ def build_how():
     path = "how-it-works.html"; set_depth(path)
     hero = simple_hero([("Home", "index.html"), ("Platform", "platform.html"), ("How LioraAI works", None)], "How LioraAI works",
                        "AI That Shows Its Work, <span class=\"accent\">and Waits for Your Approval</span>",
-                       "LioraAI drafts every credit decision with the evidence behind it. Your evaluators and faculty make the call. Here is exactly what happens to a transcript.", "registrar-docs",
+                       "LioraAI is college transcript processing software that drafts every credit decision with the evidence behind it. Your evaluators and faculty make the call. Here is exactly what happens to a transcript.", "registrar-docs",
                        float_card("fa-user-check", "ok", "Human-approved", "Every decision reviewed by your staff", "fc-a"))
     steps = BY_SLUG["transfer-credit-intelligence"]["steps"]
     detail = [
@@ -268,29 +268,38 @@ def build_about():
 ROLES = ["Registrar / Records", "Transfer credit evaluator", "VP of Enrollment / Student Affairs", "Director of Admissions", "Veteran Services / SCO",
          "CPL / PLA coordinator", "CIO / IT", "Provost / President", "Other"]
 def form_html(kind="demo"):
+    """Short required form (name, work email, institution, main challenge); everything else is optional and folded away."""
     opts = "".join('<option>%s</option>' % e(r) for r in ROLES)
     mods = "".join('<label><input type="checkbox" name="modules" value="%s"> %s</label>' % (e(m["name"]), e(m["short"])) for m in MODULES)
-    demo_extra = ""
+    challenges = "".join("<option>%s</option>" % c for c in ("Transfer credit evaluation backlog", "High school (freshman) transcript review", "Re-keying credit into our SIS",
+                                                           "Inconsistent decisions across evaluators", "Military or prior-learning credit", "Something else"))
+    name = ('<div class="field"><label for="f-first">First name <span class="req">*</span></label><input id="f-first" name="first_name" autocomplete="given-name" required></div>'
+            '<div class="field"><label for="f-last">Last name <span class="req">*</span></label><input id="f-last" name="last_name" autocomplete="family-name" required></div>')
     if kind == "demo":
-        demo_extra = ('<div class="field"><label for="f-type">Institution type <span class="req">*</span></label><select id="f-type" name="institution_type" required><option value="">Select…</option>'
-                      '<option>Community college</option><option>Four-year public university</option><option>Four-year private college or university</option><option>HBCU / MSI</option><option>State system or consortium</option><option>Other</option></select></div>'
-                      '<div class="field"><label for="f-sis">Student information system</label><select id="f-sis" name="sis"><option value="">Select…</option><option>Ellucian Banner</option><option>Ellucian Colleague</option><option>Workday Student</option><option>PeopleSoft Campus Solutions</option><option>Jenzabar</option><option>Other / not sure</option></select></div>'
-                      '<div class="field full"><label>Modules you’re interested in</label><div class="checks">%s</div></div>') % mods
-    title = "Book your 30-minute demo" if kind == "demo" else "Send us a message"
-    btn = "Request my demo" if kind == "demo" else "Send message"
+        core_ = (name + '<div class="field"><label for="f-email">Work email <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>'
+                 '<div class="field"><label for="f-inst">Institution <span class="req">*</span></label><input id="f-inst" name="institution" autocomplete="organization" required></div>'
+                 '<div class="field full"><label for="f-chal">Your biggest transcript challenge <span class="req">*</span></label><select id="f-chal" name="primary_challenge" required><option value="">Select…</option>%s</select></div>' % challenges)
+        more = ('<details class="more-fields"><summary>Tell us more (optional): role, phone, SIS and modules</summary><div class="fgrid mt-3">'
+                '<div class="field"><label for="f-role">Your role</label><select id="f-role" name="role"><option value="">Select…</option>%s</select></div>'
+                '<div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>'
+                '<div class="field"><label for="f-type">Institution type</label><select id="f-type" name="institution_type"><option value="">Select…</option>'
+                '<option>Community college</option><option>Four-year public university</option><option>Four-year private college or university</option><option>HBCU / MSI</option><option>State system or consortium</option><option>Other</option></select></div>'
+                '<div class="field"><label for="f-sis">Student information system</label><select id="f-sis" name="sis"><option value="">Select…</option><option>Ellucian Banner</option><option>Ellucian Colleague</option><option>Workday Student</option><option>PeopleSoft Campus Solutions</option><option>Jenzabar</option><option>Other / not sure</option></select></div>'
+                '<div class="field full"><label>Modules you’re interested in</label><div class="checks">%s</div></div>'
+                '<div class="field full"><label for="f-msg">Anything else? (current process, volume, timeline)</label><textarea id="f-msg" name="message"></textarea></div></div></details>' % (opts, mods))
+        title, btn, subj = "Book your 30-minute demo", "Request my demo", "Demo request · enlitedu.com"
+    else:
+        core_ = (name + '<div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>'
+                 '<div class="field"><label for="f-inst">Institution or company</label><input id="f-inst" name="institution" autocomplete="organization"></div>'
+                 '<div class="field full"><label for="f-msg">How can we help? <span class="req">*</span></label><textarea id="f-msg" name="message" required></textarea></div>')
+        more = ""
+        title, btn, subj = "Send us a message", "Send message", "Contact · enlitedu.com"
     return ('<form class="form-card" data-web3 data-subject="%s" data-redirect="%s" novalidate><h2>%s</h2><p class="muted small">We reply within one business day. Fields marked <span style="color:#c0392b">*</span> are required.</p>'
-            '<div class="fgrid"><div class="field"><label for="f-first">First name <span class="req">*</span></label><input id="f-first" name="first_name" autocomplete="given-name" required></div>'
-            '<div class="field"><label for="f-last">Last name <span class="req">*</span></label><input id="f-last" name="last_name" autocomplete="family-name" required></div>'
-            '<div class="field"><label for="f-email">Work email <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>'
-            '<div class="field"><label for="f-inst">Institution <span class="req">*</span></label><input id="f-inst" name="institution" autocomplete="organization" required></div>'
-            '<div class="field"><label for="f-role">Your role <span class="req">*</span></label><select id="f-role" name="role" required><option value="">Select…</option>%s</select></div>'
-            '<div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>%s'
-            '<div class="field full"><label for="f-msg">%s</label><textarea id="f-msg" name="message"></textarea></div></div>'
+            '<div class="fgrid">%s</div>%s'
             '<input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">'
             '<button class="btn-x btn-gold w-100 mt-4" type="submit">%s <i class="fa-solid fa-arrow-right"></i></button><div class="form-msg" role="alert"></div>'
             '<p class="note mt-3 mb-0">By submitting, you agree to our <a href="%s">Privacy Policy</a>. We never sell your information.</p></form>'
-            % ("Demo request · enlitedu.com" if kind == "demo" else "Contact · enlitedu.com", u("thank-you.html"), title, opts, demo_extra,
-               "Anything we should know? (current process, volume, timeline)" if kind == "demo" else "How can we help?", btn, u("privacy.html")))
+            % (subj, u("thank-you.html"), title, core_, more, btn, u("privacy.html")))
 
 def build_demo():
     path = "request-demo.html"; set_depth(path)

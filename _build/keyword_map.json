@@ -16,11 +16,12 @@
    "blog/ellucian-banner-integration-transcript-evaluation.html",
    "blog/how-to-choose-transcript-evaluation-software.html",
    "blog/state-transfer-policies-us-guide.html",
+   "faq.html",
    "freshman-intelligence.html",
    "georgia/atlanta-transcript-evaluation.html",
    "transcript-evaluation-near-me.html"
   ],
-  "also_n": 8
+  "also_n": 9
  },
  {
   "kw": "transfer credit evaluation software",
@@ -68,10 +69,12 @@
    "blog/best-sis-integrations-higher-education-2025.html",
    "blog/ellucian-banner-integration-transcript-evaluation.html",
    "blog/ferpa-compliance-ai-admissions.html",
+   "faq.html",
    "georgia/atlanta-transcript-evaluation.html",
+   "index.html",
    "transcript-evaluation-near-me.html"
   ],
-  "also_n": 6
+  "also_n": 8
  },
  {
   "kw": "transcript review software",
@@ -92,7 +95,8 @@
   "target": "transfer-credit-intelligence.html",
   "on_target": true,
   "where": [
-   "title"
+   "title",
+   "faq"
   ],
   "also": [
    "blog.html",
@@ -112,6 +116,7 @@
    "blog/us-community-college-transfer-statistics.html",
    "careers/technical-implementation-manager.html",
    "degree-pathway.html",
+   "faq.html",
    "freshman-intelligence.html",
    "georgia.html",
    "georgia/atlanta-transcript-evaluation.html",
@@ -123,6 +128,7 @@
    "mobility.html",
    "pla.html",
    "platform.html",
+   "request-demo.html",
    "solutions/grow-transfer-enrollment.html",
    "solutions/improve-completion-and-retention.html",
    "solutions/serve-military-and-adult-learners.html",
@@ -134,7 +140,7 @@
    "who-we-serve/hbcus-and-msis.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 38
+  "also_n": 40
  },
  {
   "kw": "transcript evaluation software Georgia",
@@ -519,9 +525,11 @@
   "also": [
    "blog/dual-enrollment-credit-evaluation-us-colleges.html",
    "blog/hope-gpa-vs-admissions-gpa-georgia.html",
-   "georgia/freshman-transcript-evaluation.html"
+   "faq.html",
+   "georgia/freshman-transcript-evaluation.html",
+   "index.html"
   ],
-  "also_n": 3
+  "also_n": 5
  },
  {
   "kw": "GPA standardization",
@@ -594,13 +602,12 @@
    "degree-pathway.html",
    "georgia/transfer-credit-evaluation.html",
    "glossary.html",
-   "index.html",
    "solutions/grow-transfer-enrollment.html",
    "solutions/improve-completion-and-retention.html",
    "who-we-serve/community-colleges.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 14
+  "also_n": 13
  },
  {
   "kw": "community college transfer statistics",
@@ -783,6 +790,60 @@
   "where": [
    "faq"
   ],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "AI transcript evaluation software",
+  "cluster": "Core software",
+  "intent": "Buyer (B2B)",
+  "demand": "Low, rising",
+  "target": "index.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc"
+  ],
+  "also": [
+   "faq.html",
+   "transcript-evaluation-near-me.html"
+  ],
+  "also_n": 2
+ },
+ {
+  "kw": "automated transfer credit evaluation",
+  "cluster": "Core software",
+  "intent": "Buyer (B2B)",
+  "demand": "Low",
+  "target": "transfer-credit-intelligence.html",
+  "on_target": true,
+  "where": [
+   "faq"
+  ],
+  "also": [
+   "index.html"
+  ],
+  "also_n": 1
+ },
+ {
+  "kw": "college transcript processing software",
+  "cluster": "Core software",
+  "intent": "Buyer (B2B)",
+  "demand": "Low",
+  "target": "how-it-works.html",
+  "on_target": true,
+  "where": [],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "higher education transcript automation",
+  "cluster": "Core software",
+  "intent": "Buyer (B2B)",
+  "demand": "Low",
+  "target": "platform.html",
+  "on_target": true,
+  "where": [],
   "also": [],
   "also_n": 0
  },

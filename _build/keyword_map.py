@@ -49,6 +49,11 @@ K = [
  ("associate degree for transfer", "U.S. transfer (national)", "Student / practitioner", "Medium", "blog/state-transfer-policies-us-guide.html", r"associate degree for transfer"),
  ("dual enrollment credit evaluation", "U.S. transfer (national)", "Practitioner", "Low", "blog/dual-enrollment-credit-evaluation-us-colleges.html", r"dual enrollment credit"),
  ("does dual enrollment credit transfer", "U.S. transfer (national)", "Parent / student", "Medium", "blog/dual-enrollment-credit-evaluation-us-colleges.html", r"does dual enrollment credit transfer"),
+ # --- review keywords (Oct 2026)
+ ("AI transcript evaluation software", "Core software", "Buyer (B2B)", "Low, rising", "index.html", r"ai transcript evaluation software"),
+ ("automated transfer credit evaluation", "Core software", "Buyer (B2B)", "Low", "transfer-credit-intelligence.html", r"automated transfer credit evaluation"),
+ ("college transcript processing software", "Core software", "Buyer (B2B)", "Low", "how-it-works.html", r"college transcript processing software"),
+ ("higher education transcript automation", "Core software", "Buyer (B2B)", "Low", "platform.html", r"higher education transcript automation"),
  # --- question keywords
  ("what is transcript evaluation", "Questions (AEO)", "Informational", "Medium", "transcript-evaluation-near-me.html", r"what is transcript evaluation"),
  ("how long does transcript evaluation take", "Questions (AEO)", "Informational", "Medium", "transcript-evaluation-near-me.html", r"how long does (a )?transcript evaluation take|how long does (a )?military transcript evaluation take"),

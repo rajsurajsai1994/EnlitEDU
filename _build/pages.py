@@ -85,22 +85,61 @@ def which_module():
     return ('<div class="which" data-aos="fade-up"><h3>Which module do I need?</h3><p style="color:#c9d3e6">Plain definitions, because community colleges and universities don’t always use the same words.</p>%s</div>' % r)
 
 # ===================================================================== HOME
+FLAGSHIP = ("transfer-credit-intelligence", "freshman-intelligence")
+FLAG = {
+    "transfer-credit-intelligence": ("Automated transfer credit evaluation", "Evaluate every transfer transcript against your catalog, articulation agreements and state rules, then post approved credit to your SIS.",
+                                     ["Maps any college transcript to your courses, with the evidence shown", "Applies state frameworks and your own equivalencies", "Writes approved credit to Banner, Colleague, Workday Student or PeopleSoft"],
+                                     ("15 min → 2 min", "per transcript at Nashville State")),
+    "freshman-intelligence": ("High school transcript automation", "Standardize every freshman applicant’s high school transcript with your documented GPA and rigor rules, the same way every time.",
+                              ["Converts 4.0, 5.0, 6.0 and 100-point scales with one rule", "Recognizes AP, IB, Honors and dual enrollment rigor", "Sends clean records to Slate and your SIS"],
+                              ("1 rule", "applied the same way to every applicant")),
+}
+
+def flagship_html():
+    cards = ""
+    for i, k in enumerate(FLAGSHIP):
+        m = BY_SLUG[k]; cat, desc, bullets, (pn, pl) = FLAG[k]
+        cards += ('<div class="col-lg-6" data-aos="fade-up" data-aos-delay="%d"><a class="flag-card" href="%s"><div class="ph">%s</div><div class="c">'
+                  '<span class="cat-lbl">%s</span><h3>%s</h3><p>%s</p><ul class="flag-list">%s</ul>'
+                  '<div class="flag-proof"><b>%s</b><span>%s</span></div><span class="link-arrow">Explore %s <i class="fa-solid fa-arrow-right"></i></span></div></a></div>'
+                  % (i * 100, u(k + ".html"), img(MOD_IMG[k], 800, alt="", sizes="(max-width: 991px) 100vw, 50vw", ratio=(16, 9)),
+                     e(cat), e(m["name"]), e(desc), "".join("<li>%s</li>" % e(b) for b in bullets), pn, e(pl), e(m["short"])))
+    return ('<section class="sec"><div class="container">%s<div class="row g-4">%s</div></div></section>'
+            % (sec_head("Start with what’s proven", "Two Products That Move Credit <span class=\"grad\">Faster</span>",
+                        "Most institutions start with transfer and high school transcripts, where the backlog is biggest. Both run on one engine with your rules and your approval.", center=True), cards))
+
+def state_story_html(variant="home"):
+    pts = [("fa-sitemap", "Shared rules, local decisions", "System-wide transfer policy, common course numbering and pathways apply everywhere, while each campus keeps its own equivalencies and approvals."),
+           ("fa-equals", "The same course, the same answer", "One rules engine means a course from a partner college is evaluated the same way at every campus in the system."),
+           ("fa-users-cog", "Each campus runs its own team", "Institutions manage their own roles and reviewers. Nashville State administrators create their own LioraAI roles with no EnlitEDU configuration step."),
+           ("fa-chart-bar", "One system-wide view", "Decisions, turnaround and credit applied roll up across campuses for the system office.")]
+    cards = "".join('<div class="col-sm-6" data-aos="fade-up" data-aos-delay="%d"><div class="card-x"><div class="ico"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div></div>' % (i * 70, ic, t, dsc) for i, (ic, t, dsc) in enumerate(pts))
+    head = ("For state systems and multi-campus institutions", "Proven at Tennessee Community Colleges. <span class=\"grad\">Built for Systems.</span>") if variant == "home" else \
+           ("Proof from Tennessee", "Proven on Two Campuses. <span class=\"grad\">Ready for Yours.</span>")
+    link = arrow("LioraAI for state systems", "who-we-serve/state-systems.html") if variant == "home" else arrow("Read both customer stories", "case-studies.html")
+    return ('<section class="sec tint-2"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-5" data-aos="fade-up">%s<h2>%s</h2>'
+            '<p class="lede">Roane State Community College and Nashville State Community College, two Tennessee community colleges, run LioraAI on their own catalogs and rules. '
+            'The same engine scales across every campus in a system: shared transfer policy where you want consistency, campus decisions where you need them.</p>'
+            '<ul class="check-list"><li><span><b>Roane State:</b> live on Ellucian Banner in 18 days; evaluation from three weeks to two days</span></li>'
+            '<li><span><b>Nashville State:</b> full institutional go-live in July 2026; 2,158+ transcripts processed by September</span></li></ul>%s</div>'
+            '<div class="col-lg-7"><div class="row g-3">%s</div></div></div></div></section>' % (eyebrow(head[0]), head[1], link, cards))
+
 def build_home():
     path = "index.html"; set_depth(path)
     av = "".join(img(k, 92, alt="", sizes="46px") for k in ("jamie", "alexis", "jessica", "paul"))
     orbit = ('<div class="orbit" aria-hidden="true"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.22)" stroke-width=".6" stroke-dasharray="1 3"/>'
              '<circle cx="100" cy="4" r="2.6" fill="#ffd43e"/><circle cx="196" cy="100" r="2" fill="#6b85f8"/><circle cx="32" cy="168" r="2.2" fill="#ffd43e"/><circle cx="18" cy="52" r="1.6" fill="#fff"/><circle cx="170" cy="170" r="1.6" fill="#fff"/></svg></div>')
     hero = ('<section class="hero on-dark"><div class="container"><div class="row align-items-center g-5"><div class="col-lg-6">'
-            '%s<h1>Recognize Every Credit. <span class="accent">Advance Every Learner.</span></h1>'
-            '<p class="sub">LioraAI is transcript evaluation software for colleges. It evaluates transfer transcripts, military records, prior learning and first-year applications against your own rules, so students get a credit answer in days, not weeks.</p>'
+            '%s<h1>From Transcripts to Credit Decisions. <span class="accent">In Minutes, Not Days.</span></h1>'
+            '<p class="sub">LioraAI helps admissions and registrar teams evaluate transfer and high school transcripts, apply your institution’s rules and speed up enrollment decisions, with AI doing the work and your staff approving every decision.</p>'
             '<div class="sig-bar"></div><div class="btn-row"><a class="btn-x btn-gold" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a>'
-            '<a class="play-btn" href="https://www.youtube.com/watch?v=Ti6YBv2R_Gc" data-video="Ti6YBv2R_Gc"><span class="ring"><i class="fa-solid fa-play"></i></span>Watch the 2-minute overview</a></div>'
-            '<div class="proof-line"><div class="avatars">%s</div><span>Hear from leaders at <a href="#voices">Roane State &amp; Nashville State</a></span></div></div>'
+            '<a class="btn-x btn-ghost-light" href="%s">Watch Customer Stories <i class="fa-solid fa-play"></i></a></div>'
+            '<div class="proof-line"><div class="avatars">%s</div><span class="proof-pts"><span><b>Nashville State:</b> 15 min → 2 min per transcript</span><span><b>Roane State:</b> 3 weeks → 2 days to evaluate</span></span></div></div>'
             '<div class="col-lg-6"><div class="hero-visual">%s<div class="hero-photo">%s</div>%s%s%s</div></div></div></div></section>'
-            % (eyebrow("LioraAI · Academic record intelligence for U.S. higher ed"), u("request-demo.html"), av, orbit,
+            % (eyebrow("LioraAI · AI transcript evaluation software for higher education"), u("request-demo.html"), u("case-studies.html") + "#voices", av, orbit,
                img("students-laptop", 900, eager=True, sizes="(max-width: 991px) 100vw, 560px", ratio=(5, 5.6)),
                float_card("fa-circle-check", "ok", "Transcript evaluated", "15 credits ready to post to Banner", "fc-1"),
-               float_card("fa-medal", "gold", "JST mapped to ACE", "12 credits · citations attached", "fc-2"),
+               float_card("fa-graduation-cap", "gold", "High school GPA standardized", "100-point scale → 3.70 on your rules", "fc-2"),
                float_card("fa-user-check", "blue", "Faculty review", "1 course flagged for a decision", "fc-3")))
 
     problem = ('<section class="sec"><div class="container"><div class="row align-items-center g-5"><div class="col-lg-5" data-aos="fade-right">'
@@ -132,9 +171,10 @@ def build_home():
     tabs = ('<section class="sec tint"><div class="container">%s<div data-tabs><div class="tabs-nav" role="tablist" aria-label="Outcomes">%s</div>%s</div></div></section>'
             % (sec_head("Solutions by outcome", "One Platform for Every <span class=\"grad\">Credit</span> Decision", "Start with the result you’re accountable for. LioraAI’s modules share one engine, one set of your rules and one audit trail.", center=True), tab_btns, tab_panels))
 
-    fams = families_html()
-    modules = ('<section class="sec"><div class="container">%s%s<div class="mt-5">%s</div></div></section>'
-               % (sec_head("The LioraAI platform", "Six Modules. One Set of <span class=\"grad\">Your</span> Rules.", "Pick the modules you need today and add the rest when you’re ready. Everything runs on the same evaluation engine and writes to the same SIS.", center=True), fams, which_module()))
+    expand = [m for m in MODULES if m["slug"] not in FLAGSHIP]
+    exp_cards = "".join('<div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="%d">%s</div>' % (i * 80, mod_card(m["slug"] + ".html", m["cat"], m["name"], CARD[m["slug"]], m["icon"], MOD_IMG[m["slug"]])) for i, m in enumerate(expand))
+    modules = ('<section class="sec"><div class="container">%s<div class="row g-4">%s</div><div class="mt-5">%s</div></div></section>'
+               % (sec_head("The LioraAI platform", "Expand Across the <span class=\"grad\">Student Journey</span>", "Once transfer and high school transcripts run on LioraAI, the same engine, rules and audit trail extend to military credit, prior learning, degree pathways and transfer analytics.", center=True), exp_cards, which_module()))
 
     steps = "".join('<div class="step" data-aos="fade-up" data-aos-delay="%d"><div class="num"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div>' % (i * 90, ic, t, d)
                     for i, (ic, t, d) in enumerate(BY_SLUG["transfer-credit-intelligence"]["steps"]))
@@ -143,7 +183,7 @@ def build_home():
            '<p class="lede">Every suggestion shows its evidence: the matched course descriptions, the rule that applied and your past decisions on the same course. Anything uncertain goes to a person.</p></div>'
            '<ul class="check-list"><li>Your evaluators approve, edit or override every recommendation</li><li>Confidence levels send edge cases to the right reviewer</li><li>Student records never train general-purpose AI models</li></ul>%s</div>'
            '<div class="col-lg-6" data-aos="fade-left">%s</div></div></div></section>'
-           % (sec_head("How LioraAI works", "From Any Transcript to Posted Credit <span class=\"grad\">in Five Steps</span>", "", center=True), steps,
+           % (sec_head("How LioraAI works", "From Transcript to Decision, <span class=\"grad\">Without the Manual Work</span>", "The same flow for transfer and high school transcripts: LioraAI reads the record, applies your rules and hands your team a documented recommendation to approve, then posts the credit to your SIS.", center=True), steps,
               eyebrow("Explainable by design"), arrow("How LioraAI works", "how-it-works.html"), BY_SLUG["transfer-credit-intelligence"]["mock"]()))
 
     proof_cells = [("1", "M+", "course descriptions in LioraAI’s mapping corpus", "EnlitEDU", ""), ("60", "s", "or less to evaluate a full transcript", "EnlitEDU product measurement", "<"),
@@ -184,18 +224,19 @@ def build_home():
     latest = posts_row(["us-community-college-transfer-statistics", "state-transfer-policies-us-guide", "dual-enrollment-credit-evaluation-us-colleges"],
                        eb="Insights", h2="Fresh From the <span class=\"grad\">Blog</span>")
     from pages3 import home_nationwide_section, answer_box
-    body = hero + answer_box(*home_faqs[0]) + logo_marquee() + problem + tabs + modules + how + proof + voices + tiles + audiences + home_nationwide_section() + ints + faq + latest + cta_band()
+    body = (hero + answer_box(*home_faqs[0]) + logo_marquee() + flagship_html() + how + proof + voices + state_story_html()
+            + problem + tabs + modules + audiences + home_nationwide_section() + ints + faq + latest + cta_band())
 
     schema = [{"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "EnlitEDU", "publisher": {"@id": BASE + "/#organization"}, "inLanguage": "en-US"},
               {"@type": "SoftwareApplication", "@id": BASE + "/#lioraai", "name": "LioraAI", "applicationCategory": "BusinessApplication", "applicationSubCategory": "Higher education transcript evaluation",
                "operatingSystem": "Web", "url": BASE + "/platform.html", "publisher": {"@id": BASE + "/#organization"},
-               "description": "Academic record intelligence for higher education: transfer credit evaluation, first-year GPA standardization, credit for prior learning, JST/military credit, student degree pathways and transfer analytics.",
+               "description": "AI transcript evaluation software for higher education. LioraAI Transfer Credit Intelligence automates transfer credit evaluation and LioraAI Freshman Intelligence automates high school transcript review, with staff approving every decision. Additional modules cover military credit, prior learning, degree pathways and transfer analytics.",
                "featureList": [m["name"] for m in MODULES], "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD"}, "description": "Priced by institution size, volume and modules."}},
-              {"@type": "WebPage", "@id": BASE + "/#webpage", "url": BASE + "/", "name": "Transcript & Credit Evaluation Software | LioraAI by EnlitEDU", "isPartOf": {"@id": BASE + "/#website"}, "about": {"@id": BASE + "/#lioraai"},
+              {"@type": "WebPage", "@id": BASE + "/#webpage", "url": BASE + "/", "name": "AI Transcript Evaluation Software for Colleges | LioraAI", "isPartOf": {"@id": BASE + "/#website"}, "about": {"@id": BASE + "/#lioraai"},
                "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero .sub", ".answer-box"]}},
               faq_schema(home_faqs, "index.html")] + [video_schema(t) for t in TESTIMONIALS]
-    page(path, "Transcript Evaluation Software for U.S. Colleges | LioraAI",
-         "LioraAI is transcript evaluation software for colleges and universities across the U.S.: transfer, freshman, military and prior-learning credit in days, not weeks.",
+    page(path, "AI Transcript Evaluation Software for Colleges | LioraAI",
+         "LioraAI is AI transcript evaluation software for U.S. colleges: automated transfer credit evaluation and high school transcript review, approved by your staff.",
          body, schema=schema)
 
 # ===================================================================== MODULE
@@ -320,7 +361,8 @@ def build_audience(a):
     proofs = "".join('<div class="col-md-6" data-aos="fade-up">%s</div>' % story_card(k) for k in a["proofs"])
     proof = ('<section class="sec"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-5" data-aos="fade-up">%s<h2>Proof From Institutions <span class="grad">Like Yours</span></h2><p class="lead-lg">%s</p>%s</div>'
              '<div class="col-lg-7"><div class="row g-4">%s</div></div></div></div></section>' % (eyebrow("Customer proof"), a["why"], arrow("All customer stories", "case-studies.html"), proofs))
-    body = hero + talk + mods + proof + testimonials_section() + faq_block(a["faqs"], side_img=a["img2"]) + posts_row(a["blog"], tint=True) + cta_band()
+    story = state_story_html("system") if a["slug"] == "state-systems" else ""
+    body = hero + story + talk + mods + proof + testimonials_section() + faq_block(a["faqs"], side_img=a["img2"]) + posts_row(a["blog"], tint=True) + cta_band()
     schema = [breadcrumb([("Home", "index.html"), ("Who We Serve", "platform.html"), (a["nav"], path)]),
               {"@type": "WebPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": a["title"], "about": {"@id": BASE + "/#lioraai"},
                "audience": {"@type": "EducationalAudience", "educationalRole": a["nav"]}},

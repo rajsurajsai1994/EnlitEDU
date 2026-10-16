@@ -783,3 +783,24 @@ html,body{overflow-x:hidden}
 .job-body .stat-card ul{padding-left:18px;margin:12px 0 0;font-size:15px}
 @media(max-width:767px){.job-card{flex-direction:column;align-items:flex-start}}
 .job-body .stat-card li{overflow-wrap:break-word}
+
+/* flagship products (homepage) */
+.flag-card{display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-1);color:var(--body);transition:transform .25s,box-shadow .25s,border-color .25s}
+.flag-card:hover{transform:translateY(-3px);box-shadow:var(--sh-2);border-color:var(--blue);color:var(--body)}
+.flag-card .ph{aspect-ratio:16/9;overflow:hidden}
+.flag-card .ph img{width:100%;height:100%;object-fit:cover}
+.flag-card .c{padding:28px 30px 30px;display:flex;flex-direction:column;flex:1}
+.flag-card h3{font-size:clamp(22px,2.2vw,28px);margin:6px 0 10px;color:var(--ink)}
+.flag-list{list-style:none;padding:0;margin:14px 0 20px;display:grid;gap:8px}
+.flag-list li{position:relative;padding-left:26px;color:var(--ink);font-weight:500}
+.flag-list li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:0;top:1px;font-size:12px;color:var(--ok)}
+.flag-proof{display:flex;gap:12px;align-items:baseline;padding:14px 16px;border-radius:12px;background:var(--blue-50,#eef2fd);margin:auto 0 18px}
+.flag-proof b{font-family:var(--f-serif);font-size:24px;color:var(--blue);white-space:nowrap}
+.flag-proof span{font-size:14.5px;color:var(--muted)}
+.proof-line b{color:#fff}
+/* optional demo fields */
+.more-fields{margin-top:18px;border:1px dashed var(--line-2);border-radius:12px;padding:12px 16px}
+.more-fields summary{cursor:pointer;font-weight:700;color:var(--blue)}
+.hero h1{font-size:clamp(36px,4.3vw,58px)}
+.proof-pts{display:flex;flex-direction:column;gap:2px}
+@media(max-width:420px){.flag-proof{flex-wrap:wrap;gap:2px 10px}.mock td,.mock th{padding:8px 4px;font-size:11px}.mock td.arrow{display:none}.mock .mbody{overflow-x:auto}.flag-card .c{padding:22px 20px 24px}}
