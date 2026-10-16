@@ -119,7 +119,7 @@ MODULES_NAV = [
 from data_modules import HIDDEN as HIDDEN_MODULES  # to launch a hidden module, remove it from HIDDEN in data_modules.py
 MODULES_NAV = [n for n in MODULES_NAV if n[1][:-5] not in HIDDEN_MODULES]
 PLATFORM_NAV = [
-    ("platform.html", "Platform overview", "One engine, six modules", "fa-layer-group"),
+    ("platform.html", "Platform overview", "One engine, five modules", "fa-layer-group"),
     ("how-it-works.html", "How LioraAI works", "AI that shows its work", "fa-microchip"),
     ("integrations.html", "Integrations", "Banner, Workday, Colleague & more", "fa-plug"),
     ("security.html", "Security & Trust", "FERPA, SOC 2 program, DPA", "fa-shield-halved"),
@@ -267,7 +267,7 @@ def footer_html(show_cta=True):
 ORG = {
     "@type": ["Organization", "LocalBusiness"], "@id": BASE + "/#organization", "name": "EnlitEDU", "legalName": "EnlitEDU Inc.",
     "url": BASE + "/", "logo": {"@type": "ImageObject", "url": BASE + "/assets/img/enlitedu/logo.png"}, "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
-    "description": "EnlitEDU builds LioraAI, AI transcript evaluation software for colleges and universities across the United States. LioraAI evaluates transfer, first-year, military (JST) and prior-learning credit, and gives students a self-service path to a degree. EnlitEDU is headquartered in Cumming, Georgia, in north metro Atlanta.",
+    "description": "EnlitEDU builds LioraAI, AI transcript evaluation software for colleges and universities across the United States. LioraAI evaluates transfer, first-year, military (JST) and prior-learning credit, and provides transfer analytics. EnlitEDU is headquartered in Cumming, Georgia, in north metro Atlanta.",
     "email": SITE["email"],
     "address": {"@type": "PostalAddress", "streetAddress": SITE["street"], "addressLocality": SITE["city"], "addressRegion": SITE["region"], "postalCode": SITE["zip"], "addressCountry": "US"},
     "areaServed": [{"@type": "Country", "name": "United States"}, {"@type": "State", "name": "Georgia"}, {"@type": "City", "name": "Atlanta", "containedInPlace": {"@type": "State", "name": "Georgia"}}],
@@ -304,7 +304,7 @@ WEBSITE = {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "na
            "publisher": {"@id": BASE + "/#organization"}, "inLanguage": "en-US"}
 LIORAAI = {"@type": "SoftwareApplication", "@id": BASE + "/#lioraai", "name": "LioraAI", "applicationCategory": "BusinessApplication",
            "operatingSystem": "Web", "url": BASE + "/platform.html", "publisher": {"@id": BASE + "/#organization"},
-           "description": "Academic record intelligence for colleges and universities across the U.S.: transfer, first-year, military and prior-learning credit evaluation, degree pathways and transfer analytics.",
+           "description": "Academic record intelligence for colleges and universities across the U.S.: transfer, high school (freshman), military and prior-learning credit evaluation and transfer analytics.",
            "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD"}, "description": "Priced by institution size, volume and modules."}}
 
 def _normalize(graph, canon, desc):

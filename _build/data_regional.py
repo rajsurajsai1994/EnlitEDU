@@ -138,11 +138,11 @@ dict(
   ("Transfer credit evaluation in Georgia: TCSG, USG and Core IMPACTS",
    "<p>For transfer credit evaluation in Georgia, two frameworks do most of the work. USG’s Core IMPACTS general education curriculum, in place since 2024, is 42 credit hours across seven areas; a course completed in an area at one USG institution receives full credit in the same area at another, provided the area carries the same hours at both. The TCSG–USG general education agreement maps listed courses from the 22 TCSG colleges to a direct USG course or a Core IMPACTS area. LioraAI applies both as rules and routes everything else to an evaluator.</p>"),
   ("Can students see if their credits will transfer before they apply?",
-   "<p>Yes. With <a href=\"../degree-pathway.html\">Student Degree Pathway</a>, prospective transfer students see an indicative estimate based on your real rules, clearly labeled as subject to official review. It answers the question that decides where many transfer students enroll.</p>"),
+   "<p>Sooner than before. Because <a href=\"../transfer-credit-intelligence.html\">LioraAI Transfer Credit Intelligence</a> drafts each evaluation in minutes against your real rules, institutions can give prospective transfer students a documented credit answer early, with staff approving every decision. That answer often decides where a transfer student enrolls.</p>"),
  ],
  modules=["transfer-credit-intelligence", "degree-pathway", "mobility"],
  faqs=[
-  ("How do I know if my credits will transfer?", "Check the receiving institution’s transfer equivalency information and any state agreement that applies. Institutions using LioraAI Student Degree Pathway can also give prospective students an indicative estimate before they apply."),
+  ("How do I know if my credits will transfer?", "Check the receiving institution’s transfer equivalency information and any state agreement that applies. Institutions using LioraAI can return a documented evaluation quickly, often before the student commits."),
   ("Can LioraAI apply my state’s transfer rules?", "Yes. Common course numbering, general education blocks, guaranteed pathways and articulation agreements from any state can be configured as rules, alongside your own equivalencies."),
   ("What is USG Core IMPACTS?", "Core IMPACTS is the University System of Georgia’s general education curriculum: 42 credit hours across seven areas. General education credit transfers area to area between USG institutions."),
   ("Do TCSG credits transfer to USG universities?", "In Georgia, general education courses listed in the TCSG–USG transfer agreement do, either as a direct course equivalent or into a Core IMPACTS area. Other courses are evaluated by the receiving institution."),

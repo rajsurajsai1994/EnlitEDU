@@ -3,7 +3,7 @@
 import re
 from core import *
 from pages import (BLOG, story_card, posts_row, arrow, MOD_IMG)
-from data_modules import BY_SLUG, CARD
+from data_modules import BY_SLUG, CARD, HIDDEN
 from data_georgia import GA_PAGES, NEAR_ME, LOCAL, COUNTIES, GA_CITIES
 
 GA_BY_PATH = {p["path"]: p for p in GA_PAGES}
@@ -54,7 +54,7 @@ def build_ga_page(p):
         secs += '<div class="ga-sec" data-aos="fade-up"><h2>%s</h2>%s</div>' % (e(h2), html_)
     side = ('<aside class="ga-side"><div class="split-img mb-4">%s</div>%s%s</aside>' % (img(p["img2"], 700, ratio=(4, 3.4)), local_card(), ga_links(path)))
     content = ('<section class="sec anchor" id="ga-content"><div class="container"><div class="row g-5"><div class="col-lg-8"><div class="ga-body">%s</div></div><div class="col-lg-4">%s</div></div></div></section>' % (secs, side))
-    mods = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d">%s</div>' % ((i % 3) * 80, mod_card(BY_SLUG[k]["slug"] + ".html", BY_SLUG[k]["cat"], BY_SLUG[k]["name"], CARD[k], BY_SLUG[k]["icon"], MOD_IMG[k])) for i, k in enumerate(p["modules"]))
+    mods = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d">%s</div>' % ((i % 3) * 80, mod_card(BY_SLUG[k]["slug"] + ".html", BY_SLUG[k]["cat"], BY_SLUG[k]["name"], CARD[k], BY_SLUG[k]["icon"], MOD_IMG[k])) for i, k in enumerate([k for k in p["modules"] if k not in HIDDEN]))
     mod_sec = '<section class="sec tint"><div class="container">%s<div class="row g-4">%s</div></div></section>' % (sec_head("LioraAI modules", "Modules Teams Usually <span class=\"grad\">Start With</span>", "", center=True), mods)
     proof = ('<section class="sec"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-5" data-aos="fade-up">%s<h2>Proven at <span class="grad">Community Colleges</span></h2>'
              '<p class="lead-lg">Our first customers are Tennessee community colleges. Roane State cut transcript evaluation from about three weeks to two days, and Nashville State cut per-transcript time from 15 minutes to 2.</p>%s</div>'

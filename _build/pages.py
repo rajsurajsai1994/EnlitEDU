@@ -73,7 +73,7 @@ def families_html():
                    head("Student Pathways", "Visibility for students, advisors and leaders"), "".join(card(m, "col-md-6", i * 80) for i, m in enumerate(sp))))
     else:
         row2 = ('<div class="family fam-row">%s<div class="row g-4">%s</div></div>'
-                % (head("Student Pathways", "Visibility for students, advisors and leaders"), "".join(card(m, "col-md-6", i * 80) for i, m in enumerate(sp))))
+                % (head("Student Pathways", "Visibility for students, advisors and leaders"), "".join(card(m, "col-md-6" if len(sp) > 1 else "col-md-6 col-lg-3", i * 80) for i, m in enumerate(sp)))) if sp else ""
     return row1 + row2
 
 def which_module():
@@ -156,13 +156,13 @@ def build_home():
         ("grow-transfer-enrollment", "students-group", ("fa-bolt", "ok", "15 min → 2 min", "Per transcript at Nashville State"), ["degree-pathway", "transfer-credit-intelligence", "mobility"]),
         ("serve-military-and-adult-learners", "veteran-family", ("fa-medal", "gold", "12 credits awarded", "JST evaluated with ACE citations"), ["veterans", "pla"]),
         ("stay-audit-ready", "four-meeting", ("fa-fingerprint", "blue", "Decision recorded", "Evidence, rule and approver logged"), ["transfer-credit-intelligence", "freshman-intelligence", "veterans"]),
-        ("improve-completion-and-retention", "grad-woman", ("fa-route", "blue", "4 terms to graduation", "Plan shared with advisor"), ["degree-pathway", "mobility"]),
+        ("improve-completion-and-retention", "grad-woman", ("fa-user-check", "blue", "Credit applied", "Before the first advising session"), ["degree-pathway", "mobility"]),
     ]
     for i, (slug, ik, fc, mods) in enumerate(tab_data):
         s = next(x for x in SOLUTIONS if x["slug"] == slug)
         short = {"speed-up-credit-evaluation": "Speed Up Evaluation", "grow-transfer-enrollment": "Grow Transfer Enrollment", "serve-military-and-adult-learners": "Serve Military & Adult Learners", "stay-audit-ready": "Stay Audit-Ready", "improve-completion-and-retention": "Improve Completion"}[slug]
         tab_btns += '<button class="tab-btn" role="tab" id="tab-%d" aria-controls="tp-%d" aria-selected="%s" tabindex="%d"><i class="fa-solid %s"></i>%s</button>' % (i, i, "true" if i == 0 else "false", 0 if i == 0 else -1, s["icon"], e(short))
-        chips = "".join('<a class="chip" href="%s">%s</a>' % (u(BY_SLUG[m]["slug"] + ".html"), e(BY_SLUG[m]["short"])) for m in mods)
+        chips = "".join('<a class="chip" href="%s">%s</a>' % (u(BY_SLUG[m]["slug"] + ".html"), e(BY_SLUG[m]["short"])) for m in mods if m not in HIDDEN)
         lis = "".join("<li>%s</li>" % b for b in s["bullets"][:3])
         tab_panels += ('<div class="tab-panel%s" role="tabpanel" id="tp-%d" aria-labelledby="tab-%d"%s><div class="row align-items-center g-5"><div class="col-lg-6"><div class="media">%s%s</div></div>'
                        '<div class="col-lg-6"><h3>%s</h3><p class="lead-lg">%s</p><ul class="check-list">%s</ul><p class="small muted mb-2">Modules that do the work</p><div class="chips mb-4">%s</div>%s</div></div></div>'
@@ -172,9 +172,10 @@ def build_home():
             % (sec_head("Solutions by outcome", "One Platform for Every <span class=\"grad\">Credit</span> Decision", "Start with the result you’re accountable for. LioraAI’s modules share one engine, one set of your rules and one audit trail.", center=True), tab_btns, tab_panels))
 
     expand = [m for m in MODULES if m["slug"] not in FLAGSHIP]
-    exp_cards = "".join('<div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="%d">%s</div>' % (i * 80, mod_card(m["slug"] + ".html", m["cat"], m["name"], CARD[m["slug"]], m["icon"], MOD_IMG[m["slug"]])) for i, m in enumerate(expand))
-    modules = ('<section class="sec"><div class="container">%s<div class="row g-4">%s</div><div class="mt-5">%s</div></div></section>'
-               % (sec_head("The LioraAI platform", "Expand Across the <span class=\"grad\">Student Journey</span>", "Once transfer and high school transcripts run on LioraAI, the same engine, rules and audit trail extend to military credit, prior learning, degree pathways and transfer analytics.", center=True), exp_cards, which_module()))
+    exp_col = {1: "col-md-8 col-lg-6", 2: "col-md-6", 3: "col-md-6 col-lg-4"}.get(len(expand), "col-md-6 col-lg-3")
+    exp_cards = "".join('<div class="%s" data-aos="fade-up" data-aos-delay="%d">%s</div>' % (exp_col, i * 80, mod_card(m["slug"] + ".html", m["cat"], m["name"], CARD[m["slug"]], m["icon"], MOD_IMG[m["slug"]])) for i, m in enumerate(expand))
+    modules = ('<section class="sec"><div class="container">%s<div class="row g-4 justify-content-center">%s</div><div class="mt-5">%s</div></div></section>'
+               % (sec_head("The LioraAI platform", "Expand Across the <span class=\"grad\">Student Journey</span>", "Once transfer and high school transcripts run on LioraAI, the same engine, rules and audit trail extend to military credit, prior learning and transfer analytics.", center=True), exp_cards, which_module()))
 
     steps = "".join('<div class="step" data-aos="fade-up" data-aos-delay="%d"><div class="num"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div>' % (i * 90, ic, t, d)
                     for i, (ic, t, d) in enumerate(BY_SLUG["transfer-credit-intelligence"]["steps"]))
@@ -230,7 +231,7 @@ def build_home():
     schema = [{"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "EnlitEDU", "publisher": {"@id": BASE + "/#organization"}, "inLanguage": "en-US"},
               {"@type": "SoftwareApplication", "@id": BASE + "/#lioraai", "name": "LioraAI", "applicationCategory": "BusinessApplication", "applicationSubCategory": "Higher education transcript evaluation",
                "operatingSystem": "Web", "url": BASE + "/platform.html", "publisher": {"@id": BASE + "/#organization"},
-               "description": "AI transcript evaluation software for higher education. LioraAI Transfer Credit Intelligence automates transfer credit evaluation and LioraAI Freshman Intelligence automates high school transcript review, with staff approving every decision. Additional modules cover military credit, prior learning, degree pathways and transfer analytics.",
+               "description": "AI transcript evaluation software for higher education. LioraAI Transfer Credit Intelligence automates transfer credit evaluation and LioraAI Freshman Intelligence automates high school transcript review, with staff approving every decision. Additional modules cover military credit, prior learning and transfer analytics.",
                "featureList": [m["name"] for m in MODULES], "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD"}, "description": "Priced by institution size, volume and modules."}},
               {"@type": "WebPage", "@id": BASE + "/#webpage", "url": BASE + "/", "name": "AI Transcript Evaluation Software for Colleges | LioraAI", "isPartOf": {"@id": BASE + "/#website"}, "about": {"@id": BASE + "/#lioraai"},
                "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero .sub", ".answer-box"]}},
@@ -293,7 +294,7 @@ def build_module(m):
                      % (eyebrow("Customer proof"), pr["title"], arrow("Read customer stories", "case-studies.html"), vids))
     ints = ('<section class="sec-sm"><div class="container">%s%s</div></section>'
             % (sec_head("Integrations", "Works With Your <span class=\"grad\">Existing</span> Systems", "", center=True), integrations_strip()))
-    related = "".join('<div class="col-md-4" data-aos="fade-up" data-aos-delay="%d">%s</div>' % (i * 90, mod_card(BY_SLUG[r]["slug"] + ".html", BY_SLUG[r]["cat"], BY_SLUG[r]["name"], CARD[r], BY_SLUG[r]["icon"], MOD_IMG[r])) for i, r in enumerate(m["related"]))
+    related = "".join('<div class="col-md-4" data-aos="fade-up" data-aos-delay="%d">%s</div>' % (i * 90, mod_card(BY_SLUG[r]["slug"] + ".html", BY_SLUG[r]["cat"], BY_SLUG[r]["name"], CARD[r], BY_SLUG[r]["icon"], MOD_IMG[r])) for i, r in enumerate([r for r in m["related"] if r not in HIDDEN]))
     rel_sec = ('<section class="sec"><div class="container">%s<div class="row g-4">%s</div></div></section>'
                % (sec_head("Works even better with", "Related <span class=\"grad\">Modules</span>", "", center=True), related))
     body = (hero + answer_box(*m["faqs"][0]) + who + pain_sec + diff_sec + how + feat_sec + proof_sec + ints + faq_block(m["faqs"][1:], side_img=m["hero_img"]) + rel_sec
@@ -329,7 +330,7 @@ def build_solution(s):
     ch = "".join('<div class="col-md-4" data-aos="fade-up" data-aos-delay="%d"><div class="card-x"><div class="ico red"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div></div>' % (i * 100, ic, a, b) for i, (ic, a, b) in enumerate(s["challenges"]))
     ch_sec = '<section class="sec tint"><div class="container">%s<div class="row g-4">%s</div></div></section>' % (sec_head("The challenge", "What’s Getting in <span class=\"grad\">the Way</span>", "", center=True), ch)
     helps = "".join('<div class="col-md-6" data-aos="fade-up" data-aos-delay="%d"><a class="card-x d-flex flex-column" href="%s" style="color:inherit"><div class="ico"><i class="fa-solid %s"></i></div><span class="cat-lbl">%s</span><h3 class="mt-1">%s</h3><p>%s</p><span class="link-arrow">Explore %s <i class="fa-solid fa-arrow-right"></i></span></a></div>'
-                    % ((i % 2) * 100, u(BY_SLUG[k]["slug"] + ".html"), BY_SLUG[k]["icon"], e(BY_SLUG[k]["cat"]), e(BY_SLUG[k]["name"]), d, e(BY_SLUG[k]["short"])) for i, (k, d) in enumerate(s["helps"]))
+                    % ((i % 2) * 100, u(BY_SLUG[k]["slug"] + ".html"), BY_SLUG[k]["icon"], e(BY_SLUG[k]["cat"]), e(BY_SLUG[k]["name"]), d, e(BY_SLUG[k]["short"])) for i, (k, d) in enumerate([h for h in s["helps"] if h[0] not in HIDDEN]))
     lis = "".join("<li>%s</li>" % b for b in s["bullets"])
     help_sec = ('<section class="sec anchor" id="help"><div class="container"><div class="row g-5"><div class="col-lg-4" data-aos="fade-up">%s<h2>How LioraAI <span class="grad">Helps</span></h2><ul class="check-list">%s</ul></div>'
                 '<div class="col-lg-8"><div class="row g-4">%s</div></div></div></div></section>' % (eyebrow("How we help"), lis, helps))
@@ -337,7 +338,7 @@ def build_solution(s):
     body = hero + ch_sec + help_sec + proof + faq_block(s["faqs"], side_img=s["img"]) + posts_row(s["blog"]) + cta_band()
     schema = [breadcrumb([("Home", "index.html"), ("Solutions", "platform.html"), (s["nav"], path)]),
               {"@type": "WebPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": s["title"], "about": {"@id": BASE + "/#lioraai"},
-               "mentions": [{"@id": BASE + "/" + BY_SLUG[k]["slug"] + ".html#software"} for k, _ in s["helps"]]},
+               "mentions": [{"@id": BASE + "/" + BY_SLUG[k]["slug"] + ".html#software"} for k, _ in [h for h in s["helps"] if h[0] not in HIDDEN]]},
               faq_schema(s["faqs"], path)]
     page(path, s["title"], s["desc"], body, schema=schema, active="solutions")
 
@@ -355,7 +356,7 @@ def build_audience(a):
             '<div class="col-lg-6" data-aos="fade-left">%s<h2>What We Hear From <span class="grad">%s</span></h2><div class="row g-3 mb-4">%s</div><p class="small muted mb-2">We speak your language</p><div class="chips">%s</div></div></div></div></section>'
             % (img(a["img2"], 900, ratio=(4, 3.4)), eyebrow("Sound familiar?"), e(a["nav"]), pains, words))
     ranked = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d">%s</div>'
-                     % ((i % 3) * 80, mod_card(BY_SLUG[k]["slug"] + ".html", ("Start here · " if i == 0 else "") + BY_SLUG[k]["cat"], BY_SLUG[k]["name"], CARD[k], BY_SLUG[k]["icon"], MOD_IMG[k])) for i, k in enumerate(a["ranked"]))
+                     % ((i % 3) * 80, mod_card(BY_SLUG[k]["slug"] + ".html", ("Start here · " if i == 0 else "") + BY_SLUG[k]["cat"], BY_SLUG[k]["name"], CARD[k], BY_SLUG[k]["icon"], MOD_IMG[k])) for i, k in enumerate([k for k in a["ranked"] if k not in HIDDEN]))
     mods = ('<section class="sec tint anchor" id="modules"><div class="container">%s<div class="row g-4">%s</div><div class="mt-5">%s</div></div></section>'
             % (sec_head("Modules, in the order most %s start" % e(a["nav"].lower()), "Where to <span class=\"grad\">Start</span>", "", center=True), ranked, which_module()))
     proofs = "".join('<div class="col-md-6" data-aos="fade-up">%s</div>' % story_card(k) for k in a["proofs"])

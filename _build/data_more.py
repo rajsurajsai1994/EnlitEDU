@@ -44,7 +44,7 @@ dict(
  bullets=["Pre-application credit estimates from your real rules", "Faster official evaluations for admitted students", "Feeder-school and pathway analytics", "Reverse transfer identification for partners"],
  proof="nashville",
  blog=["us-community-college-transfer-statistics", "will-my-credits-transfer-self-service-answer", "community-college-transfer-student-success"],
- faqs=[("Can students find out if their credits will transfer before applying?", "Yes. With Student Degree Pathway, prospective students enter or upload prior coursework and receive an indicative estimate based on your articulation rules, clearly labeled as subject to official evaluation."),
+ faqs=[("Can students find out if their credits will transfer before applying?", "Sooner than before. Because LioraAI drafts each evaluation in minutes against your articulation rules, institutions can give prospective transfer students a documented credit answer early, with staff approving every decision."),
        ("Is a transfer credit estimate binding?", "No. It is a planning aid. Because it uses the same rules as your official process, it usually matches the final evaluation closely for common courses."),
        ("How does LioraAI help with transfer partnerships?", "Student Mobility Intelligence shows which sending institutions and programs produce your strongest transfers and where credit is lost, which gives both partners evidence for new or updated agreements.")],
 ),
@@ -91,10 +91,10 @@ dict(
 ),
 dict(
  slug="improve-completion-and-retention", nav="Improve Completion & Retention", icon="fa-user-graduate", img="grad-woman",
- title="Improve Completion & Retention With Degree Pathways | LioraAI",
- desc="Students who can see their path to a degree are more likely to finish. LioraAI gives students and advisors a current, credit-accurate plan.",
- h1="Keep Students on a Path <span class=\"accent\">They Can Actually See</span>",
- sub="Students stay when they can see that their credit counted and how far they have left to go. LioraAI gives every student, advisor and registrar the same current, credit-accurate picture.",
+ title="Improve Completion & Retention With Faster Credit | LioraAI",
+ desc="Students who know their credit counted are more likely to finish. LioraAI gives advisors fast, credit-accurate evaluations and transfer analytics.",
+ h1="Keep Students on Track <span class=\"accent\">From Their First Term</span>",
+ sub="Students stay when they know their credit counted. LioraAI gives advisors and registrars a fast, credit-accurate evaluation and transfer analytics, so the right outreach happens early.",
  stat=NSC,
  challenges=[("fa-eye-slash", "Invisible progress", "Students rarely see how transferred credit applies to their degree."),
              ("fa-book-open", "Courses that don’t count", "Time-to-degree slips when students register for the wrong classes."),
@@ -103,12 +103,11 @@ dict(
         ("mobility", "Weekly risk signals and reverse transfer identification."),
         ("transfer-credit-intelligence", "Accurate transfer credit applied before the first advising session."),
         ("pla", "Credit for prior learning that shortens the path for adult learners.")],
- bullets=["Plain-language progress for every student", "Shared advisor and registrar view", "Prioritized weekly outreach lists", "Associate degrees surfaced through reverse transfer"],
+ bullets=["Transfer credit applied before the first advising session", "Shared advisor and registrar view of transfer credit", "Prioritized weekly outreach lists", "Associate degrees surfaced through reverse transfer"],
  proof="nashville",
  blog=["transfer-student-retention-strategies", "reverse-transfer-associate-degree-explained", "community-college-transfer-student-success"],
- faqs=[("How does seeing a degree path improve retention?", "Students who can see that their credit counted, and how many terms remain, register for the right courses and are less likely to stop out. Advisors also spend less time reconstructing each student’s status."),
-       ("What is reverse transfer?", "Reverse transfer sends credits earned at a four-year institution back to a student’s former community college so it can award the associate degree the student has now earned. Mobility Intelligence identifies eligible students."),
-       ("Does Degree Pathway replace our degree audit?", "No. It can sit alongside DegreeWorks or uAchieve, adding transfer evaluation, a student-friendly view and forward planning.")],
+ faqs=[("How does faster credit evaluation improve retention?", "Students who know early that their credit counted register for the right courses and are less likely to stop out. Advisors also spend less time reconstructing each student’s status."),
+       ("What is reverse transfer?", "Reverse transfer sends credits earned at a four-year institution back to a student’s former community college so it can award the associate degree the student has now earned. Mobility Intelligence identifies eligible students.")],
 ),
 ]
 
@@ -132,7 +131,7 @@ dict(
 dict(
  slug="four-year-universities", nav="Four-Year Universities", icon="fa-building-columns", img="university-building", img2="lecture-talk",
  title="LioraAI for Universities | Freshman & Transfer Evaluation",
- desc="One platform for universities: freshman transcript and GPA standardization, transfer credit evaluation for transfer admits, and student degree pathways.",
+ desc="One platform for universities: freshman transcript and GPA standardization and transfer credit evaluation for transfer admits, approved by your staff.",
  h1="One Platform for Freshman Applicants <span class=\"accent\">and Transfer Admits</span>",
  sub="Admissions and the registrar both evaluate transcripts, usually in different tools with different rules. LioraAI gives them one engine and one audit trail.",
  words=["First-year applicants", "Transfer admits", "Articulation agreements", "Community college partners", "International applicants", "Progress-toward-degree"],
@@ -213,9 +212,9 @@ GLOSSARY = [
 
 FAQ_HUB = [
 ("Getting started", [
- ("What is LioraAI?", "LioraAI is EnlitEDU’s AI transcript evaluation software for U.S. colleges and universities. LioraAI Transfer Credit Intelligence automates transfer credit evaluation and LioraAI Freshman Intelligence automates high school transcript review, both against each institution’s own rules, with staff approving every decision. Further modules cover military and prior-learning credit, degree pathways and transfer analytics."),
+ ("What is LioraAI?", "LioraAI is EnlitEDU’s AI transcript evaluation software for U.S. colleges and universities. LioraAI Transfer Credit Intelligence automates transfer credit evaluation and LioraAI Freshman Intelligence automates high school transcript review, both against each institution’s own rules, with staff approving every decision. Further modules cover military and prior-learning credit and transfer analytics."),
  ("Who is EnlitEDU?", "EnlitEDU is a higher education technology company that serves colleges and universities across the United States, headquartered in Cumming, Georgia. It grew out of Anatta IT Solutions’ work supporting colleges through student information system projects, and launched LioraAI in 2025."),
- ("Which module do I need?", "First-time students coming from high school: Freshman Intelligence. Anyone bringing credit from another college, at any class level: Transfer Credit Intelligence. Military records: Veterans &amp; JST. Work experience, certifications and portfolios: Prior Learning Assessment. Student self-service planning: Degree Pathway. Transfer analytics: Mobility Intelligence."),
+ ("Which module do I need?", "First-time students coming from high school: Freshman Intelligence. Anyone bringing credit from another college, at any class level: Transfer Credit Intelligence. Military records: Veterans &amp; JST. Work experience, certifications and portfolios: Prior Learning Assessment. Transfer analytics: Mobility Intelligence."),
  ("What kinds of institutions use LioraAI?", "Community colleges, regional and research universities, HBCUs and minority-serving institutions, and state systems. Our first customers are Tennessee community colleges, including Roane State and Nashville State."),
 ]),
 ("How the AI works", [

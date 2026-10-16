@@ -1,6 +1,6 @@
 # EnlitEDU - LioraAI
 
-> EnlitEDU builds LioraAI, AI transcript evaluation software for U.S. colleges and universities. Lead products: LioraAI Transfer Credit Intelligence (automated transfer credit evaluation) and LioraAI Freshman Intelligence (high school transcript automation). LioraAI evaluates transfer, first-year (freshman), military (JST/CCAF) and prior-learning (CPL/PLA) credit against each institution's own rules, gives students a self-service path to a degree, and provides transfer analytics. Staff and faculty approve every decision; approved credit is written back to the SIS (Banner, Colleague, Workday Student, PeopleSoft, Jenzabar).
+> EnlitEDU builds LioraAI, AI transcript evaluation software for U.S. colleges and universities. Lead products: LioraAI Transfer Credit Intelligence (automated transfer credit evaluation) and LioraAI Freshman Intelligence (high school transcript automation). LioraAI evaluates transfer, first-year (freshman), military (JST/CCAF) and prior-learning (CPL/PLA) credit against each institution's own rules and provides transfer analytics. Staff and faculty approve every decision; approved credit is written back to the SIS (Banner, Colleague, Workday Student, PeopleSoft, Jenzabar).
 
 Key facts: Roane State Community College cut transcript evaluation from about three weeks to two days (reported 90% faster) and went live on Ellucian Banner in 18 days. Nashville State Community College cut per-transcript evaluation time from about 15 minutes to 2 minutes (87%) and approval turnaround from 18 to 8 hours (56%) after going live in July 2026. Student records are never used to train general-purpose AI models. EnlitEDU acts as a FERPA school official under the institution's control. Headquarters: Cumming, Georgia. Contact: info@enlitedu.com.
 
@@ -13,7 +13,6 @@ Where we work: colleges, universities, technical colleges and state systems acro
 - [LioraAI Freshman Intelligence](https://www.enlitedu.com/freshman-intelligence.html): Evaluate every freshman applicant’s transcript the same way. LioraAI Freshman Intelligence standardizes 4.0, 5.0, 6.0 and 100-point GPAs with your rules.
 - [Prior Learning Assessment](https://www.enlitedu.com/pla.html): Award credit for prior learning (CPL/PLA) consistently: certifications, workforce training, CLEP/DSST and portfolios mapped to your courses, faculty approving.
 - [LioraAI for Veterans & JST](https://www.enlitedu.com/veterans.html): Evaluate Joint Services Transcripts, CCAF and DD-214 records against ACE recommendations and your catalog. Give veterans a credit answer in days, not a semester.
-- [Student Degree Pathway](https://www.enlitedu.com/degree-pathway.html): Give every student a clear, credit-accurate path to their degree. LioraAI Student Degree Pathway shows what transferred, what counts and what’s left, term by term.
 - [Student Mobility Intelligence](https://www.enlitedu.com/mobility.html): See where transfer students come from, how much credit they lose and who may leave. Mobility Intelligence turns evaluation data into enrollment strategy.
 
 ## Solutions
@@ -21,11 +20,11 @@ Where we work: colleges, universities, technical colleges and state systems acro
 - [Grow Transfer Enrollment](https://www.enlitedu.com/solutions/grow-transfer-enrollment.html): Transfer students shop for credit. Give them a fast, accurate answer before they apply, and turn evaluation data into stronger partner pathways.
 - [Serve Military & Adult Learners](https://www.enlitedu.com/solutions/serve-military-and-adult-learners.html): Give veterans and adult learners credit for what they already know: JST, CCAF, certifications and portfolios, with ACE citations and faculty approval.
 - [Stay Consistent & Audit-Ready](https://www.enlitedu.com/solutions/stay-audit-ready.html): Make every credit decision consistent and documented: your rules applied every time, with evidence kept for FERPA, accreditation and VA reviews.
-- [Improve Completion & Retention](https://www.enlitedu.com/solutions/improve-completion-and-retention.html): Students who can see their path to a degree are more likely to finish. LioraAI gives students and advisors a current, credit-accurate plan.
+- [Improve Completion & Retention](https://www.enlitedu.com/solutions/improve-completion-and-retention.html): Students who know their credit counted are more likely to finish. LioraAI gives advisors fast, credit-accurate evaluations and transfer analytics.
 
 ## Who we serve
 - [Community Colleges](https://www.enlitedu.com/who-we-serve/community-colleges.html): Built with community college registrars: faster transfer-in evaluations, credit for prior learning, military credit, transfer-out pathways and reverse transfer.
-- [Four-Year Universities](https://www.enlitedu.com/who-we-serve/four-year-universities.html): One platform for universities: freshman transcript and GPA standardization, transfer credit evaluation for transfer admits, and student degree pathways.
+- [Four-Year Universities](https://www.enlitedu.com/who-we-serve/four-year-universities.html): One platform for universities: freshman transcript and GPA standardization and transfer credit evaluation for transfer admits, approved by your staff.
 - [HBCUs & MSIs](https://www.enlitedu.com/who-we-serve/hbcus-and-msis.html): Fair, consistent credit evaluation for HBCUs and minority-serving institutions: transfer students, adult learners and veterans served quickly by lean teams.
 - [State Systems & Consortia](https://www.enlitedu.com/who-we-serve/state-systems.html): One set of transfer rules across every campus: consistent evaluation, shared articulation data and system-wide mobility analytics for systems and consortia.
 

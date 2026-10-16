@@ -57,7 +57,7 @@ dict(
        ("How does it connect to Ellucian Banner?", "Banner 9 connects through the Ethos API for two-way data flow; Banner 8 uses scheduled SFTP. Approved transfer credit posts to Banner’s transfer articulation tables without manual re-entry. Roane State Community College went live on Banner in 18 days."),
        ("How quickly will we see results?", "Most offices see time savings in the first week, once evaluators move from researching each course to reviewing recommendations. Transfer yield effects usually show within one enrollment cycle."),
        ("Is it FERPA compliant?", "LioraAI is designed to be used in a FERPA-compliant way: EnlitEDU acts as a school official under your direct control, data is encrypted in transit and at rest, every decision is audit-logged, and student records are never used to train general-purpose AI models. A Data Processing Agreement is part of every contract.")],
- related=["freshman-intelligence", "pla", "degree-pathway"],
+ related=["freshman-intelligence", "pla", "veterans"],
  blog=["state-transfer-policies-us-guide", "how-to-speed-up-transfer-credit-evaluation", "will-my-credits-transfer-self-service-answer"],
  features_schema=["Multi-format transcript ingestion (PDF, scanned, EDI, PESC XML)", "AI course equivalency matching", "Configurable transfer credit policy", "Articulation agreement enforcement", "Batch processing", "Human-in-the-loop review", "SIS write-back", "Audit trail"],
  audience="Registrars, Transfer Credit Evaluators, VPs of Enrollment",
@@ -96,7 +96,7 @@ dict(
        ("How does automated GPA conversion work for 100-point scales?", "Freshman Intelligence applies the conversion formula your institution documents for 100-point, 5.0 and 6.0 scales, so the same transcript always produces the same result regardless of who reads it."),
        ("Does it integrate with Slate and Common App?", "Yes. Freshman Intelligence works with Slate, Common App, Ellucian Banner and Colleague, Workday Student, PeopleSoft and Jenzabar, so transcript data arrives in the reader’s view without re-entry."),
        ("What happens when a transcript can’t be read confidently?", "It is flagged for a person, with a clear note on what was and wasn’t extracted. Your team handles exceptions; Freshman Intelligence handles the routine volume.")],
- related=["transfer-credit-intelligence", "degree-pathway", "mobility"],
+ related=["transfer-credit-intelligence", "pla", "mobility"],
  blog=["dual-enrollment-credit-evaluation-us-colleges", "gpa-standardization-problem", "international-transcript-evaluation-first-year-admissions"],
  features_schema=["GPA standardization across 4.0, 5.0, 6.0 and 100-point scales", "AP, IB and Honors recognition", "Transcript data extraction", "Anomaly detection", "Bulk processing", "Slate and Common App integration"],
  audience="Admissions Directors, Enrollment Managers, Application Processors",
@@ -135,7 +135,7 @@ dict(
        ("Does it work for veterans?", "Yes. The PLA module handles military training alongside civilian evidence. For Veteran Services offices and School Certifying Officials there is also a dedicated module, <a href=\"veterans.html\">LioraAI for Veterans &amp; JST</a>, with an SCO review queue."),
        ("Which certifications are recognized?", "NCCRS-listed programs, ACE-evaluated corporate training, common industry certifications such as CompTIA, AWS, PMP and Salesforce, and custom employer programs you configure."),
        ("Is the documentation suitable for accreditation review?", "Yes. Each award stores the evidence reviewed, the recommendation and the faculty decision together, which is what regional accreditors look for in a CPL program.")],
- related=["veterans", "transfer-credit-intelligence", "degree-pathway"],
+ related=["veterans", "transfer-credit-intelligence", "mobility"],
  blog=["prior-learning-assessment-guide", "how-to-evaluate-joint-services-transcript-jst", "enrollment-management-strategies-2025"],
  features_schema=["Credit for prior learning evaluation", "ACE and NCCRS alignment", "Industry certification mapping", "Portfolio assessment support", "CLEP and DSST credit", "Faculty approval workflow", "Accreditation documentation"],
  audience="CPL/PLA Coordinators, Deans of Continuing Education, Faculty",
@@ -174,7 +174,7 @@ dict(
        ("Does LioraAI decide how much credit a veteran gets?", "No. Your School Certifying Officials, registrar and faculty approve every award. LioraAI does the research and documents the decision."),
        ("Can veterans see their own evaluation?", "Yes. Prospective and admitted veterans can use a self-service view that shows the credit their JST or CCAF transcript is likely to earn at your institution."),
        ("How long does military transcript evaluation take?", "LioraAI produces a full JST evaluation in under a minute. Institutions typically move from multi-week turnaround to same-day or next-day certified decisions once evaluators shift from research to review.")],
- related=["pla", "transfer-credit-intelligence", "degree-pathway"],
+ related=["pla", "transfer-credit-intelligence", "mobility"],
  blog=["how-to-evaluate-joint-services-transcript-jst", "prior-learning-assessment-guide", "ferpa-compliance-ai-admissions"],
  features_schema=["Joint Services Transcript evaluation", "CCAF transcript evaluation", "DD-214 and legacy military records", "ACE credit recommendation citations", "School Certifying Official review queue", "Veteran self-service credit view", "Audit trail"],
  audience="Veteran Services Officers, School Certifying Officials, Registrars",
@@ -291,13 +291,13 @@ dict(
        ("Does it help with reverse transfer?", "Yes. It identifies students who have met a partner college’s associate degree requirements so the consent and conferral process can start."),
        ("What systems does it connect to?", "Ellucian Banner and Colleague, Workday Student, PeopleSoft and Jenzabar through secure API or SFTP, with no manual exports."),
        ("How long does implementation take?", "Typically three to five weeks, depending on SIS configuration and data availability.")],
- related=["degree-pathway", "transfer-credit-intelligence", "veterans"],
+ related=["transfer-credit-intelligence", "freshman-intelligence", "veterans"],
  blog=["us-community-college-transfer-statistics", "community-college-transfer-student-success", "reverse-transfer-associate-degree-explained"],
  features_schema=["Transfer pathway mapping", "Credit-loss analysis", "Retention risk signals", "Articulation agreement analytics", "Reverse transfer identification", "System-wide reporting"],
  audience="VPs of Enrollment, Institutional Research, Transfer Center Directors",
 ),
 ]
-HIDDEN = {"athletics"}  # NCAA / Athlete Transcripts: page kept for launch, hidden from navigation, sitemap and llms.txt
+HIDDEN = {"athletics", "degree-pathway"}  # NCAA / Athlete Transcripts: page kept for launch, hidden from navigation, sitemap and llms.txt
 MODULES_ALL = MODULES
 MODULES = [m for m in MODULES_ALL if m["slug"] not in HIDDEN]
 BY_SLUG = {m["slug"]: m for m in MODULES_ALL}

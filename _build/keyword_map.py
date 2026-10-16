@@ -38,7 +38,7 @@ K = [
  ("credit for prior learning software", "Modules", "Buyer", "Low", "pla.html", r"credit for prior learning"),
  ("high school transcript evaluation", "Modules", "Mixed", "Low–Medium", "freshman-intelligence.html", r"high school transcript"),
  ("GPA standardization", "Modules", "Practitioner", "Low", "freshman-intelligence.html", r"gpa standardization|standardize[sd]? (every )?gpa"),
- ("will my credits transfer", "Modules", "Students (pre-applicants)", "Medium", "degree-pathway.html", r"will my credits transfer"),
+ ("will my credits transfer", "Modules", "Students (pre-applicants)", "Medium", "blog/will-my-credits-transfer-self-service-answer.html", r"will my credits transfer"),
  ("reverse transfer", "Modules", "Practitioner", "Low", "mobility.html", r"reverse transfer"),
  # --- national U.S. topics (added Oct 2026)
  ("community college transfer statistics", "U.S. transfer (national)", "Informational / practitioner", "Medium", "blog/us-community-college-transfer-statistics.html", r"community college transfer statistics"),

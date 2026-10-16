@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 PLATFORM_FAQS = [
- ("What is the LioraAI platform?", "LioraAI is EnlitEDU’s academic record intelligence platform: one evaluation engine with six modules for transfer credit, first-year transcripts, credit for prior learning, military (JST) credit, student degree pathways and transfer analytics."),
- ("Do we have to buy all six modules?", "No. Most institutions start with one or two modules, usually Transfer Credit Intelligence or Freshman Intelligence, and add others later. Every module shares the same rules, review queue and audit trail."),
+ ("What is the LioraAI platform?", "LioraAI is EnlitEDU’s academic record intelligence platform: one evaluation engine with five modules for transfer credit, high school (freshman) transcripts, credit for prior learning, military (JST) credit and transfer analytics."),
+ ("Do we have to buy all five modules?", "No. Most institutions start with one or two modules, usually Transfer Credit Intelligence or Freshman Intelligence, and add others later. Every module shares the same rules, review queue and audit trail."),
  ("Is LioraAI cloud-hosted?", "Yes. LioraAI is hosted with a major cloud provider in U.S. regions, so there is no on-premise infrastructure for your IT team to maintain."),
  ("Which student information systems does LioraAI connect to?", "Ellucian Banner and Colleague, Workday Student, PeopleSoft Campus Solutions and Jenzabar, plus Slate, Salesforce, Common App, DegreeWorks and uAchieve."),
  ("Who approves LioraAI’s recommendations?", "Your staff and faculty. LioraAI drafts each recommendation with its evidence; people approve, edit or decline it."),
@@ -28,7 +28,7 @@ NASHVILLE_FAQS = [
 ABOUT_FAQS = [
  ("Who founded EnlitEDU?", "EnlitEDU was founded by Chaitanya Saripalli, its Founder and CEO, who also founded Anatta IT Solutions."),
  ("Who does EnlitEDU work with?", "Colleges, universities, technical colleges and state systems across the United States, from the headquarters in Cumming, Georgia (north metro Atlanta)."),
- ("When did LioraAI launch?", "LioraAI entered beta with partner institutions in 2025 and launched later that year. Veterans & JST and Student Degree Pathway were added in 2026."),
+ ("When did LioraAI launch?", "LioraAI entered beta with partner institutions in 2025 and launched later that year. Veterans & JST was added in 2026."),
  ("What does EnlitEDU do?", "EnlitEDU builds LioraAI, software that helps colleges and universities evaluate transfer, first-year, military and prior-learning credit quickly, consistently and with every decision documented."),
 ]
 DEMO_FAQS = [

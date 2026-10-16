@@ -21,9 +21,9 @@ def simple_hero(crumb, eb, h1, sub, img_key=None, extra=""):
 # ===================================================================== PLATFORM
 def build_platform():
     path = "platform.html"; set_depth(path)
-    hero = simple_hero([("Home", "index.html"), ("Platform", None)], "The LioraAI platform", "One Evaluation Engine. <span class=\"accent\">Six Modules.</span>",
+    hero = simple_hero([("Home", "index.html"), ("Platform", None)], "The LioraAI platform", "One Evaluation Engine. <span class=\"accent\">Five Modules.</span>",
                        "Higher education transcript automation for every way a student brings credit to your institution: evaluated with one set of your rules, approved by your people and written back to your SIS.", "team-collab",
-                       float_card("fa-layer-group", "blue", "6 modules, 1 engine", "Shared rules, queue and audit trail", "fc-a"))
+                       float_card("fa-layer-group", "blue", "5 modules, 1 engine", "Shared rules, queue and audit trail", "fc-a"))
     fams = families_html()
     shared = [("fa-scale-balanced", "Rules engine", "Transfer policy, articulation agreements, GPA conversion and CPL frameworks, configured once and versioned."),
               ("fa-list-check", "One review queue", "Every credit type in one place, routed by confidence, role and department."),
@@ -39,8 +39,8 @@ def build_platform():
     schema = [faq_schema(PLATFORM_FAQS, path), breadcrumb([("Home", "index.html"), ("Platform", path)]),
               {"@type": "CollectionPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "LioraAI platform", "about": {"@id": BASE + "/#lioraai"},
                "hasPart": [{"@id": BASE + "/%s.html#software" % m["slug"]} for m in MODULES]}]
-    page(path, "LioraAI Platform | 6 Modules for Credit Evaluation | EnlitEDU",
-         "One evaluation engine, six modules: transfer credit, freshman (first-year) transcripts, CPL/PLA, JST/military credit, student degree pathways and transfer analytics.", body, schema=schema, active="products")
+    page(path, "LioraAI Platform | 5 Modules for Credit Evaluation | EnlitEDU",
+         "One evaluation engine, five modules: transfer credit, freshman (high school) transcripts, credit for prior learning, JST/military credit and transfer analytics.", body, schema=schema, active="products")
 
 # ===================================================================== HOW IT WORKS
 def build_how():
@@ -90,7 +90,7 @@ def build_integrations():
             ("Slate by Technolutions", "Admissions CRM", "Evaluated first-year and transfer data delivered to reader views."),
             ("Common App", "Applications", "Transcript and school report documents ingested for evaluation."),
             ("Salesforce", "CRM", "Evaluation status and estimates available to recruitment and advising."),
-            ("DegreeWorks & uAchieve", "Degree audit", "Applicable credit flows into audit; Degree Pathway can sit alongside."),
+            ("DegreeWorks & uAchieve", "Degree audit", "Applicable transfer credit flows into your degree audit."),
             ("Joint Services Transcript (ACE)", "Military records", "JST, CCAF and DD-214 documents with ACE credit recommendation lookup."),
             ("EDI (SPEEDE) & PESC XML", "Electronic transcripts", "Standard electronic transcripts processed without data entry."),
             ("SSO (SAML 2.0)", "Identity", "Single sign-on with your identity provider and role-based access.")]
@@ -231,7 +231,7 @@ def build_about():
                '<p>We started EnlitEDU after years of supporting colleges through student information system projects. We kept seeing the same thing: talented records teams buried in research, students waiting weeks, and the same course evaluated differently depending on who picked up the file.</p>'
                '<p>LioraAI is our answer: software that does the research, applies each institution’s own rules, and leaves every decision with the people accountable for it.</p></div></div></div></section>'
                % (img("grads-selfie", 800, ratio=(4, 4.6)), img("registrar-folder", 480, alt="", ratio=(1, 1)), eyebrow("Our mission")))
-    nums = [("1", "M+", "course descriptions in our mapping corpus"), ("60", "s", "or less to evaluate a full transcript"), ("6", "", "LioraAI modules, one engine"), ("18", " days", "fastest go-live on Banner")]
+    nums = [("1", "M+", "course descriptions in our mapping corpus"), ("60", "s", "or less to evaluate a full transcript"), ("5", "", "LioraAI modules, one engine"), ("18", " days", "fastest go-live on Banner")]
     cells = "".join('<div class="cell"><b>%s<span data-count="%s">%s</span><span class="u">%s</span></b><span>%s</span></div>' % ("<" if n == "60" else "", n, n, s, t) for n, s, t in nums)
     proof = '<section class="sec dark"><div class="container">%s<div class="proof" style="grid-template-columns:repeat(4,minmax(0,1fr))">%s</div></div></section>' % (sec_head("By the numbers", "Built Only for Higher Ed <span class=\"grad\">Credit</span>", "", center=True), cells)
     proof = proof.replace('style="grid-template-columns:repeat(4,minmax(0,1fr))"', 'style="--c:4"')
@@ -243,7 +243,7 @@ def build_about():
           ("2023", "Supporting ERP migrations", "Helping institutions modernize student systems and data across several states."),
           ("2025", "LioraAI beta", "Beta with partner institutions, validating AI-assisted evaluation in live production."),
           ("2025", "LioraAI launches", "First customers go live, including Tennessee community colleges."),
-          ("2026", "Six modules", "Veterans & JST and Student Degree Pathway join the platform.")]
+          ("2026", "Military credit", "LioraAI for Veterans & JST joins the platform.")]
     tls = "".join('<div class="ev" data-aos="fade-up"><span class="yr">%s</span><h3>%s</h3><p>%s</p></div>' % x for x in tl)
     team = [("chaitanya", "Chaitanya Saripalli", "Founder & CEO", "Founder of Anatta IT Solutions and EnlitEDU. Chaitanya spent years inside the operational realities of enrollment and records teams and built LioraAI to solve them directly."),
             ("sajan", "Sajan Patel", "Business Development", "Sajan works with registrars, VPs and enrollment directors across the U.S. to connect LioraAI’s capabilities to the practical needs of their offices.")]

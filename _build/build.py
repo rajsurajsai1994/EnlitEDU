@@ -27,22 +27,25 @@ FILTER = {"Transfer Credit": "transfer", "Veterans & JST": "transfer", "Best Pra
           "Student Success": "student-success", "Athletics": "student-success", "Enrollment": "enrollment", "Enrollment Management": "enrollment",
           "Compliance": "compliance", "Technical Insights": "technical"}
 POST_MODULE = {"how-to-evaluate-joint-services-transcript-jst": "veterans", "transfer-portal-athlete-eligibility-certification": "transfer-credit-intelligence",
-               "will-my-credits-transfer-self-service-answer": "degree-pathway", "international-transcript-evaluation-first-year-admissions": "freshman-intelligence",
+               "will-my-credits-transfer-self-service-answer": "transfer-credit-intelligence", "international-transcript-evaluation-first-year-admissions": "freshman-intelligence",
                "reverse-transfer-associate-degree-explained": "mobility", "gpa-standardization-problem": "freshman-intelligence", "prior-learning-assessment-guide": "pla",
-               "community-college-transfer-student-success": "transfer-credit-intelligence", "transfer-student-retention-strategies": "degree-pathway", "hbcu-enrollment-transfer-credit-challenges": "transfer-credit-intelligence",
+               "community-college-transfer-student-success": "transfer-credit-intelligence", "transfer-student-retention-strategies": "transfer-credit-intelligence", "hbcu-enrollment-transfer-credit-challenges": "transfer-credit-intelligence",
                "tcsg-to-usg-transfer-core-impacts-guide": "transfer-credit-intelligence", "hope-gpa-vs-admissions-gpa-georgia": "freshman-intelligence", "how-to-choose-transcript-evaluation-software": "transfer-credit-intelligence",
                "us-community-college-transfer-statistics": "mobility", "state-transfer-policies-us-guide": "transfer-credit-intelligence", "dual-enrollment-credit-evaluation-us-colleges": "freshman-intelligence"}
 
 ATHLETE_P = ('<p><a href="../athletics.html">LioraAI Athlete Transcripts</a> is built for that spot in the process. It evaluates the incoming transcript against your degree requirements and hands your certification officer a draft — eligibility status, degree progress, and the specific gaps — while the portal window is still open instead of after it\'s closed.</p>')
 ATHLETE_NEW = ('<p><a href="../transfer-credit-intelligence.html">LioraAI Transfer Credit Intelligence</a> fits that spot in the process. It evaluates the incoming transcript against your catalog and rules, the same way for athletes and non-athletes, and hands your staff a documented draft while the portal window is still open instead of after it\'s closed.</p>')
 
+PATHWAY_P = ('<p>That\'s what <a href="../degree-pathway.html">Student Degree Pathway</a> is for \u2014 putting an indicative evaluation and a clear path to the degree in the prospective student\'s hands early, running on the same articulation rules your official process uses so the two don\'t contradict each other.</p>')
+PATHWAY_NEW = ('<p>That\'s what <a href="../transfer-credit-intelligence.html">LioraAI Transfer Credit Intelligence</a> helps with: a fast, documented evaluation that runs on the same articulation rules as your official process, so the early answer and the official one don\'t contradict each other.</p>')
+
 def _rename(s):
     """Module names changed in Oct 2026; the ported posts still use the old ones."""
-    s = s.replace(ATHLETE_P, ATHLETE_NEW)
+    s = s.replace(ATHLETE_P, ATHLETE_NEW).replace(PATHWAY_P, PATHWAY_NEW)
     s = s.replace("LioraAI Articulate", "LioraAI Transfer Credit Intelligence").replace("LioraAI Assess", "LioraAI Freshman Intelligence")
     s = re.sub(r"\barticulate\.html", "transfer-credit-intelligence.html", s)
     s = re.sub(r"\bassess\.html", "freshman-intelligence.html", s)
-    return re.sub(r'<a href="[^"]*athletics\.html"[^>]*>(.*?)</a>', r"\1", s)
+    return re.sub(r'<a href="[^"]*(?:athletics|degree-pathway)\.html"[^>]*>(.*?)</a>', r"\1", s)
 
 def load_posts():
     posts = {}
@@ -218,7 +221,7 @@ def main():
     robots += "".join("User-agent: %s\nAllow: /\nDisallow: /_build/\n\n" % b for b in bots)
     write("robots.txt", robots + "Sitemap: %s/sitemap.xml\n" % BASE)
     llm = ["# EnlitEDU — LioraAI", "",
-           "> EnlitEDU builds LioraAI, AI transcript evaluation software for U.S. colleges and universities. Lead products: LioraAI Transfer Credit Intelligence (automated transfer credit evaluation) and LioraAI Freshman Intelligence (high school transcript automation). LioraAI evaluates transfer, first-year (freshman), military (JST/CCAF) and prior-learning (CPL/PLA) credit against each institution's own rules, gives students a self-service path to a degree, and provides transfer analytics. Staff and faculty approve every decision; approved credit is written back to the SIS (Banner, Colleague, Workday Student, PeopleSoft, Jenzabar).", "",
+           "> EnlitEDU builds LioraAI, AI transcript evaluation software for U.S. colleges and universities. Lead products: LioraAI Transfer Credit Intelligence (automated transfer credit evaluation) and LioraAI Freshman Intelligence (high school transcript automation). LioraAI evaluates transfer, first-year (freshman), military (JST/CCAF) and prior-learning (CPL/PLA) credit against each institution's own rules and provides transfer analytics. Staff and faculty approve every decision; approved credit is written back to the SIS (Banner, Colleague, Workday Student, PeopleSoft, Jenzabar).", "",
            "Key facts: Roane State Community College cut transcript evaluation from about three weeks to two days (reported 90% faster) and went live on Ellucian Banner in 18 days. Nashville State Community College cut per-transcript evaluation time from about 15 minutes to 2 minutes (87%) and approval turnaround from 18 to 8 hours (56%) after going live in July 2026. Student records are never used to train general-purpose AI models. EnlitEDU acts as a FERPA school official under the institution's control. Headquarters: Cumming, Georgia. Contact: info@enlitedu.com.", "",
            "Leadership: Chaitanya Saripalli, Founder & CEO of EnlitEDU (https://www.linkedin.com/in/chaitanyasaripalli/). Module names: LioraAI Transfer Credit Intelligence (formerly Articulate) for transfer credit evaluation; LioraAI Freshman Intelligence (formerly Assess) for freshman / first-year transcript evaluation.", "",
            "Where we work: colleges, universities, technical colleges and state systems across the United States. Demos, implementation and training run online in every state. Georgia/Atlanta pages below are regional guides, not a service limit.", "",
