@@ -82,7 +82,7 @@ def build_near_me():
              '<div class="btn-row mt-auto"><a class="btn-x btn-gold" href="%s">Book a demo <i class="fa-solid fa-arrow-right"></i></a><a class="link-arrow" href="%s">Atlanta page <i class="fa-solid fa-arrow-right"></i></a></div></div></div>'
              '<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100"><div class="card-x d-flex flex-column"><div class="ico gold"><i class="fa-solid fa-user"></i></div><span class="cat-lbl">For individuals</span>'
              '<h2 style="font-size:28px">You need your own transcript or degree evaluated</h2><p>If you studied outside the U.S. and a college, employer or licensing board asked for an evaluation, you need a <strong>credential evaluation service</strong>, not software. '
-             'Most colleges require a member of the National Association of Credential Evaluation Services (NACES).</p>'
+             'Most colleges require a member of the National Association of Credential Evaluation Services (NACES). Searches like “credential evaluation near me” or “foreign transcript evaluation near me” usually mean this kind of service.</p>'
              '<ul class="check-list"><li>Ask your college or board which evaluators it accepts</li><li>Choose document-by-document or course-by-course, as required</li><li>Most services work online, so location rarely matters</li></ul>'
              '<p class="small muted mt-auto mb-0">EnlitEDU does not evaluate individual transcripts.</p></div></div></div></div></section>'
              % (u("request-demo.html"), u("georgia/atlanta-transcript-evaluation.html")))
@@ -99,16 +99,14 @@ def build_near_me():
               faq_schema([(p["answer"][0], p["answer"][1])] + p["faqs"], path)]
     page(path, p["title"], p["desc"], body, schema=schema, active="audience")
 
-def home_georgia_section():
-    cards = [("georgia/atlanta-transcript-evaluation.html", "fa-city", "Atlanta", "A local team in north metro Atlanta, with on-campus demos and training."),
-             ("georgia/transfer-credit-evaluation.html", "fa-right-left", "TCSG & USG transfer", "Core IMPACTS domains and the TCSG–USG agreement as rules."),
-             ("georgia/freshman-transcript-evaluation.html", "fa-graduation-cap", "Freshman transcripts", "Weighted GPAs, Dual Enrollment credit and HOPE-aware review."),
-             ("georgia/military-transcript-evaluation.html", "fa-medal", "Military & JST", "JST and CCAF records from Georgia’s bases, with ACE citations.")]
-    cs = "".join('<div class="col-sm-6" data-aos="fade-up" data-aos-delay="%d"><a class="ga-card" href="%s"><i class="fa-solid %s"></i><b>%s</b><span>%s</span></a></div>' % (i * 70, u(h), ic, e(t), e(d)) for i, (h, ic, t, d) in enumerate(cards))
-    return ('<section class="sec"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-5" data-aos="fade-right">%s<h2>Built in Georgia, for <span class="grad">Georgia</span> Colleges</h2>'
-            '<p class="lead-lg">EnlitEDU is headquartered in Cumming, north of Atlanta. LioraAI already knows Georgia’s rules: USG Core IMPACTS, the TCSG–USG transfer agreement, Georgia Dual Enrollment and the HOPE GPA.</p>'
-            '<div class="btn-row"><a class="btn-x btn-navy" href="%s">Georgia colleges <i class="fa-solid fa-arrow-right"></i></a><a class="link-arrow" href="%s">Transcript evaluation near me <i class="fa-solid fa-arrow-right"></i></a></div></div>'
-            '<div class="col-lg-7"><div class="row g-3">%s</div></div></div></div></section>' % (eyebrow("Georgia · Atlanta"), u("georgia.html"), u("transcript-evaluation-near-me.html"), cs))
+def home_nationwide_section():
+    cards = [("fa-scale-balanced", "Every state’s transfer rules", "State agreements, common course numbering, guaranteed pathways and general education frameworks, configured as rules for your institution.", "solutions/stay-audit-ready.html", "Consistent decisions"),
+             ("fa-laptop", "Implemented remotely, anywhere", "Demos, configuration and training run online for institutions in every state. Standard SIS integrations take two to four weeks.", "integrations.html", "Integrations"),
+             ("fa-star", "Proven at community colleges", "Roane State and Nashville State in Tennessee report faster evaluations and higher transfer yield.", "case-studies.html", "Customer stories"),
+             ("fa-building", "Headquartered in metro Atlanta", "Our team is based in Cumming, Georgia. Georgia institutions can also meet us on campus.", "georgia.html", "Georgia")]
+    cs = "".join('<div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="%d"><a class="ga-card" href="%s"><i class="fa-solid %s"></i><b>%s</b><span>%s</span><span class="link-arrow mt-auto pt-2">%s <i class="fa-solid fa-arrow-right"></i></span></a></div>' % (i * 70, u(h), ic, e(t), e(dsc), e(lbl)) for i, (ic, t, dsc, h, lbl) in enumerate(cards))
+    return ('<section class="sec"><div class="container">%s<div class="row g-3">%s</div></div></section>'
+            % (sec_head("Wherever your campus is", "Built for Colleges <span class=\"grad\">Across the U.S.</span>", "LioraAI works with any state’s rules and any major student information system, so the same evaluation engine serves a community college in one state and a university system in another.", center=True), cs))
 
 GA_CALLOUT = {
     "articulate": ("georgia/transfer-credit-evaluation.html", "Evaluating TCSG or USG transcripts in Georgia?", "See how LioraAI applies Core IMPACTS domains and the TCSG–USG agreement."),

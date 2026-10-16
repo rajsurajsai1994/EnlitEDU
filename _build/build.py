@@ -54,9 +54,13 @@ def load_posts():
                            mins=mins, tag=_html.unescape(tag), filter=FILTER.get(_html.unescape(tag), "transfer"), img=POST_IMG.get(slug, "library-people"),
                            sub=_html.unescape(re.sub(r"<[^>]+>", "", sub.group(1)).strip()) if sub else "", body=body, faqs=faqs,
                            keywords=bp.get("keywords", ""), modified=bp.get("dateModified", date)[:10])
+    DESC_FIX = {"international-transcript-evaluation-first-year-admissions": "Different grading scales, diploma structures and definitions of secondary school: how to handle international transcripts without outsourcing every file.",
+                "reverse-transfer-associate-degree-explained": "A student transfers in with 50 credits and earns 20 more, leaving an unclaimed associate degree behind. Reverse transfer fixes that, if the plumbing works."}
+    for k, v in DESC_FIX.items():
+        if k in posts: posts[k]["desc"] = v
     for g in GA_POSTS:  # native posts written for the Georgia / AEO phase
         d = datetime.date.fromisoformat(g["date"])
-        posts[g["slug"]] = dict(g, date_h=d.strftime("%B %-d, %Y") if os.name != "nt" else d.strftime("%B %#d, %Y"),
+        posts[g["slug"]] = dict(g, region=g.get("region"), date_h=d.strftime("%B %-d, %Y") if os.name != "nt" else d.strftime("%B %#d, %Y"),
                                 filter=FILTER.get(g["tag"], "transfer"), modified=g["date"])
     return posts
 
@@ -81,8 +85,10 @@ def build_post(p, posts):
         inline_cta = ('<div class="callout" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><div style="flex:1;min-width:220px"><strong>See it in practice: %s</strong>%s</div><a class="btn-x btn-navy btn-sm" href="%s">Explore %s <i class="fa-solid fa-arrow-right"></i></a></div>'
                       % (e(m["name"]), e(__import__("data_modules").CARD[m["slug"]]), u(m["slug"] + ".html"), e(m["short"])))
     article = ('<section class="sec" style="padding-top:0"><div class="container"><div class="article">%s<div class="article-body">%s%s%s</div></div></div></section>' % (author, body, inline_cta, faq_html))
-    rel = [s for s in posts if s != p["slug"] and posts[s]["filter"] == p["filter"]][:3]
-    rel += [s for s in sorted(posts, key=lambda s: posts[s]["date"], reverse=True) if s != p["slug"] and s not in rel][:3 - len(rel)]
+    regional = lambda s: posts[s].get("region") == "Georgia"
+    pool = [s for s in posts if s != p["slug"] and (regional(s) == regional(p["slug"]) or not regional(s))]
+    rel = [s for s in pool if posts[s]["filter"] == p["filter"]][:3]
+    rel += [s for s in sorted(pool, key=lambda s: posts[s]["date"], reverse=True) if s not in rel][:3 - len(rel)]
     page_body = hero + cover + article + P.posts_row(rel, eb="Keep reading", h2="Related <span class=\"grad\">Articles</span>", tint=True) + cta_band()
     url = BASE + "/" + path
     schema = [breadcrumb([("Home", "index.html"), ("Blog", "blog.html"), (p["title"], path)]),
@@ -98,16 +104,21 @@ def build_post(p, posts):
 def build_blog_index(posts):
     path = "blog.html"; set_depth(path)
     order = sorted(posts, key=lambda s: posts[s]["date"], reverse=True)
-    feat = posts[order[0]]
+    national = [s for s in order if posts[s].get("region") != "Georgia"]
+    regional_posts = [s for s in order if posts[s].get("region") == "Georgia"]
+    feat = posts[national[0]]
     hero = ('<section class="page-hero on-dark"><div class="container">%s<div class="row align-items-center g-5"><div class="col-lg-6">%s<h1>Guides From the <span class="accent">Registrar’s Desk</span></h1>'
             '<p class="sub">Practical, plain-English articles on transfer credit, military and prior-learning credit, GPA standardization, FERPA and student success.</p></div>'
-            '<div class="col-lg-6"><a class="post-card" href="%s" style="box-shadow:var(--sh-3)"><div class="thumb">%s<span class="tag">Latest · %s</span></div><div class="body"><span class="meta">%s · %d min read</span><h3>%s</h3><p>%s</p></div></a></div></div></div></section>'
+            '<div class="col-lg-6"><a class="post-card" href="%s" style="box-shadow:var(--sh-3)"><div class="thumb">%s<span class="tag">Latest · %s</span></div><div class="body"><span class="meta">%s · %d min read</span><h2>%s</h2><p>%s</p></div></a></div></div></div></section>'
             % (crumbs([("Home", "index.html"), ("Blog", None)]), eyebrow("The EnlitEDU blog"), u("blog/%s.html" % feat["slug"]), img(feat["img"], 900, alt="", eager=True), e(feat["tag"]), feat["date_h"], feat["mins"], e(feat["title"]), e(feat["desc"])))
     filters = [("all", "All"), ("transfer", "Transfer & credit"), ("admissions", "Admissions"), ("student-success", "Student success"), ("enrollment", "Enrollment"), ("compliance", "Compliance"), ("technical", "Technical")]
     bar = '<div class="filter-bar" data-filter-group="#post-grid" role="group" aria-label="Filter articles">%s</div>' % "".join(
         '<button type="button" data-filter="%s" aria-pressed="%s">%s</button>' % (k, "true" if k == "all" else "false", v) for k, v in filters)
-    cards = "".join('<div class="col-md-6 col-lg-4" data-tags="%s" data-aos="fade-up" data-aos-delay="%d">%s</div>' % (posts[s]["filter"], (i % 3) * 80, P.post_card(s, h=2)) for i, s in enumerate(order))
-    body = hero + '<section class="sec"><div class="container">%s<div class="row g-4" id="post-grid">%s</div></div></section>' % (bar, cards) + cta_band()
+    cards = "".join('<div class="col-md-6 col-lg-4" data-tags="%s" data-aos="fade-up" data-aos-delay="%d">%s</div>' % (posts[s]["filter"], (i % 3) * 80, P.post_card(s, h=2)) for i, s in enumerate(national))
+    reg = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up">%s</div>' % P.post_card(s, h=3) for s in regional_posts)
+    reg_sec = ('<section class="sec tint"><div class="container"><div class="sec-head" data-aos="fade-up">%s<h2>State Guides: <span class="grad">Georgia</span></h2><p class="lede">Rules that only apply in one state. We work with institutions nationwide; these guides cover Georgia’s transfer and admissions specifics.</p></div><div class="row g-4">%s</div></div></section>'
+               % (eyebrow("Regional"), reg)) if regional_posts else ""
+    body = hero + '<section class="sec"><div class="container">%s<div class="row g-4" id="post-grid">%s</div></div></section>' % (bar, cards) + reg_sec + cta_band()
     schema = [breadcrumb([("Home", "index.html"), ("Blog", path)]),
               {"@type": "Blog", "@id": BASE + "/blog.html#blog", "name": "EnlitEDU Blog", "url": BASE + "/blog.html", "publisher": {"@id": BASE + "/#organization"},
                "blogPost": [{"@id": BASE + "/blog/%s.html#article" % s} for s in order]}]
@@ -155,7 +166,7 @@ def main():
            "## Modules"] + ["- [%s](%s/%s.html): %s" % (m["name"], BASE, m["slug"], m["desc"]) for m in MODULES] + [
            "", "## Solutions"] + ["- [%s](%s/solutions/%s.html): %s" % (s["nav"], BASE, s["slug"], s["desc"]) for s in SOLUTIONS] + [
            "", "## Who we serve"] + ["- [%s](%s/who-we-serve/%s.html): %s" % (a["nav"], BASE, a["slug"], a["desc"]) for a in AUDIENCES] + [
-           "", "## Georgia & Atlanta (EnlitEDU is headquartered in Cumming, Georgia, north metro Atlanta)"] + [
+           "", "## Georgia & Atlanta (headquarters state; EnlitEDU serves institutions across the U.S.)"] + [
            "- [%s](%s/%s): %s" % (g["title"].split(" | ")[0], BASE, g["path"], g["desc"]) for g in GA_PAGES] + [
            "- [Transcript evaluation near me](%s/%s): %s" % (BASE, NEAR_ME["path"], NEAR_ME["desc"]),
            "- Georgia rules LioraAI supports: USG Core IMPACTS (42-hour general education core in seven areas; credit transfers area to area between USG institutions), the TCSG–USG general education transfer agreement, Georgia Dual Enrollment college credit, the HOPE GPA calculated by the Georgia Student Finance Commission (distinct from an admissions GPA), and JST/CCAF transcripts from Georgia military installations.",

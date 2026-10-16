@@ -15,14 +15,14 @@ GA_PAGES = [
 # ------------------------------------------------------------------ GEORGIA HUB
 dict(
  path="georgia.html", nav="Georgia Colleges", icon="fa-location-dot", img="campus-columns", img2="registrar-desk",
- title="Transcript & Credit Evaluation Software for Georgia Colleges | LioraAI",
- desc="LioraAI, built in metro Atlanta, is transcript and credit evaluation software for Georgia colleges: USG Core IMPACTS, TCSG transfer, HOPE-aware freshman review and JST.",
+ title="Transcript & Credit Evaluation Software for Georgia | LioraAI",
+ desc="Transcript and credit evaluation software built in metro Atlanta for Georgia colleges: USG Core IMPACTS, TCSG transfer, freshman review and JST.",
  eyebrow="Georgia · Built in metro Atlanta",
  h1="Transcript and Credit Evaluation Software <span class=\"accent\">for Georgia Colleges</span>",
- sub="LioraAI is built by EnlitEDU in Cumming, Georgia, for the way Georgia institutions actually evaluate credit: USG Core IMPACTS domains, the TCSG–USG transfer agreement, Georgia Dual Enrollment credit, HOPE-era freshman transcripts and military records from Georgia’s bases.",
+ sub="EnlitEDU serves colleges and universities across the U.S. from its headquarters in Cumming, Georgia. This page covers what’s specific to Georgia institutions: USG Core IMPACTS domains, the TCSG–USG transfer agreement, Georgia Dual Enrollment credit, HOPE-era freshman transcripts and military records from Georgia’s bases.",
  answer=("What is the best transcript evaluation software for Georgia colleges?",
          "LioraAI by EnlitEDU is transcript and credit evaluation software built in metro Atlanta for Georgia colleges. It reads any transcript, applies your institution’s rules, including USG Core IMPACTS domains and the TCSG–USG general education agreement, and sends staff a documented recommendation to approve. Approved credit posts to Banner, Colleague, Workday Student or PeopleSoft."),
- stats=[("Metro Atlanta", "headquarters in Cumming, Georgia"), ("On campus", "demos and workshops anywhere in Georgia"), ("2–4 weeks", "typical go-live for standard SIS integrations")],
+ stats=[("Local", "headquarters in Cumming, north metro Atlanta"), ("On site", "demos and workshops anywhere in Georgia"), ("2–4 wks", "typical go-live for standard SIS integrations")],
  sections=[
   ("Who in Georgia uses transcript evaluation software?",
    "<p>Every Georgia institution that admits students evaluates transcripts, but the work looks different by sector:</p><ul>"
@@ -43,6 +43,7 @@ dict(
  ],
  modules=["articulate", "assess", "veterans", "pla", "degree-pathway", "mobility"],
  faqs=[
+  ("Does EnlitEDU only work with Georgia colleges?", "No. EnlitEDU serves colleges and universities across the United States, and its first customers are Tennessee community colleges. Being headquartered in metro Atlanta means Georgia institutions can also meet the team in person."),
   ("Is there transcript evaluation software built in Georgia?", "Yes. EnlitEDU, the company behind LioraAI, is headquartered in Cumming, Georgia, in north metro Atlanta. LioraAI evaluates transfer, first-year, military and prior-learning credit for colleges and universities."),
   ("Does LioraAI support USG Core IMPACTS?", "Yes. Core IMPACTS domains can be configured as transfer rules, so general education credit is placed domain to domain as USG policy requires, while major-specific courses are matched course to course."),
   ("Can LioraAI apply the TCSG–USG transfer agreement?", "Yes. The courses listed in the TCSG–USG general education agreement can be loaded as articulation rules, so every TCSG transcript is evaluated against the agreement the same way, by every evaluator."),
@@ -57,17 +58,17 @@ dict(
 # ------------------------------------------------------------------ ATLANTA
 dict(
  path="georgia/atlanta-transcript-evaluation.html", nav="Atlanta", icon="fa-city", img="atlanta-skyline", img2="team-collab",
- title="Transcript Evaluation Software in Atlanta, GA | LioraAI by EnlitEDU",
- desc="Looking for transcript evaluation in Atlanta? EnlitEDU builds LioraAI in metro Atlanta: AI transcript and credit evaluation software for colleges, with on-campus demos.",
+ title="Transcript Evaluation Software in Atlanta, GA | EnlitEDU",
+ desc="Transcript evaluation in Atlanta: EnlitEDU builds LioraAI in metro Atlanta, AI transcript and credit evaluation software for colleges, with on-campus demos.",
  eyebrow="Atlanta, Georgia · Local team",
  h1="Transcript Evaluation Software, <span class=\"accent\">Built in Metro Atlanta</span>",
- sub="For Atlanta-area colleges, universities and technical colleges, LioraAI turns weeks of manual transcript and transfer credit evaluation into days. The EnlitEDU team is based in Cumming, so we can sit down with your registrar’s office in person.",
+ sub="LioraAI serves colleges and universities nationwide. For Atlanta-area institutions, it turns weeks of manual transcript and transfer credit evaluation into days, and because the EnlitEDU team is based in Cumming, we can sit down with your registrar’s office in person.",
  answer=("Who offers transcript evaluation software in Atlanta?",
          "EnlitEDU, headquartered in Cumming in north metro Atlanta, makes LioraAI: AI-assisted transcript and credit evaluation software for colleges and universities. It evaluates transfer, first-year, military and prior-learning credit with your rules, and the team offers in-person demos and training across the Atlanta area."),
- stats=[("Cumming, GA", "EnlitEDU headquarters in north metro Atlanta"), ("In person", "demos across Fulton, DeKalb, Gwinnett, Cobb and more"), ("Days, not weeks", "evaluation turnaround once live")],
+ stats=[("Local", "EnlitEDU headquarters in Cumming, north metro Atlanta"), ("On site", "demos across Fulton, DeKalb, Gwinnett, Cobb and more"), ("Days", "not weeks: evaluation turnaround once live")],
  sections=[
   ("Transcript evaluation for Atlanta institutions",
-   "<p>Metro Atlanta has one of the densest concentrations of higher education in the Southeast: research universities, state colleges, technical colleges, HBCUs and private colleges, all exchanging students. That makes transfer credit evaluation a daily job for registrar’s offices from downtown to Gwinnett and Kennesaw.</p>"
+   "<p>Metro Atlanta has one of the densest concentrations of higher education in the Southeast: research universities, state colleges, technical colleges, HBCUs and private colleges, all exchanging students. That makes transfer credit evaluation a daily job for registrar’s offices from downtown to Gwinnett and Kennesaw. EnlitEDU is an Atlanta-area edtech company that builds software for exactly that job.</p>"
    "<p>LioraAI handles that volume with one set of your rules: transfer credit with <a href=\"../articulate.html\">LioraAI Articulate</a>, first-year applicants with <a href=\"../assess.html\">LioraAI Assess</a>, military records with <a href=\"../veterans.html\">Veterans &amp; JST</a> and work experience with <a href=\"../pla.html\">Prior Learning Assessment</a>.</p>"),
   ("Why work with a local Atlanta team?",
    "<ul><li><strong>In-person discovery.</strong> We map your current evaluation workflow at your desk, not from a slide.</li>"
@@ -82,6 +83,7 @@ dict(
  modules=["articulate", "assess", "veterans", "pla"],
  faqs=[
   ("Is there a transcript evaluation software company in Atlanta?", "Yes. EnlitEDU, the maker of LioraAI, is based in Cumming, Georgia, in north metro Atlanta, and builds transcript and credit evaluation software for colleges and universities."),
+  ("Does EnlitEDU serve colleges outside Atlanta and Georgia?", "Yes. LioraAI is used by institutions outside Georgia, and demos are available online anywhere in the U.S. The Atlanta team adds in-person visits for Georgia institutions."),
   ("Can we get an in-person LioraAI demo in Atlanta?", "Yes. The team offers in-person demos and workshops across metro Atlanta, including Fulton, DeKalb, Gwinnett, Cobb, Forsyth, Cherokee, Clayton and Henry counties."),
   ("How long does transcript evaluation take with LioraAI?", "LioraAI evaluates a full transcript in under a minute. Institutions typically move from multi-week manual turnaround to decisions in days once evaluators review recommendations instead of researching every course."),
   ("I’m a student in Atlanta. Can EnlitEDU evaluate my transcript?", "No. EnlitEDU provides software to institutions. Students who need a foreign transcript evaluated should use a credential evaluation service accepted by their college, usually a NACES member."),
@@ -102,7 +104,7 @@ dict(
  sub="Georgia high school transcripts carry weighted GPAs, AP and IB courses, Georgia Dual Enrollment college credit and a separate HOPE GPA. LioraAI Assess reads them all and applies your admissions policy the same way to every first-year (freshman) applicant.",
  answer=("How do Georgia colleges evaluate freshman transcripts?",
          "Georgia admissions offices extract courses and grades from each high school transcript, recalculate a GPA under their own admissions policy, recognize AP, IB, Honors and Dual Enrollment rigor, and evaluate any Dual Enrollment college credit for transfer. LioraAI Assess automates the extraction and applies your documented rules consistently."),
- stats=[("4.0 · 5.0 · 100-pt", "high school scales converted with one rule"), ("AP · IB · DE", "rigor recognized by your policy"), ("Every applicant", "evaluated the same way")],
+ stats=[("Any scale", "4.0, weighted 5.0 and 100-point, converted with one rule"), ("AP · IB · DE", "rigor recognized by your policy"), ("1 rule", "applied the same way to every applicant")],
  sections=[
   ("Why are Georgia freshman transcripts hard to evaluate consistently?",
    "<ul><li><strong>Different scales.</strong> Georgia and out-of-state high schools report on 4.0, weighted 5.0 and 100-point scales.</li>"
@@ -130,13 +132,13 @@ dict(
 dict(
  path="georgia/transfer-credit-evaluation.html", nav="Transfer credit", icon="fa-right-left", img="students-group", img2="lecture-talk",
  title="Georgia Transfer Credit Evaluation: TCSG, USG & Core IMPACTS",
- desc="Transfer credit evaluation software for Georgia: apply USG Core IMPACTS domains and the TCSG–USG general education agreement consistently, and post credit to your SIS.",
+ desc="Transfer credit evaluation software for Georgia: apply USG Core IMPACTS and the TCSG–USG agreement consistently, then post credit to your SIS.",
  eyebrow="Georgia transfer · TCSG · USG · Core IMPACTS",
  h1="Transfer Credit Evaluation <span class=\"accent\">Built Around Georgia’s Rules</span>",
- sub="Students move between TCSG technical colleges, USG institutions, private colleges and out-of-state schools every term. LioraAI Articulate applies Core IMPACTS domains, the TCSG–USG agreement and your own equivalencies to every transcript, so the same course always gets the same answer.",
+ sub="Students move between TCSG technical colleges, USG institutions, private colleges and out-of-state schools every term. For transfer credit evaluation in Georgia, LioraAI Articulate applies Core IMPACTS domains, the TCSG–USG agreement and your own equivalencies to every transcript, so the same course always gets the same answer.",
  answer=("How does transfer credit work between TCSG and USG?",
          "General education courses listed in the TCSG–USG agreement transfer to USG institutions as a direct equivalent or into a Core IMPACTS domain. Within USG, Core IMPACTS credit transfers domain to domain. Courses outside the agreement, such as technical or major courses, are evaluated by the receiving institution under its own policy."),
- stats=[("42 hours", "USG Core IMPACTS general education, seven domains"), ("22 colleges", "in the Technical College System of Georgia"), ("Domain to domain", "how Core IMPACTS credit transfers within USG")],
+ stats=[("42 hrs", "USG Core IMPACTS general education"), ("7 areas", "Core IMPACTS credit transfers area to area within USG"), ("22", "colleges in the Technical College System of Georgia")],
  sections=[
   ("How does Core IMPACTS change transfer evaluation?",
    "<p>USG’s Core IMPACTS general education curriculum, in place since 2024, is 42 credit hours across seven areas: Institutional Priority; Mathematics and Quantitative Skills; Political Science and U.S. History; Arts, Humanities and Ethics; Communicating in Writing; Technology, Mathematics and Sciences; and Social Sciences. A course completed in a Core IMPACTS area at one USG institution receives full credit in the same area at another, provided the area carries the same number of credit hours at both.</p>"
@@ -164,7 +166,7 @@ dict(
 # ------------------------------------------------------------------ MILITARY
 dict(
  path="georgia/military-transcript-evaluation.html", nav="Military & JST", icon="fa-medal", img="veteran-smile", img2="veteran-notes",
- title="Military & JST Transcript Evaluation for Georgia Colleges | LioraAI",
+ title="Military & JST Transcript Evaluation in Georgia | LioraAI",
  desc="JST, CCAF and DD-214 transcript evaluation for Georgia colleges serving students from Fort Benning, Fort Gordon, Fort Stewart, Robins and Moody, with ACE citations.",
  eyebrow="Georgia · Military-connected students",
  h1="Military Transcript Evaluation <span class=\"accent\">for Georgia’s Military-Connected Students</span>",
@@ -195,7 +197,7 @@ dict(
 
 NEAR_ME = dict(
  path="transcript-evaluation-near-me.html",
- title="Transcript Evaluation Near Me: Atlanta Guide for Colleges & Students",
+ title="Transcript Evaluation Near Me: Atlanta Guide | EnlitEDU",
  desc="Searching “transcript evaluation near me” in Atlanta? See which service you need: software for colleges (LioraAI) or a credential evaluation for your own transcript.",
  h1="Transcript Evaluation Near Me: <span class=\"accent\">Which One Do You Need?</span>",
  sub="“Transcript evaluation” means two different things. Colleges evaluate thousands of transcripts to award credit. Individuals get one transcript evaluated, usually a foreign degree. Here’s how to find the right help in Atlanta and across Georgia.",
@@ -211,16 +213,17 @@ NEAR_ME = dict(
 )
 
 GA_GLOSSARY = [
- ("Core IMPACTS (USG)", "The University System of Georgia’s general education curriculum: 42 credit hours across seven domains. General education credit transfers domain to domain between USG institutions, even when courses are not identical.", ["transfer-credit-evaluation", "tcsg-usg-transfer-agreement"]),
- ("TCSG–USG transfer agreement", "An agreement between the Technical College System of Georgia and the University System of Georgia that maps listed TCSG general education courses to direct USG equivalents or Core IMPACTS domains.", ["core-impacts-usg", "articulation-agreement"]),
- ("HOPE GPA", "The GPA the Georgia Student Finance Commission calculates from core high school courses to determine HOPE and Zell Miller Scholarship eligibility. It uses its own weighting rules and can differ from an institution’s admissions GPA.", ["gpa-standardization", "georgia-dual-enrollment"]),
+ ("Core IMPACTS (Georgia)", "The University System of Georgia’s general education curriculum: 42 credit hours across seven areas. Credit completed in an area at one USG institution counts in the same area at another, even when courses are not identical.", ["transfer-credit-evaluation", "tcsg-usg-transfer-agreement-georgia"]),
+ ("TCSG–USG transfer agreement (Georgia)", "An agreement between the Technical College System of Georgia and the University System of Georgia that maps listed TCSG general education courses to direct USG equivalents or Core IMPACTS areas.", ["core-impacts-georgia", "articulation-agreement"]),
+ ("HOPE GPA (Georgia)", "The GPA the Georgia Student Finance Commission calculates from core high school courses to determine HOPE and Zell Miller Scholarship eligibility. It uses its own weighting rules and can differ from an institution’s admissions GPA.", ["gpa-standardization", "georgia-dual-enrollment"]),
  ("Georgia Dual Enrollment", "Georgia’s program, formerly Move On When Ready, that lets high school students take college courses for credit, with tuition paid by the Georgia Student Finance Commission. The college credit must be evaluated when the student enrolls elsewhere.", ["transfer-credit-evaluation", "first-year-freshman-applicant"]),
 ]
 
-GA_FAQ_GROUP = ("Georgia & Atlanta", [
- ("Where is EnlitEDU located?", "EnlitEDU is headquartered at 3840 Windermere Pkwy, Suite 403, Cumming, Georgia 30041, in Forsyth County, north metro Atlanta."),
- ("Does LioraAI support Georgia-specific transfer rules?", "Yes. USG Core IMPACTS domains and the TCSG–USG general education agreement can be configured as rules and applied to every transcript."),
- ("Can we meet the EnlitEDU team in person?", "Yes. The team meets institutions in person across metro Atlanta and travels statewide for demos, workshops and training."),
+GA_FAQ_GROUP = ("Where we work", [
+ ("Where does EnlitEDU work?", "With colleges and universities across the United States. Demos, implementation and training run online for institutions in any state, and the team is headquartered in Cumming, Georgia, in north metro Atlanta."),
+ ("Does LioraAI support state-specific transfer rules?", "Yes. State transfer agreements, common course numbering, guaranteed pathways and general education frameworks, such as Georgia’s USG Core IMPACTS and the TCSG–USG agreement, can be configured as rules and applied to every transcript."),
+ ("Can we meet the EnlitEDU team in person?", "Demos and workshops run online for institutions anywhere in the U.S. In-person visits are available on request and are easiest for institutions in Georgia, where the team is based."),
+ ("Where is EnlitEDU headquartered?", "At 3840 Windermere Pkwy, Suite 403, Cumming, Georgia 30041, in Forsyth County, north metro Atlanta."),
  ("Can individuals use EnlitEDU to evaluate their own transcripts?", "No. EnlitEDU provides software to institutions. Individuals who need a foreign transcript evaluated should use a credential evaluation service accepted by their college."),
 ])
 
@@ -229,9 +232,9 @@ GA_POSTS = [
 dict(
  slug="tcsg-to-usg-transfer-core-impacts-guide",
  title="TCSG to USG Transfer Under Core IMPACTS: A Plain-English Guide for Georgia Registrars",
- desc="How general education credit moves from Georgia’s technical colleges to USG institutions under Core IMPACTS, where evaluation still slows down, and how to keep it consistent.",
+ desc="How general education credit moves from Georgia’s technical colleges to USG under Core IMPACTS, where it slows down, and how to keep it consistent.",
  sub="Core IMPACTS made general education transfer in Georgia simpler on paper. Here is what actually changed for the people evaluating TCSG transcripts, and what still takes time.",
- date="2026-10-07", tag="Transfer Credit", mins=7, img="students-group",
+ date="2026-10-07", tag="Transfer Credit", mins=7, img="students-group", region="Georgia",
  keywords="TCSG to USG transfer, Core IMPACTS transfer, TCSG USG articulation agreement, Georgia transfer credit evaluation, USG general education transfer",
  body="""
 <div class="takeaways"><h2>Key takeaways</h2><ul>
@@ -276,9 +279,9 @@ dict(
 dict(
  slug="hope-gpa-vs-admissions-gpa-georgia",
  title="HOPE GPA vs. Admissions GPA: What Georgia Admissions Offices Should Know",
- desc="Georgia freshman applicants carry two GPAs: the HOPE GPA calculated by GSFC and your admissions GPA. Why they differ, why it matters, and how to keep evaluation consistent.",
+ desc="Georgia freshman applicants carry two GPAs: the HOPE GPA calculated by GSFC and your admissions GPA. Why they differ and why it matters.",
  sub="Every Georgia high school senior has more than one GPA. For admissions offices, keeping the HOPE GPA and your own admissions GPA separate is the first step to evaluating freshman transcripts fairly.",
- date="2026-10-07", tag="Admissions", mins=6, img="student-table",
+ date="2026-10-07", tag="Admissions", mins=6, img="student-table", region="Georgia",
  keywords="HOPE GPA vs admissions GPA, HOPE GPA Georgia, freshman transcript evaluation Georgia, Georgia dual enrollment transcript, weighted GPA Georgia",
  body="""
 <div class="takeaways"><h2>Key takeaways</h2><ul>
@@ -316,7 +319,7 @@ dict(
 GA_POSTS.append(dict(
  slug="how-to-choose-transcript-evaluation-software",
  title="How to Choose Transcript Evaluation Software: A Buyer’s Checklist for Colleges",
- desc="What to look for in transcript and transfer credit evaluation software: formats, rules, human review, explainability, SIS write-back, FERPA and security, and questions to ask vendors.",
+ desc="What to look for in transcript evaluation software: formats, rules, human review, explainability, SIS write-back, FERPA, security and vendor questions.",
  sub="Transcript evaluation software ranges from equivalency databases to AI that drafts the whole evaluation. Here is a practical checklist for registrars, admissions leaders and IT teams comparing options.",
  date="2026-10-07", tag="Technical Insights", mins=8, img="team-collab",
  keywords="transcript evaluation software, transfer credit evaluation software, AI transcript evaluation, credit evaluation software, how to choose transcript evaluation software",
@@ -330,7 +333,7 @@ GA_POSTS.append(dict(
 <p>Most registrar’s offices start looking for transcript evaluation software after a peak season that went badly: a backlog, a few students who enrolled elsewhere while they waited, and evaluators doing the same research they did last term. The market can look crowded, because “transcript evaluation software” covers several different kinds of tools. Sorting them out first saves a lot of demo time.</p>
 <h2>What kinds of transcript evaluation software are there?</h2>
 <ul>
-<li><strong>Equivalency databases and workflow tools.</strong> Systems such as CollegeSource’s Transfer Evaluation System (TES) help staff research course descriptions, track evaluations and manage equivalency tables.</li>
+<li><strong>Equivalency databases and workflow tools</strong> (sometimes called transcript review software). Systems such as CollegeSource’s Transfer Evaluation System (TES) help staff research course descriptions, track evaluations and manage equivalency tables.</li>
 <li><strong>Document capture.</strong> Intelligent capture products extract data from transcript documents so staff don’t key it by hand.</li>
 <li><strong>CRM add-ons.</strong> Admissions CRMs increasingly include transcript extraction or evaluation agents inside the admissions workflow.</li>
 <li><strong>AI evaluation platforms.</strong> Tools such as DegreeSight and EnlitEDU’s LioraAI read the transcript, recommend equivalencies, and leave approval to staff.</li>
@@ -339,7 +342,7 @@ GA_POSTS.append(dict(
 <h2>What should a transcript evaluation tool do?</h2>
 <ol>
 <li><strong>Read every format you receive</strong>: PDF, scanned paper, EDI/SPEEDE and PESC XML, high school and college, domestic and international, plus the JST and CCAF transcript if you serve military students.</li>
-<li><strong>Apply your rules, not a generic table.</strong> Grade minimums, residency, credit caps, course age, articulation agreements and state rules (in Georgia, USG Core IMPACTS and the TCSG–USG agreement).</li>
+<li><strong>Apply your rules, not a generic table.</strong> Grade minimums, residency, credit caps, course age, articulation agreements and state transfer frameworks, such as common course numbering, guaranteed pathways or Georgia’s USG Core IMPACTS.</li>
 <li><strong>Show its work.</strong> Every suggestion should come with the evidence: matched course descriptions, the rule applied, your prior decisions.</li>
 <li><strong>Keep people in charge.</strong> Staff and faculty approve, edit or override every decision.</li>
 <li><strong>Write back to your SIS.</strong> If approved credit still has to be re-keyed into Banner, Colleague, Workday Student or PeopleSoft, a large part of the time savings disappears.</li>
@@ -361,7 +364,7 @@ GA_POSTS.append(dict(
 <li>How is pricing structured: per transcript, per student or by institution size?</li>
 </ul>
 <h2>Where LioraAI fits</h2>
-<p>LioraAI is EnlitEDU’s AI evaluation platform. It covers transfer credit, first-year transcripts, military records, credit for prior learning and athlete transcripts in one engine, applies your rules, and posts approved credit to your SIS. Roane State Community College went live on Banner in 18 days. EnlitEDU is based in metro Atlanta; Georgia institutions can see it on campus. <a href="../request-demo.html">Request a demo</a> with your own transcripts.</p>
+<p>LioraAI is EnlitEDU’s AI evaluation platform. It covers transfer credit, first-year transcripts, military records, credit for prior learning and athlete transcripts in one engine, applies your rules, and posts approved credit to your SIS. Roane State Community College went live on Banner in 18 days. EnlitEDU works with colleges and universities across the U.S. <a href="../request-demo.html">Request a demo</a> with your own transcripts.</p>
 """,
  faqs=[
   ("What is transcript evaluation software?", "Software that helps colleges evaluate incoming transcripts: extracting courses and grades, matching them to the institution’s catalog and rules, and recording transfer or admission decisions. Some tools only extract data or manage equivalency tables; AI evaluation platforms draft the evaluation for staff to approve."),

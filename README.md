@@ -67,6 +67,28 @@ Icons used on the site were checked; if you add icons, stick to long-standing on
 - Product UI is drawn in HTML/CSS (the old `dashboard-preview.png` is a placeholder).
   **Real LioraAI screenshots per module would be the single biggest upgrade.**
 
+## Phase 1: Georgia / Atlanta local SEO
+
+- Local pages: `georgia.html`, `georgia/atlanta-transcript-evaluation.html`, `georgia/freshman-transcript-evaluation.html`,
+  `georgia/transfer-credit-evaluation.html`, `georgia/military-transcript-evaluation.html`, `transcript-evaluation-near-me.html`
+  (content in `_build/data_georgia.py`, layout in `_build/pages3.py`).
+- **Positioning rule:** EnlitEDU serves colleges across the U.S. Georgia appears only on the regional pages above,
+  the address, and one "Georgia (HQ state)" link in the nav/footer. National pages, the homepage title, top bar,
+  module pages and blog index stay national. Georgia-only posts carry `region="Georgia"`: they sit in a labelled
+  "State Guides: Georgia" block on blog.html and are never suggested as related posts on national articles.
+  Check with `python _build/geo_scan.py`.
+- Georgia articles: TCSG→USG under Core IMPACTS, HOPE GPA vs admissions GPA, buyer's checklist (also in `data_georgia.py`).
+- Re-run checks after any edit:
+
+```bash
+python _build/build.py
+python _build/audit.py         # titles, descriptions, H1s, headings, schema, FAQ parity, links, sitemap
+python _build/keyword_map.py   # confirms each target keyword is on its target page
+```
+
+- Off-site (required for "near me" / map results): Google Business Profile at the Cumming address,
+  a business phone number, Bing Places, Search Console + Bing Webmaster Tools sitemap submission.
+
 ## Verify before publishing
 
 1. **Claims** carried over from the current site: Roane State 90% / 3 weeks → 2 days / 18-day

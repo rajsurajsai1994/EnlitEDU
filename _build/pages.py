@@ -89,12 +89,12 @@ def build_home():
              '<circle cx="100" cy="4" r="2.6" fill="#ffd43e"/><circle cx="196" cy="100" r="2" fill="#6b85f8"/><circle cx="32" cy="168" r="2.2" fill="#ffd43e"/><circle cx="18" cy="52" r="1.6" fill="#fff"/><circle cx="170" cy="170" r="1.6" fill="#fff"/></svg></div>')
     hero = ('<section class="hero on-dark"><div class="container"><div class="row align-items-center g-5"><div class="col-lg-6">'
             '%s<h1>Recognize Every Credit. <span class="accent">Advance Every Learner.</span></h1>'
-            '<p class="sub">LioraAI evaluates transfer transcripts, military records, prior learning and first-year applications against your own rules, so students get a credit answer in days, not weeks, and your team reviews instead of re-keying.</p>'
+            '<p class="sub">LioraAI is transcript evaluation software for colleges. It evaluates transfer transcripts, military records, prior learning and first-year applications against your own rules, so students get a credit answer in days, not weeks.</p>'
             '<div class="sig-bar"></div><div class="btn-row"><a class="btn-x btn-gold" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a>'
             '<a class="play-btn" href="https://www.youtube.com/watch?v=Ti6YBv2R_Gc" data-video="Ti6YBv2R_Gc"><span class="ring"><i class="fa-solid fa-play"></i></span>Watch the 2-minute overview</a></div>'
             '<div class="proof-line"><div class="avatars">%s</div><span>Hear from leaders at <a href="#voices">Roane State &amp; Nashville State</a></span></div></div>'
             '<div class="col-lg-6"><div class="hero-visual">%s<div class="hero-photo">%s</div>%s%s%s</div></div></div></div></section>'
-            % (eyebrow("LioraAI · Built in metro Atlanta for higher ed"), u("request-demo.html"), av, orbit,
+            % (eyebrow("LioraAI · Academic record intelligence for U.S. higher ed"), u("request-demo.html"), av, orbit,
                img("students-laptop", 900, eager=True, sizes="(max-width: 991px) 100vw, 560px", ratio=(5, 5.6)),
                float_card("fa-circle-check", "ok", "Transcript evaluated", "15 credits ready to post to Banner", "fc-1"),
                float_card("fa-medal", "gold", "JST mapped to ACE", "12 credits · citations attached", "fc-2"),
@@ -133,7 +133,7 @@ def build_home():
     modules = ('<section class="sec"><div class="container">%s%s<div class="mt-5">%s</div></div></section>'
                % (sec_head("The LioraAI platform", "Seven Modules. One Set of <span class=\"grad\">Your</span> Rules.", "Pick the modules you need today and add the rest when you’re ready. Everything runs on the same evaluation engine and writes to the same SIS.", center=True), fams, which_module()))
 
-    steps = "".join('<div class="step" data-aos="fade-up" data-aos-delay="%d"><div class="num"><i class="fa-solid %s"></i></div><h4>%s</h4><p>%s</p></div>' % (i * 90, ic, t, d)
+    steps = "".join('<div class="step" data-aos="fade-up" data-aos-delay="%d"><div class="num"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div>' % (i * 90, ic, t, d)
                     for i, (ic, t, d) in enumerate(BY_SLUG["articulate"]["steps"]))
     how = ('<section class="sec tint-2"><div class="container">%s<div class="steps mb-5">%s</div>'
            '<div class="row align-items-center g-5 mt-4"><div class="col-lg-6" data-aos="fade-right"><div class="sec-head mb-3">%s<h2>A Live Workflow, <span class="grad">Not</span> a Black Box</h2>'
@@ -176,12 +176,12 @@ def build_home():
             '<p class="muted">Approved decisions post to your SIS through API or secure SFTP. No re-keying, no new system of record.</p>%s</div><div class="col-lg-8">%s</div></div></div></section>'
             % (eyebrow("Integrations"), arrow("All integrations", "integrations.html"), integrations_strip()))
 
-    home_faqs = FAQ_HUB[0][1][:3] + [FAQ_HUB[5][1][0], FAQ_HUB[5][1][1], FAQ_HUB[1][1][0], FAQ_HUB[2][1][0], FAQ_HUB[3][1][0]]
-    faq = faq_block(home_faqs, title="Questions We Hear Every Week", side_img="leaders-talk")
+    home_faqs = FAQ_HUB[0][1][:3] + [FAQ_HUB[5][1][0], FAQ_HUB[1][1][0], FAQ_HUB[2][1][0], FAQ_HUB[3][1][0]]
+    faq = faq_block(home_faqs[1:], title="Questions We Hear Every Week", side_img="leaders-talk")
     latest = posts_row(["will-my-credits-transfer-self-service-answer", "how-to-evaluate-joint-services-transcript-jst", "reverse-transfer-associate-degree-explained"],
                        eb="Insights", h2="Fresh From the <span class=\"grad\">Blog</span>")
-    from pages3 import home_georgia_section
-    body = hero + logo_marquee() + problem + home_georgia_section() + tabs + modules + how + proof + voices + tiles + audiences + ints + faq + latest + cta_band()
+    from pages3 import home_nationwide_section, answer_box
+    body = hero + answer_box(*home_faqs[0]) + logo_marquee() + problem + tabs + modules + how + proof + voices + tiles + audiences + home_nationwide_section() + ints + faq + latest + cta_band()
 
     schema = [{"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "EnlitEDU", "publisher": {"@id": BASE + "/#organization"}, "inLanguage": "en-US"},
               {"@type": "SoftwareApplication", "@id": BASE + "/#lioraai", "name": "LioraAI", "applicationCategory": "BusinessApplication", "applicationSubCategory": "Higher education transcript evaluation",
@@ -189,10 +189,10 @@ def build_home():
                "description": "Academic record intelligence for higher education: transfer credit evaluation, first-year GPA standardization, credit for prior learning, JST/military credit, NCAA progress-toward-degree support, student degree pathways and transfer analytics.",
                "featureList": [m["name"] for m in MODULES], "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD"}, "description": "Priced by institution size, volume and modules."}},
               {"@type": "WebPage", "@id": BASE + "/#webpage", "url": BASE + "/", "name": "Transcript & Credit Evaluation Software | LioraAI by EnlitEDU", "isPartOf": {"@id": BASE + "/#website"}, "about": {"@id": BASE + "/#lioraai"},
-               "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero .sub"]}},
+               "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero .sub", ".answer-box"]}},
               faq_schema(home_faqs, "index.html")] + [video_schema(t) for t in TESTIMONIALS]
-    page(path, "Transcript & Credit Evaluation Software | Atlanta, GA | LioraAI",
-         "LioraAI by EnlitEDU, based in metro Atlanta, is transcript and credit evaluation software for Georgia and U.S. colleges: transfer, freshman, military and CPL credit in days.",
+    page(path, "Transcript Evaluation Software for U.S. Colleges | LioraAI",
+         "LioraAI is transcript evaluation software for colleges and universities across the U.S.: transfer, freshman, military and prior-learning credit in days, not weeks.",
          body, schema=schema)
 
 # ===================================================================== MODULE
@@ -214,8 +214,8 @@ def build_module(m):
               which_module() if m.get("clarifier") else '<div class="split-img">%s%s</div>' % (img(MOD_IMG[m["slug"]] if MOD_IMG[m["slug"]] != m["hero_img"] else "team-collab", 900, ratio=(4, 3.4)), float_card(*m["floats"][1]))))
 
     pains = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="pain"><i class="fa-solid fa-xmark"></i><p>%s</p></div></div>' % ((i % 3) * 80, p) for i, p in enumerate(m["pains"]))
-    from pages3 import ga_callout
-    pain_sec = ga_callout(m["slug"]) + ('<section class="sec tint"><div class="container">%s<div class="row g-3">%s</div></div></section>'
+    from pages3 import answer_box
+    pain_sec = ('<section class="sec tint"><div class="container">%s<div class="row g-3">%s</div></div></section>'
                 % (sec_head("The challenge", "The Problems You Know <span class=\"grad\">Too Well</span>", "", center=True), pains))
 
     diffs = "".join('<div class="col-md-6" data-aos="fade-up" data-aos-delay="%d"><div class="card-x diff"><div class="ico%s"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div></div>'
@@ -225,13 +225,13 @@ def build_module(m):
                 '<div class="col-lg-8"><div class="row g-4">%s</div></div></div></div></section>'
                 % (eyebrow("The difference"), img(m["hero_img"] if m["slug"] != "athletics" else "athlete-track", 700, ratio=(4, 3.4)), diffs))
 
-    steps = "".join('<div class="step" data-aos="fade-up" data-aos-delay="%d"><div class="num"><i class="fa-solid %s"></i></div><h4>%s</h4><p>%s</p></div>' % (i * 90, ic, t, d) for i, (ic, t, d) in enumerate(m["steps"]))
+    steps = "".join('<div class="step" data-aos="fade-up" data-aos-delay="%d"><div class="num"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div>' % (i * 90, ic, t, d) for i, (ic, t, d) in enumerate(m["steps"]))
     style = ' style="grid-template-columns:repeat(%d,minmax(0,1fr))"' % len(m["steps"]) if len(m["steps"]) != 5 else ""
     how = ('<section class="sec dark anchor" id="how"><div class="container">%s<div class="steps"%s>%s</div>'
            '<div class="row justify-content-center mt-6"><div class="col-lg-9" data-aos="zoom-in-up">%s</div></div></div></section>'
            % (sec_head("How it works", "Simple for Staff. <span class=\"grad\">Documented</span> for Everyone.", "", center=True), style, steps, m["mock"]()))
 
-    feats = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="feature"><span class="ico"><i class="fa-solid %s"></i></span><div><h4>%s</h4><p>%s</p></div></div></div>' % ((i % 3) * 80, ic, t, d) for i, (ic, t, d) in enumerate(m["features"]))
+    feats = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="feature"><span class="ico"><i class="fa-solid %s"></i></span><div><h3>%s</h3><p>%s</p></div></div></div>' % ((i % 3) * 80, ic, t, d) for i, (ic, t, d) in enumerate(m["features"]))
     feat_sec = ('<section class="sec"><div class="container">%s<div class="row g-5">%s</div></div></section>'
                 % (sec_head("Key capabilities", "Built for the Way <span class=\"grad\">Your</span> Office Works", "", center=True), feats))
 
@@ -252,7 +252,7 @@ def build_module(m):
     related = "".join('<div class="col-md-4" data-aos="fade-up" data-aos-delay="%d">%s</div>' % (i * 90, mod_card(BY_SLUG[r]["slug"] + ".html", BY_SLUG[r]["cat"], BY_SLUG[r]["name"], CARD[r], BY_SLUG[r]["icon"], MOD_IMG[r])) for i, r in enumerate(m["related"]))
     rel_sec = ('<section class="sec"><div class="container">%s<div class="row g-4">%s</div></div></section>'
                % (sec_head("Works even better with", "Related <span class=\"grad\">Modules</span>", "", center=True), related))
-    body = (hero + who + pain_sec + diff_sec + how + feat_sec + proof_sec + ints + faq_block(m["faqs"], side_img=m["hero_img"]) + rel_sec
+    body = (hero + answer_box(*m["faqs"][0]) + who + pain_sec + diff_sec + how + feat_sec + proof_sec + ints + faq_block(m["faqs"][1:], side_img=m["hero_img"]) + rel_sec
             + posts_row(m["blog"], tint=True) + cta_band(h2="See %s on <span class=\"grad\">your</span> transcripts." % e(m["name"])))
     schema = [breadcrumb([("Home", "index.html"), ("Products", "platform.html"), (m["name"], path)]),
               {"@type": "SoftwareApplication", "@id": BASE + "/" + path + "#software", "name": m["name"], "alternateName": m["cat"],
@@ -261,7 +261,7 @@ def build_module(m):
                "audience": {"@type": "Audience", "audienceType": m["audience"]},
                "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "description": "Priced by institution size and volume. Contact EnlitEDU for a quote."}},
               {"@type": "WebPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": m["title"], "about": {"@id": BASE + "/" + path + "#software"},
-               "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".page-hero .sub"]}},
+               "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer-box", ".page-hero .sub"]}},
               faq_schema(m["faqs"], path)]
     page(path, m["title"], m["desc"], body, schema=schema, active="products")
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Shared layout, helpers and components for the EnlitEDU static site."""
-import json, html, os
+import json, html, os, re
 
 BASE = "https://www.enlitedu.com"
 OUT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -132,8 +132,8 @@ AUDIENCE_NAV = [
     ("who-we-serve/four-year-universities.html", "Four-Year Universities", "First-year, transfer & athletics", "fa-building-columns"),
     ("who-we-serve/hbcus-and-msis.html", "HBCUs & MSIs", "Fair, consistent evaluation", "fa-users"),
     ("who-we-serve/state-systems.html", "State Systems & Consortia", "One set of rules across campuses", "fa-sitemap"),
-    ("georgia.html", "Georgia Colleges", "Built in metro Atlanta, for Georgia", "fa-location-dot"),
 ]
+REGION_NAV = ("georgia.html", "Georgia (headquarters state)", "On-campus visits and Georgia transfer rules", "fa-location-dot")
 RESOURCES_NAV = [
     ("blog.html", "Blog", "Practical guides for registrars", "fa-newspaper"),
     ("case-studies.html", "Customer Stories", "Results from real campuses", "fa-star"),
@@ -174,9 +174,9 @@ def header_html(active=""):
     sol = ('<div class="inner cols-2"><div><p class="mega-title">By outcome</p>%s</div><div><p class="mega-title">&nbsp;</p>%s</div>%s</div>'
            % ("".join(_mlink(*s) for s in SOLUTIONS_NAV[:3]), "".join(_mlink(*s) for s in SOLUTIONS_NAV[3:]),
               _feature("grads-selfie", "Customer story", "Nashville State lifts transfer yield 24% in one cycle", "case-studies/nashville-state-community-college.html", "Read the story")))
-    aud = ('<div class="inner cols-2"><div><p class="mega-title">By institution</p>%s</div><div><p class="mega-title">&nbsp;</p>%s</div>%s</div>'
-           % ("".join(_mlink(*a) for a in AUDIENCE_NAV[:2]), "".join(_mlink(*a) for a in AUDIENCE_NAV[2:]),
-              _feature("atlanta-skyline", "Georgia · Atlanta", "Built in metro Atlanta for Georgia colleges: USG, TCSG and private", "georgia.html", "Georgia colleges")))
+    aud = ('<div class="inner cols-2"><div><p class="mega-title">By institution, nationwide</p>%s</div><div><p class="mega-title">&nbsp;</p>%s<p class="mega-title" style="margin-top:18px">By region</p>%s</div>%s</div>'
+           % ("".join(_mlink(*a) for a in AUDIENCE_NAV[:2]), "".join(_mlink(*a) for a in AUDIENCE_NAV[2:]), _mlink(*REGION_NAV),
+              _feature("campus-columns", "Customer story", "Roane State cut transcript evaluation from three weeks to two days", "case-studies/roane-state-community-college.html", "Read the story")))
     res = ('<div class="inner cols-2"><div><p class="mega-title">Learn</p>%s</div><div><p class="mega-title">&nbsp;</p>%s</div>%s</div>'
            % ("".join(_mlink(*r) for r in RESOURCES_NAV[:3]), "".join(_mlink(*r) for r in RESOURCES_NAV[3:]),
               _feature("veteran-notes", "New guide", "How to read a Joint Services Transcript without losing an afternoon", "blog/how-to-evaluate-joint-services-transcript-jst.html", "Read the guide")))
@@ -206,17 +206,17 @@ def header_html(active=""):
               % (u("index.html"), u("assets/img/enlitedu/logo.svg"),
                  dsub("Products", dprod_links),
                  dsub("Solutions", ['<a href="%s">%s</a>' % (u(s[0]), e(s[1])) for s in SOLUTIONS_NAV]),
-                 dsub("Who We Serve", ['<a href="%s">%s</a>' % (u(s[0]), e(s[1])) for s in AUDIENCE_NAV]),
+                 dsub("Who We Serve", ['<a href="%s">%s</a>' % (u(s[0]), e(s[1])) for s in AUDIENCE_NAV] + ['<div class="grp">By region</div><a href="%s">%s</a>' % (u(REGION_NAV[0]), e(REGION_NAV[1]))]),
                  u("case-studies.html"),
                  dsub("Resources", ['<a href="%s">%s</a>' % (u(s[0]), e(s[1])) for s in RESOURCES_NAV]),
                  dsub("About", ['<a href="%s">%s</a>' % (u(s[0]), e(s[1])) for s in ABOUT_NAV]),
                  u("request-demo.html")))
 
-    topbar = ('<div class="topbar"><div class="container"><div class="inner"><p class="announce" style="margin:0"><span class="badge-new">GEORGIA</span>'
-              '<span>Based in metro Atlanta: on-campus LioraAI demos for Georgia colleges. <a href="%s">Georgia &amp; Atlanta →</a></span></p>'
+    topbar = ('<div class="topbar"><div class="container"><div class="inner"><p class="announce" style="margin:0"><span class="badge-new">NEW</span>'
+              '<span>Veterans &amp; JST, Athlete Transcripts and Student Degree Pathway are now part of LioraAI, for colleges across the U.S. <a href="%s">See all seven modules →</a></span></p>'
               '<div class="meta"><a href="mailto:%s"><i class="fa-solid fa-envelope"></i>%s</a><a href="%s" target="_blank" rel="noopener" aria-label="EnlitEDU on LinkedIn"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>'
               '<a href="%s" target="_blank" rel="noopener" aria-label="LioraAI on YouTube"><i class="fa-brands fa-youtube"></i>YouTube</a></div></div></div></div>'
-              % (u("georgia.html"), SITE["email"], SITE["email"], SITE["linkedin"], SITE["youtube"]))
+              % (u("platform.html"), SITE["email"], SITE["email"], SITE["linkedin"], SITE["youtube"]))
 
     return (topbar +
             '<header class="site-header"><div class="container"><div class="bar">'
@@ -241,7 +241,7 @@ def footer_html(show_cta=True):
                                 (title, "".join('<li><a href="%s">%s</a></li>' % (u(a), e(b)) for a, b in links)))
     return ('<footer class="site-footer"><div class="sig-bar"></div>%s<div class="footer-main"><div class="container"><div class="row g-4">'
             '<div class="col-lg-4 footer-brand"><img src="%s" alt="EnlitEDU" width="170" height="42" loading="lazy">'
-            '<p>EnlitEDU builds LioraAI, the academic record intelligence platform that helps U.S. colleges and universities evaluate transfer, first-year, military and prior-learning credit fast, fairly and with every decision documented.</p>'
+            '<p>EnlitEDU builds LioraAI, the academic record intelligence platform that helps colleges and universities across the U.S. evaluate transfer, first-year, military and prior-learning credit fast, fairly and with every decision documented.</p>'
             '<address>%s<br>%s, %s %s<br><a href="mailto:%s">%s</a></address>'
             '<div class="socials"><a href="%s" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>'
             '<a href="%s" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>'
@@ -257,18 +257,18 @@ def footer_html(show_cta=True):
                SITE["linkedin"], SITE["youtube"], SITE["instagram"], SITE["facebook"],
                col("Products", [(m[1], m[3].replace("LioraAI for ", "").replace("LioraAI ", "")) for m in MODULES_NAV] + [("integrations.html", "Integrations")]),
                col("Solutions", [(s[0], s[1]) for s in SOLUTIONS_NAV]),
-               col("Who We Serve", [(s[0], s[1]) for s in AUDIENCE_NAV] + [("georgia/atlanta-transcript-evaluation.html", "Atlanta, GA"), ("transcript-evaluation-near-me.html", "Transcript Evaluation Near Me"), ("case-studies.html", "Customer Stories")]),
-               col("Company", [("about.html", "About"), ("blog.html", "Blog"), ("glossary.html", "Glossary"), ("faq.html", "FAQ"), ("careers.html", "Careers"), ("contact.html", "Contact"), ("request-demo.html", "Request a Demo")]),
+               col("Who We Serve", [(s[0], s[1]) for s in AUDIENCE_NAV] + [("case-studies.html", "Customer Stories"), ("georgia.html", "Georgia (HQ state)")]),
+               col("Company", [("about.html", "About"), ("blog.html", "Blog"), ("glossary.html", "Glossary"), ("faq.html", "FAQ"), ("transcript-evaluation-near-me.html", "Transcript Evaluation Guide"), ("careers.html", "Careers"), ("contact.html", "Contact"), ("request-demo.html", "Request a Demo")]),
                u("privacy.html"), u("terms.html"), u("security.html"), u("accessibility.html"), u("sitemap.xml")))
 
 # ---------------------------------------------------------------- schema
 ORG = {
     "@type": ["Organization", "LocalBusiness"], "@id": BASE + "/#organization", "name": "EnlitEDU", "legalName": "EnlitEDU Inc.",
-    "url": BASE + "/", "logo": {"@type": "ImageObject", "url": BASE + "/assets/img/enlitedu/logo.png"},
-    "description": "EnlitEDU builds LioraAI, an academic record intelligence platform for U.S. higher education that evaluates transfer, first-year, military (JST) and prior-learning credit, supports NCAA progress-toward-degree documentation, and gives students a self-service path to a degree.",
+    "url": BASE + "/", "logo": {"@type": "ImageObject", "url": BASE + "/assets/img/enlitedu/logo.png"}, "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
+    "description": "EnlitEDU builds LioraAI, an academic record intelligence platform for colleges and universities across the United States. LioraAI evaluates transfer, first-year, military (JST) and prior-learning credit, supports NCAA progress-toward-degree documentation, and gives students a self-service path to a degree. EnlitEDU is headquartered in Cumming, Georgia, in north metro Atlanta.",
     "email": SITE["email"],
     "address": {"@type": "PostalAddress", "streetAddress": SITE["street"], "addressLocality": SITE["city"], "addressRegion": SITE["region"], "postalCode": SITE["zip"], "addressCountry": "US"},
-    "areaServed": [{"@type": "City", "name": "Atlanta", "containedInPlace": {"@type": "State", "name": "Georgia"}}, {"@type": "State", "name": "Georgia"}, {"@type": "Country", "name": "United States"}],
+    "areaServed": [{"@type": "Country", "name": "United States"}, {"@type": "State", "name": "Georgia"}, {"@type": "City", "name": "Atlanta", "containedInPlace": {"@type": "State", "name": "Georgia"}}],
     "location": {"@type": "Place", "name": "EnlitEDU headquarters, Cumming, Georgia (north metro Atlanta)", "address": {"@type": "PostalAddress", "streetAddress": "3840 Windermere Pkwy, Suite 403", "addressLocality": "Cumming", "addressRegion": "GA", "postalCode": "30041", "addressCountry": "US"}},
     "slogan": "Recognize Every Credit. Advance Every Learner.",
     "brand": {"@type": "Brand", "name": "LioraAI"},
@@ -345,6 +345,7 @@ def page(path, title, desc, body, schema=None, active="", noindex=False, show_ct
 """ % dict(title=e(title), desc=e(desc), robots="noindex,follow" if noindex else "index,follow,max-image-preview:large,max-snippet:-1",
            canon=canon, og_type=og_type, ogimg=ogimg, p=_prefix[0], ld=ld.replace("</", "<\\/"), header=header_html(active),
            body=body, footer=footer_html(show_cta), gtm_head=gtm_head, gtm_body=gtm_body)
+    doc = _size_images(doc, path)
     full = os.path.join(OUT, path.replace("/", os.sep))
     os.makedirs(os.path.dirname(full), exist_ok=True)
     with open(full, "w", encoding="utf-8", newline="\n") as f:
@@ -353,6 +354,46 @@ def page(path, title, desc, body, schema=None, active="", noindex=False, show_ct
     return full
 
 PAGES = []
+
+# ---------------------------------------------------------------- image dimensions (prevents layout shift)
+_DIMS = {}
+def _dims(fp):
+    if fp in _DIMS: return _DIMS[fp]
+    import struct
+    w = h = None
+    try:
+        data = open(fp, "rb").read(256 * 1024)
+        if data[:8] == b"\x89PNG\r\n\x1a\n":
+            w, h = struct.unpack(">II", data[16:24])
+        elif data[:2] == b"\xff\xd8":
+            i = 2
+            while i < len(data) - 9:
+                if data[i] != 0xFF: i += 1; continue
+                mk = data[i + 1]
+                if mk in (0xC0, 0xC1, 0xC2):
+                    h, w = struct.unpack(">HH", data[i + 5:i + 9]); break
+                i += 2 + struct.unpack(">H", data[i + 2:i + 4])[0]
+        elif fp.endswith(".svg"):
+            txt = data.decode("utf-8", "ignore")
+            m = re.search(r'viewBox="[\d.\-]+[\s,]+[\d.\-]+[\s,]+([\d.]+)[\s,]+([\d.]+)"', txt)
+            if m: w, h = int(float(m.group(1))), int(float(m.group(2)))
+    except OSError:
+        pass
+    _DIMS[fp] = (w, h)
+    return w, h
+
+def _size_images(doc, path):
+    base = os.path.dirname(os.path.join(OUT, path.replace("/", os.sep)))
+    def fix(m):
+        tag = m.group(0)
+        if "width=" in tag: return tag
+        src = re.search(r'src="([^"]+)"', tag)
+        if not src or src.group(1).startswith(("http", "data:")): return tag
+        w, h = _dims(os.path.normpath(os.path.join(base, src.group(1))))
+        if not w or not h: return tag
+        tag = re.sub(r'\sheight="\d+"', "", tag)
+        return tag.replace("<img ", '<img width="%d" height="%d" ' % (w, h), 1)
+    return re.sub(r"<img\b[^>]*>", fix, doc)
 
 # ---------------------------------------------------------------- components
 def eyebrow(t):
@@ -460,5 +501,5 @@ def integrations_strip(extra=True):
 
 def mod_card(url, cat, name, desc, icon, img_key):
     return ('<a class="mod-card" href="%s"><div class="thumb">%s<span class="ico"><i class="fa-solid %s"></i></span></div>'
-            '<div class="body"><span class="cat">%s</span><h4>%s</h4><p>%s</p><span class="link-arrow">Learn more <i class="fa-solid fa-arrow-right"></i></span></div></a>'
+            '<div class="body"><span class="cat">%s</span><h3>%s</h3><p>%s</p><span class="link-arrow">Learn more <i class="fa-solid fa-arrow-right"></i></span></div></a>'
             % (u(url), img(img_key, 800, alt="", sizes="(max-width: 767px) 100vw, 33vw"), icon, e(cat), e(name), desc))

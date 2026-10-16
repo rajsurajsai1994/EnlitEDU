@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import re, os, json, html as _html
 from core import *
+from core import _strip
 from pages import (BLOG, STORIES, story_card, post_card, posts_row, which_module, arrow, slugify, MOD_IMG, proof_block, families_html)
 from data_modules import MODULES, BY_SLUG, FOOTNOTE
 from data_more import SOLUTIONS, AUDIENCES, GLOSSARY, FAQ_HUB
+from data_faqs import PLATFORM_FAQS, STORIES_FAQS, ROANE_FAQS, NASHVILLE_FAQS, ABOUT_FAQS, DEMO_FAQS
 
 SRC = r"C:\Users\SurajPaluri\Downloads\Enlitedu_Website\src"
 
@@ -29,12 +31,12 @@ def build_platform():
               ("fa-database", "SIS write-back", "Approved decisions post to Banner, Colleague, Workday Student, PeopleSoft or Jenzabar."),
               ("fa-chart-line", "Analytics", "Turnaround, volume, exceptions, credit loss and pathways by term."),
               ("fa-shield-halved", "Security", "FERPA-aligned processing, encryption, SSO and role-based access.")]
-    sh = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="feature"><span class="ico"><i class="fa-solid %s"></i></span><div><h4>%s</h4><p>%s</p></div></div></div>' % ((i % 3) * 80, a, b, c) for i, (a, b, c) in enumerate(shared))
+    sh = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="feature"><span class="ico"><i class="fa-solid %s"></i></span><div><h3>%s</h3><p>%s</p></div></div></div>' % ((i % 3) * 80, a, b, c) for i, (a, b, c) in enumerate(shared))
     body = (hero + '<section class="sec"><div class="container">%s%s<div class="mt-5">%s</div></div></section>' % (sec_head("Modules", "Pick What You Need, <span class=\"grad\">Add the Rest</span> Later", "", center=True), fams, which_module())
             + '<section class="sec dark"><div class="container">%s<div class="row g-5">%s</div></div></section>' % (sec_head("Shared foundation", "What Every Module <span class=\"grad\">Shares</span>", "", center=True), sh)
             + '<section class="sec-sm"><div class="container">%s%s</div></section>' % (sec_head("Integrations", "Works With the Systems <span class=\"grad\">You Run</span>", "", center=True), integrations_strip())
-            + testimonials_section(dark=False) + cta_band())
-    schema = [breadcrumb([("Home", "index.html"), ("Platform", path)]),
+            + testimonials_section(dark=False) + faq_block(PLATFORM_FAQS, title="Questions About the Platform", side_img="team-collab") + cta_band())
+    schema = [faq_schema(PLATFORM_FAQS, path), breadcrumb([("Home", "index.html"), ("Platform", path)]),
               {"@type": "CollectionPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "LioraAI platform", "about": {"@id": BASE + "/#lioraai"},
                "hasPart": [{"@id": BASE + "/%s.html#software" % m["slug"]} for m in MODULES]}]
     page(path, "LioraAI Platform | 7 Modules for Credit Evaluation | EnlitEDU",
@@ -71,7 +73,7 @@ def build_how():
               {"@type": "HowTo", "name": "How LioraAI evaluates a transcript", "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": detail[i]} for i, (_, t, _d) in enumerate(steps)]},
               faq_schema(faqs, path)]
     page(path, "How LioraAI Works | Explainable, Human-Approved Credit Evaluation",
-         "See how LioraAI turns any transcript into posted credit: ingest, extract, match to your catalog with your rules, human review, and SIS write-back with a full audit trail.", body, schema=schema, active="products")
+         "How LioraAI turns any transcript into posted credit: extract, match to your catalog with your rules, human review and SIS write-back, with a full audit trail.", body, schema=schema, active="products")
 
 # ===================================================================== INTEGRATIONS
 def build_integrations():
@@ -98,7 +100,7 @@ def build_integrations():
              '<div class="mbody mock-wrap"><table style="min-width:680px"><thead><tr><th>System</th><th>Type</th><th>How it connects</th></tr></thead><tbody>%s</tbody></table></div></div>') % tr.replace("<td>", '<td style="white-space:normal;font-family:var(--f-sans);font-size:14.5px">')
     timeline = [("Week 1", "Kickoff", "Integration plan, SSO, data access and rule documentation."), ("Weeks 1–2", "Configure", "Your catalog, transfer policy and agreements loaded and tested."),
                 ("Weeks 2–3", "Validate", "Evaluators review LioraAI results on your own recent transcripts."), ("Weeks 3–4", "Go live", "Write-back switched on; training and support handover.")]
-    tl = "".join('<div class="ev" data-aos="fade-up"><span class="yr">%s</span><h4>%s</h4><p>%s</p></div>' % (a, b, c) for a, b, c in timeline)
+    tl = "".join('<div class="ev" data-aos="fade-up"><span class="yr">%s</span><h3>%s</h3><p>%s</p></div>' % (a, b, c) for a, b, c in timeline)
     faqs = FAQ_HUB[2][1]
     body = (hero + '<section class="sec"><div class="container">%s%s</div></section>' % (sec_head("Connected systems", "Systems We <span class=\"grad\">Integrate</span> With", "", center=True), integrations_strip())
             + '<section class="sec tint"><div class="container">%s%s</div></section>' % (sec_head("Details", "How Each <span class=\"grad\">Connection</span> Works", "", center=True), table)
@@ -106,7 +108,7 @@ def build_integrations():
               % (eyebrow("Implementation"), tl, '<div class="row g-4">%s</div>' % "".join('<div class="col-sm-6">%s</div>' % vt_card(t) for t in TESTIMONIALS if t[0] in ("paul", "jamie")))
             + faq_block(faqs, title="Implementation Questions", side_img="meeting-standing") + cta_band())
     schema = [breadcrumb([("Home", "index.html"), ("Platform", "platform.html"), ("Integrations", path)]), faq_schema(faqs, path)]
-    page(path, "LioraAI Integrations | Banner, Colleague, Workday, PeopleSoft, Slate",
+    page(path, "LioraAI Integrations: Banner, Colleague, Workday, Slate",
          "LioraAI integrates with Ellucian Banner and Colleague, Workday Student, PeopleSoft, Jenzabar, Slate, Common App and degree audit. Live in two to four weeks.", body, schema=schema, active="products")
 
 # ===================================================================== STORIES
@@ -124,8 +126,8 @@ def build_stories():
     grid = ('<div class="row g-4" id="story-grid"><div class="col-md-6 col-lg-4" data-tags="community-college articulate" data-aos="fade-up">%s</div><div class="col-md-6 col-lg-4" data-tags="community-college mobility" data-aos="fade-up" data-aos-delay="100">%s</div>'
             '<div class="col-md-6 col-lg-4" data-tags="community-college articulate mobility" data-aos="fade-up" data-aos-delay="200">%s</div></div>') % (story_card("roane"), story_card("nashville"), next_card)
     body = (hero + '<section class="sec"><div class="container">%s%s%s</div></section>' % (sec_head("Featured", "Stories by Module and <span class=\"grad\">Institution</span>", "", center=False), bar, grid)
-            + testimonials_section(dark=True) + cta_band())
-    schema = [breadcrumb([("Home", "index.html"), ("Customer Stories", path)]),
+            + testimonials_section(dark=True) + faq_block(STORIES_FAQS, title="Questions About These Results", side_img="campus-columns") + cta_band())
+    schema = [faq_schema(STORIES_FAQS, path), breadcrumb([("Home", "index.html"), ("Customer Stories", path)]),
               {"@type": "CollectionPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "LioraAI customer stories",
                "hasPart": [{"@id": BASE + "/" + STORIES[k]["url"]} for k in STORIES]}] + [video_schema(t) for t in TESTIMONIALS]
     page(path, "LioraAI Customer Stories | Roane State & Nashville State Results",
@@ -153,12 +155,12 @@ def build_stories():
              '<h2>In their own words</h2><p>Three members of the Roane State team talk about the change: the VP of Student Services &amp; Innovation, the Registrar, and the IT lead who ran the Banner integration.</p>'
              '<div class="row g-4 mt-2">%s</div><p class="note mt-4">%s</p></div>') % (u("articulate.html"), "".join('<div class="col-sm-6 col-lg-4">%s</div>' % vt_card(t) for t in TESTIMONIALS if t[0] in ("jamie", "jessica", "paul")), FOOTNOTE)
     body = (hero + '<section class="sec"><div class="container"><div class="row g-5"><div class="col-lg-8">%s</div><div class="col-lg-4">%s</div></div></div></section>' % (story, glance)
-            + posts_row(["how-to-speed-up-transfer-credit-evaluation", "ellucian-banner-integration-transcript-evaluation", "community-college-transfer-student-success"], tint=True) + cta_band())
-    schema = [breadcrumb([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Roane State Community College", p2)]),
+            + faq_block(ROANE_FAQS, title="Roane State FAQ", side_img="campus-columns") + posts_row(["how-to-speed-up-transfer-credit-evaluation", "ellucian-banner-integration-transcript-evaluation", "community-college-transfer-student-success"]) + cta_band())
+    schema = [faq_schema(ROANE_FAQS, p2), breadcrumb([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Roane State Community College", p2)]),
               {"@type": "Article", "@id": BASE + "/" + p2, "headline": "Roane State Community College cuts transcript evaluation from three weeks to two days", "author": {"@id": BASE + "/#organization"},
                "publisher": {"@id": BASE + "/#organization"}, "datePublished": "2026-10-03", "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
                "about": [{"@type": "CollegeOrUniversity", "name": "Roane State Community College"}, {"@id": BASE + "/articulate.html#software"}]}] + [video_schema(t) for t in TESTIMONIALS if t[0] in ("jamie", "jessica", "paul")]
-    page(p2, "Roane State Community College Case Study | 3 Weeks to 2 Days | LioraAI",
+    page(p2, "Roane State Case Study: 3 Weeks to 2 Days | LioraAI",
          "Roane State Community College cut transcript evaluation from about three weeks to two days with LioraAI Articulate and went live on Ellucian Banner in 18 days.", body, schema=schema, active="customers", og_type="article")
 
     # ---- Nashville State
@@ -182,8 +184,8 @@ def build_stories():
              '<h2>In their own words</h2><p>Alexis Pope, Vice President of Student Affairs &amp; Enrollment Management, explains what changed.</p>'
              '<div class="row g-4 mt-2"><div class="col-sm-6 col-lg-5">%s</div></div><p class="note mt-4">%s</p></div>') % (u("mobility.html"), vt_card(TESTIMONIALS[1]), FOOTNOTE)
     body = (hero + '<section class="sec"><div class="container"><div class="row g-5"><div class="col-lg-8">%s</div><div class="col-lg-4">%s</div></div></div></section>' % (story, glance)
-            + posts_row(["community-college-transfer-student-success", "will-my-credits-transfer-self-service-answer", "reverse-transfer-associate-degree-explained"], tint=True) + cta_band())
-    schema = [breadcrumb([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Nashville State Community College", p3)]),
+            + faq_block(NASHVILLE_FAQS, title="Nashville State FAQ", side_img="lecture-laugh") + posts_row(["community-college-transfer-student-success", "will-my-credits-transfer-self-service-answer", "reverse-transfer-associate-degree-explained"]) + cta_band())
+    schema = [faq_schema(NASHVILLE_FAQS, p3), breadcrumb([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Nashville State Community College", p3)]),
               {"@type": "Article", "@id": BASE + "/" + p3, "headline": "Nashville State lifts transfer yield 24% in one cycle", "author": {"@id": BASE + "/#organization"},
                "publisher": {"@id": BASE + "/#organization"}, "datePublished": "2026-10-03", "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
                "about": [{"@type": "CollegeOrUniversity", "name": "Nashville State Community College"}, {"@id": BASE + "/mobility.html#software"}]}, video_schema(TESTIMONIALS[1])]
@@ -214,7 +216,7 @@ def build_about():
           ("2025", "LioraAI beta", "Beta with partner institutions, validating AI-assisted evaluation in live production."),
           ("2025", "LioraAI launches", "First customers go live, including Tennessee community colleges."),
           ("2026", "Seven modules", "Veterans & JST, Athlete Transcripts and Student Degree Pathway join the platform.")]
-    tls = "".join('<div class="ev" data-aos="fade-up"><span class="yr">%s</span><h4>%s</h4><p>%s</p></div>' % x for x in tl)
+    tls = "".join('<div class="ev" data-aos="fade-up"><span class="yr">%s</span><h3>%s</h3><p>%s</p></div>' % x for x in tl)
     team = [("chaitanya", "Chaitanya Saripalli", "Founder & CEO", "Founder of Anatta IT Solutions and EnlitEDU. Chaitanya spent years inside the operational realities of enrollment and records teams and built LioraAI to solve them directly."),
             ("sajan", "Sajan Patel", "Business Development", "Sajan works with registrars, VPs and enrollment directors across the U.S. to connect LioraAI’s capabilities to the practical needs of their offices.")]
     tm = "".join('<div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="team-card"><div class="ph">%s</div><div class="c"><h3>%s</h3><p class="role">%s</p><p>%s</p></div></div></div>' % (i * 100, img(k, 400), n, r, b) for i, (k, n, r, b) in enumerate(team))
@@ -225,9 +227,9 @@ def build_about():
             + '<section class="sec"><div class="container">%s<div class="row g-4">%s</div></div></section>' % (sec_head("Our values", "What We <span class=\"grad\">Stand For</span>", "", center=True), vals)
             + '<section class="sec tint"><div class="container"><div class="row g-5"><div class="col-lg-5" data-aos="fade-up">%s<h2>Our <span class="grad">Journey</span></h2><p class="lead-lg">From IT services for colleges to a dedicated platform for academic records.</p>%s</div><div class="col-lg-7"><div class="timeline">%s</div></div></div></div></section>' % (eyebrow("Timeline"), partner, tls)
             + '<section class="sec anchor" id="leadership"><div class="container">%s<div class="row g-4 justify-content-center">%s</div></div></section>' % (sec_head("Leadership", "The People Behind <span class=\"grad\">LioraAI</span>", "", center=True), tm)
-            + cta_band(h2="Let’s talk about <span class=\"grad\">your</span> office.", p="Tell us how transcripts move through your institution today. We’ll show you what changes with LioraAI."))
+            + faq_block(ABOUT_FAQS, title="About EnlitEDU", side_img="team-hands") + cta_band(h2="Let’s talk about <span class=\"grad\">your</span> office.", p="Tell us how transcripts move through your institution today. We’ll show you what changes with LioraAI."))
     body = body.replace('style="--c:4"', 'style="grid-template-columns:repeat(4,minmax(0,1fr))"')
-    schema = [breadcrumb([("Home", "index.html"), ("About", path)]),
+    schema = [faq_schema(ABOUT_FAQS, path), breadcrumb([("Home", "index.html"), ("About", path)]),
               {"@type": "AboutPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "About EnlitEDU", "mainEntity": {"@id": BASE + "/#organization"}},
               {"@type": "Person", "name": "Chaitanya Saripalli", "jobTitle": "Founder & CEO", "worksFor": {"@id": BASE + "/#organization"}, "image": BASE + "/assets/img/enlitedu/chaitanya-saripalli.jpg"},
               {"@type": "Person", "name": "Sajan Patel", "jobTitle": "Business Development", "worksFor": {"@id": BASE + "/#organization"}, "image": BASE + "/assets/img/enlitedu/sajan-patel.jpg"}]
@@ -277,9 +279,9 @@ def build_demo():
             % (eyebrow("Request a demo"), ex, img("jamie", 124, alt="", sizes="62px")))
     body = ('<section class="page-hero on-dark" style="padding-bottom:110px"><div class="container">%s<div class="row g-5 align-items-start"><div class="col-lg-6">%s</div><div class="col-lg-6">%s</div></div></div></section>'
             % (crumbs([("Home", "index.html"), ("Request a Demo", None)]), left, form_html("demo")))
-    body += logo_marquee()
-    schema = [breadcrumb([("Home", "index.html"), ("Request a Demo", path)]), {"@type": "ContactPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "Request a LioraAI demo"}]
-    page(path, "Request a LioraAI Demo | See It on Your Own Transcripts | EnlitEDU",
+    body += logo_marquee() + faq_block(DEMO_FAQS, title="Before Your Demo", side_img="presenter")
+    schema = [faq_schema(DEMO_FAQS, path), breadcrumb([("Home", "index.html"), ("Request a Demo", path)]), {"@type": "ContactPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "Request a LioraAI demo"}]
+    page(path, "Request a LioraAI Demo on Your Own Transcripts | EnlitEDU",
          "Book a 30-minute LioraAI demo tailored to your SIS. Send a few anonymized transcripts and see them evaluated live, with the review screen and SIS write-back.", body, schema=schema)
 
 def build_contact():
@@ -324,16 +326,22 @@ def _port_main(name):
 
 def build_legal():
     for name, title, desc, ttl in [("privacy", "Privacy Policy", "How EnlitEDU collects, uses and protects information, including student education records processed for institutions under FERPA.", "Privacy Policy | EnlitEDU"),
-                                   ("terms", "Terms of Service", "Terms governing use of the EnlitEDU website and, where no signed agreement applies, the LioraAI platform.", "Terms of Service | EnlitEDU"),
+                                   ("terms", "Terms of Service", "Terms of Service for the EnlitEDU website and, where no signed agreement applies, the LioraAI platform. Institutional customers are covered by their MSA and DPA.", "Terms of Service | EnlitEDU"),
                                    ("security", "Security & Trust", "How LioraAI protects student records: FERPA school-official role, SOC 2 program, DPA, encryption, US hosting and no AI training on student data.", "Security & Trust | FERPA, SOC 2 Program, DPA | EnlitEDU")]:
         path = name + ".html"; set_depth(path)
         h1, upd, b = _port_main(name)
         hero = simple_hero([("Home", "index.html"), (title, None)], "Legal" if name != "security" else "Security & Trust", h1, upd or "", "registrar-desk" if name == "security" else None,
                            float_card("fa-shield-halved", "ok", "FERPA-aligned", "School official under your control", "fc-a") if name == "security" else "")
+        faqs = []
+        if name == "security":
+            faqs = [(_strip(q).strip(), a.strip()) for q, a in re.findall(r"<details><summary>(.*?)</summary><p>(.*?)</p></details>", b, re.S)]
+            acc = "".join('<div class="faq-item%s"><button class="faq-q" type="button" aria-expanded="%s">%s<span class="pm"><i class="fa-solid fa-plus"></i></span></button><div class="faq-a"><div><p>%s</p></div></div></div>' % (" open" if i == 0 else "", "true" if i == 0 else "false", e(q), a) for i, (q, a) in enumerate(faqs))
+            b = re.sub(r'<div class="faq">.*?</div>\s*(?=<div class="callout")', '<div class="faq-wrap my-4">%s</div>' % acc, b, count=1, flags=re.S)
         body = hero + '<section class="sec"><div class="container"><div class="prose">%s</div></div></section>' % b
         if name == "security":
             body += cta_band(h2="Need our security <span class=\"grad\">package</span>?", p="We provide the SOC 2 report or bridge letter, DPA template, sub-processor list and a completed HECVAT under NDA.", secondary=None)
-        page(path, ttl, desc, body, schema=[breadcrumb([("Home", "index.html"), (title, path)])], active="products" if name == "security" else "")
+        sch = [breadcrumb([("Home", "index.html"), (title, path)])] + ([faq_schema(faqs, path)] if faqs else [])
+        page(path, ttl, desc, body, schema=sch, active="products" if name == "security" else "")
 
 def build_accessibility():
     path = "accessibility.html"; set_depth(path)
@@ -390,7 +398,7 @@ def build_small():
     for path, title, eb, h1, sub, ttl, desc, imgk, noidx, extra in [
         ("careers.html", "Careers", "Careers", "Build the Future of <span class=\"accent\">Credit Mobility</span>",
          "EnlitEDU is a small, fast-moving team building tools that change how quickly students get credit for their work. Roles are opening soon.",
-         "Careers at EnlitEDU", "Join EnlitEDU, the team behind LioraAI. Based in Cumming, GA, with remote-friendly roles.", "team-collab", False,
+         "Careers at EnlitEDU", "Careers at EnlitEDU, the team behind LioraAI in Cumming, Georgia (north metro Atlanta). Send your résumé; remote-friendly roles open soon.", "team-collab", True,
          '<p class="lead-lg">We don’t have open postings right now, but we always want to hear from people who care about students and good software.</p><p>Send your résumé and a note about what you’d like to work on to <a href="mailto:info@enlitedu.com?subject=Careers%20at%20EnlitEDU">info@enlitedu.com</a>. The team is based in Cumming, Georgia, and remote-friendly roles are available.</p>'),
         ("events.html", "Events & Webinars", "Events", "Events & <span class=\"accent\">Webinars</span>",
          "We’re building a calendar of webinars and conference sessions for registrars, enrollment leaders and veteran services offices.",

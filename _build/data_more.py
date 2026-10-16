@@ -50,8 +50,8 @@ dict(
 ),
 dict(
  slug="serve-military-and-adult-learners", nav="Serve Military & Adult Learners", icon="fa-flag-usa", img="veteran-family",
- title="Military & Adult Learner Credit | JST, CPL/PLA Evaluation | LioraAI",
- desc="Give veterans and adult learners credit for what they already know. LioraAI evaluates JST, CCAF, certifications and portfolios with ACE citations and faculty approval.",
+ title="Military & Adult Learner Credit (JST, CPL/PLA) | LioraAI",
+ desc="Give veterans and adult learners credit for what they already know: JST, CCAF, certifications and portfolios, with ACE citations and faculty approval.",
  h1="Turn Service and Work Experience <span class=\"accent\">Into Credit, Fast</span>",
  sub="Veterans and adult learners bring years of training and experience. They also bring a deadline: benefits that run out, jobs to keep and families to support. LioraAI gets them a documented credit answer in days.",
  stat=("<60s", "for LioraAI to produce a full Joint Services Transcript evaluation", "EnlitEDU product measurement"),
@@ -71,8 +71,8 @@ dict(
 ),
 dict(
  slug="stay-audit-ready", nav="Stay Consistent & Audit-Ready", icon="fa-clipboard-check", img="four-meeting",
- title="Consistent, Audit-Ready Credit Decisions | FERPA, NCAA, VA | LioraAI",
- desc="Make every credit decision consistent and documented. LioraAI applies your rules the same way every time and keeps evidence for FERPA, accreditation, VA and NCAA reviews.",
+ title="Consistent, Audit-Ready Credit Decisions | LioraAI",
+ desc="Make every credit decision consistent and documented: your rules applied every time, with evidence kept for FERPA, accreditation, VA and NCAA reviews.",
  h1="Consistent, Documented, <span class=\"accent\">Defensible Credit Decisions</span>",
  sub="When the same course earns different credit depending on who evaluated it, students notice, auditors notice and appeals pile up. LioraAI applies one set of rules and keeps the evidence for every decision.",
  stat=("100%", "of LioraAI evaluations are recorded with evidence, recommendation and approver", "LioraAI audit trail design"),
@@ -133,7 +133,7 @@ dict(
 dict(
  slug="four-year-universities", nav="Four-Year Universities", icon="fa-building-columns", img="university-building", img2="lecture-talk",
  title="LioraAI for Universities | First-Year, Transfer & NCAA",
- desc="One platform for first-year applicant GPA standardization, transfer admit evaluation, student-athlete certification support and degree pathways at four-year universities.",
+ desc="One platform for first-year GPA standardization, transfer admit evaluation, student-athlete certification support and degree pathways at universities.",
  h1="One Platform for First-Year Applicants, <span class=\"accent\">Transfer Admits and Athletes</span>",
  sub="Admissions, the registrar and athletics compliance all evaluate transcripts, usually in different tools with different rules. LioraAI gives them one engine and one audit trail.",
  words=["First-year applicants", "Transfer admits", "Articulation agreements", "Community college partners", "International applicants", "Progress-toward-degree"],
@@ -164,7 +164,7 @@ dict(
 ),
 dict(
  slug="state-systems", nav="State Systems & Consortia", icon="fa-sitemap", img="campus-aerial", img2="cabinet",
- title="LioraAI for State Systems & Consortia | System-Wide Credit Mobility",
+ title="LioraAI for State Systems & Consortia | Credit Mobility",
  desc="One set of transfer rules across every campus: consistent evaluation, shared articulation data and system-wide mobility analytics for systems and consortia.",
  h1="One Set of Credit Rules <span class=\"accent\">Across Every Campus</span>",
  sub="Students move between campuses in the same system every day. When each campus evaluates the same course differently, students lose credit and time. LioraAI gives systems and consortia one engine, shared rules and a system-wide view.",
@@ -215,7 +215,7 @@ GLOSSARY = [
 FAQ_HUB = [
 ("Getting started", [
  ("What is LioraAI?", "LioraAI is EnlitEDU’s academic record intelligence platform for U.S. colleges and universities. It evaluates transfer, first-year, military and prior-learning credit against each institution’s own rules, supports NCAA progress-toward-degree documentation, and gives students a self-service path to a degree."),
- ("Who is EnlitEDU?", "EnlitEDU is a higher education technology company based in Cumming, Georgia. It grew out of Anatta IT Solutions’ work supporting colleges through student information system projects, and launched LioraAI in 2025."),
+ ("Who is EnlitEDU?", "EnlitEDU is a higher education technology company that serves colleges and universities across the United States, headquartered in Cumming, Georgia. It grew out of Anatta IT Solutions’ work supporting colleges through student information system projects, and launched LioraAI in 2025."),
  ("Which module do I need?", "First-time students coming from high school: Assess. Anyone bringing credit from another college, at any class level: Articulate. Military records: Veterans &amp; JST. Work experience, certifications and portfolios: Prior Learning Assessment. Student-athletes: Athlete Transcripts. Student self-service planning: Degree Pathway. Transfer analytics: Mobility Intelligence."),
  ("What kinds of institutions use LioraAI?", "Community colleges, regional and research universities, HBCUs and minority-serving institutions, and state systems. Our first customers are Tennessee community colleges, including Roane State and Nashville State."),
 ]),

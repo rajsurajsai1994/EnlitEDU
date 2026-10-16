@@ -1,0 +1,768 @@
+[
+ {
+  "kw": "transcript evaluation software",
+  "cluster": "Core software",
+  "intent": "Buyer (B2B)",
+  "demand": "Medium",
+  "target": "index.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc"
+  ],
+  "also": [
+   "assess.html",
+   "blog.html",
+   "blog/ai-in-higher-education-admissions-2025.html",
+   "blog/best-sis-integrations-higher-education-2025.html",
+   "blog/ellucian-banner-integration-transcript-evaluation.html",
+   "blog/enrollment-management-strategies-2025.html",
+   "blog/ferpa-compliance-ai-admissions.html",
+   "blog/gpa-standardization-problem.html",
+   "blog/hbcu-enrollment-transfer-credit-challenges.html",
+   "blog/how-to-choose-transcript-evaluation-software.html",
+   "blog/international-transcript-evaluation-first-year-admissions.html",
+   "blog/will-my-credits-transfer-self-service-answer.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "transcript-evaluation-near-me.html"
+  ],
+  "also_n": 15
+ },
+ {
+  "kw": "transfer credit evaluation software",
+  "cluster": "Core software",
+  "intent": "Buyer (B2B)",
+  "demand": "Low–Medium",
+  "target": "articulate.html",
+  "on_target": true,
+  "where": [
+   "title"
+  ],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "credit evaluation software",
+  "cluster": "Core software",
+  "intent": "Buyer (mixed with finance)",
+  "demand": "Low",
+  "target": "georgia.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "h1"
+  ],
+  "also": [
+   "articulate.html",
+   "georgia/atlanta-transcript-evaluation.html"
+  ],
+  "also_n": 2
+ },
+ {
+  "kw": "AI transcript evaluation",
+  "cluster": "Core software",
+  "intent": "Buyer (B2B)",
+  "demand": "Low, rising",
+  "target": "blog/how-to-choose-transcript-evaluation-software.html",
+  "on_target": true,
+  "where": [
+   "faq"
+  ],
+  "also": [
+   "blog/ai-in-higher-education-admissions-2025.html",
+   "blog/best-sis-integrations-higher-education-2025.html",
+   "blog/ellucian-banner-integration-transcript-evaluation.html",
+   "blog/ferpa-compliance-ai-admissions.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "transcript-evaluation-near-me.html"
+  ],
+  "also_n": 6
+ },
+ {
+  "kw": "transcript review software",
+  "cluster": "Core software",
+  "intent": "Buyer (B2B)",
+  "demand": "Low",
+  "target": "blog/how-to-choose-transcript-evaluation-software.html",
+  "on_target": true,
+  "where": [],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "college credit evaluation",
+  "cluster": "Core software",
+  "intent": "Mixed",
+  "demand": "Low–Medium",
+  "target": "articulate.html",
+  "on_target": true,
+  "where": [
+   "title"
+  ],
+  "also": [
+   "assess.html",
+   "athletics.html",
+   "blog/best-sis-integrations-higher-education-2025.html",
+   "blog/community-college-transfer-student-success.html",
+   "blog/ellucian-banner-integration-transcript-evaluation.html",
+   "blog/enrollment-management-strategies-2025.html",
+   "blog/gpa-standardization-problem.html",
+   "blog/hbcu-enrollment-transfer-credit-challenges.html",
+   "blog/how-to-speed-up-transfer-credit-evaluation.html",
+   "blog/registrar-office-efficiency-technology.html",
+   "blog/transfer-student-retention-strategies.html",
+   "degree-pathway.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "georgia/freshman-transcript-evaluation.html",
+   "georgia/military-transcript-evaluation.html",
+   "georgia/transfer-credit-evaluation.html",
+   "glossary.html",
+   "index.html",
+   "mobility.html",
+   "pla.html",
+   "platform.html",
+   "solutions/grow-transfer-enrollment.html",
+   "solutions/improve-completion-and-retention.html",
+   "solutions/serve-military-and-adult-learners.html",
+   "solutions/speed-up-credit-evaluation.html",
+   "solutions/stay-audit-ready.html",
+   "veterans.html",
+   "who-we-serve/community-colleges.html",
+   "who-we-serve/four-year-universities.html",
+   "who-we-serve/hbcus-and-msis.html",
+   "who-we-serve/state-systems.html"
+  ],
+  "also_n": 32
+ },
+ {
+  "kw": "transcript evaluation software Georgia",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Buyer (local)",
+  "demand": "Very low (long-tail)",
+  "target": "georgia.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "h1",
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "georgia/atlanta-transcript-evaluation.html"
+  ],
+  "also_n": 1
+ },
+ {
+  "kw": "credit evaluation software Georgia",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Buyer (local)",
+  "demand": "Very low (long-tail)",
+  "target": "georgia.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "h1"
+  ],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "transcript evaluation Atlanta",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Mixed (local)",
+  "demand": "Low",
+  "target": "georgia/atlanta-transcript-evaluation.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "blog/hope-gpa-vs-admissions-gpa-georgia.html",
+   "georgia/freshman-transcript-evaluation.html"
+  ],
+  "also_n": 2
+ },
+ {
+  "kw": "transcript evaluation software Atlanta GA",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Buyer (local)",
+  "demand": "Very low (long-tail)",
+  "target": "georgia/atlanta-transcript-evaluation.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "faq"
+  ],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "Atlanta edtech company",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Discovery",
+  "demand": "Low",
+  "target": "georgia/atlanta-transcript-evaluation.html",
+  "on_target": true,
+  "where": [],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "freshman transcript evaluation Atlanta",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Buyer (local)",
+  "demand": "Very low (long-tail)",
+  "target": "georgia/freshman-transcript-evaluation.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "h1"
+  ],
+  "also": [
+   "blog/hope-gpa-vs-admissions-gpa-georgia.html"
+  ],
+  "also_n": 1
+ },
+ {
+  "kw": "freshman transcript evaluation Georgia",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Buyer (local)",
+  "demand": "Very low (long-tail)",
+  "target": "georgia/freshman-transcript-evaluation.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "h1"
+  ],
+  "also": [
+   "blog/hope-gpa-vs-admissions-gpa-georgia.html"
+  ],
+  "also_n": 1
+ },
+ {
+  "kw": "transfer credit evaluation Georgia",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Buyer (local)",
+  "demand": "Low",
+  "target": "georgia/transfer-credit-evaluation.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc"
+  ],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "military transcript evaluation Georgia",
+  "cluster": "Georgia / Atlanta",
+  "intent": "Buyer (local)",
+  "demand": "Very low (long-tail)",
+  "target": "georgia/military-transcript-evaluation.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "h1"
+  ],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "transcript evaluation near me",
+  "cluster": "Near me",
+  "intent": "Mostly individuals",
+  "demand": "High (individual intent)",
+  "target": "transcript-evaluation-near-me.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "h1",
+   "faq"
+  ],
+  "also": [
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "georgia/freshman-transcript-evaluation.html",
+   "georgia/military-transcript-evaluation.html",
+   "georgia/transfer-credit-evaluation.html"
+  ],
+  "also_n": 5
+ },
+ {
+  "kw": "credential evaluation near me",
+  "cluster": "Near me",
+  "intent": "Individuals",
+  "demand": "Medium (individual intent)",
+  "target": "transcript-evaluation-near-me.html",
+  "on_target": true,
+  "where": [],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "foreign transcript evaluation near me",
+  "cluster": "Near me",
+  "intent": "Individuals",
+  "demand": "Medium (individual intent)",
+  "target": "transcript-evaluation-near-me.html",
+  "on_target": true,
+  "where": [],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "TCSG to USG transfer",
+  "cluster": "Georgia topics (AEO)",
+  "intent": "Practitioner / student",
+  "demand": "Low–Medium (GA)",
+  "target": "georgia/transfer-credit-evaluation.html",
+  "on_target": true,
+  "where": [
+   "desc",
+   "hx"
+  ],
+  "also": [
+   "blog.html",
+   "blog/tcsg-to-usg-transfer-core-impacts-guide.html",
+   "faq.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "glossary.html",
+   "transcript-evaluation-near-me.html"
+  ],
+  "also_n": 7
+ },
+ {
+  "kw": "Core IMPACTS transfer",
+  "cluster": "Georgia topics (AEO)",
+  "intent": "Practitioner / student",
+  "demand": "Medium (GA)",
+  "target": "blog/tcsg-to-usg-transfer-core-impacts-guide.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "h1",
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "blog.html",
+   "blog/how-to-choose-transcript-evaluation-software.html",
+   "faq.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "georgia/transfer-credit-evaluation.html",
+   "glossary.html",
+   "transcript-evaluation-near-me.html"
+  ],
+  "also_n": 8
+ },
+ {
+  "kw": "HOPE GPA vs admissions GPA",
+  "cluster": "Georgia topics (AEO)",
+  "intent": "Practitioner / parent",
+  "demand": "Medium (GA, student-heavy)",
+  "target": "blog/hope-gpa-vs-admissions-gpa-georgia.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "h1",
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "blog.html",
+   "georgia.html",
+   "georgia/freshman-transcript-evaluation.html",
+   "glossary.html"
+  ],
+  "also_n": 4
+ },
+ {
+  "kw": "Georgia Dual Enrollment credit",
+  "cluster": "Georgia topics (AEO)",
+  "intent": "Practitioner / parent",
+  "demand": "Low–Medium (GA)",
+  "target": "georgia/freshman-transcript-evaluation.html",
+  "on_target": true,
+  "where": [
+   "desc",
+   "faq"
+  ],
+  "also": [
+   "blog/hope-gpa-vs-admissions-gpa-georgia.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "glossary.html"
+  ],
+  "also_n": 4
+ },
+ {
+  "kw": "military transcript evaluation",
+  "cluster": "Modules",
+  "intent": "Buyer / practitioner",
+  "demand": "Low–Medium",
+  "target": "veterans.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "faq"
+  ],
+  "also": [
+   "georgia/military-transcript-evaluation.html"
+  ],
+  "also_n": 1
+ },
+ {
+  "kw": "JST transcript evaluation",
+  "cluster": "Modules",
+  "intent": "Practitioner",
+  "demand": "Low",
+  "target": "veterans.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "about.html",
+   "articulate.html",
+   "assess.html",
+   "athletics.html",
+   "blog.html",
+   "blog/how-to-choose-transcript-evaluation-software.html",
+   "blog/how-to-evaluate-joint-services-transcript-jst.html",
+   "blog/how-to-speed-up-transfer-credit-evaluation.html",
+   "blog/prior-learning-assessment-guide.html",
+   "blog/registrar-office-efficiency-technology.html",
+   "blog/tcsg-to-usg-transfer-core-impacts-guide.html",
+   "degree-pathway.html",
+   "faq.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "georgia/freshman-transcript-evaluation.html",
+   "georgia/military-transcript-evaluation.html",
+   "georgia/transfer-credit-evaluation.html",
+   "glossary.html",
+   "index.html",
+   "integrations.html",
+   "mobility.html",
+   "pla.html",
+   "platform.html",
+   "privacy.html",
+   "request-demo.html",
+   "solutions/serve-military-and-adult-learners.html",
+   "solutions/speed-up-credit-evaluation.html",
+   "solutions/stay-audit-ready.html",
+   "transcript-evaluation-near-me.html",
+   "who-we-serve/community-colleges.html",
+   "who-we-serve/four-year-universities.html",
+   "who-we-serve/hbcus-and-msis.html",
+   "who-we-serve/state-systems.html"
+  ],
+  "also_n": 34
+ },
+ {
+  "kw": "ACE military credit",
+  "cluster": "Modules",
+  "intent": "Practitioner",
+  "demand": "Low",
+  "target": "veterans.html",
+  "on_target": true,
+  "where": [
+   "desc"
+  ],
+  "also": [
+   "blog/how-to-evaluate-joint-services-transcript-jst.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "georgia/military-transcript-evaluation.html",
+   "glossary.html",
+   "how-it-works.html",
+   "index.html",
+   "integrations.html",
+   "pla.html",
+   "platform.html",
+   "solutions/serve-military-and-adult-learners.html",
+   "who-we-serve/community-colleges.html",
+   "who-we-serve/four-year-universities.html",
+   "who-we-serve/hbcus-and-msis.html",
+   "who-we-serve/state-systems.html"
+  ],
+  "also_n": 15
+ },
+ {
+  "kw": "credit for prior learning software",
+  "cluster": "Modules",
+  "intent": "Buyer",
+  "demand": "Low",
+  "target": "pla.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "faq"
+  ],
+  "also": [
+   "articulate.html",
+   "blog/how-to-choose-transcript-evaluation-software.html",
+   "degree-pathway.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "georgia/military-transcript-evaluation.html",
+   "glossary.html",
+   "index.html",
+   "platform.html",
+   "solutions/grow-transfer-enrollment.html",
+   "solutions/improve-completion-and-retention.html",
+   "solutions/serve-military-and-adult-learners.html",
+   "solutions/speed-up-credit-evaluation.html",
+   "veterans.html",
+   "who-we-serve/community-colleges.html",
+   "who-we-serve/hbcus-and-msis.html",
+   "who-we-serve/state-systems.html"
+  ],
+  "also_n": 17
+ },
+ {
+  "kw": "high school transcript evaluation",
+  "cluster": "Modules",
+  "intent": "Mixed",
+  "demand": "Low–Medium",
+  "target": "assess.html",
+  "on_target": true,
+  "where": [],
+  "also": [
+   "blog/hope-gpa-vs-admissions-gpa-georgia.html",
+   "georgia/freshman-transcript-evaluation.html"
+  ],
+  "also_n": 2
+ },
+ {
+  "kw": "GPA standardization",
+  "cluster": "Modules",
+  "intent": "Practitioner",
+  "demand": "Low",
+  "target": "assess.html",
+  "on_target": true,
+  "where": [
+   "hx"
+  ],
+  "also": [
+   "blog.html",
+   "blog/ai-in-higher-education-admissions-2025.html",
+   "blog/ferpa-compliance-ai-admissions.html",
+   "blog/gpa-standardization-problem.html",
+   "blog/hope-gpa-vs-admissions-gpa-georgia.html",
+   "blog/how-to-evaluate-joint-services-transcript-jst.html",
+   "blog/international-transcript-evaluation-first-year-admissions.html",
+   "georgia/freshman-transcript-evaluation.html",
+   "glossary.html",
+   "index.html",
+   "solutions/stay-audit-ready.html",
+   "who-we-serve/four-year-universities.html",
+   "who-we-serve/hbcus-and-msis.html"
+  ],
+  "also_n": 13
+ },
+ {
+  "kw": "NCAA progress toward degree",
+  "cluster": "Modules",
+  "intent": "Practitioner",
+  "demand": "Medium",
+  "target": "athletics.html",
+  "on_target": true,
+  "where": [
+   "title",
+   "desc",
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "blog/transfer-portal-athlete-eligibility-certification.html",
+   "faq.html",
+   "glossary.html",
+   "index.html",
+   "integrations.html",
+   "mobility.html",
+   "platform.html",
+   "solutions/stay-audit-ready.html",
+   "who-we-serve/four-year-universities.html"
+  ],
+  "also_n": 9
+ },
+ {
+  "kw": "will my credits transfer",
+  "cluster": "Modules",
+  "intent": "Students (pre-applicants)",
+  "demand": "Medium",
+  "target": "degree-pathway.html",
+  "on_target": true,
+  "where": [
+   "hx"
+  ],
+  "also": [
+   "articulate.html",
+   "blog.html",
+   "blog/enrollment-management-strategies-2025.html",
+   "blog/hbcu-enrollment-transfer-credit-challenges.html",
+   "blog/will-my-credits-transfer-self-service-answer.html",
+   "case-studies/nashville-state-community-college.html",
+   "georgia/transfer-credit-evaluation.html",
+   "index.html",
+   "solutions/grow-transfer-enrollment.html"
+  ],
+  "also_n": 9
+ },
+ {
+  "kw": "reverse transfer",
+  "cluster": "Modules",
+  "intent": "Practitioner",
+  "demand": "Low",
+  "target": "mobility.html",
+  "on_target": true,
+  "where": [
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "blog.html",
+   "blog/best-sis-integrations-higher-education-2025.html",
+   "blog/community-college-transfer-student-success.html",
+   "blog/ellucian-banner-integration-transcript-evaluation.html",
+   "blog/ferpa-compliance-ai-admissions.html",
+   "blog/how-to-choose-transcript-evaluation-software.html",
+   "blog/reverse-transfer-associate-degree-explained.html",
+   "blog/transfer-portal-athlete-eligibility-certification.html",
+   "blog/transfer-student-retention-strategies.html",
+   "case-studies/nashville-state-community-college.html",
+   "degree-pathway.html",
+   "georgia/transfer-credit-evaluation.html",
+   "glossary.html",
+   "index.html",
+   "solutions/grow-transfer-enrollment.html",
+   "solutions/improve-completion-and-retention.html",
+   "who-we-serve/community-colleges.html",
+   "who-we-serve/state-systems.html"
+  ],
+  "also_n": 18
+ },
+ {
+  "kw": "what is transcript evaluation",
+  "cluster": "Questions (AEO)",
+  "intent": "Informational",
+  "demand": "Medium",
+  "target": "transcript-evaluation-near-me.html",
+  "on_target": true,
+  "where": [
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "blog/how-to-choose-transcript-evaluation-software.html"
+  ],
+  "also_n": 1
+ },
+ {
+  "kw": "how long does transcript evaluation take",
+  "cluster": "Questions (AEO)",
+  "intent": "Informational",
+  "demand": "Medium",
+  "target": "transcript-evaluation-near-me.html",
+  "on_target": true,
+  "where": [
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "georgia/atlanta-transcript-evaluation.html",
+   "georgia/military-transcript-evaluation.html",
+   "veterans.html"
+  ],
+  "also_n": 3
+ },
+ {
+  "kw": "transcript evaluation cost",
+  "cluster": "Questions (AEO)",
+  "intent": "Informational",
+  "demand": "Medium",
+  "target": "transcript-evaluation-near-me.html",
+  "on_target": true,
+  "where": [
+   "faq"
+  ],
+  "also": [
+   "georgia/atlanta-transcript-evaluation.html"
+  ],
+  "also_n": 1
+ },
+ {
+  "kw": "how do I know if my credits will transfer",
+  "cluster": "Questions (AEO)",
+  "intent": "Students",
+  "demand": "Medium",
+  "target": "georgia/transfer-credit-evaluation.html",
+  "on_target": true,
+  "where": [
+   "faq"
+  ],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "do TCSG credits transfer to USG",
+  "cluster": "Questions (AEO)",
+  "intent": "Students / practitioners",
+  "demand": "Low (GA)",
+  "target": "georgia/transfer-credit-evaluation.html",
+  "on_target": true,
+  "where": [
+   "faq"
+  ],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "what is USG Core IMPACTS",
+  "cluster": "Questions (AEO)",
+  "intent": "Informational (GA)",
+  "demand": "Low–Medium (GA)",
+  "target": "georgia/transfer-credit-evaluation.html",
+  "on_target": true,
+  "where": [
+   "faq"
+  ],
+  "also": [
+   "blog/tcsg-to-usg-transfer-core-impacts-guide.html"
+  ],
+  "also_n": 1
+ },
+ {
+  "kw": "is the HOPE GPA the same as admissions GPA",
+  "cluster": "Questions (AEO)",
+  "intent": "Informational (GA)",
+  "demand": "Low–Medium (GA)",
+  "target": "georgia/freshman-transcript-evaluation.html",
+  "on_target": true,
+  "where": [
+   "faq"
+  ],
+  "also": [],
+  "also_n": 0
+ }
+]

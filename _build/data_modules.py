@@ -142,7 +142,7 @@ dict(
 # ------------------------------------------------------------------ VETERANS
 dict(
  slug="veterans", name="LioraAI for Veterans & JST", short="Veterans & JST", cat="Military & JST Credit", family="Credit Evaluation", icon="fa-medal",
- title="JST & Military Transcript Evaluation Software | LioraAI for Veterans",
+ title="JST & Military Transcript Evaluation Software | LioraAI",
  desc="Evaluate Joint Services Transcripts, CCAF and DD-214 records against ACE recommendations and your catalog. Give veterans a credit answer in days, not a semester.",
  eyebrow="For Veteran Services offices & School Certifying Officials",
  h1="Turn a Veteran’s Service Record Into Credit <span class=\"accent\">in Days, Not a Semester</span>",
@@ -172,7 +172,7 @@ dict(
        ("How does LioraAI evaluate a JST?", "It reads the transcript, identifies each military course and occupation, matches them to ACE recommendations, then maps those to equivalent courses in your catalog using your rules. Every suggestion carries its ACE citation so an evaluator can approve, modify or decline it."),
        ("Does LioraAI decide how much credit a veteran gets?", "No. Your School Certifying Officials, registrar and faculty approve every award. LioraAI does the research and documents the decision."),
        ("Can veterans see their own evaluation?", "Yes. Prospective and admitted veterans can use a self-service view that shows the credit their JST or CCAF transcript is likely to earn at your institution."),
-       ("How long does a military credit evaluation take?", "LioraAI produces a full JST evaluation in under a minute. Institutions typically move from multi-week turnaround to same-day or next-day certified decisions once evaluators shift from research to review.")],
+       ("How long does military transcript evaluation take?", "LioraAI produces a full JST evaluation in under a minute. Institutions typically move from multi-week turnaround to same-day or next-day certified decisions once evaluators shift from research to review.")],
  related=["pla", "articulate", "degree-pathway"],
  blog=["how-to-evaluate-joint-services-transcript-jst", "prior-learning-assessment-guide", "ferpa-compliance-ai-admissions"],
  features_schema=["Joint Services Transcript evaluation", "CCAF transcript evaluation", "DD-214 and legacy military records", "ACE credit recommendation citations", "School Certifying Official review queue", "Veteran self-service credit view", "Audit trail"],
@@ -182,7 +182,7 @@ dict(
 dict(
  slug="athletics", name="LioraAI Athlete Transcripts", short="Athlete Transcripts", cat="NCAA Eligibility Support", family="Compliance & Certification", icon="fa-trophy",
  title="NCAA Transcript & Progress-Toward-Degree Software | LioraAI",
- desc="Keep student-athlete certification on schedule. LioraAI evaluates transfer athlete transcripts and keeps a live, documented progress-toward-degree view for compliance.",
+ desc="Keep student-athlete certification on schedule: LioraAI evaluates transfer athlete transcripts and keeps a documented progress-toward-degree view.",
  eyebrow="For athletic compliance & academic support for athletics",
  h1="Keep Student-Athlete Certification <span class=\"accent\">On Schedule, Every Term</span>",
  sub="When a transfer athlete is being recruited, the academic clock starts immediately. LioraAI evaluates the incoming transcript, maps it to a specific degree program and keeps a live, documented progress-toward-degree picture, so compliance and advisors work from evidence, not spreadsheets.",
@@ -259,7 +259,7 @@ dict(
 # ------------------------------------------------------------------ MOBILITY
 dict(
  slug="mobility", name="Student Mobility Intelligence", short="Mobility Intelligence", cat="Transfer Analytics", family="Student Pathways", icon="fa-chart-line",
- title="Student Transfer Analytics | Student Mobility Intelligence by LioraAI",
+ title="Student Transfer Analytics | Mobility Intelligence | LioraAI",
  desc="See where transfer students come from, how much credit they lose and who may leave. Mobility Intelligence turns evaluation data into enrollment strategy.",
  eyebrow="For VPs of enrollment, student affairs & institutional research",
  h1="Know Where Your Students Are Going, <span class=\"accent\">Before They Leave</span>",
