@@ -33,7 +33,7 @@ dict(
   ("How does implementation work?",
    "<p>Demos, configuration workshops and training run online for institutions in any state, and standard SIS integrations typically go live in two to four weeks. Roane State Community College in Tennessee went live on Banner in 18 days. Institutions that prefer to meet in person can request an on-campus visit; it is easiest for campuses in Georgia, near our team.</p>"),
  ],
- modules=["transfer-credit-intelligence", "freshman-intelligence", "veterans", "pla", "degree-pathway", "mobility"],
+ modules=["transfer-credit-intelligence", "freshman-intelligence", "veterans", "prior-learning-assessment", "degree-pathway", "mobility"],
  faqs=[
   ("Does EnlitEDU only work with Georgia colleges?", "No. EnlitEDU serves colleges and universities across the United States, and its first customers are Tennessee community colleges. Georgia institutions can also meet the team in person."),
   ("Where is EnlitEDU based?", "EnlitEDU is headquartered at 3840 Windermere Pkwy, Suite 403, Cumming, Georgia 30041, in north metro Atlanta, and works with institutions nationwide."),
@@ -60,7 +60,7 @@ dict(
  stats=[("Any state", "colleges and universities nationwide"), ("Online + on site", "demos anywhere; visits on request"), ("Days", "not weeks: evaluation turnaround once live")],
  sections=[
   ("What does LioraAI do for a registrar’s office?",
-   "<p>One engine and one set of your rules for every kind of transcript: transfer credit with <a href=\"../transfer-credit-intelligence.html\">LioraAI Transfer Credit Intelligence</a>, first-year applicants with <a href=\"../freshman-intelligence.html\">LioraAI Freshman Intelligence</a>, military records with <a href=\"../veterans.html\">Veterans &amp; JST</a> and work experience with <a href=\"../pla.html\">Prior Learning Assessment</a>. Evaluators approve every decision, and approved credit posts to your SIS.</p>"),
+   "<p>One engine and one set of your rules for every kind of transcript: transfer credit with <a href=\"../transfer-credit-intelligence.html\">LioraAI Transfer Credit Intelligence</a>, first-year applicants with <a href=\"../freshman-intelligence.html\">LioraAI Freshman Intelligence</a>, military records with <a href=\"../veterans.html\">Veterans &amp; JST</a> and work experience with <a href=\"../prior-learning-assessment.html\">Prior Learning Assessment</a>. Evaluators approve every decision, and approved credit posts to your SIS.</p>"),
   ("How do we work with institutions outside Atlanta?",
    "<p>The same way we work with everyone: discovery, configuration workshops and training run online, in your time zone, and standard SIS integrations go live in two to four weeks. Our first customers are community colleges in Tennessee. Roane State went live on Banner in 18 days, and Nashville State cut per-transcript time from 15 minutes to 2.</p>"),
   ("Transcript evaluation in Atlanta: meeting in person",
@@ -68,7 +68,7 @@ dict(
   ("Looking for a transcript evaluation for yourself?",
    "<p>LioraAI is software for colleges and universities. If you are a student who needs a <strong>foreign transcript or degree evaluated</strong> for admission, licensing or immigration, you need a credential evaluation service, usually a member of NACES. Check which evaluators your college accepts first. Our <a href=\"../transcript-evaluation-near-me.html\">transcript evaluation guide</a> explains the difference.</p>"),
  ],
- modules=["transfer-credit-intelligence", "freshman-intelligence", "veterans", "pla"],
+ modules=["transfer-credit-intelligence", "freshman-intelligence", "veterans", "prior-learning-assessment"],
  faqs=[
   ("Is EnlitEDU only for colleges in Atlanta?", "No. EnlitEDU works with colleges and universities across the U.S. The team is headquartered in north metro Atlanta, so Atlanta-area institutions can also meet in person."),
   ("Is there a transcript evaluation software company in Atlanta?", "Yes. EnlitEDU, the maker of LioraAI, is based in Cumming, Georgia, in north metro Atlanta, and builds transcript and credit evaluation software for colleges nationwide."),
@@ -171,7 +171,7 @@ dict(
   ("Military transcript evaluation in Georgia",
    "<p>Georgia law directs the USG Board of Regents and the TCSG State Board to award credit for relevant military training. Georgia’s installations, including Fort Benning, Fort Gordon, Fort Stewart, Robins Air Force Base and Moody Air Force Base, produce a steady flow of JST and CCAF transcripts. LioraAI applies those rules alongside each institution’s own policy.</p>"),
  ],
- modules=["veterans", "pla", "transfer-credit-intelligence"],
+ modules=["veterans", "prior-learning-assessment", "transfer-credit-intelligence"],
  faqs=[
   ("Do colleges have to give credit for military training?", "Many states direct public colleges to award credit for relevant military training; Georgia, for example, directs USG and TCSG to do so. Each institution decides how that credit applies to its programs under its own policy."),
   ("What is the difference between a JST and a CCAF transcript?", "The Joint Services Transcript covers the Army, Navy, Marine Corps and Coast Guard. Air Force and Space Force training appears on the Community College of the Air Force transcript. LioraAI evaluates both."),

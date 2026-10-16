@@ -119,6 +119,7 @@ python _build/prelaunch_check.py  # sitemap XML, robots, head tags, titles, dupl
   **LioraAI Freshman Intelligence** (`freshman-intelligence.html`, was "LioraAI Assess"). The old `articulate.html` and
   `assess.html` are noindex pages that forward to the new addresses. Old names in the ported blog posts are rewritten at
   build time (`_rename()` in `build.py`).
+- **Prior Learning Assessment** lives at `prior-learning-assessment.html` (was `pla.html`, which now forwards; hosts 301 `/pla` and `/pla.html`).
 - **NCAA / Athlete Transcripts is hidden until launch.** `athletics.html` is still built but is `noindex`, left out of the
   sitemap, llms.txt, menus, footer and all module grids, and nothing links to it. To launch it, remove `"athletics"` from
   `HIDDEN` in `_build/data_modules.py`, rebuild, and restore any NCAA copy you want back (platform FAQ, universities page).

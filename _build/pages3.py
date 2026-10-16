@@ -113,7 +113,7 @@ GA_CALLOUT = {
     "transfer-credit-intelligence": ("georgia/transfer-credit-evaluation.html", "Evaluating TCSG or USG transcripts in Georgia?", "See how LioraAI applies Core IMPACTS domains and the TCSG–USG agreement."),
     "freshman-intelligence": ("georgia/freshman-transcript-evaluation.html", "Reviewing Georgia freshman transcripts?", "Weighted GPAs, Dual Enrollment credit and the HOPE GPA, handled consistently."),
     "veterans": ("georgia/military-transcript-evaluation.html", "Serving students from Georgia’s military bases?", "JST and CCAF evaluation for Fort Benning, Fort Gordon, Fort Stewart, Robins and Moody."),
-    "pla": ("georgia.html", "A Georgia institution?", "Meet our team in metro Atlanta for an on-campus demo."),
+    "prior-learning-assessment": ("georgia.html", "A Georgia institution?", "Meet our team in metro Atlanta for an on-campus demo."),
     "athletics": ("georgia.html", "A Georgia institution?", "Meet our team in metro Atlanta for an on-campus demo."),
     "degree-pathway": ("georgia/transfer-credit-evaluation.html", "Georgia transfer students asking “will my credits transfer?”", "See how pathways work with USG and TCSG rules."),
     "mobility": ("georgia/transfer-credit-evaluation.html", "Mapping TCSG-to-USG transfer pathways?", "Mobility Intelligence for Georgia partnerships."),

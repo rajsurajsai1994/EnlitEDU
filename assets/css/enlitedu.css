@@ -815,3 +815,13 @@ html,body{overflow-x:hidden}
 .vmodal .x span{font-size:16px;line-height:1}
 .vmodal .x:hover,.vmodal .x:focus-visible{background:var(--gold);outline:none}
 @media(max-width:480px){.flag-proof b{white-space:normal;font-size:21px}}
+
+/* current section in the top menu: same light-blue pill as hover, so visitors always know where they are */
+.nav-main>li>a[aria-current="page"],.nav-main>li.active>button{background:var(--blue-50);color:var(--blue)}
+.mega a.is-current{background:var(--blue-50);border-radius:12px}
+.drawer a.is-current{color:var(--blue);background:var(--blue-50);border-radius:10px;font-weight:700}
+.drawer details.has-current>summary{color:var(--blue)}
+.drawer .panel{overscroll-behavior:contain}
+html.scroll-locked{overflow:hidden}
+/* stat sources: small print */
+.stat-card cite{font-size:11px;line-height:1.4}

@@ -110,7 +110,7 @@ MODULES_NAV = [
     # (group, url, category, name, desc, icon)
     ("Credit Evaluation", "transfer-credit-intelligence.html", "Transfer Credit Evaluation", "LioraAI Transfer Credit Intelligence", "Map any transcript to your catalog", "fa-right-left"),
     ("Credit Evaluation", "freshman-intelligence.html", "High School Transcripts", "LioraAI Freshman Intelligence", "GPA standardization for admissions", "fa-graduation-cap"),
-    ("Credit Evaluation", "pla.html", "Credit for Prior Learning", "Prior Learning Assessment", "Work, certifications & portfolios", "fa-briefcase"),
+    ("Credit Evaluation", "prior-learning-assessment.html", "Credit for Prior Learning", "Prior Learning Assessment", "Work, certifications & portfolios", "fa-briefcase"),
     ("Credit Evaluation", "veterans.html", "Military & JST Credit", "LioraAI for Veterans & JST", "JST, CCAF & DD-214 evaluation", "fa-medal"),
     ("Compliance & Certification", "athletics.html", "NCAA Eligibility Support", "LioraAI Athlete Transcripts", "Progress-toward-degree, documented", "fa-trophy"),
     ("Student Pathways", "degree-pathway.html", "Student Self-Service", "Student Degree Pathway", "Every student's path to a degree", "fa-route"),

@@ -4,7 +4,7 @@ from core import *
 from data_modules import MODULES, BY_SLUG, FOOTNOTE, CARD, HIDDEN
 from data_more import SOLUTIONS, AUDIENCES, GLOSSARY, FAQ_HUB, NSC, GAO, WEEKS
 
-MOD_IMG = {"transfer-credit-intelligence": "registrar-docs", "freshman-intelligence": "student-table", "pla": "adult-learner", "veterans": "veteran-smile",
+MOD_IMG = {"transfer-credit-intelligence": "registrar-docs", "freshman-intelligence": "student-table", "prior-learning-assessment": "adult-learner", "veterans": "veteran-smile",
            "athletics": "athlete-runner", "degree-pathway": "student-backpack", "mobility": "cabinet"}
 BLOG = {}  # filled by build.py: slug -> dict(title, desc, date, tag, img)
 
@@ -80,7 +80,7 @@ def which_module():
     rows = [("Students coming to college for the first time from high school, homeschool or a GED (first-year / freshman)", "freshman-intelligence.html", "LioraAI Freshman Intelligence"),
             ("Anyone bringing credit from another college or university, whatever their class standing", "transfer-credit-intelligence.html", "LioraAI Transfer Credit Intelligence"),
             ("Service members and veterans with a JST, CCAF transcript or DD-214", "veterans.html", "Veterans & JST"),
-            ("Adult learners with certifications, work experience, exams or a portfolio", "pla.html", "Prior Learning Assessment")]
+            ("Adult learners with certifications, work experience, exams or a portfolio", "prior-learning-assessment.html", "Prior Learning Assessment")]
     r = "".join('<div class="row-q"><span>%s</span><a href="%s">%s →</a></div>' % (a, u(h), e(n)) for a, h, n in rows)
     return ('<div class="which" data-aos="fade-up"><h3>Which module do I need?</h3><p style="color:#c9d3e6">Plain definitions, because community colleges and universities don’t always use the same words.</p>%s</div>' % r)
 
@@ -114,7 +114,7 @@ def state_story_html(variant="home"):
            ("fa-users-cog", "Each campus runs its own team", "Institutions manage their own roles and reviewers. Nashville State administrators create their own LioraAI roles with no EnlitEDU configuration step."),
            ("fa-chart-bar", "One system-wide view", "Decisions, turnaround and credit applied roll up across campuses for the system office.")]
     cards = "".join('<div class="col-sm-6" data-aos="fade-up" data-aos-delay="%d"><div class="card-x"><div class="ico"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div></div>' % (i * 70, ic, t, dsc) for i, (ic, t, dsc) in enumerate(pts))
-    head = ("For state systems and multi-campus institutions", "Proven at Tennessee Community Colleges. <span class=\"grad\">Built for Systems.</span>") if variant == "home" else \
+    head = ("For state systems and multi-campus institutions", "Proven at <span class=\"grad\">Tennessee</span> Community Colleges. Built for Systems.") if variant == "home" else \
            ("Proof from Tennessee", "Proven on Two Campuses. <span class=\"grad\">Ready for Yours.</span>")
     link = arrow("LioraAI for state systems", "who-we-serve/state-systems.html") if variant == "home" else arrow("Read both customer stories", "case-studies.html")
     return ('<section class="sec tint-2"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-5" data-aos="fade-up">%s<h2>%s</h2>'
@@ -144,7 +144,7 @@ def build_home():
 
     problem = ('<section class="sec"><div class="container"><div class="row align-items-center g-5"><div class="col-lg-5" data-aos="fade-right">'
                '<div class="img-stack"><div class="a">%s</div><div class="b">%s</div><div class="tag"><b>3 weeks → 2 days</b><span>Evaluation turnaround at Roane State</span></div></div></div>'
-               '<div class="col-lg-7"><div class="sec-head mb-4" data-aos="fade-up">%s<h2>Students Move. Their Credit Should <span class="grad">Too.</span></h2>'
+               '<div class="col-lg-7"><div class="sec-head mb-4" data-aos="fade-up">%s<h2>Students Move. Their <span class="grad">Credit Should Too.</span></h2>'
                '<p class="lede">More than a third of students transfer. Veterans bring years of training. Adult learners bring certifications and work experience. Every one of them asks the same question: what counts? The institution that answers first, and fairly, earns the enrollment.</p></div>'
                '<div class="row g-3">%s</div></div></div></div></section>'
                % (img("grads-jump", 800, sizes="(max-width: 991px) 100vw, 40vw", ratio=(4, 4.6)), img("registrar-desk", 480, alt="", sizes="200px", ratio=(1, 1)),
@@ -154,7 +154,7 @@ def build_home():
     tab_data = [
         ("speed-up-credit-evaluation", "registrar-folder", ("fa-circle-check", "ok", "Queue cleared", "212 evaluations this week"), ["transfer-credit-intelligence", "freshman-intelligence", "veterans"]),
         ("grow-transfer-enrollment", "students-group", ("fa-bolt", "ok", "15 minutes → 2 minutes", "Per transcript at Nashville State"), ["degree-pathway", "transfer-credit-intelligence", "mobility"]),
-        ("serve-military-and-adult-learners", "veteran-family", ("fa-medal", "gold", "12 credits awarded", "JST evaluated with ACE citations"), ["veterans", "pla"]),
+        ("serve-military-and-adult-learners", "veteran-family", ("fa-medal", "gold", "12 credits awarded", "JST evaluated with ACE citations"), ["veterans", "prior-learning-assessment"]),
         ("stay-audit-ready", "four-meeting", ("fa-fingerprint", "blue", "Decision recorded", "Evidence, rule and approver logged"), ["transfer-credit-intelligence", "freshman-intelligence", "veterans"]),
         ("improve-completion-and-retention", "grad-woman", ("fa-user-check", "blue", "Credit applied", "Before the first advising session"), ["degree-pathway", "mobility"]),
     ]

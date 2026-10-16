@@ -35,7 +35,7 @@ K = [
  ("military transcript evaluation", "Modules", "Buyer / practitioner", "Low–Medium", "veterans.html", r"military transcript evaluation"),
  ("JST transcript evaluation", "Modules", "Practitioner", "Low", "veterans.html", r"joint services transcript|\bjst\b"),
  ("ACE military credit", "Modules", "Practitioner", "Low", "veterans.html", r"ace (credit )?recommendation"),
- ("credit for prior learning software", "Modules", "Buyer", "Low", "pla.html", r"credit for prior learning"),
+ ("credit for prior learning software", "Modules", "Buyer", "Low", "prior-learning-assessment.html", r"credit for prior learning"),
  ("high school transcript evaluation", "Modules", "Mixed", "Low–Medium", "freshman-intelligence.html", r"high school transcript"),
  ("GPA standardization", "Modules", "Practitioner", "Low", "freshman-intelligence.html", r"gpa standardization|standardize[sd]? (every )?gpa"),
  ("will my credits transfer", "Modules", "Students (pre-applicants)", "Medium", "blog/will-my-credits-transfer-self-service-answer.html", r"will my credits transfer"),

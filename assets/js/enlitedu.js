@@ -58,6 +58,33 @@
     if (e.key === "Escape") { closeAll(); closeDrawer(); closeVideo(); }
   });
 
+  /* ---------- scroll lock (drawer + video): pin the page so the background cannot scroll, incl. iOS ---------- */
+  var lockY = 0, locks = 0;
+  function lockScroll() {
+    if (locks++) return;
+    lockY = window.scrollY || 0;
+    var b = document.body.style;
+    b.position = "fixed"; b.top = -lockY + "px"; b.left = "0"; b.right = "0"; b.width = "100%"; b.overflow = "hidden";
+    doc.classList.add("scroll-locked");
+  }
+  function unlockScroll() {
+    if (!locks || --locks) return;
+    var b = document.body.style;
+    b.position = b.top = b.left = b.right = b.width = b.overflow = "";
+    doc.classList.remove("scroll-locked");
+    window.scrollTo(0, lockY);
+  }
+
+  /* ---------- "you are here": highlight the current page in the mega menus and the mobile menu ---------- */
+  var here = location.pathname.replace(/index\.html$/, "");
+  document.querySelectorAll(".mega a[href], .drawer a[href]").forEach(function (a) {
+    var p = a.pathname ? a.pathname.replace(/index\.html$/, "") : "";
+    if (p && p === here && !a.hash) {
+      a.classList.add("is-current"); a.setAttribute("aria-current", "page");
+      var det = a.closest("details"); if (det) { det.classList.add("has-current"); det.open = true; }
+    }
+  });
+
   /* ---------- mobile drawer ---------- */
   var drawer = document.querySelector(".drawer");
   var burger = document.querySelector(".burger");
@@ -66,7 +93,7 @@
     drawer.classList.add("open");
     drawer.setAttribute("aria-hidden", "false");
     if (burger) burger.setAttribute("aria-expanded", "true");
-    document.body.style.overflow = "hidden";
+    lockScroll();
     var c = drawer.querySelector(".close"); if (c) c.focus();
   }
   function closeDrawer() {
@@ -74,7 +101,7 @@
     drawer.classList.remove("open");
     drawer.setAttribute("aria-hidden", "true");
     if (burger) { burger.setAttribute("aria-expanded", "false"); burger.focus(); }
-    document.body.style.overflow = "";
+    unlockScroll();
   }
   if (burger) burger.addEventListener("click", openDrawer);
   if (drawer) {
@@ -166,13 +193,13 @@
     modal.querySelector(".box").insertAdjacentHTML("beforeend", '<iframe src="' + src + '" title="Video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>');
     modal.classList.add("open");
     modal.querySelector(".x").focus();
-    document.body.style.overflow = "hidden";
+    lockScroll();
   }
   function closeVideo() {
     if (!modal || !modal.classList.contains("open")) return;
     var f = modal.querySelector("iframe"); if (f) f.remove();
     modal.classList.remove("open");
-    document.body.style.overflow = "";
+    unlockScroll();
     if (lastFocus) lastFocus.focus();
   }
   document.addEventListener("click", function (e) {

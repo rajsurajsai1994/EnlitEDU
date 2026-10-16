@@ -10,7 +10,9 @@ http://www.enlitedu.com/*  https://www.enlitedu.com/:splat  301!
 /assess                                                      /freshman-intelligence.html  301
 /gpa-standardization                                         /freshman-intelligence.html  301
 /freshman                                                    /freshman-intelligence.html  301
-/prior-learning                                              /pla.html  301
+/prior-learning                                              /prior-learning-assessment.html  301
+/pla.html                                                    /prior-learning-assessment.html  301
+/pla                                                         /prior-learning-assessment.html  301
 /jst                                                         /veterans.html  301
 /athletics                                                   /athletics.html  301
 /demo                                                        /request-demo.html  301

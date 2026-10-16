@@ -17,7 +17,7 @@ EXACT = {
     "/assess.html": "/freshman-intelligence.html", "/assess": "/freshman-intelligence.html",
     "/gpa-standardization": "/freshman-intelligence.html", "/freshman": "/freshman-intelligence.html",
     # marketing short links from the old site
-    "/prior-learning": "/pla.html", "/jst": "/veterans.html", "/athletics": "/athletics.html",
+    "/prior-learning": "/prior-learning-assessment.html", "/pla.html": "/prior-learning-assessment.html", "/pla": "/prior-learning-assessment.html", "/jst": "/veterans.html", "/athletics": "/athletics.html",
     "/demo": "/request-demo.html", "/book-a-demo": "/request-demo.html", "/dupmerge": "/contact.html",
     "/products": "/platform.html", "/products/": "/platform.html",
     # folders that have no index page of their own

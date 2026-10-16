@@ -28,7 +28,7 @@ FILTER = {"Transfer Credit": "transfer", "Veterans & JST": "transfer", "Best Pra
           "Compliance": "compliance", "Technical Insights": "technical"}
 POST_MODULE = {"how-to-evaluate-joint-services-transcript-jst": "veterans", "transfer-portal-athlete-eligibility-certification": "transfer-credit-intelligence",
                "will-my-credits-transfer-self-service-answer": "transfer-credit-intelligence", "international-transcript-evaluation-first-year-admissions": "freshman-intelligence",
-               "reverse-transfer-associate-degree-explained": "mobility", "gpa-standardization-problem": "freshman-intelligence", "prior-learning-assessment-guide": "pla",
+               "reverse-transfer-associate-degree-explained": "mobility", "gpa-standardization-problem": "freshman-intelligence", "prior-learning-assessment-guide": "prior-learning-assessment",
                "community-college-transfer-student-success": "transfer-credit-intelligence", "transfer-student-retention-strategies": "transfer-credit-intelligence", "hbcu-enrollment-transfer-credit-challenges": "transfer-credit-intelligence",
                "tcsg-to-usg-transfer-core-impacts-guide": "transfer-credit-intelligence", "hope-gpa-vs-admissions-gpa-georgia": "freshman-intelligence", "how-to-choose-transcript-evaluation-software": "transfer-credit-intelligence",
                "us-community-college-transfer-statistics": "mobility", "state-transfer-policies-us-guide": "transfer-credit-intelligence", "dual-enrollment-credit-evaluation-us-colleges": "freshman-intelligence"}
@@ -45,6 +45,7 @@ def _rename(s):
     s = s.replace("LioraAI Articulate", "LioraAI Transfer Credit Intelligence").replace("LioraAI Assess", "LioraAI Freshman Intelligence")
     s = re.sub(r"\barticulate\.html", "transfer-credit-intelligence.html", s)
     s = re.sub(r"\bassess\.html", "freshman-intelligence.html", s)
+    s = re.sub(r"\bpla\.html", "prior-learning-assessment.html", s)
     s = re.sub(r"(\d)\s?wks\b", r"\1 weeks", s)   # house style: no shorthand units
     s = re.sub(r"(\d)\s?hrs\b", r"\1 hours", s)
     return re.sub(r'<a href="[^"]*(?:athletics|degree-pathway)\.html"[^>]*>(.*?)</a>', r"\1", s)
@@ -188,8 +189,16 @@ def main():
     P.build_home()
     for m in MODULES_ALL: P.build_module(m)
     # old module URLs (renamed Oct 2026) -> noindex stubs that forward to the new pages
-    for old, new, oldname in (("articulate.html", "transfer-credit-intelligence.html", "LioraAI Articulate"), ("assess.html", "freshman-intelligence.html", "LioraAI Assess")):
+    for old, new, oldname in (("articulate.html", "transfer-credit-intelligence.html", "LioraAI Articulate"), ("assess.html", "freshman-intelligence.html", "LioraAI Assess"),
+                              ("pla.html", "prior-learning-assessment.html", "Prior Learning Assessment")):
         set_depth(old); nm = BY_SLUG[new[:-5]]["name"]
+        if oldname == nm:  # same product, new address
+            body = ('<section class="page-hero on-dark"><div class="container"><div class="row"><div class="col-lg-8"><h1>This Page Has Moved</h1>'
+                    '<p class="sub">%s now lives at <a style="color:#fff;text-decoration:underline" href="%s">a new address</a>.</p></div></div></div></section>'
+                    '<script>location.replace("%s")</script>' % (nm, u(new), u(new)))
+            page(old, "%s Has Moved | EnlitEDU" % nm, "The %s page has a new address. This page forwards there automatically." % nm, body,
+                 schema=[breadcrumb([("Home", "index.html"), ("%s has moved" % nm, old)])], noindex=True)
+            continue
         body = ('<section class="page-hero on-dark"><div class="container"><div class="row"><div class="col-lg-8"><h1>This Page Has Moved</h1>'
                 '<p class="sub">%s is now <a style="color:#fff;text-decoration:underline" href="%s">%s</a>.</p></div></div></div></section>'
                 '<script>location.replace("%s")</script>' % (oldname, u(new), nm, u(new)))

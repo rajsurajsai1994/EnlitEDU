@@ -56,7 +56,17 @@
     },
     {
       "source": "/prior-learning",
-      "destination": "/pla.html",
+      "destination": "/prior-learning-assessment.html",
+      "permanent": true
+    },
+    {
+      "source": "/pla.html",
+      "destination": "/prior-learning-assessment.html",
+      "permanent": true
+    },
+    {
+      "source": "/pla",
+      "destination": "/prior-learning-assessment.html",
       "permanent": true
     },
     {
