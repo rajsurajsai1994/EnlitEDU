@@ -219,6 +219,7 @@ def header_html(active=""):
               '<a href="%s" target="_blank" rel="noopener" aria-label="LioraAI on YouTube"><i class="fa-brands fa-youtube"></i>YouTube</a></div></div></div></div>'
               % (u("platform.html"), SITE["email"], SITE["email"], SITE["linkedin"], SITE["youtube"]))
 
+    topbar = ""  # top announcement bar removed (Oct 2026): it made the header too busy; contact + social links live in the footer
     return (topbar +
             '<header class="site-header"><div class="container"><div class="bar">'
             '<a class="brand" href="%s" aria-label="EnlitEDU home"><img src="%s" alt="EnlitEDU" width="170" height="42"></a>'

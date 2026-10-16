@@ -12,7 +12,7 @@ for f in sorted(glob.glob("**/*.html", recursive=True)):
     if f.startswith(("assets", "_build", "google")): continue
     t = open(f, encoding="utf-8").read()
     head_title = re.search(r"<title>(.*?)</title>", t).group(1)
-    topbar = vis(re.search(r'<div class="topbar">(.*?)</header>', t, re.S).group(1))
+    topbar = vis(re.search(r"<header class=\"site-header\">(.*?)</header>", t, re.S).group(1))
     main = vis(re.search(r'<main id="main">(.*)</main>', t, re.S).group(1))
     foot = vis(re.search(r'<footer class="site-footer">(.*?)</footer>', t, re.S).group(1))
     n_main = len(RX.findall(main))

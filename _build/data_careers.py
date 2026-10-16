@@ -69,7 +69,7 @@ dict(
   "Experience in higher education technology or EdTech SaaS.",
   "Familiarity with student information systems (Banner, Colleague, PeopleSoft, Workday) and Slate CRM.",
   "Background in software development, systems integration or solution architecture.",
-  "Experience coordinating distributed or offshore engineering teams.",
+  "Experience coordinating distributed engineering teams.",
   "Understanding of AI/ML-based products and document processing workflows.",
   "Familiarity with Jira, Azure DevOps or similar project management tools."],
  success=[

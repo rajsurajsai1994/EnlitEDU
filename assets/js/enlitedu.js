@@ -234,7 +234,8 @@
       var mods = [].slice.call(form.querySelectorAll('input[name="modules"]:checked')).map(function (c) { return c.value; });
       data.delete("modules");
       if (mods.length) data.append("modules", mods.join(", "));
-      data.append("access_key", WEB3FORMS_KEY);
+      data.append("access_key", form.getAttribute("data-key") || WEB3FORMS_KEY);  // a form can use its own Web3Forms key via data-key
+      data.append("from_name", "EnlitEDU website");
       data.append("subject", form.getAttribute("data-subject") || "New enquiry from enlitedu.com");
       data.append("page", location.pathname);
       var label = btn ? btn.innerHTML : "";
