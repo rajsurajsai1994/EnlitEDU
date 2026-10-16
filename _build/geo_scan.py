@@ -24,7 +24,7 @@ for f, m, n, ft, ti in rows:
     if m or ti:
         print("%-62s %4d %7d %7d  %s" % (f, m, n, ft, "TITLE" if ti else ""))
 print("\nnav/top-bar mentions on every page:", rows[0][2], "| footer mentions on every page:", rows[0][3])
-for f in ("index.html", "articulate.html", "faq.html", "about.html", "request-demo.html", "case-studies.html", "blog/how-to-choose-transcript-evaluation-software.html"):
+for f in ("index.html", "transfer-credit-intelligence.html", "faq.html", "about.html", "request-demo.html", "case-studies.html", "blog/how-to-choose-transcript-evaluation-software.html"):
     t = vis(re.search(r'<main id="main">(.*)</main>', open(f, encoding="utf-8").read(), re.S).group(1))
     print("\n==", f)
     for m in RX.finditer(t):

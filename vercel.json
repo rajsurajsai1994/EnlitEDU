@@ -1,0 +1,503 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "enlitedu.com"
+        }
+      ],
+      "destination": "https://www.enlitedu.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/articulate.html",
+      "destination": "/transfer-credit-intelligence.html",
+      "permanent": true
+    },
+    {
+      "source": "/articulate",
+      "destination": "/transfer-credit-intelligence.html",
+      "permanent": true
+    },
+    {
+      "source": "/transfer-credit",
+      "destination": "/transfer-credit-intelligence.html",
+      "permanent": true
+    },
+    {
+      "source": "/transfer-credit-evaluation",
+      "destination": "/transfer-credit-intelligence.html",
+      "permanent": true
+    },
+    {
+      "source": "/assess.html",
+      "destination": "/freshman-intelligence.html",
+      "permanent": true
+    },
+    {
+      "source": "/assess",
+      "destination": "/freshman-intelligence.html",
+      "permanent": true
+    },
+    {
+      "source": "/gpa-standardization",
+      "destination": "/freshman-intelligence.html",
+      "permanent": true
+    },
+    {
+      "source": "/freshman",
+      "destination": "/freshman-intelligence.html",
+      "permanent": true
+    },
+    {
+      "source": "/prior-learning",
+      "destination": "/pla.html",
+      "permanent": true
+    },
+    {
+      "source": "/jst",
+      "destination": "/veterans.html",
+      "permanent": true
+    },
+    {
+      "source": "/athletics",
+      "destination": "/athletics.html",
+      "permanent": true
+    },
+    {
+      "source": "/demo",
+      "destination": "/request-demo.html",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-demo",
+      "destination": "/request-demo.html",
+      "permanent": true
+    },
+    {
+      "source": "/dupmerge",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/products",
+      "destination": "/platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/products/",
+      "destination": "/platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/solutions",
+      "destination": "/platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/",
+      "destination": "/platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/who-we-serve",
+      "destination": "/who-we-serve/community-colleges.html",
+      "permanent": true
+    },
+    {
+      "source": "/who-we-serve/",
+      "destination": "/who-we-serve/community-colleges.html",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/",
+      "destination": "/case-studies.html",
+      "permanent": true
+    },
+    {
+      "source": "/georgia/",
+      "destination": "/georgia.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/feed/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/uncategorized/data-integration-for-improving-academic-performance-tracking/",
+      "destination": "/mobility.html",
+      "permanent": true
+    },
+    {
+      "source": "/uncategorized/how-data-integration-improves-institutional-decision-making/",
+      "destination": "/mobility.html",
+      "permanent": true
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/assets/img/enlitedu/favicon-32.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/alabama-a-m-university.png",
+      "destination": "/assets/img/enlitedu/alabama-a-m-university.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/alexis-pope.jpg",
+      "destination": "/assets/img/enlitedu/alexis-pope.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/apple-touch-icon.png",
+      "destination": "/assets/img/enlitedu/apple-touch-icon.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/brenda-williams.jpg",
+      "destination": "/assets/img/enlitedu/brenda-williams.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/bronx-community-college.png",
+      "destination": "/assets/img/enlitedu/bronx-community-college.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/celebrating-university-graduates.jpg",
+      "destination": "/assets/img/enlitedu/celebrating-university-graduates.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/celebrating-university-graduates.webp",
+      "destination": "/assets/img/enlitedu/celebrating-university-graduates.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/chaitanya-saripalli.jpg",
+      "destination": "/assets/img/enlitedu/chaitanya-saripalli.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/dashboard-preview.png",
+      "destination": "/assets/img/enlitedu/dashboard-preview.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/emory-university.png",
+      "destination": "/assets/img/enlitedu/emory-university.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/enlitedu-white.png",
+      "destination": "/assets/img/enlitedu/enlitedu-white.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/enlitedu.png",
+      "destination": "/assets/img/enlitedu/enlitedu.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/favicon-16.png",
+      "destination": "/assets/img/enlitedu/favicon-16.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/favicon-192.png",
+      "destination": "/assets/img/enlitedu/favicon-192.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/favicon-32.png",
+      "destination": "/assets/img/enlitedu/favicon-32.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/favicon-512.png",
+      "destination": "/assets/img/enlitedu/favicon-512.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/favicon.svg",
+      "destination": "/assets/img/enlitedu/favicon-192.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/ferpa-doe.jpg",
+      "destination": "/assets/img/enlitedu/ferpa-doe.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/hero-students.jpg",
+      "destination": "/assets/img/enlitedu/hero-students.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/hero-students.webp",
+      "destination": "/assets/img/enlitedu/hero-students.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/jamie-stringer.jpg",
+      "destination": "/assets/img/enlitedu/jamie-stringer.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/jessica-hunsaker.jpg",
+      "destination": "/assets/img/enlitedu/jessica-hunsaker.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/johnson-c-smith-university.png",
+      "destination": "/assets/img/enlitedu/johnson-c-smith-university.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo-ellucian.svg",
+      "destination": "/assets/img/enlitedu/logo-ellucian.svg",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo-jenzabar.png",
+      "destination": "/assets/img/enlitedu/logo-jenzabar.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo-oracle.png",
+      "destination": "/assets/img/enlitedu/logo-oracle.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo-peoplesoft.png",
+      "destination": "/assets/img/enlitedu/logo-peoplesoft.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo-salesforce.png",
+      "destination": "/assets/img/enlitedu/logo-salesforce.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo-slate.png",
+      "destination": "/assets/img/enlitedu/logo-slate.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo-white.svg",
+      "destination": "/assets/img/enlitedu/logo-white.svg",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo-workday.svg",
+      "destination": "/assets/img/enlitedu/logo-workday.svg",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo.png",
+      "destination": "/assets/img/enlitedu/logo.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logo.svg",
+      "destination": "/assets/img/enlitedu/logo.svg",
+      "permanent": true
+    },
+    {
+      "source": "/images/miles-college.png",
+      "destination": "/assets/img/enlitedu/miles-college.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/og-lioraai.jpg",
+      "destination": "/assets/img/enlitedu/og-lioraai.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/paul-charpie.jpg",
+      "destination": "/assets/img/enlitedu/paul-charpie.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/roane-state-community-college.png",
+      "destination": "/assets/img/enlitedu/roane-state-community-college.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/sajan-patel.jpg",
+      "destination": "/assets/img/enlitedu/sajan-patel.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/slate-partner-badge.png",
+      "destination": "/assets/img/enlitedu/slate-partner-badge.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/soc2-aicpa.jpg",
+      "destination": "/assets/img/enlitedu/soc2-aicpa.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/Alabama-University.png",
+      "destination": "/assets/img/enlitedu/logos/Alabama-University.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/bronx-cc.png",
+      "destination": "/assets/img/enlitedu/logos/bronx-cc.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/cnm-college.png",
+      "destination": "/assets/img/enlitedu/logos/cnm-college.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/emory-university.png",
+      "destination": "/assets/img/enlitedu/emory-university.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/fisk-university.png",
+      "destination": "/assets/img/enlitedu/logos/fisk-university.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/Johnson-university.png",
+      "destination": "/assets/img/enlitedu/logos/Johnson-university.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/miles-college.png",
+      "destination": "/assets/img/enlitedu/miles-college.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/nashville-university.png",
+      "destination": "/assets/img/enlitedu/logos/nashville-university.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/roane-state.png",
+      "destination": "/assets/img/enlitedu/logos/roane-state.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/logos/xavier-university.png",
+      "destination": "/assets/img/enlitedu/logos/xavier-university.png",
+      "permanent": true
+    },
+    {
+      "source": "/uncategorized/:path*",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:path*",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/author/:path*",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/2023/:path*",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/2024/:path*",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/2025/:path*",
+      "destination": "/blog.html",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<sub>.*)\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}

@@ -63,7 +63,7 @@ dict(
 </ul>
 
 <h2>Where LioraAI fits</h2>
-<p>LioraAI evaluates transfer transcripts against each institution’s own rules and shows where each course applies, with evaluators approving every decision. <a href="../mobility.html">Student Mobility Intelligence</a> turns those decisions into data on credit loss and transfer yield. Roane State Community College in Tennessee cut evaluation time from about three weeks to two days, and Nashville State Community College reported a 24% increase in transfer yield in one cycle.</p>
+<p>LioraAI evaluates transfer transcripts against each institution’s own rules and shows where each course applies, with evaluators approving every decision. <a href="../mobility.html">Student Mobility Intelligence</a> turns those decisions into data on credit loss and transfer yield. Roane State Community College in Tennessee cut evaluation time from about three weeks to two days, and Nashville State Community College cut per-transcript evaluation time from about 15 minutes to 2 minutes (87%) and approval turnaround from 18 to 8 hours (56%) after going live in July 2026.</p>
 
 <h3>Sources</h3>
 <ul class="sources">
@@ -149,7 +149,7 @@ dict(
 </ol>
 
 <h2>Where LioraAI fits</h2>
-<p><a href="../articulate.html">LioraAI Articulate</a> applies state frameworks and your own policies as rules, suggests matches for everything else with evidence, and leaves approval to your evaluators. EnlitEDU configures rule sets for institutions in any state, and approved credit posts back to Banner, Colleague, Workday Student, PeopleSoft or Jenzabar.</p>
+<p><a href="../transfer-credit-intelligence.html">LioraAI Transfer Credit Intelligence</a> applies state frameworks and your own policies as rules, suggests matches for everything else with evidence, and leaves approval to your evaluators. EnlitEDU configures rule sets for institutions in any state, and approved credit posts back to Banner, Colleague, Workday Student, PeopleSoft or Jenzabar.</p>
 
 <h3>Sources</h3>
 <ul class="sources">
@@ -211,7 +211,7 @@ dict(
 <p>For community colleges, the same students show up on the other side: as dual enrollment students who later transfer out. Clean, well-coded course records and up-to-date articulation agreements with receiving institutions make it more likely that credit earned in high school counts later. Our overview of <a href="us-community-college-transfer-statistics.html">community college transfer statistics</a> shows why that matters.</p>
 
 <h2>Where LioraAI fits</h2>
-<p><a href="../assess.html">LioraAI Assess</a> standardizes first-year transcripts and GPAs under your documented policy, and <a href="../articulate.html">LioraAI Articulate</a> evaluates the dual enrollment college transcript against your catalog and rules. Evaluators approve every decision, so admitted students get a credit answer with their offer.</p>
+<p><a href="../freshman-intelligence.html">LioraAI Freshman Intelligence</a> standardizes first-year transcripts and GPAs under your documented policy, and <a href="../transfer-credit-intelligence.html">LioraAI Transfer Credit Intelligence</a> evaluates the dual enrollment college transcript against your catalog and rules. Evaluators approve every decision, so admitted students get a credit answer with their offer.</p>
 
 <h3>Sources</h3>
 <ul class="sources">

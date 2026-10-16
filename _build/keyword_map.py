@@ -8,11 +8,11 @@ os.chdir(os.path.join(os.path.dirname(__file__), ".."))
 K = [
  # --- core software (B2B)
  ("transcript evaluation software", "Core software", "Buyer (B2B)", "Medium", "index.html", r"transcript evaluation software"),
- ("transfer credit evaluation software", "Core software", "Buyer (B2B)", "Low–Medium", "articulate.html", r"transfer credit evaluation software"),
+ ("transfer credit evaluation software", "Core software", "Buyer (B2B)", "Low–Medium", "transfer-credit-intelligence.html", r"transfer credit evaluation software"),
  ("credit evaluation software", "Core software", "Buyer (mixed with finance)", "Low", "georgia.html", r"credit evaluation software"),
  ("AI transcript evaluation", "Core software", "Buyer (B2B)", "Low, rising", "blog/how-to-choose-transcript-evaluation-software.html", r"ai transcript evaluation|ai-assisted transcript"),
  ("transcript review software", "Core software", "Buyer (B2B)", "Low", "blog/how-to-choose-transcript-evaluation-software.html", r"transcript review software"),
- ("college credit evaluation", "Core software", "Mixed", "Low–Medium", "articulate.html", r"credit evaluation"),
+ ("college credit evaluation", "Core software", "Mixed", "Low–Medium", "transfer-credit-intelligence.html", r"credit evaluation"),
  # --- local
  ("transcript evaluation software Georgia", "Georgia / Atlanta", "Buyer (local)", "Very low (long-tail)", "georgia.html", r"transcript (and|&|and credit) ?(credit )?evaluation software (for|built in).{0,30}georgia|georgia.{0,40}transcript evaluation software"),
  ("credit evaluation software Georgia", "Georgia / Atlanta", "Buyer (local)", "Very low (long-tail)", "georgia.html", r"credit evaluation software for georgia|credit evaluation software built in metro atlanta"),
@@ -36,9 +36,8 @@ K = [
  ("JST transcript evaluation", "Modules", "Practitioner", "Low", "veterans.html", r"joint services transcript|\bjst\b"),
  ("ACE military credit", "Modules", "Practitioner", "Low", "veterans.html", r"ace (credit )?recommendation"),
  ("credit for prior learning software", "Modules", "Buyer", "Low", "pla.html", r"credit for prior learning"),
- ("high school transcript evaluation", "Modules", "Mixed", "Low–Medium", "assess.html", r"high school transcript"),
- ("GPA standardization", "Modules", "Practitioner", "Low", "assess.html", r"gpa standardization|standardize[sd]? (every )?gpa"),
- ("NCAA progress toward degree", "Modules", "Practitioner", "Medium", "athletics.html", r"progress-toward-degree|progress toward degree"),
+ ("high school transcript evaluation", "Modules", "Mixed", "Low–Medium", "freshman-intelligence.html", r"high school transcript"),
+ ("GPA standardization", "Modules", "Practitioner", "Low", "freshman-intelligence.html", r"gpa standardization|standardize[sd]? (every )?gpa"),
  ("will my credits transfer", "Modules", "Students (pre-applicants)", "Medium", "degree-pathway.html", r"will my credits transfer"),
  ("reverse transfer", "Modules", "Practitioner", "Low", "mobility.html", r"reverse transfer"),
  # --- national U.S. topics (added Oct 2026)

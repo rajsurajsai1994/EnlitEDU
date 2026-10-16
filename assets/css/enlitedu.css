@@ -752,3 +752,17 @@ html,body{overflow-x:hidden}
 @media(max-width:575px){.proof.proof-4,.article-body .stat-strip{grid-template-columns:1fr}}
 @media(max-width:480px){.steps.steps-3,.steps.steps-4,.steps.steps-6{grid-template-columns:1fr}}
 @media(max-width:400px){.btn-x{white-space:normal;text-align:center;justify-content:center;max-width:100%;line-height:1.3}}
+@media(min-width:768px){.container{padding-left:32px;padding-right:32px}}  /* tablets/laptops: content was only 12px from the screen edge */
+@media(min-width:576px) and (max-width:991px){.hero-visual,.page-hero .visual,.img-stack{max-width:600px;margin-left:auto;margin-right:auto}}  /* tablets: stacked photos were full-width and very tall */
+@media(min-width:1200px) and (max-width:1399px){.site-header .container{padding-left:20px;padding-right:20px}.nav-main>li>a,.nav-main>li>button{padding:12px 10px;font-size:15px}}  /* 1280px laptops: header CTA was clipped */
+.stat-card .n{white-space:normal;overflow-wrap:anywhere}
+@media(min-width:1061px) and (max-width:1279px){.header-cta .btn-ghost{display:none}.site-header .container{padding-left:16px;padding-right:16px}}  /* small laptops: keep the demo CTA fully visible */
+
+/* case-study quotes + blog reviewer */
+.cs-quote{margin:18px 0;padding:20px 24px;border-left:4px solid var(--gold);background:var(--blue-50,#eef2fd);border-radius:0 14px 14px 0}
+.cs-quote p{font-family:var(--f-serif);font-size:20px;line-height:1.45;color:var(--ink);margin:0 0 8px}
+.cs-quote cite{font-style:normal;font-size:13.5px;font-weight:700;color:var(--muted)}
+.authors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 0 36px}
+.authors .author-box{border:0;margin:0;align-items:flex-start}
+@media(max-width:767px){.authors{grid-template-columns:1fr}.authors .author-box+.author-box{border-top:1px solid var(--line)}}
+.author-box a{color:var(--blue)}

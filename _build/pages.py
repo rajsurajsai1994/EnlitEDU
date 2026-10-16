@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import re
 from core import *
-from data_modules import MODULES, BY_SLUG, FOOTNOTE, CARD
+from data_modules import MODULES, BY_SLUG, FOOTNOTE, CARD, HIDDEN
 from data_more import SOLUTIONS, AUDIENCES, GLOSSARY, FAQ_HUB, NSC, GAO, WEEKS
 
-MOD_IMG = {"articulate": "registrar-docs", "assess": "student-table", "pla": "adult-learner", "veterans": "veteran-smile",
+MOD_IMG = {"transfer-credit-intelligence": "registrar-docs", "freshman-intelligence": "student-table", "pla": "adult-learner", "veterans": "veteran-smile",
            "athletics": "athlete-runner", "degree-pathway": "student-backpack", "mobility": "cabinet"}
 BLOG = {}  # filled by build.py: slug -> dict(title, desc, date, tag, img)
 
@@ -37,10 +37,10 @@ def posts_row(slugs, eb="Further reading", h2="Guides from the <span class=\"gra
 STORIES = {
  "roane": dict(url="case-studies/roane-state-community-college.html", name="Roane State Community College", logo="roane-state-community-college.png",
                title="Roane State Community College cuts transcript evaluation from three weeks to two days",
-               kpis=[("90%", "faster evaluations"), ("18 days", "to go live on Banner")], img="campus-columns", tags="articulate community-college"),
+               kpis=[("90%", "faster evaluations"), ("18 days", "to go live on Banner")], img="campus-columns", tags="transfer-credit-intelligence community-college"),
  "nashville": dict(url="case-studies/nashville-state-community-college.html", name="Nashville State Community College", logo=None,
-                   title="Nashville State lifts transfer yield 24% in one cycle with Mobility Intelligence",
-                   kpis=[("+24%", "transfer yield"), ("3", "partner pathways mapped")], img="lecture-laugh", tags="mobility community-college"),
+                   title="Nashville State cuts transfer evaluation from 15 minutes to 2 per transcript",
+                   kpis=[("-87%", "per-transcript time"), ("-56%", "approval turnaround")], img="lecture-laugh", tags="transfer-credit-intelligence community-college"),
 }
 def story_card(k):
     s = STORIES[k]
@@ -53,7 +53,7 @@ def story_card(k):
 
 AUD_CARD = {
     "community-colleges": "Transfer-in, transfer-out, CPL and military credit, with one set of your rules.",
-    "four-year-universities": "First-year GPA, transfer admits and athlete transcripts in one engine.",
+    "four-year-universities": "First-year GPA standardization and transfer admit evaluation in one engine.",
     "hbcus-and-msis": "Fair, consistent evaluation for transfer, first-generation and adult learners.",
     "state-systems": "One set of transfer rules and one mobility view across every campus.",
 }
@@ -66,18 +66,21 @@ def families_html():
     sp = [m for m in MODULES if m["family"] == "Student Pathways"]
     head = lambda f, s: '<div class="family-head"><h3>%s</h3><span>%s</span></div>' % (e(f), e(s))
     row1 = '<div class="family">%s<div class="row g-4">%s</div></div>' % (head("Credit Evaluation", "Every way a student brings credit to your door"), "".join(card(m, "col-md-6 col-lg-3", i * 80) for i, m in enumerate(ce)))
-    row2 = ('<div class="row g-4 fam-row"><div class="col-lg-4"><div class="family">%s<div class="row g-4">%s</div></div></div>'
-            '<div class="col-lg-8"><div class="family">%s<div class="row g-4">%s</div></div></div></div>'
-            % (head("Compliance & Certification", "Documentation that stands up to review"), "".join(card(m, "col-12", 0) for m in cc),
-               head("Student Pathways", "Visibility for students, advisors and leaders"), "".join(card(m, "col-md-6", i * 80) for i, m in enumerate(sp))))
+    if cc:
+        row2 = ('<div class="row g-4 fam-row"><div class="col-lg-4"><div class="family">%s<div class="row g-4">%s</div></div></div>'
+                '<div class="col-lg-8"><div class="family">%s<div class="row g-4">%s</div></div></div></div>'
+                % (head("Compliance & Certification", "Documentation that stands up to review"), "".join(card(m, "col-12", 0) for m in cc),
+                   head("Student Pathways", "Visibility for students, advisors and leaders"), "".join(card(m, "col-md-6", i * 80) for i, m in enumerate(sp))))
+    else:
+        row2 = ('<div class="family fam-row">%s<div class="row g-4">%s</div></div>'
+                % (head("Student Pathways", "Visibility for students, advisors and leaders"), "".join(card(m, "col-md-6", i * 80) for i, m in enumerate(sp))))
     return row1 + row2
 
 def which_module():
-    rows = [("Students coming to college for the first time from high school, homeschool or a GED (first-year / freshman)", "assess.html", "LioraAI Assess"),
-            ("Anyone bringing credit from another college or university, whatever their class standing", "articulate.html", "LioraAI Articulate"),
+    rows = [("Students coming to college for the first time from high school, homeschool or a GED (first-year / freshman)", "freshman-intelligence.html", "LioraAI Freshman Intelligence"),
+            ("Anyone bringing credit from another college or university, whatever their class standing", "transfer-credit-intelligence.html", "LioraAI Transfer Credit Intelligence"),
             ("Service members and veterans with a JST, CCAF transcript or DD-214", "veterans.html", "Veterans & JST"),
-            ("Adult learners with certifications, work experience, exams or a portfolio", "pla.html", "Prior Learning Assessment"),
-            ("Student-athletes, incoming transfers and continuing", "athletics.html", "Athlete Transcripts")]
+            ("Adult learners with certifications, work experience, exams or a portfolio", "pla.html", "Prior Learning Assessment")]
     r = "".join('<div class="row-q"><span>%s</span><a href="%s">%s →</a></div>' % (a, u(h), e(n)) for a, h, n in rows)
     return ('<div class="which" data-aos="fade-up"><h3>Which module do I need?</h3><p style="color:#c9d3e6">Plain definitions, because community colleges and universities don’t always use the same words.</p>%s</div>' % r)
 
@@ -110,10 +113,10 @@ def build_home():
 
     tab_btns = tab_panels = ""
     tab_data = [
-        ("speed-up-credit-evaluation", "registrar-folder", ("fa-circle-check", "ok", "Queue cleared", "212 evaluations this week"), ["articulate", "assess", "veterans"]),
-        ("grow-transfer-enrollment", "students-group", ("fa-chart-line", "ok", "Transfer yield +24%", "Nashville State, one cycle"), ["degree-pathway", "articulate", "mobility"]),
+        ("speed-up-credit-evaluation", "registrar-folder", ("fa-circle-check", "ok", "Queue cleared", "212 evaluations this week"), ["transfer-credit-intelligence", "freshman-intelligence", "veterans"]),
+        ("grow-transfer-enrollment", "students-group", ("fa-bolt", "ok", "15 min → 2 min", "Per transcript at Nashville State"), ["degree-pathway", "transfer-credit-intelligence", "mobility"]),
         ("serve-military-and-adult-learners", "veteran-family", ("fa-medal", "gold", "12 credits awarded", "JST evaluated with ACE citations"), ["veterans", "pla"]),
-        ("stay-audit-ready", "four-meeting", ("fa-fingerprint", "blue", "Decision recorded", "Evidence, rule and approver logged"), ["articulate", "athletics", "veterans"]),
+        ("stay-audit-ready", "four-meeting", ("fa-fingerprint", "blue", "Decision recorded", "Evidence, rule and approver logged"), ["transfer-credit-intelligence", "freshman-intelligence", "veterans"]),
         ("improve-completion-and-retention", "grad-woman", ("fa-route", "blue", "4 terms to graduation", "Plan shared with advisor"), ["degree-pathway", "mobility"]),
     ]
     for i, (slug, ik, fc, mods) in enumerate(tab_data):
@@ -131,21 +134,21 @@ def build_home():
 
     fams = families_html()
     modules = ('<section class="sec"><div class="container">%s%s<div class="mt-5">%s</div></div></section>'
-               % (sec_head("The LioraAI platform", "Seven Modules. One Set of <span class=\"grad\">Your</span> Rules.", "Pick the modules you need today and add the rest when you’re ready. Everything runs on the same evaluation engine and writes to the same SIS.", center=True), fams, which_module()))
+               % (sec_head("The LioraAI platform", "Six Modules. One Set of <span class=\"grad\">Your</span> Rules.", "Pick the modules you need today and add the rest when you’re ready. Everything runs on the same evaluation engine and writes to the same SIS.", center=True), fams, which_module()))
 
     steps = "".join('<div class="step" data-aos="fade-up" data-aos-delay="%d"><div class="num"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div>' % (i * 90, ic, t, d)
-                    for i, (ic, t, d) in enumerate(BY_SLUG["articulate"]["steps"]))
+                    for i, (ic, t, d) in enumerate(BY_SLUG["transfer-credit-intelligence"]["steps"]))
     how = ('<section class="sec tint-2"><div class="container">%s<div class="steps mb-5">%s</div>'
            '<div class="row align-items-center g-5 mt-4"><div class="col-lg-6" data-aos="fade-right"><div class="sec-head mb-3">%s<h2>A Live Workflow, <span class="grad">Not</span> a Black Box</h2>'
            '<p class="lede">Every suggestion shows its evidence: the matched course descriptions, the rule that applied and your past decisions on the same course. Anything uncertain goes to a person.</p></div>'
            '<ul class="check-list"><li>Your evaluators approve, edit or override every recommendation</li><li>Confidence levels send edge cases to the right reviewer</li><li>Student records never train general-purpose AI models</li></ul>%s</div>'
            '<div class="col-lg-6" data-aos="fade-left">%s</div></div></div></section>'
            % (sec_head("How LioraAI works", "From Any Transcript to Posted Credit <span class=\"grad\">in Five Steps</span>", "", center=True), steps,
-              eyebrow("Explainable by design"), arrow("How LioraAI works", "how-it-works.html"), BY_SLUG["articulate"]["mock"]()))
+              eyebrow("Explainable by design"), arrow("How LioraAI works", "how-it-works.html"), BY_SLUG["transfer-credit-intelligence"]["mock"]()))
 
     proof_cells = [("1", "M+", "course descriptions in LioraAI’s mapping corpus", "EnlitEDU", ""), ("60", "s", "or less to evaluate a full transcript", "EnlitEDU product measurement", "<"),
                    ("90", "%", "faster transcript evaluation at Roane State Community College", "Reported by Roane State", ""), ("18", " days", "from kickoff to live on Ellucian Banner", "Roane State implementation", ""),
-                   ("24", "%", "higher transfer yield in one cycle at Nashville State", "Reported by Nashville State", "+"), ("130", "+", "countries’ transcripts supported, with grading normalized", "EnlitEDU", "")]
+                   ("87", "%", "less time per transcript at Nashville State (15 min to 2 min)", "LioraAI platform data, Sept 2026", ""), ("130", "+", "countries’ transcripts supported, with grading normalized", "EnlitEDU", "")]
     cells = "".join('<div class="cell" data-aos="fade-up" data-aos-delay="%d"><b>%s<span data-count="%s">%s</span><span class="u">%s</span></b><span>%s</span><small>%s</small></div>'
                     % (i * 70, e(pre), n, n, suf, t, src) for i, (n, suf, t, src, pre) in enumerate(proof_cells))
     proof = ('<section class="sec dark"><div class="container">%s<div class="proof">%s</div><p class="note mt-3">%s</p></div></section>'
@@ -153,7 +156,7 @@ def build_home():
     voices = testimonials_section(dark=False)
 
     tiles_data = [
-        ("fa-star", "Customer Stories", "campus-columns", "Results from real campuses", "Roane State cut evaluation turnaround from three weeks to two days. Nashville State lifted transfer yield 24% in one cycle.", "Read customer stories", "case-studies.html"),
+        ("fa-star", "Customer Stories", "campus-columns", "Results from real campuses", "Roane State cut evaluation turnaround from three weeks to two days. Nashville State cut per-transcript time from 15 minutes to 2.", "Read customer stories", "case-studies.html"),
         ("fa-rocket", "Live in Weeks", "team-collab", "Live in two to four weeks", "Standard Banner, Colleague, Workday and PeopleSoft integrations take two to four weeks. Roane State went live on Banner in 18 days.", "See integrations", "integrations.html"),
         ("fa-shield-halved", "Security & FERPA", "registrar-desk", "Built for institutions that answer to FERPA", "EnlitEDU acts as a school official under your control. Encryption, a DPA with every contract, a SOC 2 program and no training on student records.", "Security & Trust", "security.html"),
         ("fa-lightbulb", "Research & Insights", "library-red", "Practical guides for registrars", "Plain-English guides on JST evaluation, reverse transfer, GPA standardization, FERPA and the transfer portal, written for the people who do the work.", "Read the blog", "blog.html"),
@@ -186,7 +189,7 @@ def build_home():
     schema = [{"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "EnlitEDU", "publisher": {"@id": BASE + "/#organization"}, "inLanguage": "en-US"},
               {"@type": "SoftwareApplication", "@id": BASE + "/#lioraai", "name": "LioraAI", "applicationCategory": "BusinessApplication", "applicationSubCategory": "Higher education transcript evaluation",
                "operatingSystem": "Web", "url": BASE + "/platform.html", "publisher": {"@id": BASE + "/#organization"},
-               "description": "Academic record intelligence for higher education: transfer credit evaluation, first-year GPA standardization, credit for prior learning, JST/military credit, NCAA progress-toward-degree support, student degree pathways and transfer analytics.",
+               "description": "Academic record intelligence for higher education: transfer credit evaluation, first-year GPA standardization, credit for prior learning, JST/military credit, student degree pathways and transfer analytics.",
                "featureList": [m["name"] for m in MODULES], "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD"}, "description": "Priced by institution size, volume and modules."}},
               {"@type": "WebPage", "@id": BASE + "/#webpage", "url": BASE + "/", "name": "Transcript & Credit Evaluation Software | LioraAI by EnlitEDU", "isPartOf": {"@id": BASE + "/#website"}, "about": {"@id": BASE + "/#lioraai"},
                "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero .sub", ".answer-box"]}},
@@ -210,7 +213,7 @@ def build_module(m):
 
     who = ('<section class="sec"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-6" data-aos="fade-right">%s<h2>%s</h2><p class="lead-lg">%s</p><p class="small muted">%s</p></div>'
            '<div class="col-lg-6" data-aos="fade-left">%s</div></div></div></section>'
-           % (eyebrow(m["eyebrow"]), m["who_title"], m["who"], FOOTNOTE if m["slug"] in ("articulate", "veterans", "mobility") else "",
+           % (eyebrow(m["eyebrow"]), m["who_title"], m["who"], FOOTNOTE if m["slug"] in ("transfer-credit-intelligence", "veterans", "mobility") else "",
               which_module() if m.get("clarifier") else '<div class="split-img">%s%s</div>' % (img(MOD_IMG[m["slug"]] if MOD_IMG[m["slug"]] != m["hero_img"] else "team-collab", 900, ratio=(4, 3.4)), float_card(*m["floats"][1]))))
 
     pains = "".join('<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="pain"><i class="fa-solid fa-xmark"></i><p>%s</p></div></div>' % ((i % 3) * 80, p) for i, p in enumerate(m["pains"]))
@@ -263,7 +266,7 @@ def build_module(m):
               {"@type": "WebPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": m["title"], "about": {"@id": BASE + "/" + path + "#software"},
                "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".answer-box", ".page-hero .sub"]}},
               faq_schema(m["faqs"], path)]
-    page(path, m["title"], m["desc"], body, schema=schema, active="products")
+    page(path, m["title"], m["desc"], body, schema=schema, active="products", noindex=m["slug"] in HIDDEN)
 
 # ===================================================================== SOLUTION
 def proof_block(k):

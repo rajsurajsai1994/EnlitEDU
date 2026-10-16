@@ -11,24 +11,23 @@
    "desc"
   ],
   "also": [
-   "assess.html",
    "blog.html",
    "blog/best-sis-integrations-higher-education-2025.html",
    "blog/ellucian-banner-integration-transcript-evaluation.html",
    "blog/how-to-choose-transcript-evaluation-software.html",
    "blog/state-transfer-policies-us-guide.html",
-   "georgia.html",
+   "freshman-intelligence.html",
    "georgia/atlanta-transcript-evaluation.html",
    "transcript-evaluation-near-me.html"
   ],
-  "also_n": 9
+  "also_n": 8
  },
  {
   "kw": "transfer credit evaluation software",
   "cluster": "Core software",
   "intent": "Buyer (B2B)",
   "demand": "Low–Medium",
-  "target": "articulate.html",
+  "target": "transfer-credit-intelligence.html",
   "on_target": true,
   "where": [
    "title"
@@ -49,8 +48,8 @@
    "h1"
   ],
   "also": [
-   "articulate.html",
-   "georgia/atlanta-transcript-evaluation.html"
+   "georgia/atlanta-transcript-evaluation.html",
+   "transfer-credit-intelligence.html"
   ],
   "also_n": 2
  },
@@ -90,14 +89,12 @@
   "cluster": "Core software",
   "intent": "Mixed",
   "demand": "Low–Medium",
-  "target": "articulate.html",
+  "target": "transfer-credit-intelligence.html",
   "on_target": true,
   "where": [
    "title"
   ],
   "also": [
-   "assess.html",
-   "athletics.html",
    "blog.html",
    "blog/ai-in-higher-education-admissions-2025.html",
    "blog/best-sis-integrations-higher-education-2025.html",
@@ -114,6 +111,7 @@
    "blog/transfer-student-retention-strategies.html",
    "blog/us-community-college-transfer-statistics.html",
    "degree-pathway.html",
+   "freshman-intelligence.html",
    "georgia.html",
    "georgia/atlanta-transcript-evaluation.html",
    "georgia/freshman-transcript-evaluation.html",
@@ -135,7 +133,7 @@
    "who-we-serve/hbcus-and-msis.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 38
+  "also_n": 37
  },
  {
   "kw": "transcript evaluation software Georgia",
@@ -144,17 +142,9 @@
   "demand": "Very low (long-tail)",
   "target": "georgia.html",
   "on_target": true,
-  "where": [
-   "title",
-   "desc",
-   "h1",
-   "hx",
-   "faq"
-  ],
-  "also": [
-   "georgia/atlanta-transcript-evaluation.html"
-  ],
-  "also_n": 1
+  "where": [],
+  "also": [],
+  "also_n": 0
  },
  {
   "kw": "credit evaluation software Georgia",
@@ -163,11 +153,7 @@
   "demand": "Very low (long-tail)",
   "target": "georgia.html",
   "on_target": true,
-  "where": [
-   "title",
-   "desc",
-   "h1"
-  ],
+  "where": [],
   "also": [],
   "also_n": 0
  },
@@ -179,8 +165,6 @@
   "target": "georgia/atlanta-transcript-evaluation.html",
   "on_target": true,
   "where": [
-   "title",
-   "desc",
    "hx",
    "faq"
   ],
@@ -198,7 +182,6 @@
   "target": "georgia/atlanta-transcript-evaluation.html",
   "on_target": true,
   "where": [
-   "title",
    "faq"
   ],
   "also": [],
@@ -222,11 +205,7 @@
   "demand": "Very low (long-tail)",
   "target": "georgia/freshman-transcript-evaluation.html",
   "on_target": true,
-  "where": [
-   "title",
-   "desc",
-   "h1"
-  ],
+  "where": [],
   "also": [
    "blog/hope-gpa-vs-admissions-gpa-georgia.html"
   ],
@@ -240,9 +219,7 @@
   "target": "georgia/freshman-transcript-evaluation.html",
   "on_target": true,
   "where": [
-   "title",
-   "desc",
-   "h1"
+   "hx"
   ],
   "also": [
    "blog/hope-gpa-vs-admissions-gpa-georgia.html"
@@ -257,8 +234,7 @@
   "target": "georgia/transfer-credit-evaluation.html",
   "on_target": true,
   "where": [
-   "title",
-   "desc"
+   "hx"
   ],
   "also": [],
   "also_n": 0
@@ -271,8 +247,7 @@
   "target": "georgia/military-transcript-evaluation.html",
   "on_target": true,
   "where": [
-   "title",
-   "h1"
+   "hx"
   ],
   "also": [],
   "also_n": 0
@@ -290,14 +265,8 @@
    "h1",
    "faq"
   ],
-  "also": [
-   "georgia.html",
-   "georgia/atlanta-transcript-evaluation.html",
-   "georgia/freshman-transcript-evaluation.html",
-   "georgia/military-transcript-evaluation.html",
-   "georgia/transfer-credit-evaluation.html"
-  ],
-  "also_n": 5
+  "also": [],
+  "also_n": 0
  },
  {
   "kw": "credential evaluation near me",
@@ -339,10 +308,9 @@
    "faq.html",
    "georgia.html",
    "georgia/atlanta-transcript-evaluation.html",
-   "glossary.html",
-   "transcript-evaluation-near-me.html"
+   "glossary.html"
   ],
-  "also_n": 8
+  "also_n": 7
  },
  {
   "kw": "Core IMPACTS transfer",
@@ -366,10 +334,9 @@
    "georgia.html",
    "georgia/atlanta-transcript-evaluation.html",
    "georgia/transfer-credit-evaluation.html",
-   "glossary.html",
-   "transcript-evaluation-near-me.html"
+   "glossary.html"
   ],
-  "also_n": 9
+  "also_n": 8
  },
  {
   "kw": "HOPE GPA vs admissions GPA",
@@ -400,10 +367,7 @@
   "demand": "Low–Medium (GA)",
   "target": "georgia/freshman-transcript-evaluation.html",
   "on_target": true,
-  "where": [
-   "desc",
-   "faq"
-  ],
+  "where": [],
   "also": [
    "blog/hope-gpa-vs-admissions-gpa-georgia.html",
    "georgia.html",
@@ -443,9 +407,6 @@
   ],
   "also": [
    "about.html",
-   "articulate.html",
-   "assess.html",
-   "athletics.html",
    "blog.html",
    "blog/how-to-choose-transcript-evaluation-software.html",
    "blog/how-to-evaluate-joint-services-transcript-jst.html",
@@ -457,6 +418,7 @@
    "blog/us-community-college-transfer-statistics.html",
    "degree-pathway.html",
    "faq.html",
+   "freshman-intelligence.html",
    "georgia.html",
    "georgia/atlanta-transcript-evaluation.html",
    "georgia/freshman-transcript-evaluation.html",
@@ -474,12 +436,13 @@
    "solutions/speed-up-credit-evaluation.html",
    "solutions/stay-audit-ready.html",
    "transcript-evaluation-near-me.html",
+   "transfer-credit-intelligence.html",
    "who-we-serve/community-colleges.html",
    "who-we-serve/four-year-universities.html",
    "who-we-serve/hbcus-and-msis.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 36
+  "also_n": 35
  },
  {
   "kw": "ACE military credit",
@@ -500,6 +463,7 @@
    "how-it-works.html",
    "index.html",
    "integrations.html",
+   "mobility.html",
    "pla.html",
    "platform.html",
    "solutions/serve-military-and-adult-learners.html",
@@ -508,7 +472,7 @@
    "who-we-serve/hbcus-and-msis.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 15
+  "also_n": 16
  },
  {
   "kw": "credit for prior learning software",
@@ -523,7 +487,6 @@
    "faq"
   ],
   "also": [
-   "articulate.html",
    "blog/how-to-choose-transcript-evaluation-software.html",
    "degree-pathway.html",
    "georgia.html",
@@ -536,6 +499,7 @@
    "solutions/improve-completion-and-retention.html",
    "solutions/serve-military-and-adult-learners.html",
    "solutions/speed-up-credit-evaluation.html",
+   "transfer-credit-intelligence.html",
    "veterans.html",
    "who-we-serve/community-colleges.html",
    "who-we-serve/hbcus-and-msis.html",
@@ -548,7 +512,7 @@
   "cluster": "Modules",
   "intent": "Mixed",
   "demand": "Low–Medium",
-  "target": "assess.html",
+  "target": "freshman-intelligence.html",
   "on_target": true,
   "where": [],
   "also": [
@@ -563,7 +527,7 @@
   "cluster": "Modules",
   "intent": "Practitioner",
   "demand": "Low",
-  "target": "assess.html",
+  "target": "freshman-intelligence.html",
   "on_target": true,
   "where": [
    "hx"
@@ -587,32 +551,6 @@
   "also_n": 14
  },
  {
-  "kw": "NCAA progress toward degree",
-  "cluster": "Modules",
-  "intent": "Practitioner",
-  "demand": "Medium",
-  "target": "athletics.html",
-  "on_target": true,
-  "where": [
-   "title",
-   "desc",
-   "hx",
-   "faq"
-  ],
-  "also": [
-   "blog/transfer-portal-athlete-eligibility-certification.html",
-   "faq.html",
-   "glossary.html",
-   "index.html",
-   "integrations.html",
-   "mobility.html",
-   "platform.html",
-   "solutions/stay-audit-ready.html",
-   "who-we-serve/four-year-universities.html"
-  ],
-  "also_n": 9
- },
- {
   "kw": "will my credits transfer",
   "cluster": "Modules",
   "intent": "Students (pre-applicants)",
@@ -623,18 +561,16 @@
    "hx"
   ],
   "also": [
-   "articulate.html",
    "blog.html",
    "blog/enrollment-management-strategies-2025.html",
    "blog/hbcu-enrollment-transfer-credit-challenges.html",
    "blog/us-community-college-transfer-statistics.html",
    "blog/will-my-credits-transfer-self-service-answer.html",
-   "case-studies/nashville-state-community-college.html",
-   "georgia/transfer-credit-evaluation.html",
    "index.html",
-   "solutions/grow-transfer-enrollment.html"
+   "solutions/grow-transfer-enrollment.html",
+   "transfer-credit-intelligence.html"
   ],
-  "also_n": 10
+  "also_n": 8
  },
  {
   "kw": "reverse transfer",
@@ -654,7 +590,6 @@
    "blog/transfer-portal-athlete-eligibility-certification.html",
    "blog/transfer-student-retention-strategies.html",
    "blog/us-community-college-transfer-statistics.html",
-   "case-studies/nashville-state-community-college.html",
    "degree-pathway.html",
    "georgia/transfer-credit-evaluation.html",
    "glossary.html",
@@ -664,7 +599,7 @@
    "who-we-serve/community-colleges.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 15
+  "also_n": 14
  },
  {
   "kw": "community college transfer statistics",
@@ -687,13 +622,17 @@
    "blog/hbcu-enrollment-transfer-credit-challenges.html",
    "blog/how-to-choose-transcript-evaluation-software.html",
    "blog/will-my-credits-transfer-self-service-answer.html",
+   "case-studies/nashville-state-community-college.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "georgia/transfer-credit-evaluation.html",
    "index.html",
    "mobility.html",
    "solutions/grow-transfer-enrollment.html",
    "who-we-serve/community-colleges.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 14
+  "also_n": 18
  },
  {
   "kw": "what percentage of community college students transfer",
@@ -718,13 +657,12 @@
   "on_target": true,
   "where": [],
   "also": [
-   "assess.html",
-   "athletics.html",
    "blog/community-college-transfer-student-success.html",
    "blog/enrollment-management-strategies-2025.html",
    "blog/reverse-transfer-associate-degree-explained.html",
    "blog/transfer-student-retention-strategies.html",
    "degree-pathway.html",
+   "freshman-intelligence.html",
    "georgia.html",
    "georgia/transfer-credit-evaluation.html",
    "glossary.html",
@@ -736,7 +674,7 @@
    "who-we-serve/hbcus-and-msis.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 17
+  "also_n": 16
  },
  {
   "kw": "state transfer policies",
@@ -752,14 +690,17 @@
    "faq"
   ],
   "also": [
-   "articulate.html",
    "blog.html",
    "blog/ferpa-compliance-ai-admissions.html",
    "blog/us-community-college-transfer-statistics.html",
+   "georgia.html",
+   "georgia/military-transcript-evaluation.html",
+   "georgia/transfer-credit-evaluation.html",
    "index.html",
+   "transfer-credit-intelligence.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 6
+  "also_n": 9
  },
  {
   "kw": "common course numbering",
@@ -774,17 +715,20 @@
    "faq"
   ],
   "also": [
-   "articulate.html",
    "blog.html",
    "blog/dual-enrollment-credit-evaluation-us-colleges.html",
    "blog/ferpa-compliance-ai-admissions.html",
    "blog/how-to-choose-transcript-evaluation-software.html",
    "blog/us-community-college-transfer-statistics.html",
    "faq.html",
+   "georgia.html",
+   "georgia/military-transcript-evaluation.html",
+   "georgia/transfer-credit-evaluation.html",
    "index.html",
+   "transfer-credit-intelligence.html",
    "who-we-serve/state-systems.html"
   ],
-  "also_n": 9
+  "also_n": 12
  },
  {
   "kw": "associate degree for transfer",
@@ -813,7 +757,6 @@
    "faq"
   ],
   "also": [
-   "assess.html",
    "blog.html",
    "blog/ai-in-higher-education-admissions-2025.html",
    "blog/ferpa-compliance-ai-admissions.html",
@@ -821,13 +764,13 @@
    "blog/hope-gpa-vs-admissions-gpa-georgia.html",
    "blog/international-transcript-evaluation-first-year-admissions.html",
    "blog/us-community-college-transfer-statistics.html",
-   "georgia.html",
+   "freshman-intelligence.html",
    "georgia/freshman-transcript-evaluation.html",
    "index.html",
    "who-we-serve/community-colleges.html",
    "who-we-serve/four-year-universities.html"
   ],
-  "also_n": 13
+  "also_n": 12
  },
  {
   "kw": "does dual enrollment credit transfer",

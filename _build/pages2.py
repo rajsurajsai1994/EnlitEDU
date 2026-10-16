@@ -21,9 +21,9 @@ def simple_hero(crumb, eb, h1, sub, img_key=None, extra=""):
 # ===================================================================== PLATFORM
 def build_platform():
     path = "platform.html"; set_depth(path)
-    hero = simple_hero([("Home", "index.html"), ("Platform", None)], "The LioraAI platform", "One Evaluation Engine. <span class=\"accent\">Seven Modules.</span>",
+    hero = simple_hero([("Home", "index.html"), ("Platform", None)], "The LioraAI platform", "One Evaluation Engine. <span class=\"accent\">Six Modules.</span>",
                        "Every way a student brings credit to your institution, evaluated with one set of your rules, approved by your people and written back to your SIS.", "team-collab",
-                       float_card("fa-layer-group", "blue", "7 modules, 1 engine", "Shared rules, queue and audit trail", "fc-a"))
+                       float_card("fa-layer-group", "blue", "6 modules, 1 engine", "Shared rules, queue and audit trail", "fc-a"))
     fams = families_html()
     shared = [("fa-scale-balanced", "Rules engine", "Transfer policy, articulation agreements, GPA conversion and CPL frameworks, configured once and versioned."),
               ("fa-list-check", "One review queue", "Every credit type in one place, routed by confidence, role and department."),
@@ -39,8 +39,8 @@ def build_platform():
     schema = [faq_schema(PLATFORM_FAQS, path), breadcrumb([("Home", "index.html"), ("Platform", path)]),
               {"@type": "CollectionPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "LioraAI platform", "about": {"@id": BASE + "/#lioraai"},
                "hasPart": [{"@id": BASE + "/%s.html#software" % m["slug"]} for m in MODULES]}]
-    page(path, "LioraAI Platform | 7 Modules for Credit Evaluation | EnlitEDU",
-         "One evaluation engine, seven modules: transfer credit, first-year GPA, CPL/PLA, JST/military, NCAA progress-toward-degree, degree pathways and transfer analytics.", body, schema=schema, active="products")
+    page(path, "LioraAI Platform | 6 Modules for Credit Evaluation | EnlitEDU",
+         "One evaluation engine, six modules: transfer credit, freshman (first-year) transcripts, CPL/PLA, JST/military credit, student degree pathways and transfer analytics.", body, schema=schema, active="products")
 
 # ===================================================================== HOW IT WORKS
 def build_how():
@@ -49,7 +49,7 @@ def build_how():
                        "AI That Shows Its Work, <span class=\"accent\">and Waits for Your Approval</span>",
                        "LioraAI drafts every credit decision with the evidence behind it. Your evaluators and faculty make the call. Here is exactly what happens to a transcript.", "registrar-docs",
                        float_card("fa-user-check", "ok", "Human-approved", "Every decision reviewed by your staff", "fc-a"))
-    steps = BY_SLUG["articulate"]["steps"]
+    steps = BY_SLUG["transfer-credit-intelligence"]["steps"]
     detail = [
         "Transcripts arrive by upload, email inbox, SFTP or electronic exchange (EDI/SPEEDE, PESC XML). Scanned and photographed documents are read with document AI tuned for academic records.",
         "LioraAI identifies the institution, terms, courses, grades, credit units and repeats, then normalizes grading scales and credit systems, including quarter hours and international formats.",
@@ -67,7 +67,7 @@ def build_how():
     body = (hero + '<section class="sec"><div class="container">%s%s</div></section>' % (sec_head("Step by step", "From Upload to Posted Credit", "", center=True), rows)
             + '<section class="sec tint"><div class="container">%s%s</div></section>' % (sec_head("Human in the loop", "Clear Lines Between the AI <span class=\"grad\">and Your Team</span>", "", center=True), ai_vs)
             + '<section class="sec dark"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-5" data-aos="fade-up">%s<h2>See a Real <span class="grad">Evaluation</span></h2><p>This is what an evaluator sees: each incoming course, the suggested equivalent, and a clear status. Click any row in the product to see the evidence behind it.</p>%s</div><div class="col-lg-7" data-aos="fade-left">%s</div></div></div></section>'
-              % (eyebrow("The review screen"), '<a class="btn-x btn-gold mt-3" href="https://www.youtube.com/watch?v=Ti6YBv2R_Gc" data-video="Ti6YBv2R_Gc"><i class="fa-solid fa-play"></i> Watch the 2-minute overview</a>', BY_SLUG["articulate"]["mock"]())
+              % (eyebrow("The review screen"), '<a class="btn-x btn-gold mt-3" href="https://www.youtube.com/watch?v=Ti6YBv2R_Gc" data-video="Ti6YBv2R_Gc"><i class="fa-solid fa-play"></i> Watch the 2-minute overview</a>', BY_SLUG["transfer-credit-intelligence"]["mock"]())
             + faq_block(faqs, title="Questions About the AI", side_img="presenter") + cta_band())
     schema = [breadcrumb([("Home", "index.html"), ("Platform", "platform.html"), ("How LioraAI works", path)]),
               {"@type": "HowTo", "name": "How LioraAI evaluates a transcript", "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": detail[i]} for i, (_, t, _d) in enumerate(steps)]},
@@ -91,7 +91,6 @@ def build_integrations():
             ("Common App", "Applications", "Transcript and school report documents ingested for evaluation."),
             ("Salesforce", "CRM", "Evaluation status and estimates available to recruitment and advising."),
             ("DegreeWorks & uAchieve", "Degree audit", "Applicable credit flows into audit; Degree Pathway can sit alongside."),
-            ("Compliance Assistant & Teamworks ARMS", "Athletics compliance", "Progress-toward-degree evidence available to compliance workflows."),
             ("Joint Services Transcript (ACE)", "Military records", "JST, CCAF and DD-214 documents with ACE credit recommendation lookup."),
             ("EDI (SPEEDE) & PESC XML", "Electronic transcripts", "Standard electronic transcripts processed without data entry."),
             ("SSO (SAML 2.0)", "Identity", "Single sign-on with your identity provider and role-based access.")]
@@ -119,78 +118,107 @@ def build_stories():
                        float_card("fa-star", "gold", "3 weeks → 2 days", "Roane State evaluation turnaround", "fc-a"))
     bar = ('<div class="filter-bar" data-filter-group="#story-grid" role="group" aria-label="Filter stories">'
            '<button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="community-college" aria-pressed="false">Community colleges</button>'
-           '<button type="button" data-filter="articulate" aria-pressed="false">Articulate</button><button type="button" data-filter="mobility" aria-pressed="false">Mobility Intelligence</button></div>')
-    next_card = ('<div class="story-card" data-tags="all community-college articulate mobility" style="background:var(--navy);color:#c9d3e6;justify-content:center;padding:34px">'
+           '<button type="button" data-filter="transfer-credit-intelligence" aria-pressed="false">Transfer Credit Intelligence</button><button type="button" data-filter="mobility" aria-pressed="false">Mobility Intelligence</button></div>')
+    next_card = ('<div class="story-card" data-tags="all community-college transfer-credit-intelligence mobility" style="background:var(--navy);color:#c9d3e6;justify-content:center;padding:34px">'
                  '<span class="eyebrow">Your institution next</span><h3 style="color:#fff;font-family:var(--f-serif);font-size:30px">Want to be our next story?</h3>'
                  '<p>Run LioraAI on your own transcripts in a proof-of-concept and see the turnaround for yourself.</p><a class="btn-x btn-gold mt-2" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></div>') % u("request-demo.html")
-    grid = ('<div class="row g-4" id="story-grid"><div class="col-md-6 col-lg-4" data-tags="community-college articulate" data-aos="fade-up">%s</div><div class="col-md-6 col-lg-4" data-tags="community-college mobility" data-aos="fade-up" data-aos-delay="100">%s</div>'
-            '<div class="col-md-6 col-lg-4" data-tags="community-college articulate mobility" data-aos="fade-up" data-aos-delay="200">%s</div></div>') % (story_card("roane"), story_card("nashville"), next_card)
+    grid = ('<div class="row g-4" id="story-grid"><div class="col-md-6 col-lg-4" data-tags="community-college transfer-credit-intelligence" data-aos="fade-up">%s</div><div class="col-md-6 col-lg-4" data-tags="community-college transfer-credit-intelligence" data-aos="fade-up" data-aos-delay="100">%s</div>'
+            '<div class="col-md-6 col-lg-4" data-tags="community-college transfer-credit-intelligence mobility" data-aos="fade-up" data-aos-delay="200">%s</div></div>') % (story_card("roane"), story_card("nashville"), next_card)
     body = (hero + '<section class="sec"><div class="container">%s%s%s</div></section>' % (sec_head("Featured", "Stories by Module and <span class=\"grad\">Institution</span>", "", center=False), bar, grid)
             + testimonials_section(dark=True) + faq_block(STORIES_FAQS, title="Questions About These Results", side_img="campus-columns") + cta_band())
     schema = [faq_schema(STORIES_FAQS, path), breadcrumb([("Home", "index.html"), ("Customer Stories", path)]),
               {"@type": "CollectionPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "LioraAI customer stories",
                "hasPart": [{"@id": BASE + "/" + STORIES[k]["url"]} for k in STORIES]}] + [video_schema(t) for t in TESTIMONIALS]
     page(path, "LioraAI Customer Stories | Roane State & Nashville State Results",
-         "How Roane State cut transcript evaluation from three weeks to two days, and how Nashville State lifted transfer yield 24% with LioraAI. With video interviews.", body, schema=schema, active="customers")
+         "How Roane State cut transcript evaluation from three weeks to two days and Nashville State from 15 minutes to 2 per transcript. With video interviews.", body, schema=schema, active="customers")
 
     # ---- Roane State
     p2 = "case-studies/roane-state-community-college.html"; set_depth(p2)
     hero = ('<section class="page-hero on-dark"><div class="container">%s<div class="row align-items-center g-5"><div class="col-lg-7">%s<h1>Roane State Community College Cuts Transcript Evaluation From <span class="accent">Three Weeks to Two Days</span></h1>'
-            '<p class="sub">How a Tennessee community college moved its evaluators from research to review with LioraAI Articulate, and went live on Ellucian Banner in 18 days.</p></div>'
+            '<p class="sub">How a Tennessee community college moved its evaluators from research to review with LioraAI Transfer Credit Intelligence, and went live on Ellucian Banner in 18 days.</p></div>'
             '<div class="col-lg-5"><div class="visual"><div class="ph">%s</div>%s</div></div></div></div></section>'
             % (crumbs([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Roane State", None)]), eyebrow("Customer story · Community college"),
                img("campus-columns", 900, eager=True, alt="Community college campus building", ratio=(4, 3.3)), float_card("fa-bolt", "ok", "90% faster", "Transcript evaluation", "fc-a")))
     glance = ('<aside class="glance"><h3>At a glance</h3><img src="%s" alt="Roane State Community College" style="height:52px;width:auto;margin-bottom:12px">'
               '<div class="big"><div><b>90%%</b><span>faster evaluations</span></div><div><b>2 days</b><span>turnaround, from ~3 weeks</span></div></div>'
               '<dl><dt>Institution</dt><dd>Roane State Community College, Tennessee</dd><dt>Type</dt><dd>Public community college</dd><dt>SIS</dt><dd>Ellucian Banner</dd>'
-              '<dt>Modules</dt><dd><a href="%s">LioraAI Articulate</a></dd><dt>Time to go live</dt><dd>18 days, kickoff to production</dd></dl>'
-              '<a class="btn-x btn-gold w-100 mt-4" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></aside>') % (u("assets/img/enlitedu/roane-state-community-college.png"), u("articulate.html"), u("request-demo.html"))
+              '<dt>Modules</dt><dd><a href="%s">LioraAI Transfer Credit Intelligence</a></dd><dt>Time to go live</dt><dd>18 days, kickoff to production</dd></dl>'
+              '<a class="btn-x btn-gold w-100 mt-4" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></aside>') % (u("assets/img/enlitedu/roane-state-community-college.png"), u("transfer-credit-intelligence.html"), u("request-demo.html"))
     story = ('<div class="story-body"><h2>The challenge</h2><p class="lead-lg">Like most community colleges, Roane State evaluates a steady flow of transcripts from students bringing credit from other institutions, with peaks before every term.</p>'
              '<p>Each transfer evaluation was researched and keyed by hand. A typical turnaround was about three weeks, which is a long time for a student deciding where to enroll, and it left the records team little room during peak periods. Approved credit then had to be entered into Banner manually.</p>'
-             '<h2>The solution</h2><p>Roane State implemented <a href="%s">LioraAI Articulate</a> with a direct Ellucian Banner integration. LioraAI reads each incoming transcript, matches courses to Roane State’s catalog using the college’s own transfer rules and past decisions, and gives evaluators a recommendation to approve, edit or flag.</p>'
+             '<h2>The solution</h2><p>Roane State implemented <a href="%s">LioraAI Transfer Credit Intelligence</a> with a direct Ellucian Banner integration. LioraAI reads each incoming transcript, matches courses to Roane State’s catalog using the college’s own transfer rules and past decisions, and gives evaluators a recommendation to approve, edit or flag.</p>'
              '<p>The integration was completed in 18 days from kickoff to production, with the college’s IT team. Approved decisions now post to Banner without re-keying.</p>'
              '<h2>The results</h2><h3>Evaluation turnaround: about three weeks to two days</h3><p>Evaluators review recommendations instead of researching every course, which the college reports as a 90%% reduction in evaluation time.</p>'
              '<h3>No more double entry</h3><p>Approved transfer credit flows straight into Banner, removing a manual step and a source of errors.</p>'
              '<h3>Consistent, documented decisions</h3><p>Every decision carries its evidence and approver, so the same course is treated the same way every term.</p>'
              '<h2>In their own words</h2><p>Three members of the Roane State team talk about the change: the VP of Student Services &amp; Innovation, the Registrar, and the IT lead who ran the Banner integration.</p>'
-             '<div class="row g-4 mt-2">%s</div><p class="note mt-4">%s</p></div>') % (u("articulate.html"), "".join('<div class="col-sm-6 col-lg-4">%s</div>' % vt_card(t) for t in TESTIMONIALS if t[0] in ("jamie", "jessica", "paul")), FOOTNOTE)
+             '<div class="row g-4 mt-2">%s</div><p class="note mt-4">%s</p></div>') % (u("transfer-credit-intelligence.html"), "".join('<div class="col-sm-6 col-lg-4">%s</div>' % vt_card(t) for t in TESTIMONIALS if t[0] in ("jamie", "jessica", "paul")), FOOTNOTE)
     body = (hero + '<section class="sec"><div class="container"><div class="row g-5"><div class="col-lg-8">%s</div><div class="col-lg-4">%s</div></div></div></section>' % (story, glance)
             + faq_block(ROANE_FAQS, title="Roane State FAQ", side_img="campus-columns") + posts_row(["how-to-speed-up-transfer-credit-evaluation", "ellucian-banner-integration-transcript-evaluation", "community-college-transfer-student-success"]) + cta_band())
     schema = [faq_schema(ROANE_FAQS, p2), breadcrumb([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Roane State Community College", p2)]),
               {"@type": "Article", "@id": BASE + "/" + p2, "headline": "Roane State Community College cuts transcript evaluation from three weeks to two days", "author": {"@id": BASE + "/#organization"},
                "publisher": {"@id": BASE + "/#organization"}, "datePublished": "2026-10-03", "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
-               "about": [{"@type": "CollegeOrUniversity", "name": "Roane State Community College"}, {"@id": BASE + "/articulate.html#software"}]}] + [video_schema(t) for t in TESTIMONIALS if t[0] in ("jamie", "jessica", "paul")]
+               "about": [{"@type": "CollegeOrUniversity", "name": "Roane State Community College"}, {"@id": BASE + "/transfer-credit-intelligence.html#software"}]}] + [video_schema(t) for t in TESTIMONIALS if t[0] in ("jamie", "jessica", "paul")]
     page(p2, "Roane State Case Study: 3 Weeks to 2 Days | LioraAI",
-         "Roane State Community College cut transcript evaluation from about three weeks to two days with LioraAI Articulate and went live on Ellucian Banner in 18 days.", body, schema=schema, active="customers", og_type="article")
+         "Roane State Community College cut transcript evaluation from about three weeks to two days with LioraAI and went live on Ellucian Banner in 18 days.", body, schema=schema, active="customers", og_type="article")
 
-    # ---- Nashville State
+    # ---- Nashville State (source: "Case Study 01" PDF, LioraAI platform data as of September 9, 2026)
     p3 = "case-studies/nashville-state-community-college.html"; set_depth(p3)
-    hero = ('<section class="page-hero on-dark"><div class="container">%s<div class="row align-items-center g-5"><div class="col-lg-7">%s<h1>Nashville State Lifts Transfer Yield <span class="accent">24%% in One Cycle</span></h1>'
-            '<p class="sub">How Nashville State Community College used Student Mobility Intelligence to see its transfer pathways clearly and act on them.</p></div>'
+    hero = ('<section class="page-hero on-dark"><div class="container">%s<div class="row align-items-center g-5"><div class="col-lg-7">%s<h1>Nashville State Cuts Transfer Evaluation From 15 Minutes <span class="accent">to 2 Minutes</span></h1>'
+            '<p class="sub">How Nashville State Community College deployed LioraAI Transfer Credit Intelligence across the whole institution, cutting per-transcript time by 87%% and approval turnaround by 56%%.</p></div>'
             '<div class="col-lg-5"><div class="visual"><div class="ph">%s</div>%s</div></div></div></div></section>'
-            % (crumbs([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Nashville State", None)]), eyebrow("Customer story · Community college"),
-               img("lecture-laugh", 900, eager=True, alt="Community college students in a lecture hall", ratio=(4, 3.3)), float_card("fa-chart-line", "ok", "+24% transfer yield", "One enrollment cycle", "fc-a")))
+            % (crumbs([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Nashville State", None)]), eyebrow("Customer story · Community college · Tennessee"),
+               img("lecture-laugh", 900, eager=True, alt="Community college students in a lecture hall", ratio=(4, 3.3)), float_card("fa-bolt", "ok", "15 min → 2 min", "Per transcript, after go-live", "fc-a")))
     glance = ('<aside class="glance"><h3>At a glance</h3><p style="font-weight:800;color:var(--navy);font-size:18px;margin-bottom:6px">Nashville State Community College</p>'
-              '<div class="big"><div><b>+24%%</b><span>transfer yield in one cycle</span></div><div><b>3</b><span>partner pathways mapped</span></div></div>'
+              '<div class="big"><div><b>-87%%</b><span>per-transcript time (15 min to ~2 min)</span></div><div><b>-56%%</b><span>approval turnaround (18 hrs to 8 hrs avg)</span></div></div>'
               '<dl><dt>Institution</dt><dd>Nashville State Community College, Tennessee</dd><dt>Type</dt><dd>Public community college</dd>'
-              '<dt>Modules</dt><dd><a href="%s">Student Mobility Intelligence</a></dd><dt>Focus</dt><dd>Transfer enrollment planning</dd></dl>'
-              '<a class="btn-x btn-gold w-100 mt-4" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></aside>') % (u("mobility.html"), u("request-demo.html"))
-    story = ('<div class="story-body"><h2>The challenge</h2><p class="lead-lg">Transfer enrollment depends on knowing where students come from, which pathways work and where credit is being lost. That information was spread across systems and hard to act on.</p>'
-             '<p>Enrollment leaders needed a clear, current view of transfer pathways with partner institutions to plan outreach and partnership conversations.</p>'
-             '<h2>The solution</h2><p>Nashville State adopted <a href="%s">Student Mobility Intelligence</a>, which combines LioraAI evaluation detail with enrollment data to map transfer pathways, measure credit applied and lost, and highlight where to focus.</p>'
-             '<p>Three partner school pathways were mapped in the first cycle, giving the enrollment team shared evidence for planning.</p>'
-             '<h2>The results</h2><h3>Transfer yield up 24%% in one cycle</h3><p>With clearer pathway data and faster answers for students, the college reports a 24%% increase in transfer yield in a single enrollment cycle.</p>'
-             '<h3>Partnerships grounded in data</h3><p>Mapped pathways give Nashville State and its partners a common picture of how students move and where credit applies.</p>'
-             '<h2>In their own words</h2><p>Alexis Pope, Vice President of Student Affairs &amp; Enrollment Management, explains what changed.</p>'
-             '<div class="row g-4 mt-2"><div class="col-sm-6 col-lg-5">%s</div></div><p class="note mt-4">%s</p></div>') % (u("mobility.html"), vt_card(TESTIMONIALS[1]), FOOTNOTE)
+              '<dt>Module</dt><dd><a href="%s">LioraAI Transfer Credit Intelligence</a></dd><dt>SIS / CRM</dt><dd>Ellucian Banner, Slate</dd>'
+              '<dt>Deployment</dt><dd>Full institutional, not a pilot</dd><dt>Client since</dt><dd>April 2026</dd><dt>Go-live</dt><dd>Mid-July 2026</dd></dl>'
+              '<a class="btn-x btn-gold w-100 mt-4" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></aside>') % (u("transfer-credit-intelligence.html"), u("request-demo.html"))
+    nums = [("-87%", "Per-transcript time", "15 min to about 2 min"), ("-56%", "Approval turnaround", "18 hrs to 8 hrs average"), ("2,158+", "Transcripts processed", "about 719 per month"),
+            ("834+", "Sent to Banner", "400th on Aug 18, 2026"), ("89%", "Match confidence", "498 of 558 scored courses"), ("18", "Active faculty reviewers", "3 added in the last month")]
+    numhtml = "".join('<div class="col-sm-6 col-md-4"><div class="stat-card"><div class="n%s">%s</div><p>%s</p><cite>%s</cite></div></div>' % (" gold" if i == 0 else "", n, l, c) for i, (n, l, c) in enumerate(nums))
+    timeline = "".join('<div class="ev"><span class="yr">%s</span><h3>%s</h3></div>' % x for x in [
+        ("April 2026", "Nashville State confirmed as an EnlitEDU client"), ("May-June 2026", "Banner and Slate integration and build"), ("July 2026", "Full institutional go-live"),
+        ("Aug 18, 2026", "400th transcript sent to the SIS"), ("Sept 2026", "2,158+ transcripts processed")])
+    quote = lambda q, who: '<blockquote class="cs-quote"><p>“%s”</p><cite>%s</cite></blockquote>' % (q, who)
+    story = ('<div class="story-body"><h2>The challenge: manual reviews and no visibility</h2>'
+             '<p class="lead-lg">Nashville State’s transfer evaluation relied on manual review, with no fast way to trace individual faculty decisions.</p>'
+             '<p>When an equivalency was denied, records staff could not see it, so students risked defaulting to generic elective credit instead of a proper course match. Evaluation data also had to be keyed into Banner by hand at every step, which created room for error and slowed the SIS write-back.</p>'
+             '<h2>The solution: a full deployment, not a pilot</h2>'
+             '<p>Nashville State went live institution-wide with <a href="%s">LioraAI Transfer Credit Intelligence</a>, integrated with Ellucian Banner and Slate.</p>'
+             '<ul class="check-list"><li><span><strong>Faculty visibility.</strong> Faculty and records staff see exactly which equivalency was denied and when, ending the guesswork that defaulted students to elective credit.</span></li>'
+             '<li><span><strong>Automated notifications.</strong> Email alerts go out when a course is ready for review, replacing manual tracking by records staff.</span></li>'
+             '<li><span><strong>Custom role management.</strong> Nashville State administrators create and manage their own LioraAI roles, with no EnlitEDU configuration step.</span></li>'
+             '<li><span><strong>Automatic Banner population.</strong> Equivalency data is written to Banner automatically, removing manual data entry from every SIS write-back.</span></li></ul>'
+             '<h2>The results, by the numbers</h2><div class="row g-3 mt-1">%s</div>'
+             '<p class="mt-4">Of 558 scored courses, 342 matched with high confidence (90%% or above) and 156 with medium confidence (75 to 89%%); 60 fell below the threshold and went to people for review. Monthly volume doubled over three months, and the best turnaround on record is 4 hours.</p>'
+             '<p class="note">All statistics from LioraAI platform data as of September 9, 2026.</p>'
+             '<h2>In their own words</h2>%s%s%s'
+             '<p>The ability to see exactly which equivalency was denied, and when, was described internally as a game changer, because it keeps students in proper course credit instead of elective defaults.</p>'
+             '<h2>Implementation timeline</h2><div class="timeline mt-3">%s</div>'
+             '<h2>Four lessons for higher education leaders</h2><ol>'
+             '<li><strong>Visibility drives equity.</strong> Making faculty decisions traceable means students aren’t defaulted to elective credit.</li>'
+             '<li><strong>Full deployment beats a pilot.</strong> Nashville State went institution-wide from day one, reflecting confidence built during testing.</li>'
+             '<li><strong>Automation plus human review.</strong> LioraAI recommends and staff approve. Manual entry dropped without removing human judgment.</li>'
+             '<li><strong>Partnership accelerates outcomes.</strong> Nashville State’s testing and feedback improved the product for every institution on the platform.</li></ol>'
+             '<h2>Watch: Nashville State leadership</h2><p>Alexis Pope, Vice President of Student Affairs &amp; Enrollment Management, on working with EnlitEDU.</p>'
+             '<div class="row g-4 mt-2"><div class="col-sm-6 col-lg-5">%s</div></div></div>') % (
+                 u("transfer-credit-intelligence.html"), numhtml,
+                 quote("Just did a transcript in 2 minutes that would’ve taken 15 under our current system. The advisor was able to meet the student where they are at and keep an advising appointment even though they turned their transcript at the last minute.", "Kevin Thomas, Nashville State Community College"),
+                 quote("We just sent our 400th transcript to SIS from LioraAI!", "Kevin Thomas, Nashville State Community College, milestone message to the project team, Aug 18, 2026"),
+                 quote("You are LITERALLY building the most advanced transcript articulation product on the planet right now. This. Is. Amazing.", "Alexis Pope, Nashville State Community College"),
+                 timeline, vt_card(TESTIMONIALS[1]))
     body = (hero + '<section class="sec"><div class="container"><div class="row g-5"><div class="col-lg-8">%s</div><div class="col-lg-4">%s</div></div></div></section>' % (story, glance)
-            + faq_block(NASHVILLE_FAQS, title="Nashville State FAQ", side_img="lecture-laugh") + posts_row(["community-college-transfer-student-success", "will-my-credits-transfer-self-service-answer", "reverse-transfer-associate-degree-explained"]) + cta_band())
+            + faq_block(NASHVILLE_FAQS, title="Nashville State FAQ", side_img="lecture-laugh") + posts_row(["how-to-speed-up-transfer-credit-evaluation", "us-community-college-transfer-statistics", "ellucian-banner-integration-transcript-evaluation"]) + cta_band())
     schema = [faq_schema(NASHVILLE_FAQS, p3), breadcrumb([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Nashville State Community College", p3)]),
-              {"@type": "Article", "@id": BASE + "/" + p3, "headline": "Nashville State lifts transfer yield 24% in one cycle", "author": {"@id": BASE + "/#organization"},
-               "publisher": {"@id": BASE + "/#organization"}, "datePublished": "2026-10-03", "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
-               "about": [{"@type": "CollegeOrUniversity", "name": "Nashville State Community College"}, {"@id": BASE + "/mobility.html#software"}]}, video_schema(TESTIMONIALS[1])]
-    page(p3, "Nashville State Case Study: +24% Transfer Yield | LioraAI",
-         "Nashville State Community College lifted transfer yield 24% in one cycle with LioraAI Student Mobility Intelligence and mapped three partner transfer pathways.", body, schema=schema, active="customers", og_type="article")
+              {"@type": "Article", "@id": BASE + "/" + p3, "headline": "Nashville State cuts transfer evaluation from 15 minutes to 2 minutes", "author": {"@id": BASE + "/#organization"},
+               "publisher": {"@id": BASE + "/#organization"}, "datePublished": "2026-10-16", "dateModified": "2026-10-16", "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
+               "about": [{"@type": "CollegeOrUniversity", "name": "Nashville State Community College", "address": {"@type": "PostalAddress", "addressRegion": "TN", "addressCountry": "US"}}, {"@id": BASE + "/transfer-credit-intelligence.html#software"}],
+               "review": [{"@type": "Review", "reviewBody": "Just did a transcript in 2 minutes that would have taken 15 under our current system.", "author": {"@type": "Person", "name": "Kevin Thomas"}, "itemReviewed": {"@id": BASE + "/transfer-credit-intelligence.html#software"}}]},
+              video_schema(TESTIMONIALS[1])]
+    page(p3, "Nashville State Case Study: 15 Minutes to 2 | LioraAI",
+         "Nashville State Community College cut transfer evaluation from 15 minutes to 2 per transcript and approval time by 56% with LioraAI on Banner and Slate.", body, schema=schema, active="customers", og_type="article")
 
 # ===================================================================== ABOUT
 def build_about():
@@ -203,7 +231,7 @@ def build_about():
                '<p>We started EnlitEDU after years of supporting colleges through student information system projects. We kept seeing the same thing: talented records teams buried in research, students waiting weeks, and the same course evaluated differently depending on who picked up the file.</p>'
                '<p>LioraAI is our answer: software that does the research, applies each institution’s own rules, and leaves every decision with the people accountable for it.</p></div></div></div></section>'
                % (img("grads-selfie", 800, ratio=(4, 4.6)), img("registrar-folder", 480, alt="", ratio=(1, 1)), eyebrow("Our mission")))
-    nums = [("1", "M+", "course descriptions in our mapping corpus"), ("60", "s", "or less to evaluate a full transcript"), ("7", "", "LioraAI modules, one engine"), ("18", " days", "fastest go-live on Banner")]
+    nums = [("1", "M+", "course descriptions in our mapping corpus"), ("60", "s", "or less to evaluate a full transcript"), ("6", "", "LioraAI modules, one engine"), ("18", " days", "fastest go-live on Banner")]
     cells = "".join('<div class="cell"><b>%s<span data-count="%s">%s</span><span class="u">%s</span></b><span>%s</span></div>' % ("<" if n == "60" else "", n, n, s, t) for n, s, t in nums)
     proof = '<section class="sec dark"><div class="container">%s<div class="proof" style="grid-template-columns:repeat(4,minmax(0,1fr))">%s</div></div></section>' % (sec_head("By the numbers", "Built Only for Higher Ed <span class=\"grad\">Credit</span>", "", center=True), cells)
     proof = proof.replace('style="grid-template-columns:repeat(4,minmax(0,1fr))"', 'style="--c:4"')
@@ -215,11 +243,11 @@ def build_about():
           ("2023", "Supporting ERP migrations", "Helping institutions modernize student systems and data across several states."),
           ("2025", "LioraAI beta", "Beta with partner institutions, validating AI-assisted evaluation in live production."),
           ("2025", "LioraAI launches", "First customers go live, including Tennessee community colleges."),
-          ("2026", "Seven modules", "Veterans & JST, Athlete Transcripts and Student Degree Pathway join the platform.")]
+          ("2026", "Six modules", "Veterans & JST and Student Degree Pathway join the platform.")]
     tls = "".join('<div class="ev" data-aos="fade-up"><span class="yr">%s</span><h3>%s</h3><p>%s</p></div>' % x for x in tl)
     team = [("chaitanya", "Chaitanya Saripalli", "Founder & CEO", "Founder of Anatta IT Solutions and EnlitEDU. Chaitanya spent years inside the operational realities of enrollment and records teams and built LioraAI to solve them directly."),
             ("sajan", "Sajan Patel", "Business Development", "Sajan works with registrars, VPs and enrollment directors across the U.S. to connect LioraAI’s capabilities to the practical needs of their offices.")]
-    tm = "".join('<div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="team-card"><div class="ph">%s</div><div class="c"><h3>%s</h3><p class="role">%s</p><p>%s</p></div></div></div>' % (i * 100, img(k, 400), n, r, b) for i, (k, n, r, b) in enumerate(team))
+    tm = "".join('<div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="team-card"><div class="ph">%s</div><div class="c"><h3>%s</h3><p class="role">%s</p><p>%s</p>%s</div></div></div>' % (i * 100, img(k, 400), n, r, b, ('<a class="link-arrow" href="%s" target="_blank" rel="noopener me">LinkedIn <i class="fa-brands fa-linkedin"></i></a>' % CS_LINKEDIN) if k == "chaitanya" else "") for i, (k, n, r, b) in enumerate(team))
     tm += '<div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200"><div class="team-card promo" style="background:var(--navy);color:#c9d3e6"><h3 style="color:#fff;font-family:var(--f-serif);font-size:28px">Join us</h3><p>We’re a small team building tools that change how quickly students get credit for their work.</p><a class="link-arrow" href="%s">See careers <i class="fa-solid fa-arrow-right"></i></a></div></div>' % u("careers.html")
     partner = ('<div class="d-flex flex-wrap align-items-center gap-4"><img src="%s" alt="Slate partner badge" style="height:90px;width:auto" loading="lazy"><img src="%s" alt="AICPA SOC" style="height:90px;width:auto;border-radius:12px" loading="lazy"></div>'
                % (u("assets/img/enlitedu/slate-partner-badge.png"), u("assets/img/enlitedu/soc2-aicpa.jpg")))
@@ -231,13 +259,13 @@ def build_about():
     body = body.replace('class="proof" style="--c:4"', 'class="proof proof-4"')
     schema = [faq_schema(ABOUT_FAQS, path), breadcrumb([("Home", "index.html"), ("About", path)]),
               {"@type": "AboutPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "About EnlitEDU", "mainEntity": {"@id": BASE + "/#organization"}},
-              {"@type": "Person", "name": "Chaitanya Saripalli", "jobTitle": "Founder & CEO", "worksFor": {"@id": BASE + "/#organization"}, "image": BASE + "/assets/img/enlitedu/chaitanya-saripalli.jpg"},
+              PERSON_CS,
               {"@type": "Person", "name": "Sajan Patel", "jobTitle": "Business Development", "worksFor": {"@id": BASE + "/#organization"}, "image": BASE + "/assets/img/enlitedu/sajan-patel.jpg"}]
     page(path, "About EnlitEDU | The Team Behind LioraAI",
          "EnlitEDU builds LioraAI so every student gets a fast, fair answer about their credit. Our story, values, timeline and leadership.", body, schema=schema, active="about")
 
 # ===================================================================== FORMS
-ROLES = ["Registrar / Records", "Transfer credit evaluator", "VP of Enrollment / Student Affairs", "Director of Admissions", "Veteran Services / SCO", "Athletic compliance",
+ROLES = ["Registrar / Records", "Transfer credit evaluator", "VP of Enrollment / Student Affairs", "Director of Admissions", "Veteran Services / SCO",
          "CPL / PLA coordinator", "CIO / IT", "Provost / President", "Other"]
 def form_html(kind="demo"):
     opts = "".join('<option>%s</option>' % e(r) for r in ROLES)

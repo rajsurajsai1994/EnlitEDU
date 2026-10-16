@@ -73,7 +73,7 @@ Icons used on the site were checked; if you add icons, stick to long-standing on
   `georgia/transfer-credit-evaluation.html`, `georgia/military-transcript-evaluation.html`, `transcript-evaluation-near-me.html`
   (content in `_build/data_georgia.py`, layout in `_build/pages3.py`).
 - National articles (U.S. community college transfer data, state transfer policies, dual enrollment) live in `_build/data_us_posts.py`; every figure is sourced in the post. Long post headlines get a short `<title>` via `SEO_TITLE` in `build.py`.
-- **Positioning rule:** EnlitEDU serves colleges across the U.S. Georgia appears only on the regional pages above,
+- **Positioning rule:** EnlitEDU serves colleges across the U.S. The pages above (content in `_build/data_regional.py`) are national-first guides with ONE labelled Georgia section each; Georgia appears elsewhere only as
   the address, and one "Georgia (HQ state)" link in the nav/footer. National pages, the homepage title, top bar,
   module pages and blog index stay national. Georgia-only posts carry `region="Georgia"`: they sit in a labelled
   "State Guides: Georgia" block on blog.html and are never suggested as related posts on national articles.
@@ -87,6 +87,7 @@ python _build/audit.py         # titles, descriptions, H1s, headings, schema, FA
 python _build/keyword_map.py   # confirms each target keyword is on its target page
 python _build/schema_audit.py  # every JSON-LD node: required/recommended props, @id refs, breadcrumbs, FAQ text, speakable, robots, llms.txt
 python _build/geo_scan.py      # Georgia/Atlanta mentions on national pages (should be HQ + one regional link only)
+python _build/prelaunch_check.py  # sitemap XML, robots, head tags, titles, duplicate H1s, images, http://, long dashes, leftovers
 ```
 
 - Off-site (required for "near me" / map results): Google Business Profile at the Cumming address,
@@ -108,3 +109,24 @@ python _build/geo_scan.py      # Georgia/Atlanta mentions on national pages (sho
 7. **Forms** post to Web3Forms with the existing access key and redirect to `thank-you.html`.
 8. **Tagline** "Recognize Every Credit. Advance Every Learner." is the recommended option from the
    redesign plan, pending CEO sign-off.
+
+## Module names and hidden modules (Oct 2026)
+
+- **LioraAI Transfer Credit Intelligence** (`transfer-credit-intelligence.html`, was "LioraAI Articulate") and
+  **LioraAI Freshman Intelligence** (`freshman-intelligence.html`, was "LioraAI Assess"). The old `articulate.html` and
+  `assess.html` are noindex pages that forward to the new addresses. Old names in the ported blog posts are rewritten at
+  build time (`_rename()` in `build.py`).
+- **NCAA / Athlete Transcripts is hidden until launch.** `athletics.html` is still built but is `noindex`, left out of the
+  sitemap, llms.txt, menus, footer and all module grids, and nothing links to it. To launch it, remove `"athletics"` from
+  `HIDDEN` in `_build/data_modules.py`, rebuild, and restore any NCAA copy you want back (platform FAQ, universities page).
+
+## House style and proof points (Oct 2026)
+
+- **No long dashes.** `tidy_dashes()` in `core.py` runs on every generated page and on llms.txt: en dashes become
+  hyphens; em dashes become a comma where they join a clause, otherwise a spaced hyphen.
+- **Nashville State** facts come only from the "Case Study 01" PDF (LioraAI platform data as of Sept 9, 2026):
+  Transfer Credit Intelligence, 15 min to ~2 min per transcript (-87%), approval 18 to 8 hrs (-56%), 2,158+ transcripts,
+  834+ sent to Banner, 89% match confidence (498/558), 18 faculty reviewers, live July 2026. The old "+24% transfer
+  yield with Mobility Intelligence" claim was removed everywhere because the case study does not support it.
+- **E-E-A-T:** blog posts show "Reviewed by Chaitanya Saripalli, Founder & CEO" with LinkedIn; BlogPosting has
+  `editor` -> Person `#chaitanya-saripalli` (sameAs LinkedIn); Organization has `founder`.

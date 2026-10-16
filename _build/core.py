@@ -108,16 +108,18 @@ def img(key, w=1200, alt=None, cls="", sizes="(max-width: 991px) 100vw, 50vw", e
 # ---------------------------------------------------------------- navigation data
 MODULES_NAV = [
     # (group, url, category, name, desc, icon)
-    ("Credit Evaluation", "articulate.html", "Transfer Credit Evaluation", "LioraAI Articulate", "Map any transcript to your catalog", "fa-right-left"),
-    ("Credit Evaluation", "assess.html", "First-Year Transcripts", "LioraAI Assess", "GPA standardization for admissions", "fa-graduation-cap"),
+    ("Credit Evaluation", "transfer-credit-intelligence.html", "Transfer Credit Evaluation", "LioraAI Transfer Credit Intelligence", "Map any transcript to your catalog", "fa-right-left"),
+    ("Credit Evaluation", "freshman-intelligence.html", "First-Year Transcripts", "LioraAI Freshman Intelligence", "GPA standardization for admissions", "fa-graduation-cap"),
     ("Credit Evaluation", "pla.html", "Credit for Prior Learning", "Prior Learning Assessment", "Work, certifications & portfolios", "fa-briefcase"),
     ("Credit Evaluation", "veterans.html", "Military & JST Credit", "LioraAI for Veterans & JST", "JST, CCAF & DD-214 evaluation", "fa-medal"),
     ("Compliance & Certification", "athletics.html", "NCAA Eligibility Support", "LioraAI Athlete Transcripts", "Progress-toward-degree, documented", "fa-trophy"),
     ("Student Pathways", "degree-pathway.html", "Student Self-Service", "Student Degree Pathway", "Every student's path to a degree", "fa-route"),
     ("Student Pathways", "mobility.html", "Transfer Analytics", "Student Mobility Intelligence", "Pathways, credit loss & retention", "fa-chart-line"),
 ]
+from data_modules import HIDDEN as HIDDEN_MODULES  # to launch a hidden module, remove it from HIDDEN in data_modules.py
+MODULES_NAV = [n for n in MODULES_NAV if n[1][:-5] not in HIDDEN_MODULES]
 PLATFORM_NAV = [
-    ("platform.html", "Platform overview", "One engine, seven modules", "fa-layer-group"),
+    ("platform.html", "Platform overview", "One engine, six modules", "fa-layer-group"),
     ("how-it-works.html", "How LioraAI works", "AI that shows its work", "fa-microchip"),
     ("integrations.html", "Integrations", "Banner, Workday, Colleague & more", "fa-plug"),
     ("security.html", "Security & Trust", "FERPA, SOC 2 program, DPA", "fa-shield-halved"),
@@ -131,7 +133,7 @@ SOLUTIONS_NAV = [
 ]
 AUDIENCE_NAV = [
     ("who-we-serve/community-colleges.html", "Community Colleges", "Transfer-in, transfer-out, CPL", "fa-school"),
-    ("who-we-serve/four-year-universities.html", "Four-Year Universities", "First-year, transfer & athletics", "fa-building-columns"),
+    ("who-we-serve/four-year-universities.html", "Four-Year Universities", "First-year & transfer admits", "fa-building-columns"),
     ("who-we-serve/hbcus-and-msis.html", "HBCUs & MSIs", "Fair, consistent evaluation", "fa-users"),
     ("who-we-serve/state-systems.html", "State Systems & Consortia", "One set of rules across campuses", "fa-sitemap"),
 ]
@@ -163,19 +165,16 @@ def header_html(active=""):
     groups = {}
     for g, url, cat, name, desc, ic in MODULES_NAV:
         groups.setdefault(g, []).append(_mlink(url, name, desc, ic, cat))
-    prod_cols = ""
-    for g in ("Credit Evaluation", "Compliance & Certification", "Student Pathways"):
-        prod_cols += '<div><p class="mega-title">%s</p>%s</div>' % (e(g), "".join(groups[g]))
     # Put Compliance + Pathways in one column to leave room for Platform
     prod = ('<div class="inner"><div><p class="mega-title">Credit Evaluation</p>%s</div>'
-            '<div><p class="mega-title">Compliance &amp; Certification</p>%s<p class="mega-title" style="margin-top:18px">Student Pathways</p>%s</div>'
+            '<div>%s<p class="mega-title">Student Pathways</p>%s</div>'
             '<div><p class="mega-title">Platform</p>%s</div>%s</div>'
-            % ("".join(groups["Credit Evaluation"]), "".join(groups["Compliance & Certification"]), "".join(groups["Student Pathways"]),
+            % ("".join(groups["Credit Evaluation"]), ('<p class="mega-title">Compliance &amp; Certification</p>%s<div style="height:18px"></div>' % "".join(groups["Compliance & Certification"])) if groups.get("Compliance & Certification") else "", "".join(groups["Student Pathways"]),
                "".join(_mlink(*p) for p in PLATFORM_NAV),
                _feature("registrar-docs", "See it live", "Watch LioraAI evaluate a transcript in two minutes", "how-it-works.html", "How it works")))
     sol = ('<div class="inner cols-2"><div><p class="mega-title">By outcome</p>%s</div><div><p class="mega-title">&nbsp;</p>%s</div>%s</div>'
            % ("".join(_mlink(*s) for s in SOLUTIONS_NAV[:3]), "".join(_mlink(*s) for s in SOLUTIONS_NAV[3:]),
-              _feature("grads-selfie", "Customer story", "Nashville State lifts transfer yield 24% in one cycle", "case-studies/nashville-state-community-college.html", "Read the story")))
+              _feature("grads-selfie", "Customer story", "Nashville State: 15 minutes to 2 per transcript", "case-studies/nashville-state-community-college.html", "Read the story")))
     aud = ('<div class="inner cols-2"><div><p class="mega-title">By institution, nationwide</p>%s</div><div><p class="mega-title">&nbsp;</p>%s<p class="mega-title" style="margin-top:18px">By region</p>%s</div>%s</div>'
            % ("".join(_mlink(*a) for a in AUDIENCE_NAV[:2]), "".join(_mlink(*a) for a in AUDIENCE_NAV[2:]), _mlink(*REGION_NAV),
               _feature("campus-columns", "Customer story", "Roane State cut transcript evaluation from three weeks to two days", "case-studies/roane-state-community-college.html", "Read the story")))
@@ -215,7 +214,7 @@ def header_html(active=""):
                  u("request-demo.html")))
 
     topbar = ('<div class="topbar"><div class="container"><div class="inner"><p class="announce" style="margin:0"><span class="badge-new">NEW</span>'
-              '<span>Veterans &amp; JST, Athlete Transcripts and Student Degree Pathway are now part of LioraAI, for colleges across the U.S. <a href="%s">See all seven modules →</a></span></p>'
+              '<span>New names, same engine: LioraAI Transfer Credit Intelligence and LioraAI Freshman Intelligence, for colleges across the U.S. <a href="%s">See all modules →</a></span></p>'
               '<div class="meta"><a href="mailto:%s"><i class="fa-solid fa-envelope"></i>%s</a><a href="%s" target="_blank" rel="noopener" aria-label="EnlitEDU on LinkedIn"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>'
               '<a href="%s" target="_blank" rel="noopener" aria-label="LioraAI on YouTube"><i class="fa-brands fa-youtube"></i>YouTube</a></div></div></div></div>'
               % (u("platform.html"), SITE["email"], SITE["email"], SITE["linkedin"], SITE["youtube"]))
@@ -267,7 +266,7 @@ def footer_html(show_cta=True):
 ORG = {
     "@type": ["Organization", "LocalBusiness"], "@id": BASE + "/#organization", "name": "EnlitEDU", "legalName": "EnlitEDU Inc.",
     "url": BASE + "/", "logo": {"@type": "ImageObject", "url": BASE + "/assets/img/enlitedu/logo.png"}, "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
-    "description": "EnlitEDU builds LioraAI, an academic record intelligence platform for colleges and universities across the United States. LioraAI evaluates transfer, first-year, military (JST) and prior-learning credit, supports NCAA progress-toward-degree documentation, and gives students a self-service path to a degree. EnlitEDU is headquartered in Cumming, Georgia, in north metro Atlanta.",
+    "description": "EnlitEDU builds LioraAI, an academic record intelligence platform for colleges and universities across the United States. LioraAI evaluates transfer, first-year, military (JST) and prior-learning credit, and gives students a self-service path to a degree. EnlitEDU is headquartered in Cumming, Georgia, in north metro Atlanta.",
     "email": SITE["email"],
     "address": {"@type": "PostalAddress", "streetAddress": SITE["street"], "addressLocality": SITE["city"], "addressRegion": SITE["region"], "postalCode": SITE["zip"], "addressCountry": "US"},
     "areaServed": [{"@type": "Country", "name": "United States"}, {"@type": "State", "name": "Georgia"}, {"@type": "City", "name": "Atlanta", "containedInPlace": {"@type": "State", "name": "Georgia"}}],
@@ -275,7 +274,8 @@ ORG = {
     "slogan": "Recognize Every Credit. Advance Every Learner.",
     "brand": {"@type": "Brand", "name": "LioraAI"},
     "sameAs": [SITE["linkedin"], SITE["youtube"], SITE["instagram"], SITE["facebook"]],
-    "knowsAbout": ["Transcript evaluation software", "Transfer credit evaluation", "USG Core IMPACTS", "TCSG to USG transfer", "HOPE GPA", "Georgia Dual Enrollment", "Course articulation", "GPA standardization", "Credit for prior learning", "Joint Services Transcript", "ACE credit recommendations", "NCAA progress-toward-degree", "Degree audit", "FERPA", "Student information systems"],
+    "founder": {"@id": BASE + "/#chaitanya-saripalli"},
+    "knowsAbout": ["Transcript evaluation software", "Transfer credit evaluation", "USG Core IMPACTS", "TCSG to USG transfer", "HOPE GPA", "Georgia Dual Enrollment", "Course articulation", "GPA standardization", "Credit for prior learning", "Joint Services Transcript", "ACE credit recommendations", "Degree audit", "FERPA", "Student information systems"],
     "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": SITE["email"], "areaServed": "US", "availableLanguage": "English"},
 }
 
@@ -292,8 +292,13 @@ def _strip(s):
     return re.sub(r"<[^>]+>", "", s)
 
 # ---------------------------------------------------------------- page shell
+CS_LINKEDIN = "https://www.linkedin.com/in/chaitanyasaripalli/"
+PERSON_CS = {"@type": "Person", "@id": BASE + "/#chaitanya-saripalli", "name": "Chaitanya Saripalli", "jobTitle": "Founder & CEO",
+             "worksFor": {"@id": BASE + "/#organization"}, "url": BASE + "/about.html#leadership", "image": BASE + "/assets/img/enlitedu/chaitanya-saripalli.jpg",
+             "sameAs": [CS_LINKEDIN], "knowsAbout": ["Transcript evaluation", "Transfer credit evaluation", "Student information systems", "Higher education technology"]}
+
 # Entities defined on other pages: build.py registers them so cross-page @id references carry a type and name.
-REG = {}
+REG = {PERSON_CS["@id"]: {k: v for k, v in PERSON_CS.items() if k != "@id"}}
 WEBSITE = {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "EnlitEDU", "alternateName": "LioraAI by EnlitEDU",
            "publisher": {"@id": BASE + "/#organization"}, "inLanguage": "en-US"}
 LIORAAI = {"@type": "SoftwareApplication", "@id": BASE + "/#lioraai", "name": "LioraAI", "applicationCategory": "BusinessApplication",
@@ -362,6 +367,7 @@ def page(path, title, desc, body, schema=None, active="", noindex=False, show_ct
 <link rel="icon" type="image/png" sizes="32x32" href="%(p)sassets/img/enlitedu/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="%(p)sassets/img/enlitedu/favicon-192.png">
 <link rel="apple-touch-icon" href="%(p)sassets/img/enlitedu/apple-touch-icon.png">
+<link rel="manifest" href="%(p)smanifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
@@ -387,7 +393,7 @@ def page(path, title, desc, body, schema=None, active="", noindex=False, show_ct
 """ % dict(ver=ASSET_VER, title=e(title), desc=e(desc), robots="noindex,follow" if noindex else "index,follow,max-image-preview:large,max-snippet:-1",
            canon=canon, og_type=og_type, ogimg=ogimg, p=_prefix[0], ld=ld.replace("</", "<\\/"), header=header_html(active),
            body=body, footer=footer_html(show_cta), gtm_head=gtm_head, gtm_body=gtm_body)
-    doc = _size_images(doc, path)
+    doc = tidy_dashes(_size_images(doc, path))
     full = os.path.join(OUT, path.replace("/", os.sep))
     os.makedirs(os.path.dirname(full), exist_ok=True)
     with open(full, "w", encoding="utf-8", newline="\n") as f:
@@ -423,6 +429,16 @@ def _dims(fp):
         pass
     _DIMS[fp] = (w, h)
     return w, h
+
+EM, EN = "\u2014", "\u2013"
+_DASH_COMMA = r"(?:and|but|or|not|so|yet|which|who|while|because|before|after|based|especially|including|just|then|than|it|it's|that|this|those|these|with|without|whether|instead|even|usually|often)\b"
+def tidy_dashes(s):
+    """House style (Oct 2026): no long dashes. En dash -> hyphen; em dash -> comma where it joins a clause, otherwise a spaced hyphen."""
+    s = s.replace(EN, "-")
+    s = re.sub(r" %s ([^%s<>\n]{1,80}?) %s " % (EM, EM, EM), r", \1, ", s)
+    s = re.sub(r" %s (?=%s)" % (EM, _DASH_COMMA), ", ", s)
+    s = s.replace(" %s " % EM, " - ").replace(EM, "-")
+    return s.replace(", ,", ",")
 
 def _size_images(doc, path):
     base = os.path.dirname(os.path.join(OUT, path.replace("/", os.sep)))
@@ -487,7 +503,7 @@ TESTIMONIALS = [
     ("jamie", "UUpuMEJX3Tk", 6, "Jamie Stringer", "Vice President of Student Services & Innovation", "Roane State Community College", "2026-03-12", "PT3M51S",
      "Jamie Stringer, Vice President of Student Services & Innovation at Roane State Community College, on how LioraAI changed their transfer credit evaluation."),
     ("alexis", "_lUO-AJF2Cs", 0, "Alexis Pope", "Vice President, Student Affairs & Enrollment Management", "Nashville State Community College", "2026-05-29", "PT3M34S",
-     "Alexis Pope, Vice President of Student Affairs & Enrollment Management at Nashville State Community College, on Student Mobility Intelligence."),
+     "Alexis Pope, Vice President of Student Affairs & Enrollment Management at Nashville State Community College, on working with EnlitEDU and LioraAI."),
     ("jessica", "5Kqhrc2fyO8", 16, "Jessica Hunsaker", "Registrar, Director of Admissions, Records & Graduation", "Roane State Community College", "2026-05-20", "PT4M38S",
      "Jessica Hunsaker, Registrar at Roane State Community College, on how LioraAI changed the registrar's evaluation workflow."),
     ("paul", "8sF5xILZTmU", 6, "Paul Charpie", "Computer Programmer Analyst", "Roane State Community College", "2026-03-14", "PT3M08S",
