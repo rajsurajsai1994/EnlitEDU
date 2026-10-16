@@ -39,6 +39,10 @@ Where we work: colleges, universities, technical colleges and state systems acro
 - Georgia rules LioraAI supports: USG Core IMPACTS (42-hour general education core in seven areas; credit transfers area to area between USG institutions), the TCSG-USG general education transfer agreement, Georgia Dual Enrollment college credit, the HOPE GPA calculated by the Georgia Student Finance Commission (distinct from an admissions GPA), and JST/CCAF transcripts from Georgia military installations.
 - EnlitEDU provides software to institutions; it does not evaluate individual students' transcripts.
 
+## Careers
+- [Careers at EnlitEDU](https://www.enlitedu.com/careers.html)
+- [Technical Implementation Manager](https://www.enlitedu.com/careers/technical-implementation-manager.html): Remote, full-time. Lead client implementations of LioraAI at colleges and universities, coordinate our developers and QA, and make sure every go-live lands on time.
+
 ## Proof
 - [Roane State Community College](https://www.enlitedu.com/case-studies/roane-state-community-college.html)
 - [Nashville State Community College](https://www.enlitedu.com/case-studies/nashville-state-community-college.html)

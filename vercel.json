@@ -130,6 +130,21 @@
       "permanent": true
     },
     {
+      "source": "/careers/",
+      "destination": "/careers.html",
+      "permanent": true
+    },
+    {
+      "source": "/jobs",
+      "destination": "/careers.html",
+      "permanent": true
+    },
+    {
+      "source": "/jobs/",
+      "destination": "/careers.html",
+      "permanent": true
+    },
+    {
       "source": "/feed",
       "destination": "/blog.html",
       "permanent": true

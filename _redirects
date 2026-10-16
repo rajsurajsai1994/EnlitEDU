@@ -25,6 +25,9 @@ http://www.enlitedu.com/*  https://www.enlitedu.com/:splat  301!
 /case-studies/                                               /case-studies.html  301
 /georgia/                                                    /georgia.html  301
 /blog/                                                       /blog.html  301
+/careers/                                                    /careers.html  301
+/jobs                                                        /careers.html  301
+/jobs/                                                       /careers.html  301
 /feed                                                        /blog.html  301
 /feed/                                                       /blog.html  301
 /uncategorized/data-integration-for-improving-academic-performance-tracking/ /mobility.html  301

@@ -424,10 +424,6 @@ def build_faq():
 # ===================================================================== SMALL PAGES
 def build_small():
     for path, title, eb, h1, sub, ttl, desc, imgk, noidx, extra in [
-        ("careers.html", "Careers", "Careers", "Build the Future of <span class=\"accent\">Credit Mobility</span>",
-         "EnlitEDU is a small, fast-moving team building tools that change how quickly students get credit for their work. Roles are opening soon.",
-         "Careers at EnlitEDU", "Careers at EnlitEDU, the team behind LioraAI in Cumming, Georgia (north metro Atlanta). Send your résumé; remote-friendly roles open soon.", "team-collab", True,
-         '<p class="lead-lg">We don’t have open postings right now, but we always want to hear from people who care about students and good software.</p><p>Send your résumé and a note about what you’d like to work on to <a href="mailto:info@enlitedu.com?subject=Careers%20at%20EnlitEDU">info@enlitedu.com</a>. The team is based in Cumming, Georgia, and remote-friendly roles are available.</p>'),
         ("events.html", "Events & Webinars", "Events", "Events & <span class=\"accent\">Webinars</span>",
          "We’re building a calendar of webinars and conference sessions for registrars, enrollment leaders and veteran services offices.",
          "Events & Webinars | EnlitEDU", "Upcoming LioraAI webinars and conference appearances for registrars and enrollment leaders.", "presenter", True,

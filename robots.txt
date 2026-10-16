@@ -5,6 +5,7 @@ User-agent: *
 Allow: /
 Disallow: /_build/
 Disallow: /thank-you.html
+Disallow: /application-received.html
 
 User-agent: Googlebot
 Allow: /

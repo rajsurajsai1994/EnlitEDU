@@ -24,6 +24,7 @@ REQ = {  # required (error) / recommended (warning)
     "VideoObject": (["name", "description", "thumbnailUrl", "uploadDate"], ["embedUrl", "contentUrl", "duration"]),
     "DefinedTermSet": (["name", "hasDefinedTerm"], []), "Blog": (["name", "url"], []),
     "ItemList": (["itemListElement"], []),
+    "JobPosting": (["title", "description", "datePosted", "hiringOrganization"], ["validThrough", "employmentType", "applicantLocationRequirements", "directApply", "identifier"]),
 }
 
 def nodes_of(g):

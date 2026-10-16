@@ -197,6 +197,7 @@ def main():
     P2.build_glossary(); P2.build_faq(); P2.build_small()
     for g in GA_PAGES: P3.build_ga_page(g)
     P3.build_near_me()
+    import pages_careers; pages_careers.build_all()
     build_blog_index(posts)
     for p in posts.values(): build_post(p, posts)
 
@@ -213,7 +214,7 @@ def main():
     bots = ["Googlebot", "Bingbot", "DuckDuckBot", "Applebot", "Applebot-Extended", "Google-Extended", "GPTBot", "OAI-SearchBot", "ChatGPT-User",
             "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "CCBot"]
     robots = ("# EnlitEDU / LioraAI: search engines and AI answer engines are welcome.\n# Machine-readable summary: %s/llms.txt\n\n"
-              "User-agent: *\nAllow: /\nDisallow: /_build/\nDisallow: /thank-you.html\n\n" % BASE)
+              "User-agent: *\nAllow: /\nDisallow: /_build/\nDisallow: /thank-you.html\nDisallow: /application-received.html\n\n" % BASE)
     robots += "".join("User-agent: %s\nAllow: /\nDisallow: /_build/\n\n" % b for b in bots)
     write("robots.txt", robots + "Sitemap: %s/sitemap.xml\n" % BASE)
     llm = ["# EnlitEDU — LioraAI", "",
@@ -229,6 +230,8 @@ def main():
            "- [Transcript evaluation near me](%s/%s): %s" % (BASE, NEAR_ME["path"], NEAR_ME["desc"]),
            "- Georgia rules LioraAI supports: USG Core IMPACTS (42-hour general education core in seven areas; credit transfers area to area between USG institutions), the TCSG–USG general education transfer agreement, Georgia Dual Enrollment college credit, the HOPE GPA calculated by the Georgia Student Finance Commission (distinct from an admissions GPA), and JST/CCAF transcripts from Georgia military installations.",
            "- EnlitEDU provides software to institutions; it does not evaluate individual students' transcripts.",
+           "", "## Careers", "- [Careers at EnlitEDU](%s/careers.html)" % BASE] + [
+           "- [%s](%s/careers/%s.html): %s, %s. %s" % (j["title"], BASE, j["slug"], j["location"], j["employment"].lower(), j["summary"]) for j in __import__("data_careers").JOBS if j.get("open")] + [
            "", "## Proof", "- [Roane State Community College](%s/case-studies/roane-state-community-college.html)" % BASE, "- [Nashville State Community College](%s/case-studies/nashville-state-community-college.html)" % BASE,
            "", "## Reference", "- [How LioraAI works](%s/how-it-works.html)" % BASE, "- [Integrations](%s/integrations.html)" % BASE, "- [Security & Trust](%s/security.html)" % BASE,
            "- [Glossary](%s/glossary.html)" % BASE, "- [FAQ](%s/faq.html)" % BASE, "", "## Blog"] + [

@@ -147,3 +147,11 @@ files, `/favicon.ico`) is written out for every host, so they never drift apart:
 - `/index.html` is deliberately **not** redirected to `/`, because internal links use `index.html` so the site also works
   from disk. The canonical tag points to `/`.
 - Check links any time: `python _build/link_check.py` (internal) or `python _build/link_check.py --external` (live).
+
+## Careers
+
+Roles live in `_build/data_careers.py`. Add a dict to `JOBS` to publish a role: the build creates `careers/<slug>.html`
+(full description, sidebar summary, application form) with Google for Jobs `JobPosting` data, lists it on `careers.html`
+and in llms.txt. Set `open=False` to close a role (also update `valid_through`). Applications go through Web3Forms to the
+same inbox as demo requests, with subject "Job application: <title>", then land on `application-received.html` (noindex).
+Web3Forms' free plan can't attach files, so candidates paste a résumé link; upgrading to Web3Forms Pro would allow uploads.
