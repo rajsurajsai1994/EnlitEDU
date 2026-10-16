@@ -4,6 +4,8 @@
 
 Key facts: Roane State Community College cut transcript evaluation from about three weeks to two days (reported 90% faster) and went live on Ellucian Banner in 18 days. Nashville State Community College reported a 24% increase in transfer yield in one cycle with Student Mobility Intelligence. Student records are never used to train general-purpose AI models. EnlitEDU acts as a FERPA school official under the institution's control. Headquarters: Cumming, Georgia. Contact: info@enlitedu.com.
 
+Where we work: colleges, universities, technical colleges and state systems across the United States. Demos, implementation and training run online in every state. Georgia/Atlanta pages below are regional guides, not a service limit.
+
 ## Modules
 - [LioraAI Articulate](https://www.enlitedu.com/articulate.html): Evaluate transfer credit in days, not weeks. LioraAI Articulate maps any transcript to your catalog with your rules, and writes approved credit back to your SIS.
 - [LioraAI Assess](https://www.enlitedu.com/assess.html): Evaluate every first-year (freshman) applicant’s transcript the same way. LioraAI Assess standardizes 4.0, 5.0, 6.0 and 100-point GPAs with your documented rules.
@@ -48,6 +50,9 @@ Key facts: Roane State Community College cut transcript evaluation from about th
 - [FAQ](https://www.enlitedu.com/faq.html)
 
 ## Blog
+- [Community College Transfer Statistics: What U.S. Data Shows](https://www.enlitedu.com/blog/us-community-college-transfer-statistics.html)
+- [State Transfer Policies in the U.S.: A Registrar’s Guide](https://www.enlitedu.com/blog/state-transfer-policies-us-guide.html)
+- [Dual Enrollment Credit Evaluation: A Guide for U.S. Colleges](https://www.enlitedu.com/blog/dual-enrollment-credit-evaluation-us-colleges.html)
 - [TCSG to USG Transfer Under Core IMPACTS: A Plain-English Guide for Georgia Registrars](https://www.enlitedu.com/blog/tcsg-to-usg-transfer-core-impacts-guide.html)
 - [HOPE GPA vs. Admissions GPA: What Georgia Admissions Offices Should Know](https://www.enlitedu.com/blog/hope-gpa-vs-admissions-gpa-georgia.html)
 - [How to Choose Transcript Evaluation Software: A Buyer’s Checklist for Colleges](https://www.enlitedu.com/blog/how-to-choose-transcript-evaluation-software.html)

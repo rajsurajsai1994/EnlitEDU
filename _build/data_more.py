@@ -43,7 +43,7 @@ dict(
         ("pla", "Show adult transfers what their work experience could add.")],
  bullets=["Pre-application credit estimates from your real rules", "Faster official evaluations for admitted students", "Feeder-school and pathway analytics", "Reverse transfer identification for partners"],
  proof="nashville",
- blog=["will-my-credits-transfer-self-service-answer", "community-college-transfer-student-success", "enrollment-management-strategies-2025"],
+ blog=["us-community-college-transfer-statistics", "will-my-credits-transfer-self-service-answer", "community-college-transfer-student-success"],
  faqs=[("Can students find out if their credits will transfer before applying?", "Yes. With Student Degree Pathway, prospective students enter or upload prior coursework and receive an indicative estimate based on your articulation rules, clearly labeled as subject to official evaluation."),
        ("Is a transfer credit estimate binding?", "No. It is a planning aid. Because it uses the same rules as your official process, it usually matches the final evaluation closely for common courses."),
        ("How does LioraAI help with transfer partnerships?", "Student Mobility Intelligence shows which sending institutions and programs produce your strongest transfers and where credit is lost, which gives both partners evidence for new or updated agreements.")],
@@ -128,7 +128,7 @@ dict(
  faqs=[("Is LioraAI affordable for a community college?", "Pricing is based on institution size and evaluation volume, so smaller colleges are not priced like large universities. A proof-of-concept on your own transcripts is available for qualified institutions."),
        ("Does LioraAI support reverse transfer?", "Yes. Student Mobility Intelligence identifies students who have earned an associate degree with credits from a partner university, so consent and conferral can start."),
        ("We don’t use the word “freshman.” Does that matter?", "No. LioraAI follows your terminology. First-time students are evaluated with Assess if you review high school records; anyone bringing college credit, at any level, is evaluated with Articulate.")],
- blog=["community-college-transfer-student-success", "reverse-transfer-associate-degree-explained", "prior-learning-assessment-guide"],
+ blog=["us-community-college-transfer-statistics", "dual-enrollment-credit-evaluation-us-colleges", "reverse-transfer-associate-degree-explained"],
 ),
 dict(
  slug="four-year-universities", nav="Four-Year Universities", icon="fa-building-columns", img="university-building", img2="lecture-talk",
@@ -144,7 +144,7 @@ dict(
  faqs=[("Can admissions and the registrar share one system?", "Yes. Assess handles first-year applicants and Articulate handles transfer credit, sharing rules, a review queue and the audit trail."),
        ("Does LioraAI work with Slate?", "Yes. LioraAI integrates with Slate, Common App and the major SIS platforms so evaluated data reaches the people who need it without re-keying."),
        ("How does it help athletics compliance?", "Athlete Transcripts evaluates incoming transfer athlete transcripts in minutes and keeps documented progress-toward-degree data. Your certifying official still makes every eligibility decision.")],
- blog=["gpa-standardization-problem", "transfer-portal-athlete-eligibility-certification", "international-transcript-evaluation-first-year-admissions"],
+ blog=["dual-enrollment-credit-evaluation-us-colleges", "gpa-standardization-problem", "transfer-portal-athlete-eligibility-certification"],
 ),
 dict(
  slug="hbcus-and-msis", nav="HBCUs & MSIs", icon="fa-users", img="campus-steps", img2="study-table",
@@ -176,7 +176,7 @@ dict(
  faqs=[("Can campuses keep their own course decisions?", "Yes. System-wide rules apply everywhere, while each campus maintains its own equivalencies and approvals inside the same platform."),
        ("Does LioraAI support common course numbering?", "Yes. Shared course identifiers and guaranteed pathways can be configured as system rules that every campus applies."),
        ("What does the system office see?", "Student movement between campuses, credit loss by pathway, reverse transfer eligibility and completion indicators across the system.")],
- blog=["reverse-transfer-associate-degree-explained", "community-college-transfer-student-success", "enrollment-management-strategies-2025"],
+ blog=["state-transfer-policies-us-guide", "us-community-college-transfer-statistics", "reverse-transfer-associate-degree-explained"],
 ),
 ]
 

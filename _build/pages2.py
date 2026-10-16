@@ -228,7 +228,7 @@ def build_about():
             + '<section class="sec tint"><div class="container"><div class="row g-5"><div class="col-lg-5" data-aos="fade-up">%s<h2>Our <span class="grad">Journey</span></h2><p class="lead-lg">From IT services for colleges to a dedicated platform for academic records.</p>%s</div><div class="col-lg-7"><div class="timeline">%s</div></div></div></div></section>' % (eyebrow("Timeline"), partner, tls)
             + '<section class="sec anchor" id="leadership"><div class="container">%s<div class="row g-4 justify-content-center">%s</div></div></section>' % (sec_head("Leadership", "The People Behind <span class=\"grad\">LioraAI</span>", "", center=True), tm)
             + faq_block(ABOUT_FAQS, title="About EnlitEDU", side_img="team-hands") + cta_band(h2="Let’s talk about <span class=\"grad\">your</span> office.", p="Tell us how transcripts move through your institution today. We’ll show you what changes with LioraAI."))
-    body = body.replace('style="--c:4"', 'style="grid-template-columns:repeat(4,minmax(0,1fr))"')
+    body = body.replace('class="proof" style="--c:4"', 'class="proof proof-4"')
     schema = [faq_schema(ABOUT_FAQS, path), breadcrumb([("Home", "index.html"), ("About", path)]),
               {"@type": "AboutPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "About EnlitEDU", "mainEntity": {"@id": BASE + "/#organization"}},
               {"@type": "Person", "name": "Chaitanya Saripalli", "jobTitle": "Founder & CEO", "worksFor": {"@id": BASE + "/#organization"}, "image": BASE + "/assets/img/enlitedu/chaitanya-saripalli.jpg"},

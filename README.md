@@ -72,6 +72,7 @@ Icons used on the site were checked; if you add icons, stick to long-standing on
 - Local pages: `georgia.html`, `georgia/atlanta-transcript-evaluation.html`, `georgia/freshman-transcript-evaluation.html`,
   `georgia/transfer-credit-evaluation.html`, `georgia/military-transcript-evaluation.html`, `transcript-evaluation-near-me.html`
   (content in `_build/data_georgia.py`, layout in `_build/pages3.py`).
+- National articles (U.S. community college transfer data, state transfer policies, dual enrollment) live in `_build/data_us_posts.py`; every figure is sourced in the post. Long post headlines get a short `<title>` via `SEO_TITLE` in `build.py`.
 - **Positioning rule:** EnlitEDU serves colleges across the U.S. Georgia appears only on the regional pages above,
   the address, and one "Georgia (HQ state)" link in the nav/footer. National pages, the homepage title, top bar,
   module pages and blog index stay national. Georgia-only posts carry `region="Georgia"`: they sit in a labelled
@@ -84,6 +85,8 @@ Icons used on the site were checked; if you add icons, stick to long-standing on
 python _build/build.py
 python _build/audit.py         # titles, descriptions, H1s, headings, schema, FAQ parity, links, sitemap
 python _build/keyword_map.py   # confirms each target keyword is on its target page
+python _build/schema_audit.py  # every JSON-LD node: required/recommended props, @id refs, breadcrumbs, FAQ text, speakable, robots, llms.txt
+python _build/geo_scan.py      # Georgia/Atlanta mentions on national pages (should be HQ + one regional link only)
 ```
 
 - Off-site (required for "near me" / map results): Google Business Profile at the Cumming address,

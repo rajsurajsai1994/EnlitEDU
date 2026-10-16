@@ -4,7 +4,9 @@ import json, html, os, re
 
 BASE = "https://www.enlitedu.com"
 OUT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-TODAY = "2026-10-07"
+import hashlib
+ASSET_VER = hashlib.md5(b"".join(open(os.path.join(OUT, "assets", p), "rb").read() for p in ("css/enlitedu.css", "js/enlitedu.js"))).hexdigest()[:8]  # cache-bust on change
+TODAY = "2026-10-16"
 
 SITE = {
     "name": "EnlitEDU",
@@ -290,13 +292,53 @@ def _strip(s):
     return re.sub(r"<[^>]+>", "", s)
 
 # ---------------------------------------------------------------- page shell
+# Entities defined on other pages: build.py registers them so cross-page @id references carry a type and name.
+REG = {}
+WEBSITE = {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "EnlitEDU", "alternateName": "LioraAI by EnlitEDU",
+           "publisher": {"@id": BASE + "/#organization"}, "inLanguage": "en-US"}
+LIORAAI = {"@type": "SoftwareApplication", "@id": BASE + "/#lioraai", "name": "LioraAI", "applicationCategory": "BusinessApplication",
+           "operatingSystem": "Web", "url": BASE + "/platform.html", "publisher": {"@id": BASE + "/#organization"},
+           "description": "Academic record intelligence for colleges and universities across the U.S.: transfer, first-year, military and prior-learning credit evaluation, degree pathways and transfer analytics.",
+           "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD"}, "description": "Priced by institution size, volume and modules."}}
+
+def _normalize(graph, canon, desc):
+    """Dedupe nodes, fill recommended properties, and resolve cross-page @id references."""
+    out, seen = [], set()
+    for n in graph:
+        if n.get("@id") and n["@id"] in seen: continue
+        if n.get("@id"): seen.add(n["@id"])
+        out.append(n)
+    def walk(x, refs):
+        if isinstance(x, dict):
+            if list(x.keys()) == ["@id"]: refs.append(x)
+            for v in x.values(): walk(v, refs)
+        elif isinstance(x, list):
+            for v in x: walk(v, refs)
+    refs = []; walk(out, refs)
+    if any(r["@id"] == LIORAAI["@id"] for r in refs) and LIORAAI["@id"] not in seen:
+        out.append(LIORAAI); seen.add(LIORAAI["@id"])
+    for r in refs:
+        if r["@id"] not in seen and r["@id"] in REG:
+            r.update(REG[r["@id"]])
+    for n in out:
+        ty = n.get("@type"); tys = set(ty if isinstance(ty, list) else [ty])
+        if tys & {"WebPage", "CollectionPage", "AboutPage", "ContactPage", "Service", "HowTo", "Article"} and not n.get("description"):
+            n["description"] = desc
+        if tys & {"WebPage", "CollectionPage", "AboutPage", "ContactPage", "FAQPage"} and not n.get("isPartOf"):
+            n["isPartOf"] = {"@id": WEBSITE["@id"]}
+        if tys & {"Article", "BlogPosting"} and not n.get("dateModified") and n.get("datePublished"):
+            n["dateModified"] = n["datePublished"]
+    return out
+
 def page(path, title, desc, body, schema=None, active="", noindex=False, show_cta=False, og_type="website", image=None):
     """Write a complete HTML document to OUT/path."""
     set_depth(path)
     canon = BASE + "/" + (path if path != "index.html" else "")
-    graph = [ORG] + (schema or [])
+    graph = _normalize([ORG, WEBSITE] + (schema or []), canon, desc)
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, separators=(",", ":"))
     ogimg = image or (BASE + "/assets/img/enlitedu/og-lioraai.jpg")
+    if "images.unsplash.com" in ogimg:  # social cards: exact 1200x630 crop
+        ogimg = re.sub(r"&w=\d+", "&w=1200&h=630", ogimg)
     gtm_head = gtm_body = ""
     if SITE["gtm"]:
         gtm_head = ("<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],"
@@ -327,7 +369,7 @@ def page(path, title, desc, body, schema=None, active="", noindex=False, show_ct
 <link rel="stylesheet" href="%(p)sassets/css/all.min.css">
 <link rel="stylesheet" href="%(p)sassets/css/swiper-bundle.min.css">
 <link rel="stylesheet" href="%(p)sassets/css/aos.css">
-<link rel="stylesheet" href="%(p)sassets/css/enlitedu.css">
+<link rel="stylesheet" href="%(p)sassets/css/enlitedu.css?v=%(ver)s">
 <script type="application/ld+json">%(ld)s</script>
 </head>
 <body>
@@ -339,10 +381,10 @@ def page(path, title, desc, body, schema=None, active="", noindex=False, show_ct
 %(footer)s
 <script src="%(p)sassets/js/swiper-bundle.min.js" defer></script>
 <script src="%(p)sassets/js/aos.js" defer></script>
-<script src="%(p)sassets/js/enlitedu.js" defer></script>
+<script src="%(p)sassets/js/enlitedu.js?v=%(ver)s" defer></script>
 </body>
 </html>
-""" % dict(title=e(title), desc=e(desc), robots="noindex,follow" if noindex else "index,follow,max-image-preview:large,max-snippet:-1",
+""" % dict(ver=ASSET_VER, title=e(title), desc=e(desc), robots="noindex,follow" if noindex else "index,follow,max-image-preview:large,max-snippet:-1",
            canon=canon, og_type=og_type, ogimg=ogimg, p=_prefix[0], ld=ld.replace("</", "<\\/"), header=header_html(active),
            body=body, footer=footer_html(show_cta), gtm_head=gtm_head, gtm_body=gtm_body)
     doc = _size_images(doc, path)

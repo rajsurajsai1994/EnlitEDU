@@ -41,6 +41,15 @@ K = [
  ("NCAA progress toward degree", "Modules", "Practitioner", "Medium", "athletics.html", r"progress-toward-degree|progress toward degree"),
  ("will my credits transfer", "Modules", "Students (pre-applicants)", "Medium", "degree-pathway.html", r"will my credits transfer"),
  ("reverse transfer", "Modules", "Practitioner", "Low", "mobility.html", r"reverse transfer"),
+ # --- national U.S. topics (added Oct 2026)
+ ("community college transfer statistics", "U.S. transfer (national)", "Informational / practitioner", "Medium", "blog/us-community-college-transfer-statistics.html", r"community college transfer statistics"),
+ ("what percentage of community college students transfer", "U.S. transfer (national)", "Informational", "Medium", "blog/us-community-college-transfer-statistics.html", r"what percentage of community college students transfer"),
+ ("transfer credit loss", "U.S. transfer (national)", "Informational", "Low–Medium", "blog/us-community-college-transfer-statistics.html", r"lost about 43%|credit loss"),
+ ("state transfer policies", "U.S. transfer (national)", "Practitioner", "Low–Medium", "blog/state-transfer-policies-us-guide.html", r"state transfer polic"),
+ ("common course numbering", "U.S. transfer (national)", "Practitioner / student", "Medium", "blog/state-transfer-policies-us-guide.html", r"common course numbering"),
+ ("associate degree for transfer", "U.S. transfer (national)", "Student / practitioner", "Medium", "blog/state-transfer-policies-us-guide.html", r"associate degree for transfer"),
+ ("dual enrollment credit evaluation", "U.S. transfer (national)", "Practitioner", "Low", "blog/dual-enrollment-credit-evaluation-us-colleges.html", r"dual enrollment credit"),
+ ("does dual enrollment credit transfer", "U.S. transfer (national)", "Parent / student", "Medium", "blog/dual-enrollment-credit-evaluation-us-colleges.html", r"does dual enrollment credit transfer"),
  # --- question keywords
  ("what is transcript evaluation", "Questions (AEO)", "Informational", "Medium", "transcript-evaluation-near-me.html", r"what is transcript evaluation"),
  ("how long does transcript evaluation take", "Questions (AEO)", "Informational", "Medium", "transcript-evaluation-near-me.html", r"how long does (a )?transcript evaluation take|how long does (a )?military transcript evaluation take"),

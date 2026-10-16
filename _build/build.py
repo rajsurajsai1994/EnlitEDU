@@ -7,6 +7,7 @@ import pages as P
 import pages2 as P2
 import pages3 as P3
 from data_georgia import GA_PAGES, GA_POSTS, NEAR_ME
+from data_us_posts import US_POSTS
 from data_modules import MODULES, BY_SLUG
 from data_more import SOLUTIONS, AUDIENCES
 
@@ -29,7 +30,8 @@ POST_MODULE = {"how-to-evaluate-joint-services-transcript-jst": "veterans", "tra
                "will-my-credits-transfer-self-service-answer": "degree-pathway", "international-transcript-evaluation-first-year-admissions": "assess",
                "reverse-transfer-associate-degree-explained": "mobility", "gpa-standardization-problem": "assess", "prior-learning-assessment-guide": "pla",
                "community-college-transfer-student-success": "articulate", "transfer-student-retention-strategies": "degree-pathway", "hbcu-enrollment-transfer-credit-challenges": "articulate",
-               "tcsg-to-usg-transfer-core-impacts-guide": "articulate", "hope-gpa-vs-admissions-gpa-georgia": "assess", "how-to-choose-transcript-evaluation-software": "articulate"}
+               "tcsg-to-usg-transfer-core-impacts-guide": "articulate", "hope-gpa-vs-admissions-gpa-georgia": "assess", "how-to-choose-transcript-evaluation-software": "articulate",
+               "us-community-college-transfer-statistics": "mobility", "state-transfer-policies-us-guide": "articulate", "dual-enrollment-credit-evaluation-us-colleges": "assess"}
 
 def load_posts():
     posts = {}
@@ -58,11 +60,28 @@ def load_posts():
                 "reverse-transfer-associate-degree-explained": "A student transfers in with 50 credits and earns 20 more, leaving an unclaimed associate degree behind. Reverse transfer fixes that, if the plumbing works."}
     for k, v in DESC_FIX.items():
         if k in posts: posts[k]["desc"] = v
-    for g in GA_POSTS:  # native posts written for the Georgia / AEO phase
+    for g in GA_POSTS + US_POSTS:  # native posts (Georgia guides + national articles)
         d = datetime.date.fromisoformat(g["date"])
         posts[g["slug"]] = dict(g, region=g.get("region"), date_h=d.strftime("%B %-d, %Y") if os.name != "nt" else d.strftime("%B %#d, %Y"),
                                 filter=FILTER.get(g["tag"], "transfer"), modified=g["date"])
     return posts
+
+SEO_TITLE = {
+    "ai-in-higher-education-admissions-2025": "AI in Higher Education Admissions: 2025 Guide | EnlitEDU",
+    "how-to-speed-up-transfer-credit-evaluation": "How to Speed Up Transfer Credit Evaluation | EnlitEDU",
+    "best-sis-integrations-higher-education-2025": "Best SIS Integrations for Higher Education | EnlitEDU",
+    "community-college-transfer-student-success": "Community College Transfer Students: Why They’re Underserved",
+    "hbcu-enrollment-transfer-credit-challenges": "HBCU Transfer Credit & Enrollment Challenges | EnlitEDU",
+    "hope-gpa-vs-admissions-gpa-georgia": "HOPE GPA vs. Admissions GPA in Georgia | EnlitEDU",
+    "how-to-choose-transcript-evaluation-software": "How to Choose Transcript Evaluation Software (Checklist)",
+    "how-to-evaluate-joint-services-transcript-jst": "How to Read a Joint Services Transcript (JST) | EnlitEDU",
+    "international-transcript-evaluation-first-year-admissions": "International Transcript Evaluation for First-Year Admissions",
+    "registrar-office-efficiency-technology": "Registrar Office Technology That Reduces Workload",
+    "reverse-transfer-associate-degree-explained": "Reverse Transfer Explained: Awarding Associate Degrees",
+    "tcsg-to-usg-transfer-core-impacts-guide": "TCSG to USG Transfer Under Core IMPACTS: Georgia Guide",
+    "transfer-portal-athlete-eligibility-certification": "Transfer Portal Athlete Eligibility Certification | EnlitEDU",
+    "will-my-credits-transfer-self-service-answer": "Will My Credits Transfer? Give Students the Answer Early",
+}
 
 def build_post(p, posts):
     path = "blog/%s.html" % p["slug"]; set_depth(path)
@@ -96,10 +115,15 @@ def build_post(p, posts):
                "datePublished": p["date"], "dateModified": p["modified"], "author": {"@id": BASE + "/#organization"}, "publisher": {"@id": BASE + "/#organization"},
                "image": src_url(p["img"], 1200), "articleSection": p["tag"], "keywords": p["keywords"], "inLanguage": "en-US", "timeRequired": "PT%dM" % p["mins"],
                "isPartOf": {"@type": "Blog", "@id": BASE + "/blog.html#blog", "name": "EnlitEDU Blog"},
+               "audience": {"@type": "Audience", "audienceType": "College registrars, admissions and enrollment leaders"},
+               "spatialCoverage": {"@type": "State", "name": "Georgia"} if p.get("region") == "Georgia" else {"@type": "Country", "name": "United States"},
                "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".page-hero .sub"]}}]
+    cites = re.findall(r'<ul class="sources">(.*?)</ul>', body, re.S)
+    if cites:
+        schema[1]["citation"] = sorted(set(re.findall(r'href="(https?://[^"]+)"', cites[0])))
     if p["faqs"]:
         schema.append(faq_schema(p["faqs"], path))
-    page(path, "%s | EnlitEDU" % p["title"] if len(p["title"]) < 52 else p["title"], p["desc"], page_body, schema=schema, active="resources", og_type="article", image=src_url(p["img"], 1200))
+    page(path, SEO_TITLE.get(p["slug"]) or ("%s | EnlitEDU" % p["title"] if len(p["title"]) < 52 else p["title"]), p["desc"], page_body, schema=schema, active="resources", og_type="article", image=src_url(p["img"], 1200))
 
 def build_blog_index(posts):
     path = "blog.html"; set_depth(path)
@@ -133,6 +157,11 @@ def main():
     posts = load_posts()
     for s, p in posts.items():
         P.BLOG[s] = p
+        REG[BASE + "/blog/%s.html#article" % s] = {"@type": "BlogPosting", "headline": p["title"], "url": BASE + "/blog/%s.html" % s, "datePublished": p["date"]}
+    for m in MODULES:
+        REG[BASE + "/%s.html#software" % m["slug"]] = {"@type": "SoftwareApplication", "name": m["name"], "url": BASE + "/%s.html" % m["slug"]}
+    for slug, name in (("roane-state-community-college", "Roane State Community College customer story"), ("nashville-state-community-college", "Nashville State Community College customer story")):
+        REG[BASE + "/case-studies/%s.html" % slug] = {"@type": "Article", "headline": name, "url": BASE + "/case-studies/%s.html" % slug}
     P.build_home()
     for m in MODULES: P.build_module(m)
     for s in SOLUTIONS: P.build_solution(s)
@@ -152,7 +181,8 @@ def main():
     open(f404, "w", encoding="utf-8", newline="\n").write(t)
 
     # sitemap / robots / llms
-    urls = "".join("<url><loc>%s/%s</loc><lastmod>%s</lastmod></url>" % (BASE, "" if p == "index.html" else p, TODAY) for p, nx in PAGES if not nx and p != "404.html")
+    lm = {"blog/%s.html" % s: posts[s]["modified"] for s in posts}
+    urls = "".join("<url><loc>%s/%s</loc><lastmod>%s</lastmod></url>" % (BASE, "" if p == "index.html" else p, lm.get(p, TODAY)) for p, nx in PAGES if not nx and p != "404.html")
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">%s</urlset>\n' % urls)
     bots = ["Googlebot", "Bingbot", "DuckDuckBot", "Applebot", "Applebot-Extended", "Google-Extended", "GPTBot", "OAI-SearchBot", "ChatGPT-User",
             "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "CCBot"]
@@ -163,6 +193,7 @@ def main():
     llm = ["# EnlitEDU — LioraAI", "",
            "> EnlitEDU builds LioraAI, an academic record intelligence platform for U.S. colleges and universities. LioraAI evaluates transfer, first-year (freshman), military (JST/CCAF) and prior-learning (CPL/PLA) credit against each institution's own rules, supports NCAA progress-toward-degree documentation, gives students a self-service path to a degree, and provides transfer analytics. Staff and faculty approve every decision; approved credit is written back to the SIS (Banner, Colleague, Workday Student, PeopleSoft, Jenzabar).", "",
            "Key facts: Roane State Community College cut transcript evaluation from about three weeks to two days (reported 90% faster) and went live on Ellucian Banner in 18 days. Nashville State Community College reported a 24% increase in transfer yield in one cycle with Student Mobility Intelligence. Student records are never used to train general-purpose AI models. EnlitEDU acts as a FERPA school official under the institution's control. Headquarters: Cumming, Georgia. Contact: info@enlitedu.com.", "",
+           "Where we work: colleges, universities, technical colleges and state systems across the United States. Demos, implementation and training run online in every state. Georgia/Atlanta pages below are regional guides, not a service limit.", "",
            "## Modules"] + ["- [%s](%s/%s.html): %s" % (m["name"], BASE, m["slug"], m["desc"]) for m in MODULES] + [
            "", "## Solutions"] + ["- [%s](%s/solutions/%s.html): %s" % (s["nav"], BASE, s["slug"], s["desc"]) for s in SOLUTIONS] + [
            "", "## Who we serve"] + ["- [%s](%s/who-we-serve/%s.html): %s" % (a["nav"], BASE, a["slug"], a["desc"]) for a in AUDIENCES] + [

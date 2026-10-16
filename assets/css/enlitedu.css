@@ -221,7 +221,7 @@ ul,ol{padding-left:1.2em}
 .page-hero .sub{font-size:19.5px;color:#c9d3e6;max-width:620px}
 .page-hero .lockup{display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:15px;margin-bottom:18px;padding:8px 14px 8px 8px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
 .page-hero .lockup .mk{width:32px;height:32px;border-radius:9px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:14px}
-.page-hero .lockup small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:800;line-height:1.2}
+.page-hero .lockup small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:800;line-height:1.2}
 .page-hero .visual{position:relative}
 .page-hero .visual .ph{border-radius:24px;overflow:hidden;box-shadow:var(--sh-3);aspect-ratio:4/3.3;border:6px solid rgba(255,255,255,.08)}
 .page-hero .visual .ph img{width:100%;height:100%;object-fit:cover}
@@ -465,7 +465,7 @@ ul,ol{padding-left:1.2em}
 .post-card .thumb{aspect-ratio:16/9.5;overflow:hidden;position:relative;background:var(--paper-2)}
 .post-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .post-card:hover .thumb img{transform:scale(1.05)}
-.post-card .thumb .tag{position:absolute;left:14px;top:14px;background:#fff;color:var(--blue);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:8px}
+.post-card .thumb .tag{position:absolute;left:14px;top:14px;background:#fff;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:8px}
 .post-card .body{padding:22px;display:flex;flex-direction:column;flex:1}
 .post-card .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
 .post-card h2,.post-card h3{font-family:var(--f-sans);font-size:19px;font-weight:700;line-height:1.35;letter-spacing:-.01em;margin-bottom:10px}
@@ -736,3 +736,19 @@ html,body{overflow-x:hidden}
 .ga-callout b{display:block;color:var(--ink)}
 .ga-callout:hover{border-color:var(--gold-600);color:var(--body)}
 @media(max-width:991px){.ga-side{position:static}.answer-box{margin-top:-30px}}
+
+/* article tables + sources (national guides) */
+.article-body table{width:100%;border-collapse:collapse;margin:22px 0 28px;font-size:16px;display:block;overflow-x:auto}
+.article-body th,.article-body td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
+.article-body thead th{background:var(--navy,#0a1d3a);color:#fff;font-weight:600}
+.article-body tbody tr:nth-child(even) td{background:#f6f8fc}
+.article-body .sources{font-size:15px;color:var(--muted,#5b6475)}
+.article-body .sources a{word-break:break-word}
+
+/* responsive fixes (Oct 2026 device sweep): column counts as classes so breakpoints win over them */
+.steps.steps-3{grid-template-columns:repeat(3,minmax(0,1fr))}.steps.steps-4{grid-template-columns:repeat(4,minmax(0,1fr))}.steps.steps-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+.proof.proof-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:991px){.steps.steps-3,.steps.steps-4,.steps.steps-6,.proof.proof-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:575px){.proof.proof-4,.article-body .stat-strip{grid-template-columns:1fr}}
+@media(max-width:480px){.steps.steps-3,.steps.steps-4,.steps.steps-6{grid-template-columns:1fr}}
+@media(max-width:400px){.btn-x{white-space:normal;text-align:center;justify-content:center;max-width:100%;line-height:1.3}}

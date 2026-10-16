@@ -178,7 +178,7 @@ def build_home():
 
     home_faqs = FAQ_HUB[0][1][:3] + [FAQ_HUB[5][1][0], FAQ_HUB[1][1][0], FAQ_HUB[2][1][0], FAQ_HUB[3][1][0]]
     faq = faq_block(home_faqs[1:], title="Questions We Hear Every Week", side_img="leaders-talk")
-    latest = posts_row(["will-my-credits-transfer-self-service-answer", "how-to-evaluate-joint-services-transcript-jst", "reverse-transfer-associate-degree-explained"],
+    latest = posts_row(["us-community-college-transfer-statistics", "state-transfer-policies-us-guide", "dual-enrollment-credit-evaluation-us-colleges"],
                        eb="Insights", h2="Fresh From the <span class=\"grad\">Blog</span>")
     from pages3 import home_nationwide_section, answer_box
     body = hero + answer_box(*home_faqs[0]) + logo_marquee() + problem + tabs + modules + how + proof + voices + tiles + audiences + home_nationwide_section() + ints + faq + latest + cta_band()
@@ -226,8 +226,8 @@ def build_module(m):
                 % (eyebrow("The difference"), img(m["hero_img"] if m["slug"] != "athletics" else "athlete-track", 700, ratio=(4, 3.4)), diffs))
 
     steps = "".join('<div class="step" data-aos="fade-up" data-aos-delay="%d"><div class="num"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div>' % (i * 90, ic, t, d) for i, (ic, t, d) in enumerate(m["steps"]))
-    style = ' style="grid-template-columns:repeat(%d,minmax(0,1fr))"' % len(m["steps"]) if len(m["steps"]) != 5 else ""
-    how = ('<section class="sec dark anchor" id="how"><div class="container">%s<div class="steps"%s>%s</div>'
+    style = ' steps-%d' % len(m["steps"]) if len(m["steps"]) != 5 else ""  # class, so the mobile breakpoints still apply
+    how = ('<section class="sec dark anchor" id="how"><div class="container">%s<div class="steps%s">%s</div>'
            '<div class="row justify-content-center mt-6"><div class="col-lg-9" data-aos="zoom-in-up">%s</div></div></div></section>'
            % (sec_head("How it works", "Simple for Staff. <span class=\"grad\">Documented</span> for Everyone.", "", center=True), style, steps, m["mock"]()))
 
