@@ -64,7 +64,7 @@ def strip(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s
 pages = {}
 for f in glob.glob("**/*.html", recursive=True):
     f = f.replace(os.sep, "/")
-    if f.startswith(("assets", "_build")): continue
+    if f.startswith(("assets", "_build", "google")): continue
     t = open(f, encoding="utf-8").read()
     if 'content="noindex' in t: continue
     main = re.search(r'<main id="main">(.*)</main>', t, re.S).group(1)

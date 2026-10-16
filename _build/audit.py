@@ -3,7 +3,7 @@
 import os, re, json, glob, html, collections
 
 os.chdir(os.path.join(os.path.dirname(__file__), ".."))
-files = [f.replace(os.sep, "/") for f in glob.glob("**/*.html", recursive=True) if not f.startswith(("assets", "_build"))]
+files = [f.replace(os.sep, "/") for f in glob.glob("**/*.html", recursive=True) if not f.startswith(("assets", "_build", "google"))]
 sitemap = open("sitemap.xml", encoding="utf-8").read()
 titles, descs = collections.defaultdict(list), collections.defaultdict(list)
 inbound = collections.Counter()

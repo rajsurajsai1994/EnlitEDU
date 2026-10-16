@@ -6,7 +6,7 @@ import os, re, json, glob, html, collections, datetime
 
 os.chdir(os.path.join(os.path.dirname(__file__), ".."))
 BASE = "https://www.enlitedu.com"
-files = sorted(f.replace(os.sep, "/") for f in glob.glob("**/*.html", recursive=True) if not f.startswith(("assets", "_build")))
+files = sorted(f.replace(os.sep, "/") for f in glob.glob("**/*.html", recursive=True) if not f.startswith(("assets", "_build", "google")))
 issues, warns, types = collections.defaultdict(list), collections.defaultdict(list), collections.Counter()
 
 REQ = {  # required (error) / recommended (warning)

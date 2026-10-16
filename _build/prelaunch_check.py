@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 os.chdir(os.path.join(os.path.dirname(__file__), ".."))
 BASE = "https://www.enlitedu.com"
-files = sorted(f.replace(os.sep, "/") for f in glob.glob("**/*.html", recursive=True) if not f.startswith(("assets", "_build")))
+files = sorted(f.replace(os.sep, "/") for f in glob.glob("**/*.html", recursive=True) if not f.startswith(("assets", "_build", "google")))
 P = collections.defaultdict(list)
 
 # sitemap

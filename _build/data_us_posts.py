@@ -155,7 +155,7 @@ dict(
 <ul class="sources">
 <li>Florida Department of Education, <a href="https://www.fldoe.org/schools/higher-ed/fl-college-system/dual-enroll-transfer/postsecondary-articulation.stml" rel="noopener" target="_blank">Postsecondary Articulation</a>.</li>
 <li><a href="https://tccns.org/about/" rel="noopener" target="_blank">Texas Common Course Numbering System</a>.</li>
-<li>California State University, <a href="https://www.calstate.edu/impact-of-the-csu/student-success/AB-928" rel="noopener" target="_blank">AB 928 and Cal-GETC</a>.</li>
+<li>California State University, <a href="https://www.calstate.edu/csu-system/administration/academic-affairs/academic-programs-innovation-and-faculty-excellence/program-development/Pages/csu-general-education.aspx" rel="noopener" target="_blank">CSU General Education, AB 928 and Cal-GETC</a>.</li>
 <li>Tennessee Board of Regents, <a href="https://tbr.edu/initiatives/tennessee-transfer-pathway" rel="noopener" target="_blank">Tennessee Transfer Pathway</a>.</li>
 <li>University System of Georgia, Core IMPACTS.</li>
 </ul>
