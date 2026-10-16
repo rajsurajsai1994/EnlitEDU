@@ -143,7 +143,7 @@ RESOURCES_NAV = [
     ("case-studies.html", "Customer Stories", "Results from real campuses", "fa-star"),
     ("glossary.html", "Glossary", "Credit evaluation terms, defined", "fa-book-open"),
     ("faq.html", "FAQ", "Straight answers before you buy", "fa-circle-question"),
-    ("events.html", "Events & Webinars", "Meet the team", "fa-calendar-days"),
+    # ("events.html", "Events & Webinars", "Meet the team", "fa-calendar-days"),  # placeholder page (noindex); re-add when webinars are scheduled
 ]
 ABOUT_NAV = [
     ("about.html", "About EnlitEDU", "Our story and mission", "fa-circle-info"),
@@ -369,7 +369,7 @@ def page(path, title, desc, body, schema=None, active="", noindex=False, show_ct
 <link rel="icon" type="image/png" sizes="192x192" href="%(p)sassets/img/enlitedu/favicon-192.png">
 <link rel="apple-touch-icon" href="%(p)sassets/img/enlitedu/apple-touch-icon.png">
 <link rel="manifest" href="%(p)smanifest.json">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
 <link rel="stylesheet" href="%(p)sassets/css/bootstrap.min.css">

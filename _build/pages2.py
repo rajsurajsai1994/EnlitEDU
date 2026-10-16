@@ -245,8 +245,7 @@ def build_about():
           ("2025", "LioraAI launches", "First customers go live, including Tennessee community colleges."),
           ("2026", "Military credit", "LioraAI for Veterans & JST joins the platform.")]
     tls = "".join('<div class="ev" data-aos="fade-up"><span class="yr">%s</span><h3>%s</h3><p>%s</p></div>' % x for x in tl)
-    team = [("chaitanya", "Chaitanya Saripalli", "Founder & CEO", "Founder of Anatta IT Solutions and EnlitEDU. Chaitanya spent years inside the operational realities of enrollment and records teams and built LioraAI to solve them directly."),
-            ("sajan", "Sajan Patel", "Business Development", "Sajan works with registrars, VPs and enrollment directors across the U.S. to connect LioraAI’s capabilities to the practical needs of their offices.")]
+    team = [("chaitanya", "Chaitanya Saripalli", "Founder & CEO", "Founder of Anatta IT Solutions and EnlitEDU. Chaitanya spent years inside the operational realities of enrollment and records teams and built LioraAI to solve them directly.")]
     tm = "".join('<div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="%d"><div class="team-card"><div class="ph">%s</div><div class="c"><h3>%s</h3><p class="role">%s</p><p>%s</p>%s</div></div></div>' % (i * 100, img(k, 400), n, r, b, ('<a class="link-arrow" href="%s" target="_blank" rel="noopener me">LinkedIn <i class="fa-brands fa-linkedin"></i></a>' % CS_LINKEDIN) if k == "chaitanya" else "") for i, (k, n, r, b) in enumerate(team))
     tm += '<div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200"><div class="team-card promo" style="background:var(--navy);color:#c9d3e6"><h3 style="color:#fff;font-family:var(--f-serif);font-size:28px">Join us</h3><p>We’re a small team building tools that change how quickly students get credit for their work.</p><a class="link-arrow" href="%s">See careers <i class="fa-solid fa-arrow-right"></i></a></div></div>' % u("careers.html")
     partner = ('<div class="d-flex flex-wrap align-items-center gap-4"><img src="%s" alt="Slate partner badge" style="height:90px;width:auto" loading="lazy"><img src="%s" alt="AICPA SOC" style="height:90px;width:auto;border-radius:12px" loading="lazy"></div>'
@@ -259,8 +258,7 @@ def build_about():
     body = body.replace('class="proof" style="--c:4"', 'class="proof proof-4"')
     schema = [faq_schema(ABOUT_FAQS, path), breadcrumb([("Home", "index.html"), ("About", path)]),
               {"@type": "AboutPage", "@id": BASE + "/" + path, "url": BASE + "/" + path, "name": "About EnlitEDU", "mainEntity": {"@id": BASE + "/#organization"}},
-              PERSON_CS,
-              {"@type": "Person", "name": "Sajan Patel", "jobTitle": "Business Development", "worksFor": {"@id": BASE + "/#organization"}, "image": BASE + "/assets/img/enlitedu/sajan-patel.jpg"}]
+              PERSON_CS]
     page(path, "About EnlitEDU | The Team Behind LioraAI",
          "EnlitEDU builds LioraAI so every student gets a fast, fair answer about their credit. Our story, values, timeline and leadership.", body, schema=schema, active="about")
 

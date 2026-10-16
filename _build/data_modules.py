@@ -25,9 +25,9 @@ MODULES = [
 dict(
  slug="transfer-credit-intelligence", name="LioraAI Transfer Credit Intelligence", short="Transfer Credit Intelligence", cat="Transfer Credit Evaluation", family="Credit Evaluation", icon="fa-right-left",
  title="Transfer Credit Evaluation Software | LioraAI",
- desc="Evaluate transfer credit in days, not weeks. LioraAI Transfer Credit Intelligence maps any transcript to your catalog and rules, then posts credit to your SIS.",
+ desc="Evaluate transfer credit in minutes, not weeks. LioraAI Transfer Credit Intelligence maps any transcript to your catalog and rules, then posts credit to your SIS.",
  eyebrow="For registrars, transfer evaluators & VPs of enrollment",
- h1="Evaluate Transfer Credit in <span class=\"accent\">Days, Not Weeks</span>",
+ h1="Evaluate Transfer Credit in <span class=\"accent\">Minutes, Not Weeks</span>",
  sub="LioraAI Transfer Credit Intelligence reads transcripts in any format, matches every course to your catalog using your articulation rules, and hands your evaluators a documented recommendation to approve. Approved credit posts straight to your SIS.",
  hero_img="registrar-docs",
  floats=[("fa-circle-check", "ok", "4 courses matched", "15 credits ready to post"), ("fa-flag", "gold", "ART 205 flagged", "No equivalent found, sent to faculty")],

@@ -9,7 +9,7 @@ Leadership: Chaitanya Saripalli, Founder & CEO of EnlitEDU (https://www.linkedin
 Where we work: colleges, universities, technical colleges and state systems across the United States. Demos, implementation and training run online in every state. Georgia/Atlanta pages below are regional guides, not a service limit.
 
 ## Modules
-- [LioraAI Transfer Credit Intelligence](https://www.enlitedu.com/transfer-credit-intelligence.html): Evaluate transfer credit in days, not weeks. LioraAI Transfer Credit Intelligence maps any transcript to your catalog and rules, then posts credit to your SIS.
+- [LioraAI Transfer Credit Intelligence](https://www.enlitedu.com/transfer-credit-intelligence.html): Evaluate transfer credit in minutes, not weeks. LioraAI Transfer Credit Intelligence maps any transcript to your catalog and rules, then posts credit to your SIS.
 - [LioraAI Freshman Intelligence](https://www.enlitedu.com/freshman-intelligence.html): Evaluate every freshman applicant’s transcript the same way. LioraAI Freshman Intelligence standardizes 4.0, 5.0, 6.0 and 100-point GPAs with your rules.
 - [Prior Learning Assessment](https://www.enlitedu.com/pla.html): Award credit for prior learning (CPL/PLA) consistently: certifications, workforce training, CLEP/DSST and portfolios mapped to your courses, faculty approving.
 - [LioraAI for Veterans & JST](https://www.enlitedu.com/veterans.html): Evaluate Joint Services Transcripts, CCAF and DD-214 records against ACE recommendations and your catalog. Give veterans a credit answer in days, not a semester.

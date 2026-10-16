@@ -87,6 +87,8 @@ python _build/audit.py         # titles, descriptions, H1s, headings, schema, FA
 python _build/keyword_map.py   # confirms each target keyword is on its target page
 python _build/schema_audit.py  # every JSON-LD node: required/recommended props, @id refs, breadcrumbs, FAQ text, speakable, robots, llms.txt
 python _build/geo_scan.py      # Georgia/Atlanta mentions on national pages (should be HQ + one regional link only)
+python _build/final_audit.py      # hidden-product leaks, sitemap/llms consistency, accessibility, page weight
+python _build/link_check.py       # every internal link/image/anchor (add --external for live outside links)
 python _build/prelaunch_check.py  # sitemap XML, robots, head tags, titles, duplicate H1s, images, http://, long dashes, leftovers
 ```
 
