@@ -14,7 +14,7 @@ dict(
  sub="EnlitEDU builds LioraAI for colleges and universities across the United States. Our team is based in Cumming, Georgia, so this page also covers what is specific to Georgia institutions, from USG Core IMPACTS to the TCSG–USG transfer agreement.",
  answer=("Is EnlitEDU only for Georgia colleges?",
          "No. LioraAI is transcript and credit evaluation software for colleges and universities across the U.S., and its first customers are Tennessee community colleges. EnlitEDU is headquartered in Cumming, Georgia, so Georgia institutions can also meet the team in person, and Georgia’s transfer rules are already configured."),
- stats=[("U.S.-wide", "colleges and universities in any state"), ("Any SIS", "Banner, Colleague, Workday Student, PeopleSoft, Jenzabar"), ("2–4 wks", "typical go-live for standard SIS integrations")],
+ stats=[("U.S.-wide", "colleges and universities in any state"), ("Any SIS", "Banner, Colleague, Workday Student, PeopleSoft, Jenzabar"), ("2-4 weeks", "typical go-live for standard SIS integrations")],
  sections=[
   ("Who uses LioraAI?",
    "<p>Any institution that admits students evaluates transcripts. LioraAI is used by:</p><ul>"
@@ -162,7 +162,7 @@ dict(
  sub="Service members, veterans and military spouses enroll at colleges in every state. LioraAI for Veterans & JST turns Joint Services Transcripts and CCAF transcripts into ACE-cited credit recommendations your School Certifying Officials can approve the same day.",
  answer=("How do colleges evaluate military transcripts?",
          "Colleges review the Joint Services Transcript (Army, Navy, Marine Corps, Coast Guard) or the Community College of the Air Force transcript (Air Force, Space Force), use American Council on Education credit recommendations as a baseline, and decide which courses or electives to award under their own policy and any state rules. LioraAI drafts that evaluation with ACE citations for staff to approve."),
- stats=[("<60s", "to produce a full JST evaluation"), ("JST · CCAF", "Army, Navy, Marines, Coast Guard, Air Force, Space Force"), ("ACE-cited", "every recommendation shows its source")],
+ stats=[("<1 minute", "to produce a full JST evaluation"), ("JST · CCAF", "Army, Navy, Marines, Coast Guard, Air Force, Space Force"), ("ACE-cited", "every recommendation shows its source")],
  sections=[
   ("Which records do military-connected students bring?",
    "<p>Army, Navy, Marine Corps and Coast Guard training appears on the Joint Services Transcript (JST). Air Force and Space Force training appears on the Community College of the Air Force (CCAF) transcript. Veterans may also bring a DD-214. Each needs to be matched to ACE recommendations and then to your catalog. Our guide to <a href=\"../blog/how-to-evaluate-joint-services-transcript-jst.html\">reading a JST</a> walks through it.</p>"),

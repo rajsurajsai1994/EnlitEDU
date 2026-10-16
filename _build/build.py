@@ -45,6 +45,8 @@ def _rename(s):
     s = s.replace("LioraAI Articulate", "LioraAI Transfer Credit Intelligence").replace("LioraAI Assess", "LioraAI Freshman Intelligence")
     s = re.sub(r"\barticulate\.html", "transfer-credit-intelligence.html", s)
     s = re.sub(r"\bassess\.html", "freshman-intelligence.html", s)
+    s = re.sub(r"(\d)\s?wks\b", r"\1 weeks", s)   # house style: no shorthand units
+    s = re.sub(r"(\d)\s?hrs\b", r"\1 hours", s)
     return re.sub(r'<a href="[^"]*(?:athletics|degree-pathway)\.html"[^>]*>(.*?)</a>', r"\1", s)
 
 def load_posts():

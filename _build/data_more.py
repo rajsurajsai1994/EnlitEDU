@@ -54,7 +54,7 @@ dict(
  desc="Give veterans and adult learners credit for what they already know: JST, CCAF, certifications and portfolios, with ACE citations and faculty approval.",
  h1="Turn Service and Work Experience <span class=\"accent\">Into Credit, Fast</span>",
  sub="Veterans and adult learners bring years of training and experience. They also bring a deadline: benefits that run out, jobs to keep and families to support. LioraAI gets them a documented credit answer in days.",
- stat=("<60s", "for LioraAI to produce a full Joint Services Transcript evaluation", "EnlitEDU product measurement"),
+ stat=("<1 minute", "for LioraAI to produce a full Joint Services Transcript evaluation", "EnlitEDU product measurement"),
  challenges=[("fa-medal", "Military records are hard to read", "JST exhibit codes and occupations take hours to research by hand."),
              ("fa-briefcase", "Experience goes unrecognized", "Certifications and employer training rarely get a consistent review."),
              ("fa-clock", "Time is the scarcest resource", "Adult learners drop out of the funnel when answers take weeks.")],

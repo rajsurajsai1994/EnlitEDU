@@ -804,3 +804,14 @@ html,body{overflow-x:hidden}
 .hero h1{font-size:clamp(36px,4.3vw,58px)}
 .proof-pts{display:flex;flex-direction:column;gap:2px}
 @media(max-width:420px){.flag-proof{flex-wrap:wrap;gap:2px 10px}.mock td,.mock th{padding:8px 4px;font-size:11px}.mock td.arrow{display:none}.mock .mbody{overflow-x:auto}.flag-card .c{padding:22px 20px 24px}}
+
+/* product-screen bars: room for full words ("48 credits") */
+.mock .bars div{grid-template-columns:130px 1fr auto}
+/* video player: the close button sat outside a clipped box and was invisible */
+.vmodal{padding:76px 20px 20px}
+.vmodal .box{overflow:visible}
+.vmodal iframe{border-radius:16px;display:block}
+.vmodal .x{top:-58px;right:0;width:auto;height:44px;padding:0 18px;display:inline-flex;align-items:center;gap:8px;font-family:var(--f-sans);font-weight:700;font-size:15px;z-index:2;box-shadow:var(--sh-2)}
+.vmodal .x span{font-size:16px;line-height:1}
+.vmodal .x:hover,.vmodal .x:focus-visible{background:var(--gold);outline:none}
+@media(max-width:480px){.flag-proof b{white-space:normal;font-size:21px}}

@@ -254,7 +254,7 @@ def footer_html(show_cta=True):
             '<div class="container"><div class="footer-bottom"><span>© <span data-year>2026</span> EnlitEDU Inc. All rights reserved.</span>'
             '<nav aria-label="Legal"><a href="%s">Privacy</a><a href="%s">Terms</a><a href="%s">Security</a><a href="%s">Accessibility</a><a href="%s">Sitemap</a></nav></div></div></footer>'
             '<button class="to-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>'
-            '<div class="vmodal" role="dialog" aria-modal="true" aria-label="Video player"><div class="box"><button class="x" type="button" aria-label="Close video"><i class="fa-solid fa-xmark"></i></button></div></div>'
+            '<div class="vmodal" role="dialog" aria-modal="true" aria-label="Video player"><div class="box"><button class="x" type="button" aria-label="Close video"><span aria-hidden="true">&#x2715;</span> Close</button></div></div>'
             % (cta, u("assets/img/enlitedu/logo-white.svg"), SITE["street"], SITE["city"], SITE["region"], SITE["zip"], SITE["email"], SITE["email"],
                SITE["linkedin"], SITE["youtube"], SITE["instagram"], SITE["facebook"],
                col("Products", [(m[1], m[3].replace("LioraAI for ", "").replace("LioraAI ", "")) for m in MODULES_NAV] + [("integrations.html", "Integrations")]),

@@ -168,19 +168,19 @@ def build_stories():
             '<p class="sub">How Nashville State Community College deployed LioraAI Transfer Credit Intelligence across the whole institution, cutting per-transcript time by 87%% and approval turnaround by 56%%.</p></div>'
             '<div class="col-lg-5"><div class="visual"><div class="ph">%s</div>%s</div></div></div></div></section>'
             % (crumbs([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Nashville State", None)]), eyebrow("Customer story · Community college · Tennessee"),
-               img("lecture-laugh", 900, eager=True, alt="Community college students in a lecture hall", ratio=(4, 3.3)), float_card("fa-bolt", "ok", "15 min → 2 min", "Per transcript, after go-live", "fc-a")))
+               img("lecture-laugh", 900, eager=True, alt="Community college students in a lecture hall", ratio=(4, 3.3)), float_card("fa-bolt", "ok", "15 minutes → 2 minutes", "Per transcript, after go-live", "fc-a")))
     glance = ('<aside class="glance"><h3>At a glance</h3><p style="font-weight:800;color:var(--navy);font-size:18px;margin-bottom:6px">Nashville State Community College</p>'
-              '<div class="big"><div><b>-87%%</b><span>per-transcript time (15 min to ~2 min)</span></div><div><b>-56%%</b><span>approval turnaround (18 hrs to 8 hrs avg)</span></div></div>'
+              '<div class="big"><div><b>-87%%</b><span>per-transcript time (15 minutes to about 2 minutes)</span></div><div><b>-56%%</b><span>approval turnaround (18 hours to 8 hours on average)</span></div></div>'
               '<dl><dt>Institution</dt><dd>Nashville State Community College, Tennessee</dd><dt>Type</dt><dd>Public community college</dd>'
               '<dt>Module</dt><dd><a href="%s">LioraAI Transfer Credit Intelligence</a></dd><dt>SIS / CRM</dt><dd>Ellucian Banner, Slate</dd>'
               '<dt>Deployment</dt><dd>Full institutional, not a pilot</dd><dt>Client since</dt><dd>April 2026</dd><dt>Go-live</dt><dd>Mid-July 2026</dd></dl>'
               '<a class="btn-x btn-gold w-100 mt-4" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></aside>') % (u("transfer-credit-intelligence.html"), u("request-demo.html"))
-    nums = [("-87%", "Per-transcript time", "15 min to about 2 min"), ("-56%", "Approval turnaround", "18 hrs to 8 hrs average"), ("2,158+", "Transcripts processed", "about 719 per month"),
-            ("834+", "Sent to Banner", "400th on Aug 18, 2026"), ("89%", "Match confidence", "498 of 558 scored courses"), ("18", "Active faculty reviewers", "3 added in the last month")]
+    nums = [("-87%", "Per-transcript time", "15 minutes to about 2 minutes"), ("-56%", "Approval turnaround", "18 hours to 8 hours on average"), ("2,158+", "Transcripts processed", "about 719 per month"),
+            ("834+", "Sent to Banner", "400th on August 18, 2026"), ("89%", "Match confidence", "498 of 558 scored courses"), ("18", "Active faculty reviewers", "3 added in the last month")]
     numhtml = "".join('<div class="col-sm-6 col-md-4"><div class="stat-card"><div class="n%s">%s</div><p>%s</p><cite>%s</cite></div></div>' % (" gold" if i == 0 else "", n, l, c) for i, (n, l, c) in enumerate(nums))
     timeline = "".join('<div class="ev"><span class="yr">%s</span><h3>%s</h3></div>' % x for x in [
         ("April 2026", "Nashville State confirmed as an EnlitEDU client"), ("May-June 2026", "Banner and Slate integration and build"), ("July 2026", "Full institutional go-live"),
-        ("Aug 18, 2026", "400th transcript sent to the SIS"), ("Sept 2026", "2,158+ transcripts processed")])
+        ("August 18, 2026", "400th transcript sent to the SIS"), ("September 2026", "2,158+ transcripts processed")])
     quote = lambda q, who: '<blockquote class="cs-quote"><p>“%s”</p><cite>%s</cite></blockquote>' % (q, who)
     story = ('<div class="story-body"><h2>The challenge: manual reviews and no visibility</h2>'
              '<p class="lead-lg">Nashville State’s transfer evaluation relied on manual review, with no fast way to trace individual faculty decisions.</p>'
@@ -206,7 +206,7 @@ def build_stories():
              '<div class="row g-4 mt-2"><div class="col-sm-6 col-lg-5">%s</div></div></div>') % (
                  u("transfer-credit-intelligence.html"), numhtml,
                  quote("Just did a transcript in 2 minutes that would’ve taken 15 under our current system. The advisor was able to meet the student where they are at and keep an advising appointment even though they turned their transcript at the last minute.", "Kevin Thomas, Nashville State Community College"),
-                 quote("We just sent our 400th transcript to SIS from LioraAI!", "Kevin Thomas, Nashville State Community College, milestone message to the project team, Aug 18, 2026"),
+                 quote("We just sent our 400th transcript to SIS from LioraAI!", "Kevin Thomas, Nashville State Community College, milestone message to the project team, August 18, 2026"),
                  quote("You are LITERALLY building the most advanced transcript articulation product on the planet right now. This. Is. Amazing.", "Alexis Pope, Nashville State Community College"),
                  timeline, vt_card(TESTIMONIALS[1]))
     body = (hero + '<section class="sec"><div class="container"><div class="row g-5"><div class="col-lg-8">%s</div><div class="col-lg-4">%s</div></div></div></section>' % (story, glance)
@@ -231,7 +231,7 @@ def build_about():
                '<p>We started EnlitEDU after years of supporting colleges through student information system projects. We kept seeing the same thing: talented records teams buried in research, students waiting weeks, and the same course evaluated differently depending on who picked up the file.</p>'
                '<p>LioraAI is our answer: software that does the research, applies each institution’s own rules, and leaves every decision with the people accountable for it.</p></div></div></div></section>'
                % (img("grads-selfie", 800, ratio=(4, 4.6)), img("registrar-folder", 480, alt="", ratio=(1, 1)), eyebrow("Our mission")))
-    nums = [("1", "M+", "course descriptions in our mapping corpus"), ("60", "s", "or less to evaluate a full transcript"), ("5", "", "LioraAI modules, one engine"), ("18", " days", "fastest go-live on Banner")]
+    nums = [("1", "M+", "course descriptions in our mapping corpus"), ("60", "", "seconds or less to evaluate a full transcript"), ("5", "", "LioraAI modules, one engine"), ("18", " days", "fastest go-live on Banner")]
     cells = "".join('<div class="cell"><b>%s<span data-count="%s">%s</span><span class="u">%s</span></b><span>%s</span></div>' % ("<" if n == "60" else "", n, n, s, t) for n, s, t in nums)
     proof = '<section class="sec dark"><div class="container">%s<div class="proof" style="grid-template-columns:repeat(4,minmax(0,1fr))">%s</div></div></section>' % (sec_head("By the numbers", "Built Only for Higher Ed <span class=\"grad\">Credit</span>", "", center=True), cells)
     proof = proof.replace('style="grid-template-columns:repeat(4,minmax(0,1fr))"', 'style="--c:4"')
