@@ -825,3 +825,9 @@ html,body{overflow-x:hidden}
 html.scroll-locked{overflow:hidden}
 /* stat sources: small print */
 .stat-card cite{font-size:11px;line-height:1.4}
+
+/* 19 logos: keep the same calm scroll speed as before */
+.marquee-track{animation-duration:72s}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+.marquee-track{gap:0}.marquee-track img{margin-right:64px}  /* even spacing so the -50% loop has no jump */
+.marquee-track img.tall{height:68px}

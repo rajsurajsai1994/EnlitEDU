@@ -534,19 +534,35 @@ def testimonials_section(ids=None, eb="In their own words", h2="Hear it from the
             '<div class="swiper" data-swiper="vt" data-xl="4"><div class="swiper-wrapper">%s</div></div></div></section>'
             % (" dark" if dark else "", eyebrow(eb), h2, lede, slides))
 
-LOGOS = [
-    ("alabama-a-m-university.png", "Alabama A&M University"),
-    ("bronx-community-college.png", "Bronx Community College"),
+LOGOS = [  # mixed order so community colleges and universities alternate in the strip
     ("roane-state-community-college.png", "Roane State Community College"),
+    ("city-colleges-of-chicago.png", "City Colleges of Chicago"),
     ("emory-university.png", "Emory University"),
+    ("rio-salado-college.png", "Rio Salado College"),
+    ("alabama-a-m-university.png", "Alabama A&M University"),
+    ("vincennes-university.png", "Vincennes University"),
+    ("dartmouth-college.png", "Dartmouth College"),
+    ("glendale-community-college.png", "Glendale Community College"),
     ("johnson-c-smith-university.png", "Johnson C. Smith University"),
+    ("minnesota-state-university-mankato.png", "Minnesota State University, Mankato"),
+    ("hancock-college.png", "Hancock College"),
+    ("villanova-university.png", "Villanova University"),
+    ("chattanooga-state-community-college.png", "Chattanooga State Community College"),
     ("miles-college.png", "Miles College"),
+    ("thomas-jefferson-university.png", "Thomas Jefferson University"),
+    ("motlow-state-community-college.png", "Motlow State Community College"),
+    ("community-colleges-of-ventura-county.png", "Community Colleges of Ventura County"),
+    ("johnston-community-college.png", "Johnston Community College"),
+    ("wsu-tech.png", "WSU Tech"),
 ]
 def logo_marquee(label="Trusted by enrollment teams across the U.S."):
-    imgs = "".join('<img src="%s" alt="%s" height="46" loading="lazy">' % (u("assets/img/enlitedu/" + f), e(n)) for f, n in LOGOS)
-    dup = "".join('<img src="%s" alt="" aria-hidden="true" height="46" loading="lazy">' % u("assets/img/enlitedu/" + f) for f, n in LOGOS)
+    def shape(f):  # square/stacked logos get more height so they read as large as the wide wordmarks
+        w, h = _dims(os.path.join(OUT, "assets", "img", "enlitedu", f))
+        return ' class="tall"' if w and h and w / h < 1.8 else ""
+    imgs = "".join('<img src="%s" alt="%s"%s height="46" loading="lazy">' % (u("assets/img/enlitedu/" + f), e(n), shape(f)) for f, n in LOGOS)
+    dup = "".join('<img src="%s" alt=""%s aria-hidden="true" height="46" loading="lazy">' % (u("assets/img/enlitedu/" + f), shape(f)) for f, n in LOGOS)
     return ('<section class="trust" aria-label="Institutions"><div class="container"><p class="lbl">%s</p>'
-            '<div class="marquee"><div class="marquee-track">%s%s%s%s</div></div></div></section>' % (e(label), imgs, dup, dup, dup))
+            '<div class="marquee"><div class="marquee-track">%s%s</div></div></div></section>' % (e(label), imgs, dup))
 
 INTEGRATIONS = [
     ("logo-ellucian.svg", "Ellucian Banner & Colleague"), ("logo-workday.svg", "Workday Student"), ("logo-peoplesoft.png", "PeopleSoft Campus Solutions"),

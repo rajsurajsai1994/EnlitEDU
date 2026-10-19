@@ -159,3 +159,14 @@ Roles live in `_build/data_careers.py`. Add a dict to `JOBS` to publish a role: 
 and in llms.txt. Set `open=False` to close a role (also update `valid_through`). Applications go through Web3Forms to the
 same inbox as demo requests, with subject "Job application: <title>", then land on `application-received.html` (noindex).
 Web3Forms' free plan can't attach files, so candidates paste a résumé link; upgrading to Web3Forms Pro would allow uploads.
+
+## Live site (launched Oct 17, 2026 on AWS S3 + CloudFront)
+
+Upload only the website, never the repo or build tools:
+
+```bash
+aws s3 sync . s3://YOUR-BUCKET --delete --exclude ".git/*" --exclude "_build/*" --exclude "README.md" --exclude ".gitignore" --exclude ".vercelignore" --exclude "vercel.json" --exclude "_redirects" --exclude "_headers" --exclude ".htaccess"
+aws cloudfront create-invalidation --distribution-id YOUR-DISTRIBUTION-ID --paths "/*"
+```
+
+Check the live site any time with `python _build/live_audit.py` (hosts, every sitemap page vs the build, redirects, real 404, private files, headers).

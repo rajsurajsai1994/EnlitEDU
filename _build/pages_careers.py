@@ -11,9 +11,9 @@ def careers_faqs():
     return [
         ("Is EnlitEDU hiring?", "Yes. Current openings: %s. Each role has its own page with the full description and an online application." % roles),
         ("Are EnlitEDU jobs remote?", "Many are. Each posting lists its location; the %s role is remote. EnlitEDU is headquartered in Cumming, Georgia." % (OPEN[0]["title"] if OPEN else "first")),
-        ("How do I apply for a job at EnlitEDU?", "Open the role, fill in the application form with a link to your résumé, and submit. You can also email your résumé to info@enlitedu.com with the role in the subject line."),
+        ("How do I apply for a job at EnlitEDU?", "Open the role, fill in the application form with a link to your résumé, and submit. You can also email your résumé to hr@enlitedu.com with the role in the subject line."),
         ("What happens after I apply?", "We read every application. If your experience is a fit, we email you to set up an introductory call with the team."),
-        ("Can I apply if there is no open role that fits?", "Yes. Send your résumé and a short note about the work you’d like to do to info@enlitedu.com, and we will keep it on file for future openings."),
+        ("Can I apply if there is no open role that fits?", "Yes. Send your résumé and a short note about the work you’d like to do to hr@enlitedu.com, and we will keep it on file for future openings."),
     ]
 
 def _meta_chips(j):
@@ -38,11 +38,11 @@ def build_careers():
     roles = "".join('<div class="col-12" data-aos="fade-up">%s</div>' % job_card(j) for j in OPEN) or '<div class="col-12"><p class="lead-lg">No open roles right now.</p></div>'
     body = (hero
             + '<section class="sec anchor" id="open-roles"><div class="container">%s<div class="row g-3">%s</div>'
-              '<p class="muted mt-4 mb-0">Don’t see your role? Send your résumé and a note about what you’d like to work on to <a href="mailto:info@enlitedu.com?subject=Careers%%20at%%20EnlitEDU">info@enlitedu.com</a>.</p></div></section>'
+              '<p class="muted mt-4 mb-0">Don’t see your role? Send your résumé and a note about what you’d like to work on to <a href="mailto:hr@enlitedu.com?subject=Careers%%20at%%20EnlitEDU">hr@enlitedu.com</a>.</p></div></section>'
               % (sec_head("Open positions", "Current <span class=\"grad\">Openings</span>", "", center=False), roles)
             + '<section class="sec tint"><div class="container">%s<div class="row g-4">%s</div></div></section>' % (sec_head("Why EnlitEDU", "Why People <span class=\"grad\">Join Us</span>", "", center=True), whyh)
             + faq_block(careers_faqs(), title="Working at EnlitEDU", side_img="team-hands")
-            + cta_band(h2="Questions about <span class=\"grad\">a role</span>?", p="Email info@enlitedu.com and we’ll get back to you.", secondary=None))
+            + cta_band(h2="Questions about <span class=\"grad\">a role</span>?", p="Email hr@enlitedu.com and we’ll get back to you.", secondary=None))
     url = BASE + "/" + path
     schema = [breadcrumb([("Home", "index.html"), ("Careers", path)]), faq_schema(careers_faqs(), path),
               {"@type": "CollectionPage", "@id": url, "url": url, "name": "Careers at EnlitEDU",
@@ -52,7 +52,7 @@ def build_careers():
 
 def _apply_form(j):
     yrs = "".join("<option>%s</option>" % o for o in ("Less than 5 years", "5-8 years", "8+ years"))
-    return ('<form class="form-card" data-web3 data-subject="Job application: %s" data-redirect="%s" novalidate>'
+    return ('<form class="form-card" data-web3 data-key="771756d7-6fd4-4664-a3c6-2b07a0650a71" data-email="hr@enlitedu.com" data-subject="Job application: %s" data-redirect="%s" novalidate>'
             '<h2>Apply for this role</h2><p class="muted small">Fields marked <span style="color:#c0392b">*</span> are required. We review every application and reply to shortlisted candidates.</p>'
             '<input type="hidden" name="position" value="%s">'
             '<div class="fgrid"><div class="field"><label for="a-first">First name <span class="req">*</span></label><input id="a-first" name="first_name" autocomplete="given-name" required></div>'
@@ -68,7 +68,7 @@ def _apply_form(j):
             '<div class="field full"><label for="a-msg">Tell us about an implementation you led, and why this role <span class="req">*</span></label><textarea id="a-msg" name="message" required></textarea></div></div>'
             '<input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">'
             '<button class="btn-x btn-gold w-100 mt-4" type="submit">Submit application <i class="fa-solid fa-arrow-right"></i></button><div class="form-msg" role="alert"></div>'
-            '<p class="note mt-3 mb-0">Make sure your résumé link is viewable by anyone with the link. Prefer email? Send your résumé to <a href="mailto:info@enlitedu.com?subject=%s">info@enlitedu.com</a> with the role in the subject. '
+            '<p class="note mt-3 mb-0">Make sure your résumé link is viewable by anyone with the link. Prefer email? Send your résumé to <a href="mailto:hr@enlitedu.com?subject=%s">hr@enlitedu.com</a> with the role in the subject. '
             'By applying, you agree to our <a href="%s">Privacy Policy</a>.</p></form>'
             % (e(j["title"]), u("application-received.html"), e(j["title"]), yrs, ("Application%3A%20" + j["title"].replace(" ", "%20")), u("privacy.html")))
 

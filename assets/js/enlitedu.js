@@ -277,7 +277,8 @@
       } catch (err) {
         if (msg) {
           msg.className = "form-msg err";
-          msg.innerHTML = 'We couldn’t send that just now. Please email <a href="mailto:info@enlitedu.com">info@enlitedu.com</a> and we’ll reply within one business day.';
+          var to = form.getAttribute("data-email") || "info@enlitedu.com";
+          msg.innerHTML = 'We couldn’t send that just now. Please email <a href="mailto:' + to + '">' + to + '</a> and we’ll reply within one business day.';
         }
         if (btn) { btn.disabled = false; btn.innerHTML = label; }
       }
