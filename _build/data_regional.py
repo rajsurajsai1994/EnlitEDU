@@ -13,7 +13,7 @@ dict(
  h1="Transcript and Credit Evaluation Software, <span class=\"accent\">Headquartered in Georgia</span>",
  sub="EnlitEDU builds LioraAI for colleges and universities across the United States. Our team is based in Cumming, Georgia, so this page also covers what is specific to Georgia institutions, from USG Core IMPACTS to the TCSG–USG transfer agreement.",
  answer=("Is EnlitEDU only for Georgia colleges?",
-         "No. LioraAI is transcript and credit evaluation software for colleges and universities across the U.S., and its first customers are Tennessee community colleges. EnlitEDU is headquartered in Cumming, Georgia, so Georgia institutions can also meet the team in person, and Georgia’s transfer rules are already configured."),
+         "No. LioraAI is transcript and credit evaluation software for colleges and universities across the U.S., including 11 community colleges in the College System of Tennessee selected by the Tennessee Board of Regents. EnlitEDU is headquartered in Cumming, Georgia, so Georgia institutions can also meet the team in person, and Georgia’s transfer rules are already configured."),
  stats=[("U.S.-wide", "colleges and universities in any state"), ("Any SIS", "Banner, Colleague, Workday Student, PeopleSoft, Jenzabar"), ("2-4 weeks", "typical go-live for standard SIS integrations")],
  sections=[
   ("Who uses LioraAI?",
@@ -35,7 +35,7 @@ dict(
  ],
  modules=["transfer-credit-intelligence", "freshman-intelligence", "veterans", "prior-learning-assessment", "degree-pathway", "mobility"],
  faqs=[
-  ("Does EnlitEDU only work with Georgia colleges?", "No. EnlitEDU serves colleges and universities across the United States, and its first customers are Tennessee community colleges. Georgia institutions can also meet the team in person."),
+  ("Does EnlitEDU only work with Georgia colleges?", "No. EnlitEDU serves colleges and universities across the United States, including 11 Tennessee Board of Regents community colleges. Georgia institutions can also meet the team in person."),
   ("Where is EnlitEDU based?", "EnlitEDU is headquartered at 3840 Windermere Pkwy, Suite 403, Cumming, Georgia 30041, in north metro Atlanta, and works with institutions nationwide."),
   ("Does LioraAI support state-specific transfer rules?", "Yes. Common course numbering, transferable general education blocks, guaranteed pathways and statewide articulation agreements can be configured as rules and applied to every transcript."),
   ("Does LioraAI support USG Core IMPACTS?", "Yes. For Georgia institutions, Core IMPACTS areas and the TCSG–USG agreement are configured as transfer rules, so general education credit is placed area to area as USG policy requires."),
@@ -62,7 +62,7 @@ dict(
   ("What does LioraAI do for a registrar’s office?",
    "<p>One engine and one set of your rules for every kind of transcript: transfer credit with <a href=\"../transfer-credit-intelligence.html\">LioraAI Transfer Credit Intelligence</a>, first-year applicants with <a href=\"../freshman-intelligence.html\">LioraAI Freshman Intelligence</a>, military records with <a href=\"../veterans.html\">Veterans &amp; JST</a> and work experience with <a href=\"../prior-learning-assessment.html\">Prior Learning Assessment</a>. Evaluators approve every decision, and approved credit posts to your SIS.</p>"),
   ("How do we work with institutions outside Atlanta?",
-   "<p>The same way we work with everyone: discovery, configuration workshops and training run online, in your time zone, and standard SIS integrations go live in two to four weeks. Our first customers are community colleges in Tennessee. Roane State went live on Banner in 18 days, and Nashville State cut per-transcript time from 15 minutes to 2.</p>"),
+   "<p>The same way we work with everyone: discovery, configuration workshops and training run online, in your time zone, and standard SIS integrations go live in two to four weeks. In Tennessee, the Tennessee Board of Regents has selected LioraAI for 11 community colleges. Roane State went live on Banner in 18 days, and Nashville State cut per-transcript time from 15 minutes to 2.</p>"),
   ("Transcript evaluation in Atlanta: meeting in person",
    "<p>Looking for transcript evaluation software in Atlanta? Because our team is based in Cumming, Atlanta-area institutions can also meet us in person for discovery, workshops and training, and we already know Georgia’s USG Core IMPACTS, the TCSG–USG agreement and Georgia Dual Enrollment.</p>"),
   ("Looking for a transcript evaluation for yourself?",

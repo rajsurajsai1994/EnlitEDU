@@ -19,9 +19,10 @@
    "faq.html",
    "freshman-intelligence.html",
    "georgia/atlanta-transcript-evaluation.html",
+   "news/tennessee-board-of-regents-selects-lioraai.html",
    "transcript-evaluation-near-me.html"
   ],
-  "also_n": 9
+  "also_n": 10
  },
  {
   "kw": "transfer credit evaluation software",
@@ -72,9 +73,10 @@
    "faq.html",
    "georgia/atlanta-transcript-evaluation.html",
    "index.html",
+   "news/tennessee-board-of-regents-selects-lioraai.html",
    "transcript-evaluation-near-me.html"
   ],
-  "also_n": 8
+  "also_n": 9
  },
  {
   "kw": "transcript review software",
@@ -805,9 +807,10 @@
   ],
   "also": [
    "faq.html",
+   "news/tennessee-board-of-regents-selects-lioraai.html",
    "transcript-evaluation-near-me.html"
   ],
-  "also_n": 2
+  "also_n": 3
  },
  {
   "kw": "automated transfer credit evaluation",
@@ -843,6 +846,60 @@
   "target": "platform.html",
   "on_target": true,
   "where": [],
+  "also": [],
+  "also_n": 0
+ },
+ {
+  "kw": "Tennessee Board of Regents transcript evaluation",
+  "cluster": "TBR win",
+  "intent": "Buyer / press",
+  "demand": "Low",
+  "target": "news/tennessee-board-of-regents-selects-lioraai.html",
+  "on_target": true,
+  "where": [
+   "desc",
+   "h1",
+   "hx",
+   "faq"
+  ],
+  "also": [
+   "blog/state-transfer-policies-us-guide.html",
+   "faq.html",
+   "georgia.html",
+   "georgia/atlanta-transcript-evaluation.html",
+   "index.html",
+   "request-demo.html",
+   "who-we-serve/state-systems.html"
+  ],
+  "also_n": 7
+ },
+ {
+  "kw": "College System of Tennessee transfer credit",
+  "cluster": "TBR win",
+  "intent": "Buyer / press",
+  "demand": "Low",
+  "target": "news/tennessee-board-of-regents-selects-lioraai.html",
+  "on_target": true,
+  "where": [
+   "desc"
+  ],
+  "also": [
+   "georgia.html",
+   "index.html",
+   "who-we-serve/state-systems.html"
+  ],
+  "also_n": 3
+ },
+ {
+  "kw": "which Tennessee colleges use LioraAI",
+  "cluster": "TBR win",
+  "intent": "AI answer",
+  "demand": "Low",
+  "target": "news/tennessee-board-of-regents-selects-lioraai.html",
+  "on_target": true,
+  "where": [
+   "faq"
+  ],
   "also": [],
   "also_n": 0
  },

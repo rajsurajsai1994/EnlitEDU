@@ -6,7 +6,7 @@ import os, re, json, glob, html, datetime, collections, sys
 os.chdir(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, "_build")
 BASE = "https://www.enlitedu.com"
-TODAY = datetime.date(2026, 10, 16)
+TODAY = datetime.date.today()
 pages = sorted(f.replace(os.sep, "/") for f in glob.glob("**/*.html", recursive=True) if not f.startswith(("assets", "_build", "google")))
 P = collections.defaultdict(list)
 one = lambda t, rx: re.findall(rx, t, re.S)

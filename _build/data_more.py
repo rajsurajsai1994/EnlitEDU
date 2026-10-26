@@ -171,7 +171,7 @@ dict(
  ranked=["transfer-credit-intelligence", "mobility", "degree-pathway", "prior-learning-assessment", "veterans", "freshman-intelligence"],
  why="System-wide deployment lets every campus apply the shared transfer policy while keeping local course decisions, and gives the system office one view of credit mobility and completion.",
  proofs=["nashville"],
- faqs=[("Is LioraAI used by more than one college in a state?", "Yes. Roane State Community College and Nashville State Community College, both in Tennessee, run LioraAI on their own catalogs and rules. The same engine can apply shared system rules across every campus."),
+ faqs=[("Is LioraAI used by more than one college in a state?", "Yes. The Tennessee Board of Regents has selected LioraAI for 11 community colleges across the College System of Tennessee, including Roane State and Nashville State, which are already live. Each college keeps its own catalog, rules and approvals on the same engine."),
        ("Can campuses keep their own course decisions?", "Yes. System-wide rules apply everywhere, while each campus maintains its own equivalencies and approvals inside the same platform."),
        ("Does LioraAI support common course numbering?", "Yes. Shared course identifiers and guaranteed pathways can be configured as system rules that every campus applies."),
        ("What does the system office see?", "Student movement between campuses, credit loss by pathway, reverse transfer eligibility and completion indicators across the system.")],
@@ -215,7 +215,7 @@ FAQ_HUB = [
  ("What is LioraAI?", "LioraAI is EnlitEDU’s AI transcript evaluation software for U.S. colleges and universities. LioraAI Transfer Credit Intelligence automates transfer credit evaluation and LioraAI Freshman Intelligence automates high school transcript review, both against each institution’s own rules, with staff approving every decision. Further modules cover military and prior-learning credit and transfer analytics."),
  ("Who is EnlitEDU?", "EnlitEDU is a higher education technology company that serves colleges and universities across the United States, headquartered in Cumming, Georgia. It grew out of Anatta IT Solutions’ work supporting colleges through student information system projects, and launched LioraAI in 2025."),
  ("Which module do I need?", "First-time students coming from high school: Freshman Intelligence. Anyone bringing credit from another college, at any class level: Transfer Credit Intelligence. Military records: Veterans &amp; JST. Work experience, certifications and portfolios: Prior Learning Assessment. Transfer analytics: Mobility Intelligence."),
- ("What kinds of institutions use LioraAI?", "Community colleges, regional and research universities, HBCUs and minority-serving institutions, and state systems. Our first customers are Tennessee community colleges, including Roane State and Nashville State."),
+ ("What kinds of institutions use LioraAI?", "Community colleges, regional and research universities, HBCUs and minority-serving institutions, and state systems. In Tennessee, the Tennessee Board of Regents has selected LioraAI for 11 community colleges; other customers include HBCUs, universities, technical and community colleges in Alabama, Kansas, Pennsylvania, North Carolina, Indiana and Minnesota."),
 ]),
 ("How the AI works", [
  ("Does LioraAI make credit decisions on its own?", "No. LioraAI drafts recommendations with the evidence behind them. Your staff and faculty approve, change or decline every decision."),

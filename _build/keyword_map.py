@@ -54,6 +54,10 @@ K = [
  ("automated transfer credit evaluation", "Core software", "Buyer (B2B)", "Low", "transfer-credit-intelligence.html", r"automated transfer credit evaluation"),
  ("college transcript processing software", "Core software", "Buyer (B2B)", "Low", "how-it-works.html", r"college transcript processing software"),
  ("higher education transcript automation", "Core software", "Buyer (B2B)", "Low", "platform.html", r"higher education transcript automation"),
+ # --- Tennessee Board of Regents win (Oct 2026)
+ ("Tennessee Board of Regents transcript evaluation", "TBR win", "Buyer / press", "Low", "news/tennessee-board-of-regents-selects-lioraai.html", r"tennessee board of regents"),
+ ("College System of Tennessee transfer credit", "TBR win", "Buyer / press", "Low", "news/tennessee-board-of-regents-selects-lioraai.html", r"college system of tennessee"),
+ ("which Tennessee colleges use LioraAI", "TBR win", "AI answer", "Low", "news/tennessee-board-of-regents-selects-lioraai.html", r"which tennessee colleges use lioraai"),
  # --- question keywords
  ("what is transcript evaluation", "Questions (AEO)", "Informational", "Medium", "transcript-evaluation-near-me.html", r"what is transcript evaluation"),
  ("how long does transcript evaluation take", "Questions (AEO)", "Informational", "Medium", "transcript-evaluation-near-me.html", r"how long does (a )?transcript evaluation take|how long does (a )?military transcript evaluation take"),

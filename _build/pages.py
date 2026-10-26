@@ -115,14 +115,43 @@ def state_story_html(variant="home"):
            ("fa-chart-bar", "One system-wide view", "Decisions, turnaround and credit applied roll up across campuses for the system office.")]
     cards = "".join('<div class="col-sm-6" data-aos="fade-up" data-aos-delay="%d"><div class="card-x"><div class="ico"><i class="fa-solid %s"></i></div><h3>%s</h3><p>%s</p></div></div>' % (i * 70, ic, t, dsc) for i, (ic, t, dsc) in enumerate(pts))
     head = ("For state systems and multi-campus institutions", "Proven at <span class=\"grad\">Tennessee</span> Community Colleges. Built for Systems.") if variant == "home" else \
-           ("Proof from Tennessee", "Proven on Two Campuses. <span class=\"grad\">Ready for Yours.</span>")
+           ("Proof from Tennessee", "11 TBR Community Colleges. <span class=\"grad\">Ready for Yours.</span>")
     link = arrow("LioraAI for state systems", "who-we-serve/state-systems.html") if variant == "home" else arrow("Read both customer stories", "case-studies.html")
     return ('<section class="sec tint-2"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-5" data-aos="fade-up">%s<h2>%s</h2>'
-            '<p class="lede">Roane State Community College and Nashville State Community College, two Tennessee community colleges, run LioraAI on their own catalogs and rules. '
+            '<p class="lede">The Tennessee Board of Regents has selected LioraAI for 11 community colleges across the College System of Tennessee, and Roane State and Nashville State are already live on their own catalogs and rules. '
             'The same engine scales across every campus in a system: shared transfer policy where you want consistency, campus decisions where you need them.</p>'
             '<ul class="check-list"><li><span><b>Roane State:</b> live on Ellucian Banner in 18 days; evaluation from three weeks to two days</span></li>'
-            '<li><span><b>Nashville State:</b> full institutional go-live in July 2026; 2,158+ transcripts processed by September</span></li></ul>%s</div>'
-            '<div class="col-lg-7"><div class="row g-3">%s</div></div></div></div></section>' % (eyebrow(head[0]), head[1], link, cards))
+            '<li><span><b>Nashville State:</b> full institutional go-live in July 2026; 2,158+ transcripts processed by September</span></li>'
+            '<li><span><b>Tennessee Board of Regents:</b> LioraAI selected for 11 community colleges. <a href="%s">Read the announcement</a></span></li></ul>%s</div>'
+            '<div class="col-lg-7"><div class="row g-3">%s</div></div></div></div></section>' % (eyebrow(head[0]), head[1], u(NEWS_PATH), link, cards))
+
+from data_tbr import TBR_PROMO, TBR, TBR_COLLEGES, NEWS_PATH
+
+def tbr_section_html():
+    """Option B: homepage highlight of the Tennessee Board of Regents win (indexable text: TBR + every college and city)."""
+    cards = "".join('<div class="tbr-card"><img src="%s" alt="%s" loading="lazy"><span><i class="fa-solid fa-location-dot"></i> %s, TN</span></div>'
+                    % (u("assets/img/enlitedu/" + lg), e(n), e(c)) for n, c, lg, w in TBR_COLLEGES)
+    return ('<section class="sec tbr" id="tbr" aria-labelledby="tbr-h"><div class="container">'
+            '<div class="tbr-head" data-aos="fade-up"><div>%s<h2 id="tbr-h">Trusted Across Tennessee: <span class="grad">11 TBR Community Colleges</span> Choose LioraAI</h2>'
+            '<p class="lede">The Tennessee Board of Regents has selected LioraAI for 11 community colleges across the College System of Tennessee: one evaluation engine, with each college keeping its own rules and approvals.</p></div>'
+            '<img class="tbr-logo" src="%s" alt="Tennessee Board of Regents, the College System of Tennessee" width="394" height="60"></div>'
+            '<div class="tbr-grid" data-aos="fade-up"><div class="tbr-stat"><b>11</b><span>community colleges across the College System of Tennessee</span></div>%s</div>'
+            '<div class="btn-row mt-4" data-aos="fade-up"><a class="btn-x btn-gold" href="%s">Read the announcement <i class="fa-solid fa-arrow-right"></i></a>'
+            '<a class="btn-x btn-ghost" href="%s">LioraAI for state systems</a></div></div></section>'
+            % (eyebrow("Tennessee Board of Regents · College System of Tennessee"), u("assets/img/enlitedu/" + TBR["logo"]), cards, u(NEWS_PATH), u("who-we-serve/state-systems.html")))
+
+def tbr_popup_html():
+    """Option A: announcement popup. Desktop: centred card; mobile: bottom panel that leaves the page visible (no intrusive interstitial)."""
+    logos = "".join('<img src="%s" alt="%s" loading="lazy">' % (u("assets/img/enlitedu/" + lg), e(n)) for n, c, lg, w in TBR_COLLEGES)
+    return ('<div class="tbr-pop" role="dialog" aria-modal="true" aria-labelledby="tbr-pop-h" data-auto="%s" hidden><div class="tbr-pop-scrim"></div>'
+            '<div class="tbr-pop-card"><button class="tbr-pop-x" type="button" aria-label="Close announcement"><span aria-hidden="true">&#x2715;</span></button>'
+            '<img class="tbr-pop-logo" src="%s" alt="Tennessee Board of Regents, the College System of Tennessee" width="394" height="60">'
+            '<p class="tbr-pop-eb">Announcement</p><h2 id="tbr-pop-h">Tennessee Board of Regents Selects LioraAI</h2>'
+            '<p class="tbr-pop-p">LioraAI will serve <b>11 community colleges</b> across the College System of Tennessee, from Memphis to Blountville.</p>'
+            '<div class="tbr-pop-logos">%s</div>'
+            '<div class="btn-row"><a class="btn-x btn-gold" href="%s">Read the announcement <i class="fa-solid fa-arrow-right"></i></a>'
+            '<button class="btn-x btn-ghost tbr-pop-close2" type="button">Maybe later</button></div></div></div>'
+            % ("1" if TBR_PROMO["popup_auto"] else "0", u("assets/img/enlitedu/" + TBR["logo"]), logos, u(NEWS_PATH)))
 
 def build_home():
     path = "index.html"; set_depth(path)
@@ -225,8 +254,9 @@ def build_home():
     latest = posts_row(["us-community-college-transfer-statistics", "state-transfer-policies-us-guide", "dual-enrollment-credit-evaluation-us-colleges"],
                        eb="Insights", h2="Fresh From the <span class=\"grad\">Blog</span>")
     from pages3 import home_nationwide_section, answer_box
-    body = (hero + answer_box(*home_faqs[0]) + logo_marquee() + flagship_html() + how + proof + voices + state_story_html()
-            + problem + tabs + modules + audiences + home_nationwide_section() + ints + faq + latest + cta_band())
+    body = (hero + answer_box(*home_faqs[0]) + logo_marquee() + (tbr_section_html() if TBR_PROMO["section"] else "")
+            + flagship_html() + how + proof + voices + ("" if TBR_PROMO["section"] else state_story_html())
+            + problem + tabs + modules + audiences + home_nationwide_section() + ints + faq + latest + cta_band() + tbr_popup_html())
 
     schema = [{"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "EnlitEDU", "publisher": {"@id": BASE + "/#organization"}, "inLanguage": "en-US"},
               {"@type": "SoftwareApplication", "@id": BASE + "/#lioraai", "name": "LioraAI", "applicationCategory": "BusinessApplication", "applicationSubCategory": "Higher education transcript evaluation",

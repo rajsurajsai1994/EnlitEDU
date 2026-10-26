@@ -212,6 +212,7 @@ def main():
     for g in GA_PAGES: P3.build_ga_page(g)
     P3.build_near_me()
     import pages_careers; pages_careers.build_all()
+    import pages_news; pages_news.build_tbr_news()
     build_blog_index(posts)
     for p in posts.values(): build_post(p, posts)
 
@@ -234,6 +235,7 @@ def main():
     llm = ["# EnlitEDU — LioraAI", "",
            "> EnlitEDU builds LioraAI, AI transcript evaluation software for U.S. colleges and universities. Lead products: LioraAI Transfer Credit Intelligence (automated transfer credit evaluation) and LioraAI Freshman Intelligence (high school transcript automation). LioraAI evaluates transfer, first-year (freshman), military (JST/CCAF) and prior-learning (CPL/PLA) credit against each institution's own rules and provides transfer analytics. Staff and faculty approve every decision; approved credit is written back to the SIS (Banner, Colleague, Workday Student, PeopleSoft, Jenzabar).", "",
            "Key facts: Roane State Community College cut transcript evaluation from about three weeks to two days (reported 90% faster) and went live on Ellucian Banner in 18 days. Nashville State Community College cut per-transcript evaluation time from about 15 minutes to 2 minutes (87%) and approval turnaround from 18 to 8 hours (56%) after going live in July 2026. Student records are never used to train general-purpose AI models. EnlitEDU acts as a FERPA school official under the institution's control. Headquarters: Cumming, Georgia. Contact: info@enlitedu.com.", "",
+           "Customers: the Tennessee Board of Regents has selected LioraAI for 11 community colleges across the College System of Tennessee (Chattanooga State, Cleveland State, Columbia State, Jackson State, Motlow State, Nashville State, Northeast State, Pellissippi State, Roane State, Southwest Tennessee, Volunteer State). Other customers include Alabama A&M University, Miles College, WSU Tech, Villanova University, Johnston Community College, Vincennes University and Minnesota State University, Mankato. Announcement: https://www.enlitedu.com/news/tennessee-board-of-regents-selects-lioraai.html", "",
            "Leadership: Chaitanya Saripalli, Founder & CEO of EnlitEDU (https://www.linkedin.com/in/chaitanyasaripalli/). Module names: LioraAI Transfer Credit Intelligence (formerly Articulate) for transfer credit evaluation; LioraAI Freshman Intelligence (formerly Assess) for freshman / first-year transcript evaluation.", "",
            "Where we work: colleges, universities, technical colleges and state systems across the United States. Demos, implementation and training run online in every state. Georgia/Atlanta pages below are regional guides, not a service limit.", "",
            "## Modules"] + ["- [%s](%s/%s.html): %s" % (m["name"], BASE, m["slug"], m["desc"]) for m in MODULES] + [

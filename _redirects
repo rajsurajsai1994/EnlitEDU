@@ -24,6 +24,9 @@ http://www.enlitedu.com/*  https://www.enlitedu.com/:splat  301!
 /solutions/                                                  /platform.html  301
 /who-we-serve                                                /who-we-serve/community-colleges.html  301
 /who-we-serve/                                               /who-we-serve/community-colleges.html  301
+/news                                                        /news/tennessee-board-of-regents-selects-lioraai.html  301
+/news/                                                       /news/tennessee-board-of-regents-selects-lioraai.html  301
+/tbr                                                         /news/tennessee-board-of-regents-selects-lioraai.html  301
 /case-studies/                                               /case-studies.html  301
 /georgia/                                                    /georgia.html  301
 /blog/                                                       /blog.html  301

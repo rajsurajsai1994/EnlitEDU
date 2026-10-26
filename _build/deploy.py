@@ -23,6 +23,7 @@ EXACT = {
     # folders that have no index page of their own
     "/solutions": "/platform.html", "/solutions/": "/platform.html",
     "/who-we-serve": "/who-we-serve/community-colleges.html", "/who-we-serve/": "/who-we-serve/community-colleges.html",
+    "/news": "/news/tennessee-board-of-regents-selects-lioraai.html", "/news/": "/news/tennessee-board-of-regents-selects-lioraai.html", "/tbr": "/news/tennessee-board-of-regents-selects-lioraai.html",
     "/case-studies/": "/case-studies.html", "/georgia/": "/georgia.html", "/blog/": "/blog.html", "/careers/": "/careers.html", "/jobs": "/careers.html", "/jobs/": "/careers.html",
     "/feed": "/blog.html", "/feed/": "/blog.html",
     # legacy WordPress posts

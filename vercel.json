@@ -125,6 +125,21 @@
       "permanent": true
     },
     {
+      "source": "/news",
+      "destination": "/news/tennessee-board-of-regents-selects-lioraai.html",
+      "permanent": true
+    },
+    {
+      "source": "/news/",
+      "destination": "/news/tennessee-board-of-regents-selects-lioraai.html",
+      "permanent": true
+    },
+    {
+      "source": "/tbr",
+      "destination": "/news/tennessee-board-of-regents-selects-lioraai.html",
+      "permanent": true
+    },
+    {
       "source": "/case-studies/",
       "destination": "/case-studies.html",
       "permanent": true

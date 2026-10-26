@@ -831,3 +831,61 @@ html.scroll-locked{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 .marquee-track{gap:0}.marquee-track img{margin-right:64px}  /* even spacing so the -50% loop has no jump */
 .marquee-track img.tall{height:68px}
+
+/* ===== Tennessee Board of Regents win (Oct 2026) ===== */
+/* Option B: homepage section */
+.tbr{background:linear-gradient(180deg,#f4f7ff 0%,#fff 100%);border-bottom:1px solid var(--line)}
+.tbr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:32px}
+.tbr-head h2{margin:10px 0 12px;max-width:760px}
+.tbr-head .lede{max-width:720px;margin:0}
+.tbr-logo{height:56px;width:auto;flex:none;background:#fff;border-radius:12px;padding:8px 12px;box-shadow:var(--sh-1)}
+.tbr-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.tbr-stat{background:var(--navy);color:#fff;border-radius:var(--r-lg);padding:24px 26px;display:flex;align-items:center;gap:18px}
+.tbr-stat b{font-family:var(--f-serif);font-size:64px;line-height:1;color:var(--gold);font-weight:600}
+.tbr-stat span{font-weight:600;font-size:16px;line-height:1.4}
+.tbr-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:20px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:132px;box-shadow:var(--sh-1);transition:transform .2s,box-shadow .2s}
+.tbr-card:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
+.tbr-card img{max-height:58px;max-width:100%;width:auto;object-fit:contain;object-position:left center}
+.tbr-card span{font-size:14px;color:var(--muted);font-weight:600}
+.tbr-card span i{color:var(--blue);margin-right:4px}
+@media(max-width:1199px){.tbr-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:991px){.tbr-head{flex-direction:column;align-items:flex-start}.tbr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.tbr-grid{grid-template-columns:1fr}.tbr-stat b{font-size:52px}.tbr-card{min-height:auto}}
+/* Option A: announcement popup */
+.tbr-pop{position:fixed;inset:0;z-index:2900;display:flex;align-items:center;justify-content:center;padding:20px}
+.tbr-pop[hidden]{display:none}
+.tbr-pop-scrim{position:absolute;inset:0;background:rgba(5,12,26,.6);opacity:0;transition:opacity .25s}
+.tbr-pop-card{position:relative;background:#fff;border-radius:22px;max-width:600px;width:100%;padding:34px 34px 30px;box-shadow:var(--sh-3);transform:translateY(16px);opacity:0;transition:transform .3s var(--ease),opacity .3s;border-top:6px solid var(--gold)}
+.tbr-pop.open .tbr-pop-scrim{opacity:1}
+.tbr-pop.open .tbr-pop-card{transform:none;opacity:1}
+.tbr-pop-x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--navy);font-size:16px;cursor:pointer}
+.tbr-pop-x:hover,.tbr-pop-x:focus-visible{background:var(--gold);outline:none}
+.tbr-pop-logo{height:46px;width:auto;margin-bottom:18px}
+.tbr-pop-eb{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 6px}
+.tbr-pop h2{font-size:clamp(24px,2.6vw,32px);margin:0 0 10px;padding-right:36px}
+.tbr-pop-p{font-size:17px;margin:0 0 18px;color:var(--body)}
+.tbr-pop-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 16px;align-items:center;margin-bottom:22px;padding:16px;background:#f6f8fc;border-radius:14px}
+.tbr-pop-logos img{max-height:28px;max-width:100%;width:auto;object-fit:contain}
+@media(max-width:767px){
+  /* mobile: compact bottom panel, page stays visible and usable (no intrusive interstitial) */
+  .tbr-pop{inset:auto 0 0 0;padding:0;display:block}
+  .tbr-pop-scrim{display:none}
+  .tbr-pop-card{border-radius:20px 20px 0 0;padding:22px 20px calc(18px + env(safe-area-inset-bottom,0px));max-height:52vh;overflow-y:auto;transform:translateY(100%)}
+  .tbr-pop-logos{display:none}
+  .tbr-pop-logo{height:34px;margin-bottom:10px}
+  .tbr-pop h2{font-size:21px}
+  .tbr-pop-p{font-size:15px;margin-bottom:14px}
+}
+/* announcement page */
+.tbr-banner{display:flex;align-items:center;gap:22px;flex-wrap:wrap;background:#fff;border-radius:18px;padding:20px 24px;box-shadow:var(--sh-2);border:1px solid var(--line)}
+.tbr-banner img{height:48px;width:auto}
+.tbr-banner span{font-weight:600;color:var(--ink)}
+.tbr-banner b{font-family:var(--f-serif);font-size:30px;color:var(--blue);margin-right:6px}
+.article-body .tbr-list{list-style:none;padding:0;margin:18px 0 26px;display:grid;gap:10px}
+.article-body .tbr-li{display:grid;grid-template-columns:150px 1fr auto;align-items:center;gap:16px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;margin:0}
+.article-body .tbr-li img{max-height:40px;max-width:150px;width:auto;object-fit:contain}
+.article-body .tbr-li b{display:block;color:var(--ink)}
+.article-body .tbr-li small{color:var(--muted);font-size:13.5px}
+.article-body .tbr-li a{font-size:14px;font-weight:700;white-space:nowrap}
+@media(max-width:575px){.article-body .tbr-li{grid-template-columns:1fr}.article-body .tbr-li a{justify-self:start}}
+@media(max-width:767px){.tbr-pop-card{max-height:38vh;padding:16px 18px calc(14px + env(safe-area-inset-bottom,0px))}.tbr-pop-eb,.tbr-pop-close2{display:none}.tbr-pop-logo{height:26px;margin-bottom:8px}.tbr-pop h2{font-size:18px;margin-bottom:6px}.tbr-pop-p{font-size:14px;line-height:1.45;margin-bottom:12px}.tbr-pop-card .btn-row{margin:0}.tbr-pop-card .btn-x{width:100%;padding:12px 16px;font-size:15px}.tbr-pop-x{top:10px;right:10px;width:36px;height:36px}}

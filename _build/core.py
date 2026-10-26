@@ -6,7 +6,7 @@ BASE = "https://www.enlitedu.com"
 OUT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 import hashlib
 ASSET_VER = hashlib.md5(b"".join(open(os.path.join(OUT, "assets", p), "rb").read() for p in ("css/enlitedu.css", "js/enlitedu.js"))).hexdigest()[:8]  # cache-bust on change
-TODAY = "2026-10-16"
+TODAY = "2026-10-26"
 
 SITE = {
     "name": "EnlitEDU",
@@ -139,6 +139,7 @@ AUDIENCE_NAV = [
 ]
 REGION_NAV = ("georgia.html", "Georgia (headquarters state)", "On-campus visits and Georgia transfer rules", "fa-location-dot")
 RESOURCES_NAV = [
+    ("news/tennessee-board-of-regents-selects-lioraai.html", "News: TBR Selects LioraAI", "11 Tennessee community colleges", "fa-bullhorn"),
     ("blog.html", "Blog", "Practical guides for registrars", "fa-newspaper"),
     ("case-studies.html", "Customer Stories", "Results from real campuses", "fa-star"),
     ("glossary.html", "Glossary", "Credit evaluation terms, defined", "fa-book-open"),
@@ -534,28 +535,10 @@ def testimonials_section(ids=None, eb="In their own words", h2="Hear it from the
             '<div class="swiper" data-swiper="vt" data-xl="4"><div class="swiper-wrapper">%s</div></div></div></section>'
             % (" dark" if dark else "", eyebrow(eb), h2, lede, slides))
 
-LOGOS = [  # mixed order so community colleges and universities alternate in the strip
-    ("roane-state-community-college.png", "Roane State Community College"),
-    ("city-colleges-of-chicago.png", "City Colleges of Chicago"),
-    ("emory-university.png", "Emory University"),
-    ("rio-salado-college.png", "Rio Salado College"),
-    ("alabama-a-m-university.png", "Alabama A&M University"),
-    ("vincennes-university.png", "Vincennes University"),
-    ("dartmouth-college.png", "Dartmouth College"),
-    ("glendale-community-college.png", "Glendale Community College"),
-    ("johnson-c-smith-university.png", "Johnson C. Smith University"),
-    ("minnesota-state-university-mankato.png", "Minnesota State University, Mankato"),
-    ("hancock-college.png", "Hancock College"),
-    ("villanova-university.png", "Villanova University"),
-    ("chattanooga-state-community-college.png", "Chattanooga State Community College"),
-    ("miles-college.png", "Miles College"),
-    ("thomas-jefferson-university.png", "Thomas Jefferson University"),
-    ("motlow-state-community-college.png", "Motlow State Community College"),
-    ("community-colleges-of-ventura-county.png", "Community Colleges of Ventura County"),
-    ("johnston-community-college.png", "Johnston Community College"),
-    ("wsu-tech.png", "WSU Tech"),
-]
-def logo_marquee(label="Trusted by enrollment teams across the U.S."):
+from data_tbr import TBR_COLLEGES, NATIONWIDE
+# logo strip = exactly the institutions on EnlitEDU's client slides: 11 TBR community colleges, then 7 in six other states
+LOGOS = [(lg, n) for n, c, lg, w in TBR_COLLEGES] + [(lg, n) for n, lg, lbl in NATIONWIDE]
+def logo_marquee(label="Trusted by 11 Tennessee Board of Regents colleges and institutions in six more states"):
     def shape(f):  # square/stacked logos get more height so they read as large as the wide wordmarks
         w, h = _dims(os.path.join(OUT, "assets", "img", "enlitedu", f))
         return ' class="tall"' if w and h and w / h < 1.8 else ""
