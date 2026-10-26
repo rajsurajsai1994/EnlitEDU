@@ -285,20 +285,20 @@
     });
   });
 
-  /* ---------- TBR announcement popup (Option A): once per visitor per 30 days; ?tbr-popup previews it ---------- */
+  /* ---------- TBR announcement popup: opens on every homepage visit; after ✕ it stays closed for that visit ---------- */
   var pop = document.querySelector(".tbr-pop");
   if (pop) {
     var popLocked = false, popLast = null;
     var openPop = function () {
       popLast = document.activeElement;
       pop.hidden = false;
-      requestAnimationFrame(function () { requestAnimationFrame(function () { pop.classList.add("open"); }); });
+      void pop.offsetWidth; pop.classList.add("open");  // reflow first so the fade-in transition runs
       if (!window.matchMedia("(max-width: 767px)").matches) { lockScroll(); popLocked = true; }  // mobile: page stays scrollable
       var x = pop.querySelector(".tbr-pop-x"); if (x) x.focus({ preventScroll: true });
-      try { localStorage.setItem("tbrPromoSeen", String(Date.now())); } catch (e) {}
     };
     var closePop = function () {
       if (pop.hidden) return;
+      try { sessionStorage.setItem("tbrPromoClosed", "1"); } catch (e) {}
       pop.classList.remove("open");
       if (popLocked) { unlockScroll(); popLocked = false; }
       setTimeout(function () { pop.hidden = true; }, 280);
@@ -309,9 +309,9 @@
     pop.querySelector(".tbr-pop-scrim").addEventListener("click", closePop);
     pop.querySelector(".tbr-pop-card a").addEventListener("click", function () { if (popLocked) { unlockScroll(); popLocked = false; } });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePop(); });
-    var seen = 0; try { seen = parseInt(localStorage.getItem("tbrPromoSeen") || "0", 10); } catch (e) {}
+    var closed = false; try { closed = sessionStorage.getItem("tbrPromoClosed") === "1"; } catch (e) {}
     var force = /[?&]tbr-popup\b/.test(location.search);
-    if (force || (pop.getAttribute("data-auto") === "1" && Date.now() - seen > 30 * 864e5)) setTimeout(openPop, force ? 400 : 1500);
+    if (force || (pop.getAttribute("data-auto") === "1" && !closed)) setTimeout(openPop, 700);
   }
 
   /* ---------- year ---------- */

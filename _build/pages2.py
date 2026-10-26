@@ -142,7 +142,7 @@ def build_stories():
     glance = ('<aside class="glance"><h3>At a glance</h3><img src="%s" alt="Roane State Community College" style="height:52px;width:auto;margin-bottom:12px">'
               '<div class="big"><div><b>90%%</b><span>faster evaluations</span></div><div><b>2 days</b><span>turnaround, from ~3 weeks</span></div></div>'
               '<dl><dt>Institution</dt><dd>Roane State Community College, Tennessee</dd><dt>Type</dt><dd>Public community college</dd><dt>SIS</dt><dd>Ellucian Banner</dd>'
-              '<dt>Modules</dt><dd><a href="%s">LioraAI Transfer Credit Intelligence</a></dd><dt>Time to go live</dt><dd>18 days, kickoff to production</dd></dl>'
+              '<dt>Modules</dt><dd><a href="%s">LioraAI Transfer Credit Intelligence</a></dd><dt>Time to go live</dt><dd>18 days, kickoff to production</dd><dt>After launch</dt><dd>Automatic DS and undergraduate attendance period split in Banner</dd></dl>'
               '<a class="btn-x btn-gold w-100 mt-4" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></aside>') % (u("assets/img/enlitedu/roane-state-community-college.png"), u("transfer-credit-intelligence.html"), u("request-demo.html"))
     story = ('<div class="story-body"><h2>The challenge</h2><p class="lead-lg">Like most community colleges, Roane State evaluates a steady flow of transcripts from students bringing credit from other institutions, with peaks before every term.</p>'
              '<p>Each transfer evaluation was researched and keyed by hand. A typical turnaround was about three weeks, which is a long time for a student deciding where to enroll, and it left the records team little room during peak periods. Approved credit then had to be entered into Banner manually.</p>'
@@ -151,13 +151,16 @@ def build_stories():
              '<h2>The results</h2><h3>Evaluation turnaround: about three weeks to two days</h3><p>Evaluators review recommendations instead of researching every course, which the college reports as a 90%% reduction in evaluation time.</p>'
              '<h3>No more double entry</h3><p>Approved transfer credit flows straight into Banner, removing a manual step and a source of errors.</p>'
              '<h3>Consistent, documented decisions</h3><p>Every decision carries its evidence and approver, so the same course is treated the same way every term.</p>'
+             '<h2>Beyond launch: DS and undergraduate attendance period split in Banner</h2>'
+             '<p>Our work with Roane didn’t stop at go-live. After launch, their team told us that DS courses combined with undergraduate courses were being tracked under a single attendance period in Banner, which made attendance hard to manage.</p>'
+             '<p>We built a feature that automatically splits these combined courses into separate attendance periods, so each group is tracked accurately without manual work. It reflects how we work: we stay invested in our clients’ success long after delivery.</p>'
              '<h2>In their own words</h2><p>Three members of the Roane State team talk about the change: the VP of Student Services &amp; Innovation, the Registrar, and the IT lead who ran the Banner integration.</p>'
              '<div class="row g-4 mt-2">%s</div><p class="note mt-4">%s</p></div>') % (u("transfer-credit-intelligence.html"), "".join('<div class="col-sm-6 col-lg-4">%s</div>' % vt_card(t) for t in TESTIMONIALS if t[0] in ("jamie", "jessica", "paul")), FOOTNOTE)
     body = (hero + '<section class="sec"><div class="container"><div class="row g-5"><div class="col-lg-8">%s</div><div class="col-lg-4">%s</div></div></div></section>' % (story, glance)
             + faq_block(ROANE_FAQS, title="Roane State FAQ", side_img="campus-columns") + posts_row(["how-to-speed-up-transfer-credit-evaluation", "ellucian-banner-integration-transcript-evaluation", "community-college-transfer-student-success"]) + cta_band())
     schema = [faq_schema(ROANE_FAQS, p2), breadcrumb([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Roane State Community College", p2)]),
               {"@type": "Article", "@id": BASE + "/" + p2, "headline": "Roane State Community College cuts transcript evaluation from three weeks to two days", "author": {"@id": BASE + "/#organization"},
-               "publisher": {"@id": BASE + "/#organization"}, "datePublished": "2026-10-03", "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
+               "publisher": {"@id": BASE + "/#organization"}, "datePublished": "2026-10-03", "dateModified": "2026-10-26", "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
                "about": [{"@type": "CollegeOrUniversity", "name": "Roane State Community College"}, {"@id": BASE + "/transfer-credit-intelligence.html#software"}]}] + [video_schema(t) for t in TESTIMONIALS if t[0] in ("jamie", "jessica", "paul")]
     page(p2, "Roane State Case Study: 3 Weeks to 2 Days | LioraAI",
          "Roane State Community College cut transcript evaluation from about three weeks to two days with LioraAI and went live on Ellucian Banner in 18 days.", body, schema=schema, active="customers", og_type="article")
@@ -169,12 +172,12 @@ def build_stories():
             '<div class="col-lg-5"><div class="visual"><div class="ph">%s</div>%s</div></div></div></div></section>'
             % (crumbs([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Nashville State", None)]), eyebrow("Customer story · Community college · Tennessee"),
                img("lecture-laugh", 900, eager=True, alt="Community college students in a lecture hall", ratio=(4, 3.3)), float_card("fa-bolt", "ok", "15 minutes → 2 minutes", "Per transcript, after go-live", "fc-a")))
-    glance = ('<aside class="glance"><h3>At a glance</h3><p style="font-weight:800;color:var(--navy);font-size:18px;margin-bottom:6px">Nashville State Community College</p>'
+    glance = ('<aside class="glance"><h3>At a glance</h3><img src="%s" alt="Nashville State Community College" style="height:52px;width:auto;margin-bottom:12px">'
               '<div class="big"><div><b>-87%%</b><span>per-transcript time (15 minutes to about 2 minutes)</span></div><div><b>-56%%</b><span>approval turnaround (18 hours to 8 hours on average)</span></div></div>'
               '<dl><dt>Institution</dt><dd>Nashville State Community College, Tennessee</dd><dt>Type</dt><dd>Public community college</dd>'
               '<dt>Module</dt><dd><a href="%s">LioraAI Transfer Credit Intelligence</a></dd><dt>SIS / CRM</dt><dd>Ellucian Banner, Slate</dd>'
               '<dt>Deployment</dt><dd>Full institutional, not a pilot</dd><dt>Client since</dt><dd>April 2026</dd><dt>Go-live</dt><dd>Mid-July 2026</dd></dl>'
-              '<a class="btn-x btn-gold w-100 mt-4" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></aside>') % (u("transfer-credit-intelligence.html"), u("request-demo.html"))
+              '<a class="btn-x btn-gold w-100 mt-4" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a></aside>') % (u("assets/img/enlitedu/nashville-state-community-college.png"), u("transfer-credit-intelligence.html"), u("request-demo.html"))
     nums = [("-87%", "Per-transcript time", "15 minutes to about 2 minutes"), ("-56%", "Approval turnaround", "18 hours to 8 hours on average"), ("2,158+", "Transcripts processed", "about 719 per month"),
             ("834+", "Sent to Banner", "400th on August 18, 2026"), ("89%", "Match confidence", "498 of 558 scored courses"), ("18", "Active faculty reviewers", "3 added in the last month")]
     numhtml = "".join('<div class="col-sm-6 col-md-4"><div class="stat-card"><div class="n%s">%s</div><p>%s</p><cite>%s</cite></div></div>' % (" gold" if i == 0 else "", n, l, c) for i, (n, l, c) in enumerate(nums))

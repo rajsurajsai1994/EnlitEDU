@@ -6,7 +6,7 @@ TBR has 13 community colleges in total, so never write "all" or "the entire syst
 # ---- switch between the two homepage options the client is choosing from
 TBR_PROMO = {
     "section": True,      # Option B: highlight section on the homepage (right after the logo strip)
-    "popup_auto": False,  # Option A: announcement popup opens by itself on the homepage (once per visitor / 30 days)
+    "popup_auto": True,   # Option A: announcement popup opens on the homepage every visit (closed = gone for the rest of that visit)
 }                         # Preview the popup any time with index.html?tbr-popup
 
 TBR = dict(name="Tennessee Board of Regents", system="College System of Tennessee", short="TBR",

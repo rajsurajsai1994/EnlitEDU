@@ -38,7 +38,7 @@ STORIES = {
  "roane": dict(url="case-studies/roane-state-community-college.html", name="Roane State Community College", logo="roane-state-community-college.png",
                title="Roane State Community College cuts transcript evaluation from three weeks to two days",
                kpis=[("90%", "faster evaluations"), ("18 days", "to go live on Banner")], img="campus-columns", tags="transfer-credit-intelligence community-college"),
- "nashville": dict(url="case-studies/nashville-state-community-college.html", name="Nashville State Community College", logo=None,
+ "nashville": dict(url="case-studies/nashville-state-community-college.html", name="Nashville State Community College", logo="nashville-state-community-college.png",
                    title="Nashville State cuts transfer evaluation from 15 minutes to 2 per transcript",
                    kpis=[("-87%", "per-transcript time"), ("-56%", "approval turnaround")], img="lecture-laugh", tags="transfer-credit-intelligence community-college"),
 }
@@ -128,17 +128,22 @@ def state_story_html(variant="home"):
 from data_tbr import TBR_PROMO, TBR, TBR_COLLEGES, NEWS_PATH
 
 def tbr_section_html():
-    """Option B: homepage highlight of the Tennessee Board of Regents win (indexable text: TBR + every college and city)."""
-    cards = "".join('<div class="tbr-card"><img src="%s" alt="%s" loading="lazy"><span><i class="fa-solid fa-location-dot"></i> %s, TN</span></div>'
-                    % (u("assets/img/enlitedu/" + lg), e(n), e(c)) for n, c, lg, w in TBR_COLLEGES)
-    return ('<section class="sec tbr" id="tbr" aria-labelledby="tbr-h"><div class="container">'
-            '<div class="tbr-head" data-aos="fade-up"><div>%s<h2 id="tbr-h">Trusted Across Tennessee: <span class="grad">11 TBR Community Colleges</span> Choose LioraAI</h2>'
-            '<p class="lede">The Tennessee Board of Regents has selected LioraAI for 11 community colleges across the College System of Tennessee: one evaluation engine, with each college keeping its own rules and approvals.</p></div>'
-            '<img class="tbr-logo" src="%s" alt="Tennessee Board of Regents, the College System of Tennessee" width="394" height="60"></div>'
-            '<div class="tbr-grid" data-aos="fade-up"><div class="tbr-stat"><b>11</b><span>community colleges across the College System of Tennessee</span></div>%s</div>'
-            '<div class="btn-row mt-4" data-aos="fade-up"><a class="btn-x btn-gold" href="%s">Read the announcement <i class="fa-solid fa-arrow-right"></i></a>'
-            '<a class="btn-x btn-ghost" href="%s">LioraAI for state systems</a></div></div></section>'
-            % (eyebrow("Tennessee Board of Regents · College System of Tennessee"), u("assets/img/enlitedu/" + TBR["logo"]), cards, u(NEWS_PATH), u("who-we-serve/state-systems.html")))
+    """Option B: celebration banner for the Tennessee Board of Regents win (compact, ~half a screen tall)."""
+    confetti = "".join('<i style="--x:%d%%;--d:%.1fs;--t:%.1fs;--c:%s;--r:%ddeg"></i>' % (x, d, t, c, r) for x, d, t, c, r in [
+        (4, 0.0, 7.0, "#ffd43e", 15), (11, 2.4, 8.5, "#6b85f8", 40), (19, 1.1, 6.5, "#ffffff", 70), (27, 3.6, 9.0, "#ffd43e", 25),
+        (36, 0.6, 7.5, "#ff8fa3", 55), (44, 2.9, 8.0, "#ffffff", 10), (52, 1.7, 6.8, "#ffd43e", 80), (61, 4.2, 9.5, "#6b85f8", 35),
+        (69, 0.3, 7.2, "#ffffff", 60), (77, 2.0, 8.8, "#ffd43e", 20), (85, 3.3, 7.8, "#ff8fa3", 45), (93, 1.4, 6.9, "#6b85f8", 75)])
+    logos = "".join('<img src="%s" alt="%s" title="%s, %s, Tennessee" loading="lazy">' % (u("assets/img/enlitedu/" + lg), e(n), e(n), e(c)) for n, c, lg, w in TBR_COLLEGES)
+    return ('<section class="tbr-cele on-dark" id="tbr" aria-labelledby="tbr-h"><div class="tbr-confetti" aria-hidden="true">%s</div><div class="container"><div class="tbr-cele-in">'
+            '<div class="tbr-cele-copy" data-aos="fade-up"><img class="tbr-cele-mlogo" src="%s" alt="" width="394" height="60"><span class="tbr-badge"><i class="fa-solid fa-trophy"></i> Big win · Tennessee Board of Regents</span>'
+            '<h2 id="tbr-h">Trusted Across Tennessee: <span class="grad">11 TBR Community Colleges</span> Choose LioraAI</h2>'
+            '<p>The Tennessee Board of Regents has selected LioraAI for 11 community colleges across the College System of Tennessee, from Memphis to Blountville.</p>'
+            '<div class="btn-row"><a class="btn-x btn-gold" href="%s">Read the announcement <i class="fa-solid fa-arrow-right"></i></a>'
+            '<a class="btn-x btn-ghost-light" href="%s">LioraAI for state systems</a></div></div>'
+            '<div class="tbr-cele-card" data-aos="fade-up" data-aos-delay="120"><div class="tbr-cele-top"><img class="tbr-cele-tbr" src="%s" alt="Tennessee Board of Regents, the College System of Tennessee" width="394" height="60">'
+            '<div class="tbr-cele-num"><b>11</b><span>community<br>colleges</span></div></div><div class="tbr-cele-logos">%s</div></div>'
+            '</div></div></section>'
+            % (confetti, u("assets/img/enlitedu/" + TBR["logo"]), u(NEWS_PATH), u("who-we-serve/state-systems.html"), u("assets/img/enlitedu/" + TBR["logo"]), logos))
 
 def tbr_popup_html():
     """Option A: announcement popup. Desktop: centred card; mobile: bottom panel that leaves the page visible (no intrusive interstitial)."""
