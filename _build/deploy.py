@@ -31,7 +31,25 @@ EXACT = {
     "/uncategorized/how-data-integration-improves-institutional-decision-making/": "/mobility.html",
     # browsers ask for this automatically
     "/favicon.ico": IMG + "favicon-32.png",
+    # duplicates of real pages
+    "/index.html": "/", "/coming-soon.html": "/", "/sitemap_index.xml": "/sitemap.xml",
 }
+# old WordPress pages Google still crawls (Search Console, Oct 2026); each gets the slash and no-slash form
+OLD_WP = {
+    "/lioraai": "/platform.html", "/what-we-do": "/platform.html",
+    "/about-us": "/about.html", "/our-network": "/about.html", "/our-advisor-board": "/about.html",
+    "/contact-us": "/contact.html", "/customer-support": "/contact.html", "/post-a-review": "/contact.html",
+    "/privacy-policy": "/privacy.html",
+    "/about-our-clients": "/case-studies.html", "/success-stories": "/case-studies.html",
+    "/who-we-work-with": "/who-we-serve/community-colleges.html",
+    "/tennessee": "/news/tennessee-board-of-regents-selects-lioraai.html",
+    "/new-jersey": "/transcript-evaluation-near-me.html", "/mississippi": "/transcript-evaluation-near-me.html",
+    "/south-carolina": "/transcript-evaluation-near-me.html", "/new-mexico": "/transcript-evaluation-near-me.html",
+    "/oregon": "/transcript-evaluation-near-me.html", "/louisiana": "/transcript-evaluation-near-me.html",
+    "/illinois": "/transcript-evaluation-near-me.html",
+}
+for _k, _v in OLD_WP.items():
+    EXACT.setdefault(_k, _v); EXACT.setdefault(_k + "/", _v)
 # 301 prefix redirects (legacy WordPress structure)
 PREFIX = [("/uncategorized/", "/blog.html"), ("/category/", "/blog.html"), ("/tag/", "/blog.html"), ("/author/", "/about.html"),
           ("/2023/", "/blog.html"), ("/2024/", "/blog.html"), ("/2025/", "/blog.html")]

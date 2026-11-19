@@ -195,6 +195,221 @@
       "permanent": true
     },
     {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/coming-soon.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/lioraai",
+      "destination": "/platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/lioraai/",
+      "destination": "/platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/what-we-do",
+      "destination": "/platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/what-we-do/",
+      "destination": "/platform.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/our-network",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/our-network/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/our-advisor-board",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/our-advisor-board/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/customer-support",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/customer-support/",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/post-a-review",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/post-a-review/",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-our-clients",
+      "destination": "/case-studies.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-our-clients/",
+      "destination": "/case-studies.html",
+      "permanent": true
+    },
+    {
+      "source": "/success-stories",
+      "destination": "/case-studies.html",
+      "permanent": true
+    },
+    {
+      "source": "/success-stories/",
+      "destination": "/case-studies.html",
+      "permanent": true
+    },
+    {
+      "source": "/who-we-work-with",
+      "destination": "/who-we-serve/community-colleges.html",
+      "permanent": true
+    },
+    {
+      "source": "/who-we-work-with/",
+      "destination": "/who-we-serve/community-colleges.html",
+      "permanent": true
+    },
+    {
+      "source": "/tennessee",
+      "destination": "/news/tennessee-board-of-regents-selects-lioraai.html",
+      "permanent": true
+    },
+    {
+      "source": "/tennessee/",
+      "destination": "/news/tennessee-board-of-regents-selects-lioraai.html",
+      "permanent": true
+    },
+    {
+      "source": "/new-jersey",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/new-jersey/",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/mississippi",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/mississippi/",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/south-carolina",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/south-carolina/",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/new-mexico",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/new-mexico/",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/oregon",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/oregon/",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/louisiana",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/louisiana/",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/illinois",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
+      "source": "/illinois/",
+      "destination": "/transcript-evaluation-near-me.html",
+      "permanent": true
+    },
+    {
       "source": "/images/alabama-a-m-university.png",
       "destination": "/assets/img/enlitedu/alabama-a-m-university.png",
       "permanent": true

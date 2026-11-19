@@ -14,13 +14,13 @@ STORIES_FAQS = [
  ("Does EnlitEDU work with institutions outside Tennessee?", "Yes. EnlitEDU serves colleges and universities across the United States. Demos, proof-of-concept evaluations and implementation run online for institutions in any state."),
 ]
 ROANE_FAQS = [
- ("How did Roane State reduce transcript evaluation time?", "By using LioraAI Transfer Credit Intelligence, evaluators review recommendations instead of researching every course. The college reports evaluation turnaround dropping from about three weeks to two days, a 90% reduction."),
+ ("How did Roane State reduce transcript evaluation time?", "By using LioraAI Transfer Credit Intelligence, evaluators review recommendations instead of researching every course. The college reports transcript evaluation dropping from 72 hours to less than 5 minutes."),
  ("Which student information system does Roane State use with LioraAI?", "Ellucian Banner. LioraAI posts approved transfer credit to Banner without manual re-entry."),
  ("How long did it take Roane State to go live?", "18 days from kickoff to production, working with the college’s IT team."),
 ]
 NASHVILLE_FAQS = [
  ("Which LioraAI module does Nashville State use?", "LioraAI Transfer Credit Intelligence (formerly LioraAI Articulate), deployed institution-wide and integrated with Ellucian Banner and Slate."),
- ("How much faster is transfer evaluation at Nashville State?", "Per-transcript time fell from about 15 minutes to about 2 minutes (87%), and average approval turnaround fell from 18 hours to 8 hours (56%), according to LioraAI platform data as of September 9, 2026."),
+ ("How much faster is transfer evaluation at Nashville State?", "Transcript evaluation now takes less than 10 minutes, and average approval turnaround fell from 18 hours to 8 hours (56%), according to LioraAI platform data as of September 9, 2026."),
  ("How many transcripts has Nashville State processed with LioraAI?", "More than 2,158 transcripts, about 719 a month, with 834+ sent to Banner. The 400th transcript was sent to the SIS on August 18, 2026."),
  ("How long did Nashville State’s implementation take?", "Nashville State became a client in April 2026, integrated Banner and Slate in May and June, and went live across the institution in July 2026."),
  ("Does LioraAI make the final credit decision at Nashville State?", "No. LioraAI recommends equivalencies with a confidence score; 18 faculty reviewers approve them. Courses below the confidence threshold go to people for review."),

@@ -63,7 +63,7 @@ dict(
 </ul>
 
 <h2>Where LioraAI fits</h2>
-<p>LioraAI evaluates transfer transcripts against each institution’s own rules and shows where each course applies, with evaluators approving every decision. <a href="../mobility.html">Student Mobility Intelligence</a> turns those decisions into data on credit loss and transfer yield. Roane State Community College in Tennessee cut evaluation time from about three weeks to two days, and Nashville State Community College cut per-transcript evaluation time from about 15 minutes to 2 minutes (87%) and approval turnaround from 18 to 8 hours (56%) after going live in July 2026.</p>
+<p>LioraAI evaluates transfer transcripts against each institution’s own rules and shows where each course applies, with evaluators approving every decision. <a href="../mobility.html">Student Mobility Intelligence</a> turns those decisions into data on credit loss and transfer yield. Roane State Community College in Tennessee cut transcript evaluation from 72 hours to less than 5 minutes, and Nashville State Community College brought transcript evaluation to less than 10 minutes and cut approval turnaround from 18 to 8 hours (56%) after going live in July 2026.</p>
 
 <h3>Sources</h3>
 <ul class="sources">

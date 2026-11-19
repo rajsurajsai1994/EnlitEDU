@@ -175,10 +175,10 @@ def header_html(active=""):
                _feature("registrar-docs", "See it live", "Watch LioraAI evaluate a transcript in two minutes", "how-it-works.html", "How it works")))
     sol = ('<div class="inner cols-2"><div><p class="mega-title">By outcome</p>%s</div><div><p class="mega-title">&nbsp;</p>%s</div>%s</div>'
            % ("".join(_mlink(*s) for s in SOLUTIONS_NAV[:3]), "".join(_mlink(*s) for s in SOLUTIONS_NAV[3:]),
-              _feature("grads-selfie", "Customer story", "Nashville State: 15 minutes to 2 per transcript", "case-studies/nashville-state-community-college.html", "Read the story")))
+              _feature("grads-selfie", "Customer story", "Nashville State: transcript evaluation in less than 10 minutes", "case-studies/nashville-state-community-college.html", "Read the story")))
     aud = ('<div class="inner cols-2"><div><p class="mega-title">By institution, nationwide</p>%s</div><div><p class="mega-title">&nbsp;</p>%s<p class="mega-title" style="margin-top:18px">By region</p>%s</div>%s</div>'
            % ("".join(_mlink(*a) for a in AUDIENCE_NAV[:2]), "".join(_mlink(*a) for a in AUDIENCE_NAV[2:]), _mlink(*REGION_NAV),
-              _feature("campus-columns", "Customer story", "Roane State cut transcript evaluation from three weeks to two days", "case-studies/roane-state-community-college.html", "Read the story")))
+              _feature("campus-columns", "Customer story", "Roane State cut transcript evaluation from 72 hours to less than 5 minutes", "case-studies/roane-state-community-college.html", "Read the story")))
     res = ('<div class="inner cols-2"><div><p class="mega-title">Learn</p>%s</div><div><p class="mega-title">&nbsp;</p>%s</div>%s</div>'
            % ("".join(_mlink(*r) for r in RESOURCES_NAV[:3]), "".join(_mlink(*r) for r in RESOURCES_NAV[3:]),
               _feature("veteran-notes", "New guide", "How to read a Joint Services Transcript without losing an afternoon", "blog/how-to-evaluate-joint-services-transcript-jst.html", "Read the guide")))

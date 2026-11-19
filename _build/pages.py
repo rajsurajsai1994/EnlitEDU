@@ -36,11 +36,11 @@ def posts_row(slugs, eb="Further reading", h2="Guides from the <span class=\"gra
 
 STORIES = {
  "roane": dict(url="case-studies/roane-state-community-college.html", name="Roane State Community College", logo="roane-state-community-college.png",
-               title="Roane State Community College cuts transcript evaluation from three weeks to two days",
-               kpis=[("90%", "faster evaluations"), ("18 days", "to go live on Banner")], img="campus-columns", tags="transfer-credit-intelligence community-college"),
+               title="Roane State Community College cuts transcript evaluation from 72 hours to less than 5 minutes",
+               kpis=[("&lt;5 min", "transcript evaluation, from 72 hours"), ("18 days", "to go live on Banner")], img="campus-columns", tags="transfer-credit-intelligence community-college"),
  "nashville": dict(url="case-studies/nashville-state-community-college.html", name="Nashville State Community College", logo="nashville-state-community-college.png",
-                   title="Nashville State cuts transfer evaluation from 15 minutes to 2 per transcript",
-                   kpis=[("-87%", "per-transcript time"), ("-56%", "approval turnaround")], img="lecture-laugh", tags="transfer-credit-intelligence community-college"),
+                   title="Nashville State brings transcript evaluation to less than 10 minutes",
+                   kpis=[("&lt;10 min", "transcript evaluation"), ("-56%", "approval turnaround")], img="lecture-laugh", tags="transfer-credit-intelligence community-college"),
 }
 def story_card(k):
     s = STORIES[k]
@@ -89,7 +89,7 @@ FLAGSHIP = ("transfer-credit-intelligence", "freshman-intelligence")
 FLAG = {
     "transfer-credit-intelligence": ("Automated transfer credit evaluation", "Evaluate every transfer transcript against your catalog, articulation agreements and state rules, then post approved credit to your SIS.",
                                      ["Maps any college transcript to your courses, with the evidence shown", "Applies state frameworks and your own equivalencies", "Writes approved credit to Banner, Colleague, Workday Student or PeopleSoft"],
-                                     ("15 minutes → 2 minutes", "per transcript at Nashville State")),
+                                     ("&lt;10 minutes", "transcript evaluation at Nashville State")),
     "freshman-intelligence": ("High school transcript automation", "Standardize every freshman applicant’s high school transcript with your documented GPA and rigor rules, the same way every time.",
                               ["Converts 4.0, 5.0, 6.0 and 100-point scales with one rule", "Recognizes AP, IB, Honors and dual enrollment rigor", "Sends clean records to Slate and your SIS"],
                               ("1 rule", "applied the same way to every applicant")),
@@ -120,7 +120,7 @@ def state_story_html(variant="home"):
     return ('<section class="sec tint-2"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-5" data-aos="fade-up">%s<h2>%s</h2>'
             '<p class="lede">The Tennessee Board of Regents has selected LioraAI for 11 community colleges across the College System of Tennessee, and Roane State and Nashville State are already live on their own catalogs and rules. '
             'The same engine scales across every campus in a system: shared transfer policy where you want consistency, campus decisions where you need them.</p>'
-            '<ul class="check-list"><li><span><b>Roane State:</b> live on Ellucian Banner in 18 days; evaluation from three weeks to two days</span></li>'
+            '<ul class="check-list"><li><span><b>Roane State:</b> live on Ellucian Banner in 18 days; transcript evaluation from 72 hours to less than 5 minutes</span></li>'
             '<li><span><b>Nashville State:</b> full institutional go-live in July 2026; 2,158+ transcripts processed by September</span></li>'
             '<li><span><b>Tennessee Board of Regents:</b> LioraAI selected for 11 community colleges. <a href="%s">Read the announcement</a></span></li></ul>%s</div>'
             '<div class="col-lg-7"><div class="row g-3">%s</div></div></div></div></section>' % (eyebrow(head[0]), head[1], u(NEWS_PATH), link, cards))
@@ -168,7 +168,7 @@ def build_home():
             '<p class="sub">LioraAI helps admissions and registrar teams evaluate transfer and high school transcripts, apply your institution’s rules and speed up enrollment decisions, with AI doing the work and your staff approving every decision.</p>'
             '<div class="sig-bar"></div><div class="btn-row"><a class="btn-x btn-gold" href="%s">Request a Demo <i class="fa-solid fa-arrow-right"></i></a>'
             '<a class="btn-x btn-ghost-light" href="%s">Watch Customer Stories <i class="fa-solid fa-play"></i></a></div>'
-            '<div class="proof-line"><div class="avatars">%s</div><span class="proof-pts"><span><b>Nashville State:</b> 15 minutes → 2 minutes per transcript</span><span><b>Roane State:</b> 3 weeks → 2 days to evaluate</span></span></div></div>'
+            '<div class="proof-line"><div class="avatars">%s</div><span class="proof-pts"><span><b>Nashville State:</b> transcript evaluation in less than 10 minutes</span><span><b>Roane State:</b> 72 hours → less than 5 minutes</span></span></div></div>'
             '<div class="col-lg-6"><div class="hero-visual">%s<div class="hero-photo">%s</div>%s%s%s</div></div></div></div></section>'
             % (eyebrow("LioraAI · AI transcript evaluation software for higher education"), u("request-demo.html"), u("case-studies.html") + "#voices", av, orbit,
                img("students-laptop", 900, eager=True, sizes="(max-width: 991px) 100vw, 560px", ratio=(5, 5.6)),
@@ -177,7 +177,7 @@ def build_home():
                float_card("fa-user-check", "blue", "Faculty review", "1 course flagged for a decision", "fc-3")))
 
     problem = ('<section class="sec"><div class="container"><div class="row align-items-center g-5"><div class="col-lg-5" data-aos="fade-right">'
-               '<div class="img-stack"><div class="a">%s</div><div class="b">%s</div><div class="tag"><b>3 weeks → 2 days</b><span>Evaluation turnaround at Roane State</span></div></div></div>'
+               '<div class="img-stack"><div class="a">%s</div><div class="b">%s</div><div class="tag"><b>72 hours → &lt;5 min</b><span>Transcript evaluation at Roane State</span></div></div></div>'
                '<div class="col-lg-7"><div class="sec-head mb-4" data-aos="fade-up">%s<h2>Students Move. Their <span class="grad">Credit Should Too.</span></h2>'
                '<p class="lede">More than a third of students transfer. Veterans bring years of training. Adult learners bring certifications and work experience. Every one of them asks the same question: what counts? The institution that answers first, and fairly, earns the enrollment.</p></div>'
                '<div class="row g-3">%s</div></div></div></div></section>'
@@ -187,7 +187,7 @@ def build_home():
     tab_btns = tab_panels = ""
     tab_data = [
         ("speed-up-credit-evaluation", "registrar-folder", ("fa-circle-check", "ok", "Queue cleared", "212 evaluations this week"), ["transfer-credit-intelligence", "freshman-intelligence", "veterans"]),
-        ("grow-transfer-enrollment", "students-group", ("fa-bolt", "ok", "15 minutes → 2 minutes", "Per transcript at Nashville State"), ["degree-pathway", "transfer-credit-intelligence", "mobility"]),
+        ("grow-transfer-enrollment", "students-group", ("fa-bolt", "ok", "&lt;10 minutes", "Transcript evaluation at Nashville State"), ["degree-pathway", "transfer-credit-intelligence", "mobility"]),
         ("serve-military-and-adult-learners", "veteran-family", ("fa-medal", "gold", "12 credits awarded", "JST evaluated with ACE citations"), ["veterans", "prior-learning-assessment"]),
         ("stay-audit-ready", "four-meeting", ("fa-fingerprint", "blue", "Decision recorded", "Evidence, rule and approver logged"), ["transfer-credit-intelligence", "freshman-intelligence", "veterans"]),
         ("improve-completion-and-retention", "grad-woman", ("fa-user-check", "blue", "Credit applied", "Before the first advising session"), ["degree-pathway", "mobility"]),
@@ -222,8 +222,8 @@ def build_home():
               eyebrow("Explainable by design"), arrow("How LioraAI works", "how-it-works.html"), BY_SLUG["transfer-credit-intelligence"]["mock"]()))
 
     proof_cells = [("1", "M+", "course descriptions in LioraAI’s mapping corpus", "EnlitEDU", ""), ("60", "", "seconds or less to evaluate a full transcript", "EnlitEDU product measurement", "<"),
-                   ("90", "%", "faster transcript evaluation at Roane State Community College", "Reported by Roane State", ""), ("18", " days", "from kickoff to live on Ellucian Banner", "Roane State implementation", ""),
-                   ("87", "%", "less time per transcript at Nashville State (15 minutes to 2 minutes)", "LioraAI platform data, September 2026", ""), ("130", "+", "countries’ transcripts supported, with grading normalized", "EnlitEDU", "")]
+                   ("5", " min", "transcript evaluation at Roane State Community College, down from 72 hours", "Reported by Roane State", "<"), ("18", " days", "from kickoff to live on Ellucian Banner", "Roane State implementation", ""),
+                   ("10", " min", "transcript evaluation at Nashville State Community College", "LioraAI platform data, September 2026", "<"), ("130", "+", "countries’ transcripts supported, with grading normalized", "EnlitEDU", "")]
     cells = "".join('<div class="cell" data-aos="fade-up" data-aos-delay="%d"><b>%s<span data-count="%s">%s</span><span class="u">%s</span></b><span>%s</span><small>%s</small></div>'
                     % (i * 70, e(pre), n, n, suf, t, src) for i, (n, suf, t, src, pre) in enumerate(proof_cells))
     proof = ('<section class="sec dark"><div class="container">%s<div class="proof">%s</div><p class="note mt-3">%s</p></div></section>'
@@ -231,7 +231,7 @@ def build_home():
     voices = testimonials_section(dark=False)
 
     tiles_data = [
-        ("fa-star", "Customer Stories", "campus-columns", "Results from real campuses", "Roane State cut evaluation turnaround from three weeks to two days. Nashville State cut per-transcript time from 15 minutes to 2.", "Read customer stories", "case-studies.html"),
+        ("fa-star", "Customer Stories", "campus-columns", "Results from real campuses", "Roane State cut transcript evaluation from 72 hours to less than 5 minutes. Nashville State brought transcript evaluation to less than 10 minutes.", "Read customer stories", "case-studies.html"),
         ("fa-rocket", "Live in Weeks", "team-collab", "Live in two to four weeks", "Standard Banner, Colleague, Workday and PeopleSoft integrations take two to four weeks. Roane State went live on Banner in 18 days.", "See integrations", "integrations.html"),
         ("fa-shield-halved", "Security & FERPA", "registrar-desk", "Built for institutions that answer to FERPA", "EnlitEDU acts as a school official under your control. Encryption, a DPA with every contract, a SOC 2 program and no training on student records.", "Security & Trust", "security.html"),
         ("fa-lightbulb", "Research & Insights", "library-red", "Practical guides for registrars", "Plain-English guides on JST evaluation, reverse transfer, GPA standardization, FERPA and the transfer portal, written for the people who do the work.", "Read the blog", "blog.html"),
