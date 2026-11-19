@@ -1,4 +1,4 @@
-image: amazon/aws-cli:2
+image: amazon/aws-cli:2.32.0
 
 pipelines:
   branches:
