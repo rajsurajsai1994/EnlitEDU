@@ -162,11 +162,43 @@ Web3Forms' free plan can't attach files, so candidates paste a résumé link; up
 
 ## Live site (launched Oct 17, 2026 on AWS S3 + CloudFront)
 
-Upload only the website, never the repo or build tools:
+### Automatic deployment from Bitbucket
 
-```bash
-aws s3 sync . s3://YOUR-BUCKET --delete --exclude ".git/*" --exclude "_build/*" --exclude "README.md" --exclude ".gitignore" --exclude ".vercelignore" --exclude "vercel.json" --exclude "_redirects" --exclude "_headers" --exclude ".htaccess"
-aws cloudfront create-invalidation --distribution-id YOUR-DISTRIBUTION-ID --paths "/*"
-```
+`bitbucket-pipelines.yml` deploys every push to `main` (including merged pull requests)
+to `s3://enlitedu-website-v1` in `us-east-1`, then invalidates all paths on CloudFront
+distribution `E3H11K91TRVZQF`. The step waits for the invalidation to finish.
+
+One-time configuration:
+
+1. Enable Pipelines in this Bitbucket repository.
+2. Set the workspace variable `DEV_AWS_ROLE_ARN` to the deployment role ARN.
+3. Configure the AWS IAM role's OIDC trust using the identity provider URL, audience,
+   and repository UUID shown in **Repository settings > Pipelines > OpenID Connect**.
+   Allow `sts:AssumeRoleWithWebIdentity`, match the audience, and restrict the subject
+   to this repository (`<repository-uuid>:*`). Use the exact UUID including braces
+   shown by Bitbucket. The pipeline itself runs only for `main`.
+4. Give the role `s3:ListBucket` on `arn:aws:s3:::enlitedu-website-v1`,
+   `s3:PutObject` and `s3:DeleteObject` on `arn:aws:s3:::enlitedu-website-v1/*`,
+   and `cloudfront:CreateInvalidation` and `cloudfront:GetInvalidation` on
+   `arn:aws:cloudfront::608153221669:distribution/E3H11K91TRVZQF`.
+
+No AWS access keys are required. The OIDC token is written to a temporary file outside
+the staged website and removed when the step exits.
+
+The pipeline uploads the **committed HTML and assets**. It does not run the Python
+generator, which currently references an external local blog source folder. If you
+edit `_build/`, rebuild locally and commit the generated website files too.
+Only root HTML files, `robots.txt`, `sitemap.xml`, `llms.txt`, `manifest.json`, and
+the public directories listed in the pipeline are staged. Add any new public
+directories or root assets to that list. Build tools, repository metadata, CI
+configuration, and `cloudfront-function-redirects.js` are not uploaded.
+
+The sync uses `--delete`: objects absent from the staged site are removed from the
+bucket, so this bucket must be dedicated to the website. Existing CloudFront routing,
+redirect functions, error responses, and response headers remain configured separately
+as described above; uploading files does not update them.
+
+For a manual deployment, use the staging and AWS commands in the pipeline with
+your local AWS credentials.
 
 Check the live site any time with `python _build/live_audit.py` (hosts, every sitemap page vs the build, redirects, real 404, private files, headers).

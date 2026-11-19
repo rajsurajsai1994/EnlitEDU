@@ -1,0 +1,37 @@
+image: amazon/aws-cli:2
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Deploy website to S3 and invalidate CloudFront
+          oidc: true
+          script:
+            - |
+              set -eu
+              : "${DEV_AWS_ROLE_ARN:?Set the DEV_AWS_ROLE_ARN Bitbucket workspace variable}"
+              : "${BITBUCKET_STEP_OIDC_TOKEN:?Bitbucket OIDC token is missing}"
+
+              export AWS_DEFAULT_REGION=us-east-1
+              export AWS_REGION=us-east-1
+              export AWS_PAGER=""
+              unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_PROFILE
+              export AWS_ROLE_ARN="$DEV_AWS_ROLE_ARN"
+
+              # Keep the OIDC token outside the website upload directory.
+              umask 077
+              export AWS_WEB_IDENTITY_TOKEN_FILE="$(mktemp)"
+              site_dir="$(mktemp -d)"
+              trap 'rm -f "$AWS_WEB_IDENTITY_TOKEN_FILE"; rm -rf "$site_dir"' EXIT
+              printf '%s' "$BITBUCKET_STEP_OIDC_TOKEN" > "$AWS_WEB_IDENTITY_TOKEN_FILE"
+
+              # Publish the committed static site; build tools and CI files stay private.
+              cp -- *.html robots.txt sitemap.xml llms.txt manifest.json "$site_dir/"
+              cp -R -- assets blog careers case-studies georgia news solutions who-we-serve "$site_dir/"
+              test -s "$site_dir/index.html"
+              test -s "$site_dir/404.html"
+
+              aws sts get-caller-identity
+              aws s3 sync "$site_dir/" s3://enlitedu-website-v1/ --delete --only-show-errors
+              invalidation_id="$(aws cloudfront create-invalidation --distribution-id E3H11K91TRVZQF --paths '/*' --query 'Invalidation.Id' --output text)"
+              aws cloudfront wait invalidation-completed --distribution-id E3H11K91TRVZQF --id "$invalidation_id"
