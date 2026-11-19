@@ -197,7 +197,7 @@ def build_stories():
              '<h2>The results, by the numbers</h2><div class="row g-3 mt-1">%s</div>'
              '<p class="mt-4">Of 558 scored courses, 342 matched with high confidence (90%% or above) and 156 with medium confidence (75 to 89%%); 60 fell below the threshold and went to people for review. Monthly volume doubled over three months, and the best turnaround on record is 4 hours.</p>'
              '<p class="note">All statistics from LioraAI platform data as of September 9, 2026.</p>'
-             '<h2>In their own words</h2>%s%s'
+             '<h2>In their own words</h2>%s%s%s'
              '<p>The ability to see exactly which equivalency was denied, and when, was described internally as a game changer, because it keeps students in proper course credit instead of elective defaults.</p>'
              '<h2>Implementation timeline</h2><div class="timeline mt-3">%s</div>'
              '<h2>Four lessons for higher education leaders</h2><ol>'
@@ -208,6 +208,7 @@ def build_stories():
              '<h2>Watch: Nashville State leadership</h2><p>Alexis Pope, Vice President of Student Affairs &amp; Enrollment Management, on working with EnlitEDU.</p>'
              '<div class="row g-4 mt-2"><div class="col-sm-6 col-lg-5">%s</div></div></div>') % (
                  u("transfer-credit-intelligence.html"), numhtml,
+                 quote("Just did a transcript in 2 minutes that would’ve taken 15 under our current system. The advisor was able to meet the student where they are at and keep an advising appointment even though they turned their transcript at the last minute.", "Kevin Thomas, Nashville State Community College"),
                  quote("We just sent our 400th transcript to SIS from LioraAI!", "Kevin Thomas, Nashville State Community College, milestone message to the project team, August 18, 2026"),
                  quote("You are LITERALLY building the most advanced transcript articulation product on the planet right now. This. Is. Amazing.", "Alexis Pope, Nashville State Community College"),
                  timeline, vt_card(TESTIMONIALS[1]))
@@ -216,7 +217,8 @@ def build_stories():
     schema = [faq_schema(NASHVILLE_FAQS, p3), breadcrumb([("Home", "index.html"), ("Customer Stories", "case-studies.html"), ("Nashville State Community College", p3)]),
               {"@type": "Article", "@id": BASE + "/" + p3, "headline": "Nashville State brings transcript evaluation to less than 10 minutes", "author": {"@id": BASE + "/#organization"},
                "publisher": {"@id": BASE + "/#organization"}, "datePublished": "2026-10-16", "dateModified": "2026-10-16", "image": BASE + "/assets/img/enlitedu/og-lioraai.jpg",
-               "about": [{"@type": "CollegeOrUniversity", "name": "Nashville State Community College", "address": {"@type": "PostalAddress", "addressRegion": "TN", "addressCountry": "US"}}, {"@id": BASE + "/transfer-credit-intelligence.html#software"}]},
+               "about": [{"@type": "CollegeOrUniversity", "name": "Nashville State Community College", "address": {"@type": "PostalAddress", "addressRegion": "TN", "addressCountry": "US"}}, {"@id": BASE + "/transfer-credit-intelligence.html#software"}],
+               "review": [{"@type": "Review", "reviewBody": "Just did a transcript in 2 minutes that would have taken 15 under our current system.", "author": {"@type": "Person", "name": "Kevin Thomas"}, "itemReviewed": {"@id": BASE + "/transfer-credit-intelligence.html#software"}}]},
               video_schema(TESTIMONIALS[1])]
     page(p3, "Nashville State Case Study: Less Than 10 Minutes | LioraAI",
          "Nashville State Community College brought transcript evaluation to less than 10 minutes and cut approval time by 56% with LioraAI on Banner and Slate.", body, schema=schema, active="customers", og_type="article")

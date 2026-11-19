@@ -8,6 +8,7 @@ import pages2 as P2
 import pages3 as P3
 from data_georgia import GA_PAGES, GA_POSTS, NEAR_ME
 from data_us_posts import US_POSTS
+from data_founder_posts import FOUNDER_POSTS
 from data_modules import MODULES, MODULES_ALL, BY_SLUG
 from data_more import SOLUTIONS, AUDIENCES
 
@@ -31,7 +32,8 @@ POST_MODULE = {"how-to-evaluate-joint-services-transcript-jst": "veterans", "tra
                "reverse-transfer-associate-degree-explained": "mobility", "gpa-standardization-problem": "freshman-intelligence", "prior-learning-assessment-guide": "prior-learning-assessment",
                "community-college-transfer-student-success": "transfer-credit-intelligence", "transfer-student-retention-strategies": "transfer-credit-intelligence", "hbcu-enrollment-transfer-credit-challenges": "transfer-credit-intelligence",
                "tcsg-to-usg-transfer-core-impacts-guide": "transfer-credit-intelligence", "hope-gpa-vs-admissions-gpa-georgia": "freshman-intelligence", "how-to-choose-transcript-evaluation-software": "transfer-credit-intelligence",
-               "us-community-college-transfer-statistics": "mobility", "state-transfer-policies-us-guide": "transfer-credit-intelligence", "dual-enrollment-credit-evaluation-us-colleges": "freshman-intelligence"}
+               "us-community-college-transfer-statistics": "mobility", "state-transfer-policies-us-guide": "transfer-credit-intelligence", "dual-enrollment-credit-evaluation-us-colleges": "freshman-intelligence",
+               "new-federal-transfer-credit-rule-aim-2027": "transfer-credit-intelligence"}
 
 ATHLETE_P = ('<p><a href="../athletics.html">LioraAI Athlete Transcripts</a> is built for that spot in the process. It evaluates the incoming transcript against your degree requirements and hands your certification officer a draft — eligibility status, degree progress, and the specific gaps — while the portal window is still open instead of after it\'s closed.</p>')
 ATHLETE_NEW = ('<p><a href="../transfer-credit-intelligence.html">LioraAI Transfer Credit Intelligence</a> fits that spot in the process. It evaluates the incoming transcript against your catalog and rules, the same way for athletes and non-athletes, and hands your staff a documented draft while the portal window is still open instead of after it\'s closed.</p>')
@@ -81,7 +83,7 @@ def load_posts():
                 "reverse-transfer-associate-degree-explained": "A student transfers in with 50 credits and earns 20 more, leaving an unclaimed associate degree behind. Reverse transfer fixes that, if the plumbing works."}
     for k, v in DESC_FIX.items():
         if k in posts: posts[k]["desc"] = v
-    for g in GA_POSTS + US_POSTS:  # native posts (Georgia guides + national articles)
+    for g in GA_POSTS + US_POSTS + FOUNDER_POSTS:  # native posts (Georgia guides, national articles, founder articles)
         d = datetime.date.fromisoformat(g["date"])
         posts[g["slug"]] = dict(g, region=g.get("region"), date_h=d.strftime("%B %-d, %Y") if os.name != "nt" else d.strftime("%B %#d, %Y"),
                                 filter=FILTER.get(g["tag"], "transfer"), modified=g["date"])
@@ -109,15 +111,24 @@ def build_post(p, posts):
     body = p["body"]
     body = re.sub(r'href="\.\./([a-z\-]+\.html)"', lambda m: 'href="%s"' % u(m.group(1)), body)
     m = BY_SLUG.get(POST_MODULE.get(p["slug"], ""))
+    by_cs = p.get("author") == "cs"   # written by the founder (adapted from her own posts)
+    byline = ('By <a href="%s" style="color:inherit;text-decoration:underline">Chaitanya Saripalli</a>, Founder &amp; CEO' % u("about.html#leadership")) if by_cs else "EnlitEDU Team · Reviewed by Chaitanya Saripalli"
     hero = ('<section class="page-hero on-dark"><div class="container"><div class="article">%s<span class="eyebrow">%s</span><h1 style="font-size:clamp(32px,4vw,50px)">%s</h1><p class="sub">%s</p>'
-            '<div class="meta-row"><span><i class="fa-solid fa-calendar-days"></i> %s</span><span><i class="fa-solid fa-clock"></i> %d min read</span><span><i class="fa-solid fa-user"></i> EnlitEDU Team · Reviewed by Chaitanya Saripalli</span></div></div></div></section>'
-            % (crumbs([("Home", "index.html"), ("Blog", "blog.html"), (p["tag"], None)]), e(p["tag"]), e(p["title"]), e(p["sub"] or p["desc"]), p["date_h"], p["mins"]))
-    cover = '<div class="article" style="margin-top:-70px;position:relative;z-index:2"><div class="split-img" style="aspect-ratio:16/8.5">%s</div></div>' % img(p["img"], 1200, eager=True, sizes="(max-width: 800px) 100vw, 760px", ratio=(16, 8.5))
-    author = ('<div class="author-box"><span class="av"><img src="%s" alt="" width="52" height="52"></span><div><b>EnlitEDU Team</b><span>Written with registrars, evaluators and enrollment leaders. Updated %s.</span></div></div>'
-              % (u("assets/img/enlitedu/favicon-192.png"), p["modified"]))
-    author += ('<div class="author-box reviewer"><span class="av"><img src="%s" alt="Chaitanya Saripalli" width="52" height="52" style="object-fit:cover"></span><div>'
-               '<b>Reviewed by <a href="%s">Chaitanya Saripalli</a></b><span>Founder &amp; CEO of EnlitEDU and founder of Anatta IT Solutions, which supports colleges’ student information systems. '
-               '<a href="%s" target="_blank" rel="noopener">LinkedIn</a></span></div></div>' % (u("assets/img/enlitedu/chaitanya-saripalli.jpg"), u("about.html#leadership"), CS_LINKEDIN))
+            '<div class="meta-row"><span><i class="fa-solid fa-calendar-days"></i> <time datetime="%s">%s</time></span><span><i class="fa-solid fa-clock"></i> %d min read</span><span><i class="fa-solid fa-user"></i> %s</span></div></div></div></section>'
+            % (crumbs([("Home", "index.html"), ("Blog", "blog.html"), (p["tag"], None)]), e(p["tag"]), e(p["title"]), e(p["sub"] or p["desc"]), p["date"], p["date_h"], p["mins"], byline))
+    cr = p.get("cover_ratio", (16, 8.5))
+    cover = '<div class="article" style="margin-top:-70px;position:relative;z-index:2"><div class="split-img" style="aspect-ratio:%s/%s">%s</div></div>' % (cr[0], cr[1], img(p["img"], 1200, eager=True, sizes="(max-width: 800px) 100vw, 760px", ratio=cr))
+    if by_cs:
+        author = ('<div class="author-box"><span class="av"><img src="%s" alt="Chaitanya Saripalli" width="52" height="52" style="object-fit:cover"></span><div>'
+                  '<b>By <a href="%s">Chaitanya (Tanya) Saripalli</a>, Founder &amp; CEO, EnlitEDU</b><span>Founder of EnlitEDU and of Anatta IT Solutions, which supports colleges’ student information systems. '
+                  'Adapted from her <a href="%s" target="_blank" rel="noopener">LinkedIn article</a> of %s. <a href="%s" target="_blank" rel="noopener">Follow on LinkedIn</a></span></div></div>'
+                  % (u("assets/img/enlitedu/chaitanya-saripalli.jpg"), u("about.html#leadership"), p["based_on"][0], datetime.date.fromisoformat(p["original_date"]).strftime("%B %#d, %Y" if os.name == "nt" else "%B %-d, %Y"), CS_LINKEDIN))
+    else:
+        author = ('<div class="author-box"><span class="av"><img src="%s" alt="" width="52" height="52"></span><div><b>EnlitEDU Team</b><span>Written with registrars, evaluators and enrollment leaders. Updated %s.</span></div></div>'
+                  % (u("assets/img/enlitedu/favicon-192.png"), p["modified"]))
+        author += ('<div class="author-box reviewer"><span class="av"><img src="%s" alt="Chaitanya Saripalli" width="52" height="52" style="object-fit:cover"></span><div>'
+                   '<b>Reviewed by <a href="%s">Chaitanya Saripalli</a></b><span>Founder &amp; CEO of EnlitEDU and founder of Anatta IT Solutions, which supports colleges’ student information systems. '
+                   '<a href="%s" target="_blank" rel="noopener">LinkedIn</a></span></div></div>' % (u("assets/img/enlitedu/chaitanya-saripalli.jpg"), u("about.html#leadership"), CS_LINKEDIN))
     faq_html = ""
     if p["faqs"]:
         items = "".join('<div class="faq-item%s"><button class="faq-q" type="button" aria-expanded="%s">%s<span class="pm"><i class="fa-solid fa-plus"></i></span></button><div class="faq-a"><div><p>%s</p></div></div></div>'
@@ -145,9 +156,20 @@ def build_post(p, posts):
     cites = re.findall(r'<ul class="sources">(.*?)</ul>', body, re.S)
     if cites:
         schema[1]["citation"] = sorted(set(re.findall(r'href="(https?://[^"]+)"', cites[0])))
+    og = src_url(p["img"], 1200)
+    if by_cs:
+        bp = schema[1]
+        bp["author"] = {"@id": PERSON_CS["@id"]}; bp.pop("editor", None)
+        bp["isBasedOn"] = [{"@type": "Article", "url": p["based_on"][0], "datePublished": p["original_date"], "author": {"@id": PERSON_CS["@id"]}, "publisher": {"@type": "Organization", "name": "LinkedIn"}},
+                           {"@type": "SocialMediaPosting", "url": p["based_on"][1], "datePublished": p["original_date"], "author": {"@id": PERSON_CS["@id"]}}]
+        bp["image"] = [BASE + x for x in p["images"]]
+        bp["about"] = [p["about_rule"], {"@type": "Thing", "name": "Transfer of credit"}]
+        bp["mentions"] = [{"@type": "GovernmentOrganization", "name": "U.S. Department of Education"}, {"@id": BASE + "/transfer-credit-intelligence.html#software"}]
+        bp["speakable"]["cssSelector"] = ["h1", ".page-hero .sub", ".takeaways"]
+        og = BASE + p["og_image"]
     if p["faqs"]:
         schema.append(faq_schema(p["faqs"], path))
-    page(path, SEO_TITLE.get(p["slug"]) or ("%s | EnlitEDU" % p["title"] if len(p["title"]) < 52 else p["title"]), p["desc"], page_body, schema=schema, active="resources", og_type="article", image=src_url(p["img"], 1200))
+    page(path, p.get("seo_title") or SEO_TITLE.get(p["slug"]) or ("%s | EnlitEDU" % p["title"] if len(p["title"]) < 52 else p["title"]), p["desc"], page_body, schema=schema, active="resources", og_type="article", image=og)
 
 def build_blog_index(posts):
     path = "blog.html"; set_depth(path)
@@ -237,6 +259,7 @@ def main():
            "Key facts: Roane State Community College cut transcript evaluation from 72 hours to less than 5 minutes and went live on Ellucian Banner in 18 days. Nashville State Community College brought transcript evaluation to less than 10 minutes and cut approval turnaround from 18 to 8 hours (56%) after going live in July 2026. Student records are never used to train general-purpose AI models. EnlitEDU acts as a FERPA school official under the institution's control. Headquarters: Cumming, Georgia. Contact: info@enlitedu.com.", "",
            "Customers: the Tennessee Board of Regents has selected LioraAI for 11 community colleges across the College System of Tennessee (Chattanooga State, Cleveland State, Columbia State, Jackson State, Motlow State, Nashville State, Northeast State, Pellissippi State, Roane State, Southwest Tennessee, Volunteer State). Other customers include Alabama A&M University, Miles College, WSU Tech, Villanova University, Johnston Community College, Vincennes University and Minnesota State University, Mankato. Announcement: https://www.enlitedu.com/news/tennessee-board-of-regents-selects-lioraai.html", "",
            "Leadership: Chaitanya Saripalli, Founder & CEO of EnlitEDU (https://www.linkedin.com/in/chaitanyasaripalli/). Module names: LioraAI Transfer Credit Intelligence (formerly Articulate) for transfer credit evaluation; LioraAI Freshman Intelligence (formerly Assess) for freshman / first-year transcript evaluation.", "",
+           "Policy context: the U.S. Department of Education's Accreditation, Innovation, and Modernization (AIM) final rule (91 FR 68626, October 30, 2026; effective July 1, 2027) requires colleges, for undergraduate programs, to award transfer credit for comparable coursework or give a written, course-specific reason for each denial (34 CFR 602.24(e), 668.43(c)); students may appeal within 15 calendar days, and timely transcripts must get a written credit decision before the student enrolls, registers or pays. Analysis by Chaitanya Saripalli: %s/blog/new-federal-transfer-credit-rule-aim-2027.html" % BASE, "",
            "Where we work: colleges, universities, technical colleges and state systems across the United States. Demos, implementation and training run online in every state. Georgia/Atlanta pages below are regional guides, not a service limit.", "",
            "## Modules"] + ["- [%s](%s/%s.html): %s" % (m["name"], BASE, m["slug"], m["desc"]) for m in MODULES] + [
            "", "## Solutions"] + ["- [%s](%s/solutions/%s.html): %s" % (s["nav"], BASE, s["slug"], s["desc"]) for s in SOLUTIONS] + [

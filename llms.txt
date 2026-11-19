@@ -8,6 +8,8 @@ Customers: the Tennessee Board of Regents has selected LioraAI for 11 community 
 
 Leadership: Chaitanya Saripalli, Founder & CEO of EnlitEDU (https://www.linkedin.com/in/chaitanyasaripalli/). Module names: LioraAI Transfer Credit Intelligence (formerly Articulate) for transfer credit evaluation; LioraAI Freshman Intelligence (formerly Assess) for freshman / first-year transcript evaluation.
 
+Policy context: the U.S. Department of Education's Accreditation, Innovation, and Modernization (AIM) final rule (91 FR 68626, October 30, 2026; effective July 1, 2027) requires colleges, for undergraduate programs, to award transfer credit for comparable coursework or give a written, course-specific reason for each denial (34 CFR 602.24(e), 668.43(c)); students may appeal within 15 calendar days, and timely transcripts must get a written credit decision before the student enrolls, registers or pays. Analysis by Chaitanya Saripalli: https://www.enlitedu.com/blog/new-federal-transfer-credit-rule-aim-2027.html
+
 Where we work: colleges, universities, technical colleges and state systems across the United States. Demos, implementation and training run online in every state. Georgia/Atlanta pages below are regional guides, not a service limit.
 
 ## Modules
@@ -56,6 +58,7 @@ Where we work: colleges, universities, technical colleges and state systems acro
 - [FAQ](https://www.enlitedu.com/faq.html)
 
 ## Blog
+- [The New Federal Transfer Credit Rule: What Colleges Must Do by July 1, 2027](https://www.enlitedu.com/blog/new-federal-transfer-credit-rule-aim-2027.html)
 - [Community College Transfer Statistics: What U.S. Data Shows](https://www.enlitedu.com/blog/us-community-college-transfer-statistics.html)
 - [State Transfer Policies in the U.S.: A Registrar’s Guide](https://www.enlitedu.com/blog/state-transfer-policies-us-guide.html)
 - [Dual Enrollment Credit Evaluation: A Guide for U.S. Colleges](https://www.enlitedu.com/blog/dual-enrollment-credit-evaluation-us-colleges.html)

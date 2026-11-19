@@ -41,6 +41,9 @@ def build_tbr_news():
         '<h2>Already proven in Tennessee</h2>'
         '<p>Two TBR colleges are already live. <a href="%s">Roane State Community College</a> cut transcript evaluation from 72 hours to less than 5 minutes and went live on Ellucian Banner in 18 days. '
         '<a href="%s">Nashville State Community College</a> brought transcript evaluation to less than 10 minutes after going live across the institution in July 2026.</p>'
+        '<h2>Why the timing matters</h2>'
+        '<p>The U.S. Department of Education’s new accreditation rule, the Accreditation, Innovation, and Modernization (AIM) final rule, takes effect July 1, 2027. It requires colleges to give transfer students course-by-course credit decisions, with a written reason for each denial, before they enroll: for a transcript submitted on time, before the student signs an enrollment agreement, registers or makes a nonrefundable payment. '
+        'Students then have 15 calendar days to appeal. <a href="%s">Read Chaitanya Saripalli’s breakdown of the new federal transfer credit rule</a>.</p>'
         '<h2>About EnlitEDU</h2>'
         '<p>EnlitEDU builds LioraAI, AI transcript evaluation software for colleges and universities across the United States, including LioraAI Transfer Credit Intelligence and LioraAI Freshman Intelligence. '
         'Beyond Tennessee, EnlitEDU works with HBCUs, universities, technical and community colleges in %s. The company is headquartered in Cumming, Georgia.</p>'
@@ -49,7 +52,7 @@ def build_tbr_news():
         '<a class="btn-x btn-navy btn-sm" href="%s">LioraAI for state systems <i class="fa-solid fa-arrow-right"></i></a></div>'
         '<h2>Frequently asked questions</h2><div class="faq-wrap">%s</div></div>'
         % ("Tennessee, %s." % date_h, TBR["url"], cards, u("case-studies/roane-state-community-college.html"), u("case-studies/nashville-state-community-college.html"),
-           NATIONWIDE_STATES, u("who-we-serve/state-systems.html"),
+           u("blog/new-federal-transfer-credit-rule-aim-2027.html"), NATIONWIDE_STATES, u("who-we-serve/state-systems.html"),
            "".join('<div class="faq-item%s"><button class="faq-q" type="button" aria-expanded="%s">%s<span class="pm"><i class="fa-solid fa-plus"></i></span></button><div class="faq-a"><div><p>%s</p></div></div></div>'
                    % (" open" if i == 0 else "", "true" if i == 0 else "false", e(q), e(a)) for i, (q, a) in enumerate(news_faqs()))))
     logo_band = ('<div class="article" style="margin-top:-60px;position:relative;z-index:2"><div class="tbr-banner"><img src="%s" alt="Tennessee Board of Regents, the College System of Tennessee" width="394" height="60"><span><b>11</b> community colleges across the College System of Tennessee</span></div></div>'
