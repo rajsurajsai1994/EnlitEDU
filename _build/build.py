@@ -118,6 +118,8 @@ def build_post(p, posts):
             % (crumbs([("Home", "index.html"), ("Blog", "blog.html"), (p["tag"], None)]), e(p["tag"]), e(p["title"]), e(p["sub"] or p["desc"]), p["date"], p["date_h"], p["mins"], byline))
     cr = p.get("cover_ratio", (16, 8.5))
     cover = '<div class="article" style="margin-top:-70px;position:relative;z-index:2"><div class="split-img" style="aspect-ratio:%s/%s">%s</div></div>' % (cr[0], cr[1], img(p["img"], 1200, eager=True, sizes="(max-width: 800px) 100vw, 760px", ratio=cr))
+    if not p.get("show_cover", True):  # founder posts may skip the cover graphic
+        cover = '<div style="height:56px"></div>'
     if by_cs:
         author = ('<div class="author-box"><span class="av"><img src="%s" alt="Chaitanya Saripalli" width="52" height="52" style="object-fit:cover"></span><div>'
                   '<b>By <a href="%s">Chaitanya (Tanya) Saripalli</a>, Founder &amp; CEO, EnlitEDU</b><span>Founder of EnlitEDU and of Anatta IT Solutions, which supports colleges’ student information systems. '
@@ -162,13 +164,13 @@ def build_post(p, posts):
         bp["author"] = {"@id": PERSON_CS["@id"]}; bp.pop("editor", None)
         bp["isBasedOn"] = [{"@type": "Article", "url": p["based_on"][0], "datePublished": p["original_date"], "author": {"@id": PERSON_CS["@id"]}, "publisher": {"@type": "Organization", "name": "LinkedIn"}}]
         bp["isBasedOn"] += [{"@type": "SocialMediaPosting", "url": x, "datePublished": p["original_date"], "author": {"@id": PERSON_CS["@id"]}} for x in p["based_on"][1:]]
-        bp["image"] = [BASE + x for x in p["images"]]
+        bp["image"] = [BASE + x for x in p["images"]] if p.get("images") else src_url(p["img"], 1200)
         bp["about"] = p.get("about") or [p["about_rule"], {"@type": "Thing", "name": "Transfer of credit"}]
         bp["mentions"] = (p.get("mentions") or [{"@type": "GovernmentOrganization", "name": "U.S. Department of Education"}]) + [{"@id": BASE + "/transfer-credit-intelligence.html#software"}]
         if p.get("video_key"):
             vt = next(t for t in TESTIMONIALS if t[0] == p["video_key"]); bp["video"] = {"@id": "https://www.youtube.com/watch?v=" + vt[1]}; schema.append(video_schema(vt))
         bp["speakable"]["cssSelector"] = ["h1", ".page-hero .sub", ".takeaways"]
-        og = BASE + p["og_image"]
+        og = BASE + p["og_image"] if p.get("og_image") else og
     if p["faqs"]:
         schema.append(faq_schema(p["faqs"], path))
     page(path, p.get("seo_title") or SEO_TITLE.get(p["slug"]) or ("%s | EnlitEDU" % p["title"] if len(p["title"]) < 52 else p["title"]), p["desc"], page_body, schema=schema, active="resources", og_type="article", image=og)
