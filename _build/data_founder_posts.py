@@ -151,3 +151,119 @@ dict(
  ],
 ),
 ]
+
+# ---------------------------------------------------------------- The registrar is the most underrated person on campus (Nov 23, 2026)
+# Adapted from Chaitanya Saripalli's LinkedIn article of November 23, 2026. Supporting data checked on 2026-11-23 against:
+# NSC Research Center "Transfer Enrollment and Pathways" (fall 2024, published March 5, 2025) and "Tracking Transfer" (updated March 18, 2026);
+# U.S. Department of Education Student Privacy Policy Office FAQ "Who is a school official under FERPA?"; GAO-17-574; AIM final rule (91 FR 68626).
+LI_REGISTRAR = "https://www.linkedin.com/pulse/registrar-most-underrated-person-campus-chaitanya-saripalli-etaff/"
+NSC_TEP = "https://nscresearchcenter.org/transfer-enrollment-and-pathways/"
+NSC_TT = "https://nscresearchcenter.org/tracking-transfer/"
+ED_SCHOOL_OFFICIAL = "https://studentprivacy.ed.gov/faq/who-school-official-under-ferpa"
+GAO_17_574 = "https://www.gao.gov/products/gao-17-574"
+JESSICA_VIDEO = "5Kqhrc2fyO8"
+
+FOUNDER_POSTS.append(dict(
+ slug="registrar-most-underrated-person-on-campus",
+ author="cs",
+ title="The Registrar Is the Most Underrated Person on Campus",
+ seo_title="Why the Registrar Is the Most Underrated Person on Campus",
+ desc="EnlitEDU CEO Chaitanya Saripalli on what registrars do, why their work matters to transfer students and what the July 2027 federal transfer rule asks of them.",
+ sub="Ask most people who keeps a college running and they will name the president, the provost or the faculty. Rarely does anyone say the registrar. They should.",
+ date="2026-11-23", original_date="2026-11-23", tag="Registrar", mins=7, img="registrar-cover", cover_ratio=(16, 9),
+ og_image="/assets/img/enlitedu/blog/registrar-most-underrated-person-on-campus-cover.png",
+ images=["/assets/img/enlitedu/blog/registrar-most-underrated-person-on-campus-cover.png"],
+ based_on=[LI_REGISTRAR],
+ about=[{"@type": "Thing", "name": "College registrar", "description": "The campus office responsible for registration, academic records, transcripts, transfer credit, FERPA privacy and degree certification."},
+        {"@type": "Thing", "name": "Transfer of credit"},
+        {"@type": "Thing", "name": "Family Educational Rights and Privacy Act (FERPA)", "sameAs": "https://en.wikipedia.org/wiki/Family_Educational_Rights_and_Privacy_Act"}],
+ mentions=[{"@type": "Person", "name": "Kevin Thomas", "affiliation": {"@type": "CollegeOrUniversity", "name": "Nashville State Community College", "url": "https://www.nscc.edu/"}},
+           {"@type": "Person", "name": "Jessica Hunsaker", "jobTitle": "Registrar, Director of Admissions, Records & Graduation", "affiliation": {"@type": "CollegeOrUniversity", "name": "Roane State Community College", "url": "https://www.roanestate.edu/"}},
+           {"@type": "GovernmentOrganization", "name": "U.S. Department of Education", "url": "https://www.ed.gov/"},
+           {"@type": "Organization", "name": "National Student Clearinghouse Research Center", "url": "https://nscresearchcenter.org/"},
+           {"@type": "Organization", "name": "AACRAO", "alternateName": "American Association of Collegiate Registrars and Admissions Officers", "url": "https://www.aacrao.org/"},
+           {"@type": "Organization", "name": "American Association of Community Colleges", "url": "https://www.aacc.nche.edu/"}],
+ video_key="jessica",
+ keywords="college registrar, role of the registrar, what does a registrar do, registrar office, registrar and transfer students, transfer credit evaluation, FERPA registrar, registrar staffing, AIM rule registrar, July 2027 transfer rule, registrar appreciation, Chaitanya Saripalli",
+ body="""
+<div class="takeaways"><h2>Key takeaways</h2><ul>
+<li>The registrar’s office is where a college’s promises to students become real: transfer credit, registration, the academic record, privacy and graduation all run through it.</li>
+<li>When that work goes well, no one notices. When it goes wrong, everyone does.</li>
+<li>The workload keeps growing. Transfer enrollment rose <strong>4.4%%</strong> in fall 2024, according to the National Student Clearinghouse, and from <strong>July 1, 2027</strong> a new federal rule requires course-by-course transfer credit decisions before students register or pay.</li>
+<li>Slow, unclear credit decisions cost students time and money, and some students give up.</li>
+<li>Chaitanya’s ask: bring registrars into strategy early, answer equivalency requests quickly, and build tools that keep registrars in charge of the decisions.</li>
+</ul></div>
+
+<p>Ask most people who keeps a college running, and they will name the president, the provost or the faculty. Rarely does anyone say the registrar.</p>
+<p>They should.</p>
+<p>Over the past 18 months, I have spent more time with registrars and their teams than with almost anyone else in higher education. I have sat beside them as they worked through stacks of transcripts, watched them field calls from anxious students and parents, and listened as they explained, patiently, why a single course decision can change a student’s entire path.</p>
+<p>Here’s what I have learned: <strong>the registrar’s office is where a college’s promises to students become real.</strong></p>
+<div class="callout"><strong>From our founder</strong>This article is adapted from Chaitanya Saripalli’s <a href="%(li)s" target="_blank" rel="noopener">LinkedIn article</a> of November 23, 2026. The statistics and regulatory details added here were checked against their primary sources, listed at the end.</div>
+
+<h2>What does a college registrar do?</h2>
+<p>A college registrar manages the official academic record. The registrar’s office registers students for courses, evaluates transfer credit, keeps grades and transcripts accurate, protects student records under federal privacy law, and certifies that each graduate has met every degree requirement. It touches nearly every moment of a student’s journey, usually without anyone noticing.</p>
+<ul>
+<li><strong>Admission and transfer.</strong> Before a transfer student ever sits in a class, someone has to decide which of their past courses count. That decision shapes how long they’ll stay, how much they’ll pay and whether they enroll at all.</li>
+<li><strong>Registration.</strong> Every semester, the office makes sure thousands of students land in the right courses, in the right rooms, with the right prerequisites.</li>
+<li><strong>The academic record.</strong> Grades, transcripts and degree progress all flow through this office, and every one of them has to be accurate, because students build their futures on them.</li>
+<li><strong>Privacy.</strong> Registrars are often the front line of protecting student records under FERPA, deciding every day who can see what. The U.S. Department of Education names the registrar among the <a href="%(ed)s" target="_blank" rel="noopener">“school officials”</a> who may access education records when they have a legitimate educational interest.</li>
+<li><strong>Graduation.</strong> When a student walks across the stage, the registrar’s office has already confirmed they’ve earned it, requirement by requirement.</li>
+</ul>
+<p>When this work goes well, no one notices. When it goes wrong, everyone does.</p>
+
+<h2>Why are registrar offices doing more with less?</h2>
+<p>Many registrar offices are doing all of this with fewer people than they had a few years ago. The work keeps growing: more transfer students, more dual enrollment, more credit from nontraditional sources, more regulations and more expectations for instant answers.</p>
+<p>The transfer numbers alone show the pressure. The National Student Clearinghouse Research Center found that the number of students who transferred into a new institution grew <strong>4.4%%</strong> in fall 2024 compared with fall 2023, and that transfer students made up <strong>13.1%%</strong> of all continuing and returning undergraduates, up from 11.9%% in fall 2020 (<a href="%(nsc_tep)s" target="_blank" rel="noopener">Transfer Enrollment and Pathways</a>, March 2025). Every one of those students arrives with a transcript someone has to evaluate.</p>
+
+<h2>How will the July 2027 federal transfer rule change the registrar’s job?</h2>
+<p>The bar is about to rise again. Starting July 1, 2027, the Department of Education’s new transfer credit rule will require colleges to give students course-by-course decisions, a written reason for every denial and a clear picture of how their credits apply, all before they register or pay. Much of that responsibility will land, once again, in the registrar’s office.</p>
+<p>Under the Accreditation, Innovation, and Modernization (AIM) final rule (91 FR 68626), a student who submits a transcript on time must be told in writing which credits the college will and won’t award, and the estimated time and courses needed to replace the rest, before signing an enrollment agreement, registering or making a nonrefundable payment. Students then have 15 calendar days to appeal a denial. <a href="new-federal-transfer-credit-rule-aim-2027.html">Read Chaitanya’s full breakdown of the rule</a>.</p>
+
+<h2>The people behind every evaluation</h2>
+<p>I’ve watched teams handle evaluations one course at a time, with a catalog open in one window and a transcript in the other, knowing a student is waiting on the other end.</p>
+<p>I think often of Kevin Thomas, the registrar at Nashville State, and Jessica Hunsaker at Roane State. Every conversation I’ve had with them comes back to the same place: the student waiting on the other end of the decision. They know that behind every transcript is someone trying to figure out whether they can afford to keep going, and they treat every evaluation that way. Their care is extraordinary. Their capacity is not unlimited.</p>
+<p><a href="https://www.youtube.com/watch?v=%(vid)s" data-video="%(vid)s" data-start="16">Watch Jessica Hunsaker, Registrar at Roane State Community College, describe how her office’s evaluation work changed</a> (video, 4 minutes).</p>
+
+<h2>Why does the registrar’s office matter to students?</h2>
+<p>For a student, the registrar’s office can feel like a black box. But behind it are people making decisions that matter enormously.</p>
+<p>When a transfer evaluation comes back quickly and clearly, a student can plan. When it takes weeks, some students give up, especially working adults, first-generation students and those coming back to school after years away.</p>
+<p>The stakes are visible in national data. Of students who started at a community college in fall 2018, <strong>31.6%%</strong> transferred to a four-year institution within six years, and <strong>48.7%%</strong> of those who transferred went on to earn a bachelor’s degree (<a href="%(nsc_tt)s" target="_blank" rel="noopener">National Student Clearinghouse, Tracking Transfer</a>, March 2026). An earlier federal study estimated that students who transferred between 2004 and 2009 lost, on average, <strong>43%%</strong> of their credits (<a href="%(gao)s" target="_blank" rel="noopener">GAO-17-574</a>, 2017).</p>
+<p>The registrar’s office is, in many ways, the guardian of a student’s time and money. That deserves more recognition than it gets.</p>
+
+<h2>What can higher education leaders do to support their registrar?</h2>
+<ul>
+<li><strong>Presidents, provosts and cabinet members:</strong> invite your registrar into strategic conversations early. Enrollment, retention and compliance all run through their office.</li>
+<li><strong>Faculty:</strong> the next time a course equivalency request lands in your inbox, remember a student is waiting.</li>
+<li><strong>Anyone building technology for higher ed, as we are:</strong> build for the people doing the work. Give them better tools, keep them in charge of the decisions, and give them back the time to focus on students rather than paperwork.</li>
+</ul>
+
+<h2>A thank-you to registrars</h2>
+<blockquote>As the year winds down, I want to say thank you to the registrars, transfer coordinators, evaluators and records teams I’ve had the privilege to work with, in Tennessee and beyond. You’ve taught me more about higher education than any report or conference ever could. You may be the most underrated people on campus. You’re also among the most important.</blockquote>
+<p>Chaitanya Saripalli, Founder &amp; CEO of EnlitEDU, first shared this on LinkedIn. <a href="%(li)s" target="_blank" rel="noopener">Read the original article</a> or <a href="https://www.linkedin.com/in/chaitanyasaripalli/" target="_blank" rel="noopener">follow her on LinkedIn</a>.</p>
+
+<h2>How LioraAI supports registrar teams</h2>
+<p>We built <a href="../transfer-credit-intelligence.html">LioraAI Transfer Credit Intelligence</a> on the principle in this article: keep registrars in charge. LioraAI reads each incoming transcript, matches courses to your catalog with your own rules and past decisions, and gives your evaluators a recommendation to approve, edit or send to faculty. Every decision keeps its evidence and approver, and approved credit posts to your SIS without re-keying.</p>
+<p>At <a href="../case-studies/roane-state-community-college.html">Roane State Community College</a>, transcript evaluation went from 72 hours to less than 5 minutes. At <a href="../case-studies/nashville-state-community-college.html">Nashville State Community College</a>, transcript evaluation takes less than 10 minutes.</p>
+<p>Related reading: <a href="how-to-speed-up-transfer-credit-evaluation.html">why transfer credit takes weeks, and how to fix it</a>, <a href="registrar-office-efficiency-technology.html">technology for registrar office efficiency</a> and <a href="ferpa-compliance-ai-admissions.html">FERPA and AI in admissions</a>.</p>
+
+<h3>Sources</h3>
+<ul class="sources">
+<li>Chaitanya Saripalli, <a href="%(li)s" target="_blank" rel="noopener">The Registrar Is the Most Underrated Person on Campus</a>, LinkedIn, November 23, 2026.</li>
+<li>National Student Clearinghouse Research Center, <a href="%(nsc_tep)s" target="_blank" rel="noopener">Transfer Enrollment and Pathways, Fall 2024 Report</a>, March 5, 2025.</li>
+<li>National Student Clearinghouse Research Center, <a href="%(nsc_tt)s" target="_blank" rel="noopener">Tracking Transfer: Measures of Effectiveness in Helping Community College Students to Complete Bachelor’s Degrees</a>, updated March 18, 2026.</li>
+<li>U.S. Department of Education, Student Privacy Policy Office, <a href="%(ed)s" target="_blank" rel="noopener">Who is a “school official” under FERPA?</a></li>
+<li>U.S. Government Accountability Office, <a href="%(gao)s" target="_blank" rel="noopener">Higher Education: Students Need More Information to Help Reduce Challenges in Transferring College Credits</a>, GAO-17-574, August 2017.</li>
+<li>U.S. Department of Education, <a href="%(fr)s" target="_blank" rel="noopener">Accreditation, Innovation, and Modernization final rule</a>, 91 FR 68626, October 30, 2026.</li>
+</ul>
+""" % dict(li=LI_REGISTRAR, ed=ED_SCHOOL_OFFICIAL, nsc_tep=NSC_TEP, nsc_tt=NSC_TT, gao=GAO_17_574, fr=FR_URL, vid=JESSICA_VIDEO),
+ faqs=[
+  ("What does a college registrar do?", "A college registrar manages the official academic record. The registrar’s office registers students for courses, evaluates transfer credit, keeps grades and transcripts accurate, protects student records under FERPA, and certifies that each graduate has met every degree requirement."),
+  ("Why is the registrar important for transfer students?", "The registrar’s office decides which of a transfer student’s past courses count. That decision shapes how long the student will stay, how much they will pay and whether they enroll at all. Quick, clear evaluations let students plan; slow ones lead some students to give up."),
+  ("Is the registrar responsible for FERPA?", "Registrars are often the front line of protecting student records under the Family Educational Rights and Privacy Act. The U.S. Department of Education lists the registrar among the “school officials” who may access education records when they have a legitimate educational interest, as defined in the institution’s annual FERPA notification."),
+  ("How will the July 2027 federal transfer rule affect registrar offices?", "From July 1, 2027, the AIM final rule requires colleges to give students who submit transcripts on time a written, course-by-course transfer credit decision, with a reason for every denial and an estimate of the time and courses needed to replace credit, before the student registers or pays. Students can appeal within 15 calendar days. Much of this work lands in the registrar’s office."),
+  ("How many community college students transfer and finish a bachelor’s degree?", "According to the National Student Clearinghouse’s Tracking Transfer report, 31.6% of students who started at a community college in fall 2018 transferred to a four-year institution within six years, and 48.7% of those who transferred earned a bachelor’s degree."),
+  ("How can college leaders support their registrar?", "Chaitanya Saripalli recommends that presidents, provosts and cabinet members bring the registrar into strategic conversations early, because enrollment, retention and compliance all run through that office, and that faculty answer course equivalency requests promptly, because a student is waiting."),
+  ("How should technology help registrar offices?", "Technology should be built for the people doing the work: better tools, registrars kept in charge of the decisions, and time given back to focus on students rather than paperwork. LioraAI recommends transfer credit decisions with the evidence attached, and registrar staff approve every one."),
+  ("Who wrote this article?", "Chaitanya (Tanya) Saripalli, Founder and CEO of EnlitEDU, the company behind LioraAI. It is adapted from her LinkedIn article published November 23, 2026."),
+ ],
+))

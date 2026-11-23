@@ -27,7 +27,7 @@ POST_IMG = {
 FILTER = {"Transfer Credit": "transfer", "Veterans & JST": "transfer", "Best Practices": "transfer", "Admissions": "admissions", "AI & Innovation": "admissions",
           "Student Success": "student-success", "Athletics": "student-success", "Enrollment": "enrollment", "Enrollment Management": "enrollment",
           "Compliance": "compliance", "Technical Insights": "technical"}
-POST_MODULE = {"how-to-evaluate-joint-services-transcript-jst": "veterans", "transfer-portal-athlete-eligibility-certification": "transfer-credit-intelligence",
+POST_MODULE = {"registrar-most-underrated-person-on-campus": "transfer-credit-intelligence", "how-to-evaluate-joint-services-transcript-jst": "veterans", "transfer-portal-athlete-eligibility-certification": "transfer-credit-intelligence",
                "will-my-credits-transfer-self-service-answer": "transfer-credit-intelligence", "international-transcript-evaluation-first-year-admissions": "freshman-intelligence",
                "reverse-transfer-associate-degree-explained": "mobility", "gpa-standardization-problem": "freshman-intelligence", "prior-learning-assessment-guide": "prior-learning-assessment",
                "community-college-transfer-student-success": "transfer-credit-intelligence", "transfer-student-retention-strategies": "transfer-credit-intelligence", "hbcu-enrollment-transfer-credit-challenges": "transfer-credit-intelligence",
@@ -160,11 +160,13 @@ def build_post(p, posts):
     if by_cs:
         bp = schema[1]
         bp["author"] = {"@id": PERSON_CS["@id"]}; bp.pop("editor", None)
-        bp["isBasedOn"] = [{"@type": "Article", "url": p["based_on"][0], "datePublished": p["original_date"], "author": {"@id": PERSON_CS["@id"]}, "publisher": {"@type": "Organization", "name": "LinkedIn"}},
-                           {"@type": "SocialMediaPosting", "url": p["based_on"][1], "datePublished": p["original_date"], "author": {"@id": PERSON_CS["@id"]}}]
+        bp["isBasedOn"] = [{"@type": "Article", "url": p["based_on"][0], "datePublished": p["original_date"], "author": {"@id": PERSON_CS["@id"]}, "publisher": {"@type": "Organization", "name": "LinkedIn"}}]
+        bp["isBasedOn"] += [{"@type": "SocialMediaPosting", "url": x, "datePublished": p["original_date"], "author": {"@id": PERSON_CS["@id"]}} for x in p["based_on"][1:]]
         bp["image"] = [BASE + x for x in p["images"]]
-        bp["about"] = [p["about_rule"], {"@type": "Thing", "name": "Transfer of credit"}]
-        bp["mentions"] = [{"@type": "GovernmentOrganization", "name": "U.S. Department of Education"}, {"@id": BASE + "/transfer-credit-intelligence.html#software"}]
+        bp["about"] = p.get("about") or [p["about_rule"], {"@type": "Thing", "name": "Transfer of credit"}]
+        bp["mentions"] = (p.get("mentions") or [{"@type": "GovernmentOrganization", "name": "U.S. Department of Education"}]) + [{"@id": BASE + "/transfer-credit-intelligence.html#software"}]
+        if p.get("video_key"):
+            vt = next(t for t in TESTIMONIALS if t[0] == p["video_key"]); bp["video"] = {"@id": "https://www.youtube.com/watch?v=" + vt[1]}; schema.append(video_schema(vt))
         bp["speakable"]["cssSelector"] = ["h1", ".page-hero .sub", ".takeaways"]
         og = BASE + p["og_image"]
     if p["faqs"]:

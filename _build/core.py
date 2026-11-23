@@ -84,6 +84,7 @@ LOCAL = {
     "paul": ("assets/img/enlitedu/paul-charpie.jpg", "Paul Charpie, Roane State Community College", 400, 400),
     "chaitanya": ("assets/img/enlitedu/chaitanya-saripalli.jpg", "Chaitanya Saripalli, Founder and CEO of EnlitEDU", 400, 500),
     "sajan": ("assets/img/enlitedu/sajan-patel.jpg", "Sajan Patel, Business Development at EnlitEDU", 400, 500),
+    "registrar-cover": ("assets/img/enlitedu/blog/registrar-most-underrated-person-on-campus-cover.png", "The registrar is the most underrated person on campus: where a college’s promises to students become real. Behind every student journey: transfer credit decisions, accurate records and privacy, every degree earned and confirmed. By Chaitanya (Tanya) Saripalli, CEO, EnlitEDU", 1280, 720),
     "aim-cover": ("assets/img/enlitedu/blog/federal-transfer-rule-aim-cover.png", "The new transfer rule changes the question colleges have to answer: effective July 1, 2027, credit or a written reason course by course, 15 days for students to appeal, disclosures before students register or pay. By Chaitanya (Tanya) Saripalli, CEO, EnlitEDU", 1280, 720),
 }
 
